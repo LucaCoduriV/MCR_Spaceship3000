@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="iso-8859-15" standalone="no"?>
+<classDiagram>
+  <diagramElements defaultViewEntities="ALL" defaultViewEnum="true" defaultViewMethods="TYPE_AND_NAME" defaultVisibleTypes="true" informations="" name="MCR - Projet">
+    <inheritance id="42587">
+      <child>42550</child>
+      <parent>42440</parent>
+    </inheritance>
+    <inheritance id="42586">
+      <child>42416</child>
+      <parent>42412</parent>
+    </inheritance>
+    <inheritance id="42585">
+      <child>42415</child>
+      <parent>42412</parent>
+    </inheritance>
+    <inheritance id="42584">
+      <child>42414</child>
+      <parent>42412</parent>
+    </inheritance>
+    <inheritance id="42556">
+      <child>42429</child>
+      <parent>42550</parent>
+    </inheritance>
+    <inheritance id="42552">
+      <child>42409</child>
+      <parent>42550</parent>
+    </inheritance>
+    <inheritance id="42551">
+      <child>42407</child>
+      <parent>42550</parent>
+    </inheritance>
+    <entity entityType="CLASS" id="42550" isAbstract="true" name="Entity" visibility="PUBLIC">
+      <method isAbstract="true" isStatic="false" name="move" returnType="void" view="DEFAULT" visibility="PUBLIC"/>
+      <method isAbstract="true" isStatic="false" name="die" returnType="void" view="DEFAULT" visibility="PUBLIC"/>
+    </entity>
+    <entity entityType="INTERFACE" id="42440" isAbstract="true" name="Visitable" visibility="PUBLIC">
+      <method isAbstract="true" isStatic="false" name="accept" returnType="void" view="DEFAULT" visibility="PUBLIC"/>
+    </entity>
+    <inheritance id="42439">
+      <child>42407</child>
+      <parent>42405</parent>
+    </inheritance>
+    <association aggregation="NONE" direction="BIDIRECTIONAL" id="42430" name="">
+      <role componentId="42429" name="" visibility="PRIVATE">
+        <multiplicity>
+          <min>1</min>
+          <max>1</max>
+        </multiplicity>
+      </role>
+      <role componentId="42408" name="" visibility="PRIVATE">
+        <multiplicity>
+          <min>1</min>
+          <max>1</max>
+        </multiplicity>
+      </role>
+    </association>
+    <entity entityType="CLASS" id="42429" isAbstract="false" name="Ship" visibility="PUBLIC"/>
+    <association aggregation="NONE" direction="BIDIRECTIONAL" id="42420" name="">
+      <role componentId="42408" name="" visibility="PRIVATE">
+        <multiplicity>
+          <min>1</min>
+          <max>1</max>
+        </multiplicity>
+      </role>
+      <role componentId="42412" name="" visibility="PRIVATE">
+        <multiplicity>
+          <min>1</min>
+          <max>1</max>
+        </multiplicity>
+      </role>
+    </association>
+    <entity entityType="CLASS" id="42416" isAbstract="false" name="ION" visibility="PUBLIC"/>
+    <entity entityType="CLASS" id="42415" isAbstract="false" name="Sonique" visibility="PUBLIC"/>
+    <entity entityType="CLASS" id="42414" isAbstract="false" name="Laser" visibility="PUBLIC"/>
+    <inheritance id="42413">
+      <child>42412</child>
+      <parent>42405</parent>
+    </inheritance>
+    <entity entityType="CLASS" id="42412" isAbstract="true" name="Projectile" visibility="PUBLIC"/>
+    <entity entityType="CLASS" id="42409" isAbstract="true" name="Enemy" visibility="PUBLIC"/>
+    <entity entityType="CLASS" id="42408" isAbstract="false" name="Weapon" visibility="PUBLIC"/>
+    <entity entityType="CLASS" id="42407" isAbstract="true" name="Asteroid" visibility="PUBLIC"/>
+    <entity entityType="INTERFACE" id="42405" isAbstract="true" name="Visitor" visibility="PUBLIC"/>
+  </diagramElements>
+  <umlView grid="10" name="Main view" open="true">
+    <relationView color="-12566464" relationId="42413">
+      <line>
+        <point>
+          <x>541</x>
+          <y>451</y>
+        </point>
+        <point>
+          <x>541</x>
+          <y>231</y>
+        </point>
+      </line>
+    </relationView>
+    <relationView color="-12566464" relationId="42420">
+      <line>
+        <point>
+          <x>381</x>
+          <y>491</y>
+        </point>
+        <point>
+          <x>431</x>
+          <y>491</y>
+        </point>
+      </line>
+      <labelAssociation>
+        <x>410</x>
+        <y>495</y>
+        <w>0</w>
+        <h>17</h>
+      </labelAssociation>
+      <roleAssociation>
+        <x>385</x>
+        <y>495</y>
+        <w>0</w>
+        <h>17</h>
+      </roleAssociation>
+      <roleAssociation>
+        <x>395</x>
+        <y>495</y>
+        <w>0</w>
+        <h>17</h>
+      </roleAssociation>
+      <multipliciteAssociation>
+        <x>385</x>
+        <y>468</y>
+        <w>7</w>
+        <h>17</h>
+      </multipliciteAssociation>
+      <multipliciteAssociation>
+        <x>418</x>
+        <y>468</y>
+        <w>7</w>
+        <h>17</h>
+      </multipliciteAssociation>
+    </relationView>
+    <relationView color="-12566464" relationId="42430">
+      <line>
+        <point>
+          <x>321</x>
+          <y>387</y>
+        </point>
+        <point>
+          <x>321</x>
+          <y>451</y>
+        </point>
+      </line>
+      <labelAssociation>
+        <x>325</x>
+        <y>423</y>
+        <w>0</w>
+        <h>17</h>
+      </labelAssociation>
+      <roleAssociation>
+        <x>325</x>
+        <y>391</y>
+        <w>0</w>
+        <h>17</h>
+      </roleAssociation>
+      <roleAssociation>
+        <x>325</x>
+        <y>428</y>
+        <w>0</w>
+        <h>17</h>
+      </roleAssociation>
+      <multipliciteAssociation>
+        <x>308</x>
+        <y>391</y>
+        <w>7</w>
+        <h>17</h>
+      </multipliciteAssociation>
+      <multipliciteAssociation>
+        <x>308</x>
+        <y>428</y>
+        <w>7</w>
+        <h>17</h>
+      </multipliciteAssociation>
+    </relationView>
+    <relationView color="-12566464" relationId="42439">
+      <line>
+        <point>
+          <x>761</x>
+          <y>391</y>
+        </point>
+        <point>
+          <x>761</x>
+          <y>361</y>
+        </point>
+        <point>
+          <x>561</x>
+          <y>361</y>
+        </point>
+        <point>
+          <x>561</x>
+          <y>231</y>
+        </point>
+      </line>
+    </relationView>
+    <relationView color="-12566464" relationId="42551">
+      <line>
+        <point>
+          <x>781</x>
+          <y>391</y>
+        </point>
+        <point>
+          <x>781</x>
+          <y>321</y>
+        </point>
+        <point>
+          <x>881</x>
+          <y>321</y>
+        </point>
+        <point>
+          <x>881</x>
+          <y>259</y>
+        </point>
+      </line>
+    </relationView>
+    <relationView color="-12566464" relationId="42552">
+      <line>
+        <point>
+          <x>971</x>
+          <y>391</y>
+        </point>
+        <point>
+          <x>971</x>
+          <y>321</y>
+        </point>
+        <point>
+          <x>881</x>
+          <y>321</y>
+        </point>
+        <point>
+          <x>881</x>
+          <y>259</y>
+        </point>
+      </line>
+    </relationView>
+    <relationView color="-12566464" relationId="42556">
+      <line>
+        <point>
+          <x>311</x>
+          <y>331</y>
+        </point>
+        <point>
+          <x>311</x>
+          <y>321</y>
+        </point>
+        <point>
+          <x>881</x>
+          <y>321</y>
+        </point>
+        <point>
+          <x>881</x>
+          <y>259</y>
+        </point>
+      </line>
+    </relationView>
+    <relationView color="-12566464" relationId="42584">
+      <line>
+        <point>
+          <x>341</x>
+          <y>571</y>
+        </point>
+        <point>
+          <x>341</x>
+          <y>551</y>
+        </point>
+        <point>
+          <x>511</x>
+          <y>551</y>
+        </point>
+        <point>
+          <x>511</x>
+          <y>507</y>
+        </point>
+      </line>
+    </relationView>
+    <relationView color="-12566464" relationId="42585">
+      <line>
+        <point>
+          <x>521</x>
+          <y>571</y>
+        </point>
+        <point>
+          <x>521</x>
+          <y>551</y>
+        </point>
+        <point>
+          <x>511</x>
+          <y>551</y>
+        </point>
+        <point>
+          <x>511</x>
+          <y>507</y>
+        </point>
+      </line>
+    </relationView>
+    <relationView color="-12566464" relationId="42586">
+      <line>
+        <point>
+          <x>701</x>
+          <y>571</y>
+        </point>
+        <point>
+          <x>701</x>
+          <y>551</y>
+        </point>
+        <point>
+          <x>511</x>
+          <y>551</y>
+        </point>
+        <point>
+          <x>511</x>
+          <y>507</y>
+        </point>
+      </line>
+    </relationView>
+    <relationView color="-12566464" relationId="42587">
+      <line>
+        <point>
+          <x>881</x>
+          <y>171</y>
+        </point>
+        <point>
+          <x>881</x>
+          <y>127</y>
+        </point>
+      </line>
+    </relationView>
+    <componentView color="-2079" componentID="42405" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>460</x>
+        <y>160</y>
+        <w>150</w>
+        <h>70</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="42407" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>700</x>
+        <y>390</y>
+        <w>150</w>
+        <h>56</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="42408" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>230</x>
+        <y>450</y>
+        <w>150</w>
+        <h>56</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="42409" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>890</x>
+        <y>390</y>
+        <w>150</w>
+        <h>56</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="42412" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>430</x>
+        <y>450</y>
+        <w>150</w>
+        <h>56</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="42414" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>260</x>
+        <y>570</y>
+        <w>150</w>
+        <h>56</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="42415" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>440</x>
+        <y>570</y>
+        <w>150</w>
+        <h>56</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="42416" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>620</x>
+        <y>570</y>
+        <w>150</w>
+        <h>56</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="42429" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>230</x>
+        <y>330</y>
+        <w>150</w>
+        <h>56</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="42440" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>800</x>
+        <y>40</y>
+        <w>150</w>
+        <h>86</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="42550" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>800</x>
+        <y>170</y>
+        <w>150</w>
+        <h>88</h>
+      </geometry>
+    </componentView>
+    <note color="-2079" content="fabrique abstraite">
+      <noteGeometry>
+        <x>70</x>
+        <y>450</y>
+        <w>100</w>
+        <h>45</h>
+      </noteGeometry>
+      <noteLine color="-12566464" relationId="42408">
+        <point>
+          <x>171</x>
+          <y>501</y>
+        </point>
+        <point>
+          <x>231</x>
+          <y>501</y>
+        </point>
+      </noteLine>
+    </note>
+  </umlView>
+</classDiagram>
