@@ -14,11 +14,6 @@ public class AssetsLoader extends AssetManager {
 
     private static final String LEVEL_BACKGROUND_IMG = "backgrounds/space_background.png";
 
-    private final String weaponsFolder = "weapons";
-    private final String lasersFolder = weaponsFolder + File.pathSeparator + "lasers";
-
-    private final FileHandle[] lasers;
-
     public static AssetsLoader getInstance(){
         if(instance == null){
             instance = new AssetsLoader();
@@ -37,12 +32,8 @@ public class AssetsLoader extends AssetManager {
             load(s.getPath(), Texture.class);
         }
 
-        lasers = Gdx.files.internal(lasersFolder).list();
-        for (FileHandle fileHandle : lasers) {
-            if (!fileHandle.isDirectory()) {
-                String stringPath = fileHandle.path();
-                load(stringPath, Texture.class);
-            }
+        for(Laser l : Laser.values()){
+            load(l.getPath(), Texture.class);
         }
     }
 
@@ -54,8 +45,8 @@ public class AssetsLoader extends AssetManager {
         return get(explosion.getPath(), Texture.class);
     }
 
-    public Texture getLaser(int index){
-        return get(lasers[index].path(), Texture.class);
+    public Texture getLaser(Laser laser){
+        return get(laser.getPath(), Texture.class);
     }
 
 }
