@@ -24,7 +24,7 @@ public class MainMenuScreen extends ScreenAdapter {
     public MainMenuScreen(Spaceship3000 game) {
         assets = AssetsLoader.getInstance();
         this.game = game;
-        guiCam = new OrthographicCamera(320, 480);
+        guiCam = new OrthographicCamera(game.getScreenWidth(), game.getScreenHeight());
         guiCam.position.set(320 / 2, 480 / 2, 0);
         soundBounds = new Rectangle(0, 0, 64, 64);
         playBounds = new Rectangle(160 - 150, 200 + 18, 300, 36);
