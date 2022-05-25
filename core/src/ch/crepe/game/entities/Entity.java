@@ -29,6 +29,5 @@ abstract public class Entity {
         this.position = position;
     }
 
-    abstract public void move(Vector2 direction);
-
+    abstract public void move();
 }

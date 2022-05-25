@@ -10,5 +10,5 @@ public class Asteroid extends Entity {
     }
 
     @Override
-    public void move(Vector2 direction) { }
+    public void move() { }
 }

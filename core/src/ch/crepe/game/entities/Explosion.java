@@ -12,7 +12,5 @@ public class Explosion extends Entity {
     }
 
     @Override
-    public void move(Vector2 direction) {
-
-    }
+    public void move() { }
 }

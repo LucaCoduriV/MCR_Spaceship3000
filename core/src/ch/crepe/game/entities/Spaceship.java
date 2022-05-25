@@ -1,16 +1,17 @@
 package ch.crepe.game.entities;
 
+import ch.crepe.game.PlayerInput;
 import ch.crepe.game.entities.ship.weapons.Weapen;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 
-public class Spaceship extends Entity {
+public class Spaceship extends VectorialMovableEntity {
     private Weapen weapen;
     private float speed;
 
     public Spaceship(Vector2 position, Texture texture, float speed) {
-        super(position, texture);
+        super(position, texture, speed);
         this.speed = speed;
     }
 
@@ -19,10 +20,8 @@ public class Spaceship extends Entity {
     }
 
     @Override
-    public void move(Vector2 direction) {
-        setPosition(new Vector2(
-                position().x + Gdx.graphics.getDeltaTime() * speed,
-                position().y + Gdx.graphics.getDeltaTime() * speed
-        ));
+    public void move() {
+        vectorialMove(PlayerInput.getInstance().getMove());
+
     }
 }
