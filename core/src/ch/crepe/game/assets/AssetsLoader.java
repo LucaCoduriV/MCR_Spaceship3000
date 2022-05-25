@@ -13,6 +13,7 @@ public class AssetsLoader extends AssetManager {
     private static AssetsLoader instance;
 
     private static final String LEVEL_BACKGROUND_IMG = "backgrounds/space_background.png";
+    private static final String MENU_IMG = "item.png";
 
     public static AssetsLoader getInstance(){
         if(instance == null){
@@ -53,6 +54,10 @@ public class AssetsLoader extends AssetManager {
 
     public Texture getBackground(){
         return get(LEVEL_BACKGROUND_IMG, Texture.class);
+    }
+
+    public Texture getMenu(){
+        return get(MENU_, Texture.class);
     }
 
 }
