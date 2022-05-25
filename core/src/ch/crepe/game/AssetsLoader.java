@@ -7,29 +7,33 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
 import java.io.File;
+import java.util.Map.Entry;
+import java.util.Map;
+
+import static java.util.Map.entry;
 
 public class AssetsLoader extends AssetManager {
     private static AssetsLoader instance;
-    private static final String[] explosions = {
-            "explosions/round_explosion/spritesheet/spritesheet.png",
-            "explosions/round_vortex/spritesheet/spritesheet.png",
-            "explosions/vertical_explosion/spritesheet/spritesheet.png",
-            "explosions/vertical_explosion_small/spritesheet/spritesheet.png",
-            "explosions/X_plosion/spritesheet/spritesheet.png"
-    };
+    private static final Map<String, String> explosions = Map.ofEntries(
+        entry("round-explosion","explosions/round_explosion/spritesheet/spritesheet.png"),
+        entry("round-vortex","explosions/round_vortex/spritesheet/spritesheet.png"),
+        entry("vertical-explosion","explosions/vertical_explosion/spritesheet/spritesheet.png"),
+        entry("vertical-explosion-small","explosions/vertical_explosion_small/spritesheet/spritesheet.png"),
+        entry("x-plosion","explosions/X_plosion/spritesheet/spritesheet.png")
+    );
 
-    private static final String[] starships = {
-            "ships/starships_0000_Ice-Speedster-simple.png",
-            "ships/starships_0000_sun-killer-simple.png",
-            "ships/starships_0001_Centenial-Hawk-simple.png",
-            "ships/starships_0001_Sun-killer.png",
-            "ships/starships_0002_bow-fighter-simple.png",
-            "ships/starships_0003_Ex-ving-simple.png",
-            "ships/starships_0004_Ice-Speedster.png",
-            "ships/starships_0005_Centenial-Hawk.png",
-            "ships/starships_0006_Bow-fighter.png",
-            "ships/starships_0007_Ex-ving.png"
-    };
+    private static final Map<String, String> starships = Map.ofEntries(
+        entry("speedster-simple","ships/starships_0000_Ice-Speedster-simple.png"),
+        entry("sun-killer-simple","ships/starships_0000_sun-killer-simple.png"),
+        entry("centenial-hawk-simple","ships/starships_0001_Centenial-Hawk-simple.png"),
+        entry("sun-killer","ships/starships_0001_Sun-killer.png"),
+        entry("bow-fighter-simple","ships/starships_0002_bow-fighter-simple.png"),
+        entry("ex-ving-simple","ships/starships_0003_Ex-ving-simple.png"),
+        entry("ice-speedster","ships/starships_0004_Ice-Speedster.png"),
+        entry("centenial-hawk","ships/starships_0005_Centenial-Hawk.png"),
+        entry("bow-fighter","ships/starships_0006_Bow-fighter.png"),
+        entry("ex-ving","ships/starships_0007_Ex-ving.png")
+    );
 
     private final String weaponsFolder = "weapons";
     private final String lasersFolder = weaponsFolder + File.pathSeparator + "lasers";
@@ -46,11 +50,11 @@ public class AssetsLoader extends AssetManager {
 
         // loading is async
 
-        for(String asset:explosions){
+        for(String asset:explosions.values()){
             load(asset, Texture.class);
         }
 
-        for(String asset : starships){
+        for(String asset : starships.values()){
             load(asset, Texture.class);
         }
 
@@ -63,12 +67,12 @@ public class AssetsLoader extends AssetManager {
         }
     }
 
-    public Texture getSpaceship(int index){
-        return get(starships[index], Texture.class);
+    public Texture getSpaceship(String name){
+        return get(starships.get(name), Texture.class);
     }
 
-    public Texture getExplosion(int index){
-        return get(explosions[index], Texture.class);
+    public Texture getExplosion(String name){
+        return get(explosions.get(name), Texture.class);
     }
 
     public Texture getLaser(int index){

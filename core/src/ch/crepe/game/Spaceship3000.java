@@ -21,9 +21,11 @@ public class Spaceship3000 extends ApplicationAdapter {
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		img = new Texture("GetPersonaPhoto.jpg");
 		AssetsLoader a = AssetsLoader.getInstance();
-		return;
+		a.finishLoading();
+
+		img = a.getLaser(0);
+
 	}
 
 	@Override
