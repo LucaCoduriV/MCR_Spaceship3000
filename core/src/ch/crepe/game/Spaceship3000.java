@@ -2,9 +2,13 @@ package ch.crepe.game;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
+
+import java.io.File;
+import java.util.Arrays;
 
 public class Spaceship3000 extends ApplicationAdapter {
 	SpriteBatch batch;
@@ -18,7 +22,8 @@ public class Spaceship3000 extends ApplicationAdapter {
 	public void create () {
 		batch = new SpriteBatch();
 		img = new Texture("GetPersonaPhoto.jpg");
-
+		AssetsLoader a = AssetsLoader.getInstance();
+		return;
 	}
 
 	@Override
