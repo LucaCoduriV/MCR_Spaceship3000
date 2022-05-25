@@ -1,19 +1,14 @@
 package ch.crepe.game.assets;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 
-import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
 
 public class AssetsLoader extends AssetManager {
     private static AssetsLoader instance;
 
     private static final String LEVEL_BACKGROUND_IMG = "backgrounds/space_background.png";
-    private static final String MENU_IMG = "item.png";
+    private static final String MENU_IMG = "items.png";
 
     public static AssetsLoader getInstance(){
         if(instance == null){
@@ -38,6 +33,7 @@ public class AssetsLoader extends AssetManager {
         }
 
         load(LEVEL_BACKGROUND_IMG, Texture.class);
+        load(MENU_IMG, Texture.class);
     }
 
     public Texture getSpaceship(SpaceShips ship){
@@ -57,7 +53,7 @@ public class AssetsLoader extends AssetManager {
     }
 
     public Texture getMenu(){
-        return get(MENU_, Texture.class);
+        return get(MENU_IMG, Texture.class);
     }
 
 }

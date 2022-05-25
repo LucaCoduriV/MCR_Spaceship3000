@@ -1,19 +1,19 @@
 package ch.crepe.game;
 
+import Screens.MainMenuScreen;
 import ch.crepe.game.assets.AssetsLoader;
-import ch.crepe.game.assets.SpaceShips;
-import com.badlogic.gdx.ApplicationAdapter;
+import ch.crepe.game.assets.MenuAssets;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.utils.ScreenUtils;
 
 public class Spaceship3000 extends Game {
 	private SpriteBatch batcher;
 
 	@Override
 	public void create () {
+		AssetsLoader.getInstance().finishLoading();
+		MenuAssets.load();
 		Gdx.graphics.setWindowedMode(1280,720);
 		batcher = new SpriteBatch();
 		setScreen(new MainMenuScreen(this));
