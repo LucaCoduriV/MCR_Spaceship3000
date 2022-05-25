@@ -4,11 +4,17 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
 
-public class Entity {
-    private final Vector2 position;
+abstract public class Entity {
+    private Vector2 position;
+    private final Sprite sprite;
 
-    Entity(Vector2 position) {
+    public Entity(Vector2 position, Texture texture) {
+        this(position, new Sprite(texture));
+    }
+
+    public Entity(Vector2 position, Sprite sprite) {
         this.position = position;
+        this.sprite = sprite;
     }
 
     /**
@@ -18,4 +24,11 @@ public class Entity {
     public Vector2 position() {
         return position;
     }
+
+    protected void setPosition(Vector2 position) {
+        this.position = position;
+    }
+
+    abstract public void move(Vector2 direction);
+
 }
