@@ -18,6 +18,7 @@ public class Spaceship3000 extends ApplicationAdapter {
 
 	@Override
 	public void create () {
+		Gdx.graphics.setWindowedMode(1280,720);
 		batch = new SpriteBatch();
 		AssetsLoader a = AssetsLoader.getInstance();
 		a.finishLoading();

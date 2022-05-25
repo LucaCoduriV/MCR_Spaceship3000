@@ -35,6 +35,8 @@ public class AssetsLoader extends AssetManager {
         for(Laser l : Laser.values()){
             load(l.getPath(), Texture.class);
         }
+
+        load(LEVEL_BACKGROUND_IMG, Texture.class);
     }
 
     public Texture getSpaceship(SpaceShips ship){
@@ -47,6 +49,10 @@ public class AssetsLoader extends AssetManager {
 
     public Texture getLaser(Laser laser){
         return get(laser.getPath(), Texture.class);
+    }
+
+    public Texture getBackground(){
+        return get(LEVEL_BACKGROUND_IMG, Texture.class);
     }
 
 }
