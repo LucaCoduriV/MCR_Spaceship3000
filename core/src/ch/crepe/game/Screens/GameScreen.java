@@ -6,17 +6,19 @@ import ch.crepe.game.assets.SpaceShip;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.ScreenAdapter;
-import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.utils.viewport.FitViewport;
 
 public class GameScreen extends ScreenAdapter {
-    Spaceship3000 parent;
+    private final Spaceship3000 parent;
+    private final FitViewport viewport;
     int posX = 0;
     int posY = 0;
     Sprite testSprite = new Sprite(AssetsLoader.getInstance().getSpaceship(SpaceShip.bowFighter));
+    Sprite backgroundSprite = new Sprite(AssetsLoader.getInstance().getBackground());
     public GameScreen(Spaceship3000 parent){
         this.parent = parent;
-
+        this.viewport = new FitViewport(1920,1080);
     }
 
     @Override
@@ -33,13 +35,13 @@ public class GameScreen extends ScreenAdapter {
 
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(0, 0, .25f, 1);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        testSprite.setX(posX);
-        testSprite.setY(posY);
+        viewport.apply();
+        //parent.getBatch().setProjectionMatrix(extendViewPort.getCamera().view);
+
 
         parent.getBatch().begin();
+        backgroundSprite.draw(parent.getBatch());
         testSprite.draw(parent.getBatch());
         parent.getBatch().end();
     }
@@ -47,5 +49,10 @@ public class GameScreen extends ScreenAdapter {
     @Override
     public void hide() {
         Gdx.input.setInputProcessor(null);
+    }
+
+    @Override
+    public void resize(int width, int height) {
+        viewport.update(width, height);
     }
 }
