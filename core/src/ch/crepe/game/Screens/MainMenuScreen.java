@@ -28,11 +28,13 @@ public class MainMenuScreen extends ScreenAdapter {
 
         /// create stage and set it as input processor
         stage = new Stage(new ScreenViewport());
-        Gdx.input.setInputProcessor(stage);
+
     }
 
     @Override
     public void show() {
+        Gdx.input.setInputProcessor(stage);
+
         // Create a table that fills the screen. Everything else will go inside this table.
         Table table = new Table();
         table.setFillParent(true);
@@ -64,16 +66,15 @@ public class MainMenuScreen extends ScreenAdapter {
         newGame.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                //parent.changeScreen(Box2DTutorial.APPLICATION);
-                System.out.println("New Game");
+                parent.changeScreen(Screen.Game);
+
             }
         });
 
         preferences.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                //parent.changeScreen(Box2DTutorial.PREFERENCES);
-                System.out.println("Preferences");
+                parent.changeScreen(Screen.Preferences);
             }
         });
 
@@ -88,5 +89,10 @@ public class MainMenuScreen extends ScreenAdapter {
         // tell our stage to do actions and draw itself
         stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
         stage.draw();
+    }
+
+    @Override
+    public void hide() {
+        Gdx.input.setInputProcessor(null);
     }
 }

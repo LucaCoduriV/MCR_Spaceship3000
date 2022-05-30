@@ -1,6 +1,8 @@
 package ch.crepe.game;
 
+import ch.crepe.game.Screens.GameScreen;
 import ch.crepe.game.Screens.MainMenuScreen;
+import ch.crepe.game.Screens.Screen;
 import ch.crepe.game.assets.AssetsLoader;
 import ch.crepe.game.assets.MenuAssets;
 import com.badlogic.gdx.Game;
@@ -18,6 +20,23 @@ public class Spaceship3000 extends Game {
 		MenuAssets.load();
 		batcher = new SpriteBatch();
 		setScreen(new MainMenuScreen(this));
+	}
+
+	public void changeScreen(Screen screen){
+		switch (screen){
+
+			case MainMenu:
+				System.out.println("Showing MainMenu screen !");
+				setScreen(new MainMenuScreen(this));
+				break;
+			case Game:
+				System.out.println("Showing Game screen !");
+				setScreen(new GameScreen(this));
+				break;
+			case Preferences:
+				System.out.println("Showing Preferences screen !");
+				break;
+		}
 	}
 
 	@Override
