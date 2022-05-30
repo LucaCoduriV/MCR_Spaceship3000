@@ -15,6 +15,7 @@ public class Spaceship3000 extends Game {
 
 	@Override
 	public void create () {
+		Gdx.graphics.setWindowedMode(960,540);
 		AssetsLoader.getInstance().finishLoading();
 		batcher = new SpriteBatch();
 		setScreen(new MainMenuScreen(this));
