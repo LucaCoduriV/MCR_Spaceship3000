@@ -1,6 +1,6 @@
 package ch.crepe.game;
 
-import Screens.MainMenuScreen;
+import ch.crepe.game.Screens.MainMenuScreen;
 import ch.crepe.game.assets.AssetsLoader;
 import ch.crepe.game.assets.MenuAssets;
 import com.badlogic.gdx.Game;

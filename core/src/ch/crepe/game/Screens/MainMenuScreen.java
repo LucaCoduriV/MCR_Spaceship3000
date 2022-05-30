@@ -1,4 +1,4 @@
-package Screens;
+package ch.crepe.game.Screens;
 
 import ch.crepe.game.Spaceship3000;
 import ch.crepe.game.assets.AssetsLoader;
