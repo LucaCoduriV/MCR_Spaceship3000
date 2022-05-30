@@ -1,10 +1,8 @@
 package ch.crepe.game.Screens;
 
-import ch.crepe.game.GameInputProcessor;
 import ch.crepe.game.Spaceship3000;
 import ch.crepe.game.assets.AssetsLoader;
-import ch.crepe.game.assets.SpaceShips;
-import ch.crepe.game.entities.Spaceship;
+import ch.crepe.game.assets.SpaceShip;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.ScreenAdapter;
@@ -15,7 +13,7 @@ public class GameScreen extends ScreenAdapter {
     Spaceship3000 parent;
     int posX = 0;
     int posY = 0;
-    Sprite testSprite = new Sprite(AssetsLoader.getInstance().getSpaceship(SpaceShips.bowFighter));
+    Sprite testSprite = new Sprite(AssetsLoader.getInstance().getSpaceship(SpaceShip.bowFighter));
     public GameScreen(Spaceship3000 parent){
         this.parent = parent;
 
@@ -39,7 +37,7 @@ public class GameScreen extends ScreenAdapter {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         testSprite.setX(posX);
-        testSprite.setY(-posY);
+        testSprite.setY(posY);
 
         parent.getBatch().begin();
         testSprite.draw(parent.getBatch());

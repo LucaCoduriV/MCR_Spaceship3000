@@ -4,7 +4,6 @@ import ch.crepe.game.Screens.GameScreen;
 import ch.crepe.game.Screens.MainMenuScreen;
 import ch.crepe.game.Screens.Screen;
 import ch.crepe.game.assets.AssetsLoader;
-import ch.crepe.game.assets.MenuAssets;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -17,7 +16,6 @@ public class Spaceship3000 extends Game {
 	@Override
 	public void create () {
 		AssetsLoader.getInstance().finishLoading();
-		MenuAssets.load();
 		batcher = new SpriteBatch();
 		setScreen(new MainMenuScreen(this));
 	}

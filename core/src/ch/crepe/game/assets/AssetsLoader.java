@@ -25,7 +25,7 @@ public class AssetsLoader extends AssetManager {
             load(e.getPath(), Texture.class);
         }
 
-        for(SpaceShips s : SpaceShips.values()){
+        for(SpaceShip s : SpaceShip.values()){
             load(s.getPath(), Texture.class);
         }
 
@@ -39,7 +39,7 @@ public class AssetsLoader extends AssetManager {
         load(MENU_IMG, Texture.class);
     }
 
-    public Texture getSpaceship(SpaceShips ship){
+    public Texture getSpaceship(SpaceShip ship){
         return get(ship.getPath(), Texture.class);
     }
 
