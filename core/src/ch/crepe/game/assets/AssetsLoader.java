@@ -2,6 +2,7 @@ package ch.crepe.game.assets;
 
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
 
 public class AssetsLoader extends AssetManager {
@@ -32,6 +33,8 @@ public class AssetsLoader extends AssetManager {
             load(l.getPath(), Texture.class);
         }
 
+        load(Other.skin.getPath(), Skin.class);
+
         load(LEVEL_BACKGROUND_IMG, Texture.class);
         load(MENU_IMG, Texture.class);
     }
@@ -54,6 +57,10 @@ public class AssetsLoader extends AssetManager {
 
     public Texture getMenu(){
         return get(MENU_IMG, Texture.class);
+    }
+
+    public Skin getSkin(){
+        return get(Other.skin.getPath(), Skin.class);
     }
 
 }
