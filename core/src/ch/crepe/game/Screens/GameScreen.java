@@ -7,13 +7,19 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.ScreenAdapter;
-import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 
 public class GameScreen extends ScreenAdapter {
     private final Spaceship3000 parent;
     private final FitViewport viewport;
+    private final HeadUpDisplay hud;
     private static final float WORLD_WIDTH = 96;
     private static final float WORLD_HEIGHT = 54;
     private float posX = 0;
@@ -27,12 +33,15 @@ public class GameScreen extends ScreenAdapter {
     public GameScreen(Spaceship3000 parent){
         this.parent = parent;
         this.viewport = new FitViewport(WORLD_WIDTH,WORLD_HEIGHT);
+        this.hud = new HeadUpDisplay();
     }
 
     @Override
     public void show() {
         backgroundSprite.setSize(WORLD_WIDTH,WORLD_HEIGHT);
         backgroundSprite.setPosition(-WORLD_WIDTH/2f,-WORLD_HEIGHT/2f);
+
+
 
         Gdx.input.setInputProcessor(new InputAdapter(){
             @Override
@@ -79,6 +88,8 @@ public class GameScreen extends ScreenAdapter {
 
     @Override
     public void render(float delta) {
+        Gdx.gl.glClearColor(0f, 0f, 0f, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         viewport.apply();
         parent.getBatch().setProjectionMatrix(viewport.getCamera().combined);
@@ -103,6 +114,9 @@ public class GameScreen extends ScreenAdapter {
         testSprite.setPosition(posX, posY);
         testSprite.draw(parent.getBatch());
         parent.getBatch().end();
+
+        hud.draw();
+
     }
 
     @Override
@@ -113,5 +127,6 @@ public class GameScreen extends ScreenAdapter {
     @Override
     public void resize(int width, int height) {
         viewport.update(width, height);
+        hud.update(width, height);
     }
 }
