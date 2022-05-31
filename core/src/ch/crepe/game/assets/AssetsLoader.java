@@ -1,18 +1,15 @@
 package ch.crepe.game.assets;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
-import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
 
 public class AssetsLoader extends AssetManager {
     private static AssetsLoader instance;
 
     private static final String LEVEL_BACKGROUND_IMG = "backgrounds/space_background.png";
+    private static final String MENU_IMG = "items.png";
 
     public static AssetsLoader getInstance(){
         if(instance == null){
@@ -28,16 +25,21 @@ public class AssetsLoader extends AssetManager {
             load(e.getPath(), Texture.class);
         }
 
-        for(SpaceShips s : SpaceShips.values()){
+        for(SpaceShip s : SpaceShip.values()){
             load(s.getPath(), Texture.class);
         }
 
         for(Laser l : Laser.values()){
             load(l.getPath(), Texture.class);
         }
+
+        load(Other.skin.getPath(), Skin.class);
+
+        load(LEVEL_BACKGROUND_IMG, Texture.class);
+        load(MENU_IMG, Texture.class);
     }
 
-    public Texture getSpaceship(SpaceShips ship){
+    public Texture getSpaceship(SpaceShip ship){
         return get(ship.getPath(), Texture.class);
     }
 
@@ -47,6 +49,18 @@ public class AssetsLoader extends AssetManager {
 
     public Texture getLaser(Laser laser){
         return get(laser.getPath(), Texture.class);
+    }
+
+    public Texture getBackground(){
+        return get(LEVEL_BACKGROUND_IMG, Texture.class);
+    }
+
+    public Texture getMenu(){
+        return get(MENU_IMG, Texture.class);
+    }
+
+    public Skin getSkin(){
+        return get(Other.skin.getPath(), Skin.class);
     }
 
 }

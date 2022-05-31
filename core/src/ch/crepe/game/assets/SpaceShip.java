@@ -1,6 +1,6 @@
 package ch.crepe.game.assets;
 
-public enum SpaceShips {
+public enum SpaceShip {
     speedsterSimple("ships/starships_0000_Ice-Speedster-simple.png"),
     sunKillerSimple("ships/starships_0000_sun-killer-simple.png"),
     centenialHawkSimple("ships/starships_0001_Centenial-Hawk-simple.png"),
@@ -14,7 +14,7 @@ public enum SpaceShips {
 
     private final String path;
 
-    SpaceShips(String path) {
+    SpaceShip(String path) {
         this.path = path;
     }
 

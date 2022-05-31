@@ -1,52 +1,62 @@
 package ch.crepe.game;
 
+import ch.crepe.game.Screens.GameScreen;
+import ch.crepe.game.Screens.MainMenuScreen;
+import ch.crepe.game.Screens.ScreenType;
 import ch.crepe.game.assets.AssetsLoader;
-import ch.crepe.game.assets.SpaceShips;
-import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.utils.ScreenUtils;
 
-public class Spaceship3000 extends ApplicationAdapter {
-	SpriteBatch batch;
-	Texture img;
-	float x = 0;
-	float y = 0;
-	float speedX = 2;
-	float speedY = 2;
+public class Spaceship3000 extends Game {
+	private static final int screenWidth = 1280;
+	private static final int screenHeight = 720;
+	private SpriteBatch batcher;
 
 	@Override
 	public void create () {
-		batch = new SpriteBatch();
-		AssetsLoader a = AssetsLoader.getInstance();
-		a.finishLoading();
+		Gdx.graphics.setWindowedMode(960,540);
+		AssetsLoader.getInstance().finishLoading();
+		batcher = new SpriteBatch();
+		setScreen(new MainMenuScreen(this));
+	}
 
-		img = a.getSpaceship(SpaceShips.exVing);
+	public void changeScreen(ScreenType screen){
+		switch (screen){
 
+			case MainMenu:
+				System.out.println("Showing MainMenu screen !");
+				setScreen(new MainMenuScreen(this));
+				break;
+			case Game:
+				System.out.println("Showing Game screen !");
+				setScreen(new GameScreen(this));
+				break;
+			case Preferences:
+				System.out.println("Showing Preferences screen !");
+				break;
+		}
 	}
 
 	@Override
 	public void render () {
-		ScreenUtils.clear(1, 0, 0, 1);
-		if(x > Gdx.graphics.getWidth() || x < 0) {
-			speedX = -speedX;
-		}
-		if(y > Gdx.graphics.getHeight() || y < 0) {
-			speedY = -speedY;
-		}
-
-		x += speedX;
-		y += speedY;
-
-		batch.begin();
-		batch.draw(img, x, y);
-		batch.end();
+		super.render();
 	}
 	
 	@Override
 	public void dispose () {
-		batch.dispose();
-		img.dispose();
+		batcher.dispose();
+	}
+
+	public SpriteBatch getBatch() {
+		return batcher;
+	}
+
+	public int getScreenWidth(){
+		return screenWidth;
+	}
+
+	public int getScreenHeight(){
+		return screenHeight;
 	}
 }
