@@ -19,10 +19,9 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 public class GameScreen extends ScreenAdapter {
     private final Spaceship3000 parent;
     private final FitViewport viewport;
-    private final Stage overlay;
+    private final HeadUpDisplay hud;
     private static final float WORLD_WIDTH = 96;
     private static final float WORLD_HEIGHT = 54;
-    private final ShapeRenderer shapeRenderer;
     private float posX = 0;
     private float posY = 0;
     private boolean isDown = false;
@@ -34,8 +33,7 @@ public class GameScreen extends ScreenAdapter {
     public GameScreen(Spaceship3000 parent){
         this.parent = parent;
         this.viewport = new FitViewport(WORLD_WIDTH,WORLD_HEIGHT);
-        this.overlay = new Stage(new FitViewport(Gdx.graphics.getWidth(),Gdx.graphics.getHeight()));
-        this.shapeRenderer = new ShapeRenderer();
+        this.hud = new HeadUpDisplay();
     }
 
     @Override
@@ -43,11 +41,7 @@ public class GameScreen extends ScreenAdapter {
         backgroundSprite.setSize(WORLD_WIDTH,WORLD_HEIGHT);
         backgroundSprite.setPosition(-WORLD_WIDTH/2f,-WORLD_HEIGHT/2f);
 
-        Skin skin = AssetsLoader.getInstance().getSkin();
-        Label popLabel = new Label("Life: 100%", skin);
-        popLabel.setFontScale(2f);
-        popLabel.setX(Gdx.graphics.getWidth() - popLabel.getWidth() * 2 - 20);
-        overlay.addActor(popLabel);
+
 
         Gdx.input.setInputProcessor(new InputAdapter(){
             @Override
@@ -121,13 +115,8 @@ public class GameScreen extends ScreenAdapter {
         testSprite.draw(parent.getBatch());
         parent.getBatch().end();
 
-        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
-        shapeRenderer.setColor(new Color(0,0,0,0));
-        shapeRenderer.rect(overlay.getWidth() - 200,0,200,30);
-        shapeRenderer.end();
+        hud.draw();
 
-        overlay.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
-        overlay.draw();
     }
 
     @Override
@@ -138,6 +127,6 @@ public class GameScreen extends ScreenAdapter {
     @Override
     public void resize(int width, int height) {
         viewport.update(width, height);
-        overlay.getViewport().update(width, height);
+        hud.update(width, height);
     }
 }
