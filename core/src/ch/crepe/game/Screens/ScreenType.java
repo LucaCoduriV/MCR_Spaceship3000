@@ -1,6 +1,6 @@
 package ch.crepe.game.Screens;
 
-public enum Screen {
+public enum ScreenType {
     MainMenu,
     Game,
     Preferences

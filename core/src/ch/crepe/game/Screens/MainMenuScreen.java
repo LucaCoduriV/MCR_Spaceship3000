@@ -4,10 +4,7 @@ import ch.crepe.game.Spaceship3000;
 import ch.crepe.game.assets.AssetsLoader;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
-import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -15,8 +12,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
-
-import java.awt.*;
 
 public class MainMenuScreen extends ScreenAdapter {
     private final Spaceship3000 parent;
@@ -66,7 +61,7 @@ public class MainMenuScreen extends ScreenAdapter {
         newGame.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                parent.changeScreen(Screen.Game);
+                parent.changeScreen(ScreenType.Game);
 
             }
         });
@@ -74,7 +69,7 @@ public class MainMenuScreen extends ScreenAdapter {
         preferences.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                parent.changeScreen(Screen.Preferences);
+                parent.changeScreen(ScreenType.Preferences);
             }
         });
 

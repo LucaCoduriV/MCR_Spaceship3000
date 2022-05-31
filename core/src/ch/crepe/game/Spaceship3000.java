@@ -2,7 +2,7 @@ package ch.crepe.game;
 
 import ch.crepe.game.Screens.GameScreen;
 import ch.crepe.game.Screens.MainMenuScreen;
-import ch.crepe.game.Screens.Screen;
+import ch.crepe.game.Screens.ScreenType;
 import ch.crepe.game.assets.AssetsLoader;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
@@ -21,7 +21,7 @@ public class Spaceship3000 extends Game {
 		setScreen(new MainMenuScreen(this));
 	}
 
-	public void changeScreen(Screen screen){
+	public void changeScreen(ScreenType screen){
 		switch (screen){
 
 			case MainMenu:
