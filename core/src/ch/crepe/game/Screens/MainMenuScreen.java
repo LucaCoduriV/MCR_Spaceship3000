@@ -5,6 +5,7 @@ import ch.crepe.game.assets.AssetsLoader;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -16,7 +17,7 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 public class MainMenuScreen extends ScreenAdapter {
     private final Spaceship3000 parent;
     private final Stage stage;
-
+    private final Sprite backgroundSprite = new Sprite(AssetsLoader.getInstance().getBackground());
     public MainMenuScreen(Spaceship3000 parent){
         this.parent = parent;
 
@@ -83,6 +84,9 @@ public class MainMenuScreen extends ScreenAdapter {
 
         // tell our stage to do actions and draw itself
         stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
+        stage.getBatch().begin();
+        stage.getBatch().draw(backgroundSprite, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        stage.getBatch().end();
         stage.draw();
     }
 
