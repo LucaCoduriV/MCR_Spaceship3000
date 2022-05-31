@@ -7,13 +7,20 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 public class GameScreen extends ScreenAdapter {
     private final Spaceship3000 parent;
     private final FitViewport viewport;
+    private final Stage overlay;
     private static final float WORLD_WIDTH = 96;
     private static final float WORLD_HEIGHT = 54;
     private float posX = 0;
@@ -27,12 +34,19 @@ public class GameScreen extends ScreenAdapter {
     public GameScreen(Spaceship3000 parent){
         this.parent = parent;
         this.viewport = new FitViewport(WORLD_WIDTH,WORLD_HEIGHT);
+        this.overlay = new Stage(new FitViewport(Gdx.graphics.getWidth(),Gdx.graphics.getHeight()));
     }
 
     @Override
     public void show() {
         backgroundSprite.setSize(WORLD_WIDTH,WORLD_HEIGHT);
         backgroundSprite.setPosition(-WORLD_WIDTH/2f,-WORLD_HEIGHT/2f);
+
+        Skin skin = AssetsLoader.getInstance().getSkin();
+        Label popLabel = new Label("Life: 100%", skin);
+        popLabel.setFontScale(2f);
+        popLabel.setX(Gdx.graphics.getWidth() - popLabel.getWidth() * 2);
+        overlay.addActor(popLabel);
 
         Gdx.input.setInputProcessor(new InputAdapter(){
             @Override
@@ -79,6 +93,8 @@ public class GameScreen extends ScreenAdapter {
 
     @Override
     public void render(float delta) {
+        Gdx.gl.glClearColor(0f, 0f, 0f, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         viewport.apply();
         parent.getBatch().setProjectionMatrix(viewport.getCamera().combined);
@@ -103,6 +119,9 @@ public class GameScreen extends ScreenAdapter {
         testSprite.setPosition(posX, posY);
         testSprite.draw(parent.getBatch());
         parent.getBatch().end();
+
+        overlay.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
+        overlay.draw();
     }
 
     @Override
@@ -113,5 +132,6 @@ public class GameScreen extends ScreenAdapter {
     @Override
     public void resize(int width, int height) {
         viewport.update(width, height);
+        overlay.getViewport().update(width, height);
     }
 }
