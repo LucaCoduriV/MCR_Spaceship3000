@@ -28,6 +28,7 @@ public class MainMenuScreen extends ScreenAdapter {
         /// create stage and set it as input processor
         stage = new Stage(new ScreenViewport());
 
+
     }
 
     @Override
@@ -88,6 +89,12 @@ public class MainMenuScreen extends ScreenAdapter {
         // tell our stage to do actions and draw itself
         stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
         stage.draw();
+    }
+
+    @Override
+    public void resize(int width, int height) {
+        super.resize(width, height);
+        stage.getViewport().update(width, height, true);
     }
 
     @Override
