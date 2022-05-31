@@ -7,15 +7,14 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 public class GameScreen extends ScreenAdapter {
     private final Spaceship3000 parent;
@@ -23,6 +22,7 @@ public class GameScreen extends ScreenAdapter {
     private final Stage overlay;
     private static final float WORLD_WIDTH = 96;
     private static final float WORLD_HEIGHT = 54;
+    private final ShapeRenderer shapeRenderer;
     private float posX = 0;
     private float posY = 0;
     private boolean isDown = false;
@@ -35,6 +35,7 @@ public class GameScreen extends ScreenAdapter {
         this.parent = parent;
         this.viewport = new FitViewport(WORLD_WIDTH,WORLD_HEIGHT);
         this.overlay = new Stage(new FitViewport(Gdx.graphics.getWidth(),Gdx.graphics.getHeight()));
+        this.shapeRenderer = new ShapeRenderer();
     }
 
     @Override
@@ -45,7 +46,7 @@ public class GameScreen extends ScreenAdapter {
         Skin skin = AssetsLoader.getInstance().getSkin();
         Label popLabel = new Label("Life: 100%", skin);
         popLabel.setFontScale(2f);
-        popLabel.setX(Gdx.graphics.getWidth() - popLabel.getWidth() * 2);
+        popLabel.setX(Gdx.graphics.getWidth() - popLabel.getWidth() * 2 - 20);
         overlay.addActor(popLabel);
 
         Gdx.input.setInputProcessor(new InputAdapter(){
@@ -119,6 +120,11 @@ public class GameScreen extends ScreenAdapter {
         testSprite.setPosition(posX, posY);
         testSprite.draw(parent.getBatch());
         parent.getBatch().end();
+
+        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
+        shapeRenderer.setColor(new Color(0,0,0,0));
+        shapeRenderer.rect(overlay.getWidth() - 200,0,200,30);
+        shapeRenderer.end();
 
         overlay.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
         overlay.draw();
