@@ -7,7 +7,10 @@ import com.badlogic.gdx.math.Vector2;
 public class Explosion extends Entity {
     private final Animation animation;
     Explosion(Vector2 position, Animation animation) {
-        super(position);
+        super(position, animation.getCurrentSprite());
         this.animation = animation;
     }
+
+    @Override
+    public void move() { }
 }
