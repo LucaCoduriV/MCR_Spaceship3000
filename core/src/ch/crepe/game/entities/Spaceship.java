@@ -20,17 +20,6 @@ public class Spaceship extends Entity {
         sprite.setSize(width, height);
     }
 
-    public void draw() {
-//        Renderer.getInstance().getBatch().begin();
-//        Renderer.getInstance().getBatch().draw(sprite.getTexture(), hitbox.x - (width - hitbox.width) / 2,
-//                hitbox.y - (height - hitbox.height) / 2, width, height);
-//        Renderer.getInstance().getBatch().end();
-        renderer.begin(ShapeRenderer.ShapeType.Line);
-        renderer.setColor(Color.RED);
-        renderer.rect(hitbox.getX(), hitbox.getY(), hitbox.width, hitbox.height);
-        renderer.end();
-    }
-
     @Override
     public void draw(Batch batch) {
         super.draw(batch);

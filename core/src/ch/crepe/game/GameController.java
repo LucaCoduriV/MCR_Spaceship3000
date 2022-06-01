@@ -38,7 +38,8 @@ public class GameController extends ApplicationAdapter {
 
         for (Spaceship entity : entites) {
             entity.accept(ce);
-            entity.draw();
+            // TODO: c'est pas le bon batch
+            entity.draw(batch);
         }
     }
 
