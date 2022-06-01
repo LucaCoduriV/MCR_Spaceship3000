@@ -48,7 +48,7 @@ public class GameOverScreen extends ScreenAdapter {
         Skin skin = AssetsLoader.getInstance().getSkin();
 
         Label gameOverLabel = new Label("Game Over", skin);
-        Label yourScoreLabel = new Label("Yout score: " + yourScore, skin);
+        Label yourScoreLabel = new Label("Your score: " + yourScore, skin);
         Label bestScoreLabel = new Label("Best score: " + bestScore, skin);
         gameOverLabel.setFontScale(2);
         //create buttons
