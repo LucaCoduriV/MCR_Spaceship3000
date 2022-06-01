@@ -1,9 +1,6 @@
 package ch.crepe.game;
 
-import ch.crepe.game.Screens.GameOverScreen;
-import ch.crepe.game.Screens.GameScreen;
-import ch.crepe.game.Screens.MainMenuScreen;
-import ch.crepe.game.Screens.ScreenType;
+import ch.crepe.game.Screens.*;
 import ch.crepe.game.assets.AssetsLoader;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
@@ -13,12 +10,19 @@ public class Spaceship3000 extends Game {
 	private static final int screenWidth = 1280;
 	private static final int screenHeight = 720;
 	private SpriteBatch batcher;
+	private AppPreferences preferences;
+	private AudioManager audioManager;
 
 	@Override
 	public void create () {
 		Gdx.graphics.setWindowedMode(960,540);
 		AssetsLoader.getInstance().finishLoading();
 		batcher = new SpriteBatch();
+		preferences = new AppPreferences();
+		audioManager = new AudioManager();
+
+		preferences.addListener(audioManager);
+
 		changeScreen(ScreenType.GameOver);
 	}
 
@@ -35,6 +39,7 @@ public class Spaceship3000 extends Game {
 				break;
 			case Preferences:
 				System.out.println("Showing Preferences screen !");
+				setScreen(new PreferencesScreen(this));
 				break;
 			case GameOver:
 				System.out.println("Showing Game Over screen !");
@@ -63,5 +68,13 @@ public class Spaceship3000 extends Game {
 
 	public int getScreenHeight(){
 		return screenHeight;
+	}
+
+	public AudioManager getAudioManager(){
+		return audioManager;
+	}
+
+	public AppPreferences getPreferences() {
+		return preferences;
 	}
 }

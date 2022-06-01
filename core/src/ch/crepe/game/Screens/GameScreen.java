@@ -3,12 +3,11 @@ package ch.crepe.game.Screens;
 import ch.crepe.game.PlayerInput;
 import ch.crepe.game.Spaceship3000;
 import ch.crepe.game.assets.AssetsLoader;
-import ch.crepe.game.assets.Audio;
+import ch.crepe.game.assets.Music;
 import ch.crepe.game.assets.SpaceShip;
 import ch.crepe.game.entities.Spaceship;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
-import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
@@ -22,8 +21,7 @@ public class GameScreen extends ScreenAdapter {
     private static final float WORLD_HEIGHT = 54;
     private final Spaceship spaceship = new Spaceship(new Vector2(), AssetsLoader.getInstance().getSpaceship(SpaceShip.bowFighter),new Vector2());
     private final Sprite backgroundSprite = new Sprite(AssetsLoader.getInstance().getBackground());
-    private final Audio[] musics = { Audio.aloneAgainstEnemy, Audio.deathMatch, Audio.battleInTheStars, Audio.epicEnd, Audio.rainOfLasers, Audio.spaceHeroes, Audio.withoutFear };
-    private Music music;
+    private final Music[] musics = { Music.aloneAgainstEnemy, Music.deathMatch, Music.battleInTheStars, Music.epicEnd, Music.rainOfLasers, Music.spaceHeroes, Music.withoutFear };
 
     public GameScreen(Spaceship3000 parent){
         this.parent = parent;
@@ -33,16 +31,15 @@ public class GameScreen extends ScreenAdapter {
 
     @Override
     public void show() {
-        music = Gdx.audio.newMusic(AssetsLoader.getInstance().getAudio(musics[(int) (Math.random() * musics.length)]));
-        music.play();
-        music.setOnCompletionListener(new Music.OnCompletionListener() {
+        parent.getAudioManager().loadMusic(musics[(int) (Math.random() * musics.length)]);
+        parent.getAudioManager().onMusicCompletion(new com.badlogic.gdx.audio.Music.OnCompletionListener() {
             @Override
-            public void onCompletion(Music music) {
-                music.dispose();
-                music = Gdx.audio.newMusic(AssetsLoader.getInstance().getAudio(musics[(int) (Math.random() * musics.length)]));
-                music.play();
+            public void onCompletion(com.badlogic.gdx.audio.Music music) {
+                parent.getAudioManager().loadMusic(musics[(int) (Math.random() * musics.length)]);
             }
         });
+        parent.getAudioManager().resumeMusic();
+
         backgroundSprite.setSize(WORLD_WIDTH,WORLD_HEIGHT);
         backgroundSprite.setPosition(-WORLD_WIDTH/2f,-WORLD_HEIGHT/2f);
 
@@ -74,8 +71,6 @@ public class GameScreen extends ScreenAdapter {
     @Override
     public void hide() {
         Gdx.input.setInputProcessor(null);
-        music.stop();
-        music.dispose();
     }
 
     @Override

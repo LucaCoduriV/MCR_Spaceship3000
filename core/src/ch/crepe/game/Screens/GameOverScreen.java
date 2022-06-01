@@ -2,10 +2,9 @@ package ch.crepe.game.Screens;
 
 import ch.crepe.game.Spaceship3000;
 import ch.crepe.game.assets.AssetsLoader;
-import ch.crepe.game.assets.Audio;
+import ch.crepe.game.assets.Music;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
-import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Actor;
@@ -21,7 +20,6 @@ public class GameOverScreen extends ScreenAdapter {
     private final Spaceship3000 parent;
     private final Stage stage;
     private final Sprite backgroundSprite = new Sprite(AssetsLoader.getInstance().getBackground());
-    private Music music;
     private final int bestScore;
     private final int yourScore;
     public GameOverScreen(Spaceship3000 parent, int bestScore, int yourScore) {
@@ -36,8 +34,9 @@ public class GameOverScreen extends ScreenAdapter {
 
     @Override
     public void show() {
-        music = Gdx.audio.newMusic(AssetsLoader.getInstance().getAudio(Audio.defeat));
-        music.play();
+        parent.getAudioManager().loadMusic(Music.defeat);
+        parent.getAudioManager().resumeMusic();
+
         Gdx.input.setInputProcessor(stage);
 
         // Create a table that fills the screen. Everything else will go inside this table.
@@ -108,7 +107,5 @@ public class GameOverScreen extends ScreenAdapter {
     @Override
     public void hide() {
         Gdx.input.setInputProcessor(null);
-        music.stop();
-        music.dispose();
     }
 }

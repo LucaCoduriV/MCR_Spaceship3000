@@ -38,6 +38,15 @@ public class AssetsLoader extends AssetManager {
 
         load(LEVEL_BACKGROUND_IMG, Texture.class);
         load(MENU_IMG, Texture.class);
+
+        for(Music music : Music.values()){
+            load(music.getPath(), com.badlogic.gdx.audio.Music.class);
+        }
+
+        for(Sound sound : Sound.values()){
+            load(sound.getPath(), com.badlogic.gdx.audio.Sound.class);
+        }
+
     }
 
     public Texture getSpaceship(SpaceShip ship){
@@ -64,8 +73,16 @@ public class AssetsLoader extends AssetManager {
         return get(Other.skin.getPath(), Skin.class);
     }
 
-    public FileHandle getAudio(Audio audio){
-        return getFileHandleResolver().resolve(audio.getPath());
+    public FileHandle getAudio(Music music){
+        return getFileHandleResolver().resolve(music.getPath());
+    }
+
+    public com.badlogic.gdx.audio.Music getMusic(Music music){
+        return get(music.getPath(), com.badlogic.gdx.audio.Music.class);
+    }
+
+    public com.badlogic.gdx.audio.Sound getSound(Sound sound){
+        return get(sound.getPath(), com.badlogic.gdx.audio.Sound.class);
     }
 
 }
