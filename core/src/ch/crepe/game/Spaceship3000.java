@@ -1,5 +1,6 @@
 package ch.crepe.game;
 
+import ch.crepe.game.Screens.GameOverScreen;
 import ch.crepe.game.Screens.GameScreen;
 import ch.crepe.game.Screens.MainMenuScreen;
 import ch.crepe.game.Screens.ScreenType;
@@ -18,7 +19,7 @@ public class Spaceship3000 extends Game {
 		Gdx.graphics.setWindowedMode(960,540);
 		AssetsLoader.getInstance().finishLoading();
 		batcher = new SpriteBatch();
-		setScreen(new MainMenuScreen(this));
+		changeScreen(ScreenType.GameOver);
 	}
 
 	public void changeScreen(ScreenType screen){
@@ -34,6 +35,10 @@ public class Spaceship3000 extends Game {
 				break;
 			case Preferences:
 				System.out.println("Showing Preferences screen !");
+				break;
+			case GameOver:
+				System.out.println("Showing Game Over screen !");
+				setScreen(new GameOverScreen(this, 10329023, 18));
 				break;
 		}
 	}
