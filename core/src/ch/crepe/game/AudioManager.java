@@ -64,9 +64,9 @@ public class AudioManager implements PropertyChangeListener {
             case AppPreferences.PREF_MUSIC_ENABLED:
                 musicEnabled = (boolean)propertyChangeEvent.getNewValue();
                 if(musicEnabled){
-                    stopMusic();
-                }else{
                     resumeMusic();
+                }else{
+                    stopMusic();
                 }
                 break;
             case AppPreferences.PREF_MUSIC_VOLUME:
