@@ -25,7 +25,7 @@ public class GameScreen extends ScreenAdapter {
     private final HeadUpDisplay hud;
     private static final float WORLD_WIDTH = 96;
     private static final float WORLD_HEIGHT = 54;
-    private Spaceship spaceship = new Spaceship(new Vector2(100, 100), new Sprite(AssetsLoader.getInstance().getSpaceship(SpaceShip.bowFighter)),new Vector2(10, 10), 100, 100);
+    private final Spaceship spaceship = new Spaceship(new Vector2(0, 0), new Sprite(AssetsLoader.getInstance().getSpaceship(SpaceShip.bowFighter)),new Vector2(), 10, 10);
     private final Sprite backgroundSprite = new Sprite(AssetsLoader.getInstance().getBackground());
 
     public GameScreen(Spaceship3000 parent){
@@ -57,8 +57,8 @@ public class GameScreen extends ScreenAdapter {
 
         parent.getBatch().begin();
         backgroundSprite.draw(parent.getBatch());
-        //testSprite.setPosition(testSprite.getX() - testSprite.getX() / 2, testSprite.getY() - testSprite.getY() / 2);
-        spaceship.draw();
+        spaceship.draw(parent.getBatch());
+        //spaceship.draw();
         parent.getBatch().end();
 
         hud.draw();

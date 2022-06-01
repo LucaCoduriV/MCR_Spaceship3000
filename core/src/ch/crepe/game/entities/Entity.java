@@ -1,6 +1,7 @@
 package ch.crepe.game.entities;
 
 import ch.crepe.game.visitor.Visitable;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
@@ -41,6 +42,10 @@ abstract public class Entity implements Visitable {
 
     //TODO temporaire en attendant visiteur
     public void draw() {}
+    public void draw(Batch batch) {
+        getSprite().setPosition(position().x, position().y);
+        getSprite().draw(batch);
+    }
 
     public Sprite getSprite() {
         return sprite;
