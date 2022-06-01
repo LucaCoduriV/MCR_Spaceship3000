@@ -6,6 +6,7 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.ScreenUtils;
 
 public class Spaceship3000 extends ApplicationAdapter {
@@ -16,15 +17,21 @@ public class Spaceship3000 extends ApplicationAdapter {
 	float speedX = 2;
 	float speedY = 2;
 
+	Background background;
+
 	@Override
 	public void create () {
-		Gdx.graphics.setWindowedMode(1280,720);
+		Gdx.graphics.setWindowedMode(1000,800);
 		batch = new SpriteBatch();
 		AssetsLoader a = AssetsLoader.getInstance();
 		a.finishLoading();
 
 		img = a.getSpaceship(SpaceShips.exVing);
-
+		background = new Background(
+				new Vector2(0,0),
+				a.getBackground(),
+				10
+		);
 	}
 
 	@Override
@@ -42,7 +49,10 @@ public class Spaceship3000 extends ApplicationAdapter {
 
 		batch.begin();
 		batch.draw(img, x, y);
+		background.draw(batch);
 		batch.end();
+
+		background.update();
 	}
 	
 	@Override
