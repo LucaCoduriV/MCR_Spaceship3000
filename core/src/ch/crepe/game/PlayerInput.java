@@ -7,20 +7,10 @@ import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.math.Vector2;
 
 public class PlayerInput extends InputAdapter {
-    private Entity entity;
-
-    private boolean isDown = false;
-    private boolean isUp = false;
-    private boolean isLeft = false;
-    private boolean isRight = false;
+    private final Entity entity;
 
     public PlayerInput(Entity entity) {
         this.entity = entity;
-    }
-
-    public Vector2 getMove() {
-        //TODO à changer
-        return new Vector2(1, 1);
     }
 
     @Override

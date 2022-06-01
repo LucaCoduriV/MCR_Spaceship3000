@@ -56,7 +56,6 @@ public class GameScreen extends ScreenAdapter {
 
         parent.getBatch().begin();
         backgroundSprite.draw(parent.getBatch());
-        //testSprite.setPosition(testSprite.getX() - testSprite.getX() / 2, testSprite.getY() - testSprite.getY() / 2);
         spaceship.draw(parent.getBatch());
         parent.getBatch().end();
 

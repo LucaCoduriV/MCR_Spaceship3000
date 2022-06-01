@@ -1,14 +1,12 @@
 package ch.crepe.game.entities;
 
-import ch.crepe.game.PlayerInput;
-import ch.crepe.game.entities.ship.weapons.Weapen;
-import com.badlogic.gdx.Gdx;
+import ch.crepe.game.entities.ship.weapons.Weapon;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Vector2;
 
 public class Spaceship extends Entity {
-    private Weapen weapen;
+    private Weapon weapon;
 
     public Spaceship(Vector2 position, Texture texture, Vector2 speed) {
         super(position, texture, speed);
@@ -16,8 +14,8 @@ public class Spaceship extends Entity {
         getSprite().setCenter(getSprite().getWidth() / 2,getSprite().getHeight() / 2);
     }
 
-    public void setWeapen(Weapen weapen) {
-        this.weapen = weapen;
+    public void setWeapon(Weapon weapon) {
+        this.weapon = weapon;
     }
 
 
