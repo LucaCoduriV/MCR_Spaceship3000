@@ -1,6 +1,6 @@
 package ch.crepe.game.assets;
 
-public enum Audio {
+public enum Music {
     defeat("audios/musics/Defeated.ogg"),
     menu("audios/musics/MenuScreen.ogg"),
     aloneAgainstEnemy("audios/musics/Alone Against Enemy.ogg"),
@@ -15,7 +15,7 @@ public enum Audio {
 
     private final String path;
 
-    Audio(String path){
+    Music(String path){
         this.path = path;
     }
 
