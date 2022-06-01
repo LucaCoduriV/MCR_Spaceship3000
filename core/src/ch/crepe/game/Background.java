@@ -14,33 +14,35 @@ import java.util.Random;
 
 public class Background {
     private static Random rnd = new Random();
-    private Vector2 position;
-    private Texture image;
+    private Sprite image;
     private List<Star> stars;
 
-    public Background(Vector2 position, Texture image, int nbStars) {
-        this.position = position;
-        this.image = image;
+    public Background(Vector2 position, Vector2 size, Texture image, int nbStars) {
+        this.image = new Sprite(image);
+        this.image.setSize(size.x, size.y);
+        this.image.setPosition(position.x, position.y);
         this.stars = new LinkedList<>();
         createStars(nbStars);
     }
 
     private void createStars(int nbStars) {
         for (int i = 0; i < nbStars; i++) {
-            this.stars.add(new Star(new Vector2(rnd.nextInt(image.getWidth()), image.getHeight()).add(position),
-                    new Vector2(0, -10),
-                    new Rectangle(0, 0, image.getWidth() + 20, 10)));
+            int rndPositionX = rnd.nextInt((int)image.getWidth()) + (int)image.getX();
+            int rndPositionY = rnd.nextInt((int)image.getHeight()) + (int)image.getY();
+            this.stars.add(new Star(
+                    new Vector2(rndPositionX, image.getHeight() / 2),
+                    new Vector2(rndPositionX, rndPositionY),
+                    0.1f,
+                    image.getBoundingRectangle()));
         }
     }
 
     public void draw(SpriteBatch batch) {
-        //batch.begin();
-        batch.draw(image, position.x, position.y);
+        image.draw(batch);
 
         for (Star s: stars) {
-            batch.draw(s.getTexture(), s.position().x, s.position().y);
+            s.draw(batch);
         }
-        //batch.end();
     }
 
     public void update() {

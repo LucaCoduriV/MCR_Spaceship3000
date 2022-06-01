@@ -1,5 +1,6 @@
 package ch.crepe.game.Screens;
 
+import ch.crepe.game.Background;
 import ch.crepe.game.Spaceship3000;
 import ch.crepe.game.assets.AssetsLoader;
 import ch.crepe.game.assets.SpaceShip;
@@ -11,6 +12,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -30,6 +32,12 @@ public class GameScreen extends ScreenAdapter {
     private boolean isRight = false;
     private final Sprite testSprite = new Sprite(AssetsLoader.getInstance().getSpaceship(SpaceShip.bowFighter));
     private final Sprite backgroundSprite = new Sprite(AssetsLoader.getInstance().getBackground());
+
+    private final Background background = new Background(
+            new Vector2(-WORLD_WIDTH/2f,-WORLD_HEIGHT/2f),
+            new Vector2(WORLD_WIDTH, WORLD_HEIGHT),
+            AssetsLoader.getInstance().getBackground(),
+            10);
     public GameScreen(Spaceship3000 parent){
         this.parent = parent;
         this.viewport = new FitViewport(WORLD_WIDTH,WORLD_HEIGHT);
@@ -108,7 +116,9 @@ public class GameScreen extends ScreenAdapter {
         }
 
         parent.getBatch().begin();
-        backgroundSprite.draw(parent.getBatch());
+        //backgroundSprite.draw(parent.getBatch());
+        background.draw(parent.getBatch());
+        background.update();
         //testSprite.setPosition(testSprite.getX() - testSprite.getX() / 2, testSprite.getY() - testSprite.getY() / 2);
         testSprite.setSize(10,10);
         testSprite.setPosition(posX, posY);
