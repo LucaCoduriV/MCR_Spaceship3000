@@ -1,6 +1,7 @@
 package ch.crepe.game.assets;
 
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
@@ -61,6 +62,10 @@ public class AssetsLoader extends AssetManager {
 
     public Skin getSkin(){
         return get(Other.skin.getPath(), Skin.class);
+    }
+
+    public FileHandle getAudio(Audio audio){
+        return getFileHandleResolver().resolve(audio.getPath());
     }
 
 }
