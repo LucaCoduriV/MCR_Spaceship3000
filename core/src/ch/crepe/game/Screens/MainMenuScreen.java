@@ -19,7 +19,6 @@ public class MainMenuScreen extends ScreenAdapter {
     private final Spaceship3000 parent;
     private final Stage stage;
     private final Sprite backgroundSprite = new Sprite(AssetsLoader.getInstance().getBackground());
-    private com.badlogic.gdx.audio.Music music;
     public MainMenuScreen(Spaceship3000 parent){
         this.parent = parent;
 
@@ -31,9 +30,10 @@ public class MainMenuScreen extends ScreenAdapter {
 
     @Override
     public void show() {
-        music = Gdx.audio.newMusic(AssetsLoader.getInstance().getAudio(Music.menu));
-        music.play();
-        music.setLooping(true);
+        parent.getAudioManager().loadMusic(Music.menu);
+        parent.getAudioManager().loopMusic(true);
+        parent.getAudioManager().resumeMusic();
+
         Gdx.input.setInputProcessor(stage);
 
         // Create a table that fills the screen. Everything else will go inside this table.
@@ -104,7 +104,5 @@ public class MainMenuScreen extends ScreenAdapter {
     @Override
     public void hide() {
         Gdx.input.setInputProcessor(null);
-        music.stop();
-        music.dispose();
     }
 }

@@ -22,7 +22,6 @@ public class GameScreen extends ScreenAdapter {
     private final Spaceship spaceship = new Spaceship(new Vector2(), AssetsLoader.getInstance().getSpaceship(SpaceShip.bowFighter),new Vector2());
     private final Sprite backgroundSprite = new Sprite(AssetsLoader.getInstance().getBackground());
     private final Music[] musics = { Music.aloneAgainstEnemy, Music.deathMatch, Music.battleInTheStars, Music.epicEnd, Music.rainOfLasers, Music.spaceHeroes, Music.withoutFear };
-    private com.badlogic.gdx.audio.Music music;
 
     public GameScreen(Spaceship3000 parent){
         this.parent = parent;
@@ -32,16 +31,15 @@ public class GameScreen extends ScreenAdapter {
 
     @Override
     public void show() {
-        music = Gdx.audio.newMusic(AssetsLoader.getInstance().getAudio(musics[(int) (Math.random() * musics.length)]));
-        music.play();
-        music.setOnCompletionListener(new com.badlogic.gdx.audio.Music.OnCompletionListener() {
+        parent.getAudioManager().loadMusic(musics[(int) (Math.random() * musics.length)]);
+        parent.getAudioManager().onMusicCompletion(new com.badlogic.gdx.audio.Music.OnCompletionListener() {
             @Override
             public void onCompletion(com.badlogic.gdx.audio.Music music) {
-                music.dispose();
-                music = Gdx.audio.newMusic(AssetsLoader.getInstance().getAudio(musics[(int) (Math.random() * musics.length)]));
-                music.play();
+                parent.getAudioManager().loadMusic(musics[(int) (Math.random() * musics.length)]);
             }
         });
+        parent.getAudioManager().resumeMusic();
+
         backgroundSprite.setSize(WORLD_WIDTH,WORLD_HEIGHT);
         backgroundSprite.setPosition(-WORLD_WIDTH/2f,-WORLD_HEIGHT/2f);
 
@@ -73,8 +71,6 @@ public class GameScreen extends ScreenAdapter {
     @Override
     public void hide() {
         Gdx.input.setInputProcessor(null);
-        music.stop();
-        music.dispose();
     }
 
     @Override

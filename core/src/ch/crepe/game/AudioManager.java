@@ -2,6 +2,7 @@ package ch.crepe.game;
 
 import ch.crepe.game.assets.AssetsLoader;
 import ch.crepe.game.assets.Music;
+import ch.crepe.game.assets.Sound;
 import com.badlogic.gdx.Gdx;
 
 import java.beans.PropertyChangeEvent;
@@ -22,8 +23,21 @@ public class AudioManager implements PropertyChangeListener {
         this.music.setVolume(musicVolume);
     }
 
+    public void onMusicCompletion(com.badlogic.gdx.audio.Music.OnCompletionListener listener){
+        if(music != null){
+            music.setOnCompletionListener(listener);
+        }
+    }
+
     public void stopMusic(){
-        music.stop();
+        if(this.music != null)
+            music.stop();
+    }
+
+    public void loopMusic(boolean loop){
+        if(music != null){
+            music.setLooping(loop);
+        }
     }
 
     public void pauseMusic(){
@@ -31,38 +45,44 @@ public class AudioManager implements PropertyChangeListener {
     }
 
     public void resumeMusic(){
-        music.setVolume(musicVolume);
-        music.play();
+        if(this.music != null){
+            music.setVolume(musicVolume);
+            music.play();
+        }
+
     }
 
-    public void playSound(Music music){
-        am.newSound(assets.getAudio(music)).play();
+    public void playSound(Sound sound){
+        if(soundEnabled) {
+            assets.getSound(sound).play(soundVolume);
+        }
     }
 
     @Override
     public void propertyChange(PropertyChangeEvent propertyChangeEvent) {
         switch (propertyChangeEvent.getPropertyName()){
             case AppPreferences.PREF_MUSIC_ENABLED:
-                if((boolean)propertyChangeEvent.getNewValue()){
+                musicEnabled = (boolean)propertyChangeEvent.getNewValue();
+                if(musicEnabled){
                     stopMusic();
                 }else{
                     resumeMusic();
                 }
                 break;
             case AppPreferences.PREF_MUSIC_VOLUME:
-                float volume = (float)propertyChangeEvent.getNewValue();
-                music.setVolume(volume);
-                this.musicVolume = volume;
+                float musicVolume = (float)propertyChangeEvent.getNewValue();
+                System.out.println("Music volume: " + musicVolume);
+                if(this.music != null)
+                    music.setVolume(musicVolume);
+                this.musicVolume = musicVolume;
                 break;
             case AppPreferences.PREF_SOUND_ENABLED:
-                if((boolean)propertyChangeEvent.getNewValue()){
-
-                }else{
-
-                }
+                soundEnabled = (boolean)propertyChangeEvent.getNewValue();
                 break;
-            case AppPreferences.PREF_SOUND_VOL:
-                this.soundVolume = (float)propertyChangeEvent.getNewValue();
+            case AppPreferences.PREF_SOUND_VOLUME:
+                float soundVolume = (float)propertyChangeEvent.getNewValue();
+                System.out.println("Music volume: " + soundVolume);
+                this.soundVolume = soundVolume;
                 break;
             default:
                 break;

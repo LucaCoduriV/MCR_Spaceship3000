@@ -21,8 +21,8 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 public class PreferencesScreen extends ScreenAdapter {
 
-    private Spaceship3000 parent;
-    private Stage stage;
+    private final Spaceship3000 parent;
+    private final Stage stage;
     private Label titleLabel;
     private Label volumeMusicLabel;
     private Label volumeSoundLabel;

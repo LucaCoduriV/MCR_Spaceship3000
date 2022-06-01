@@ -3,15 +3,14 @@ package ch.crepe.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
 
-import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
 public class AppPreferences {
-    static final String PREF_MUSIC_VOLUME = "volume";
+    static final String PREF_MUSIC_VOLUME = "music.volume";
     static final String PREF_MUSIC_ENABLED = "music.enabled";
     static final String PREF_SOUND_ENABLED = "sound.enabled";
-    static final String PREF_SOUND_VOL = "sound";
+    static final String PREF_SOUND_VOLUME = "sound.volume";
     private static final String PREFS_NAME = "spaceship3000";
     private final PropertyChangeSupport propChangeSupport =
             new PropertyChangeSupport(this);
@@ -56,12 +55,12 @@ public class AppPreferences {
     }
 
     public float getSoundVolume() {
-        return getPrefs().getFloat(PREF_SOUND_VOL, 0.5f);
+        return getPrefs().getFloat(PREF_SOUND_VOLUME, 0.5f);
     }
 
     public void setSoundVolume(float volume) {
-        propChangeSupport.firePropertyChange(PREF_SOUND_VOL, getPrefs().getBoolean(PREF_SOUND_VOL), volume);
-        getPrefs().putFloat(PREF_SOUND_VOL, volume);
+        propChangeSupport.firePropertyChange(PREF_SOUND_VOLUME, getPrefs().getBoolean(PREF_SOUND_VOLUME), volume);
+        getPrefs().putFloat(PREF_SOUND_VOLUME, volume);
         getPrefs().flush();
     }
 }
