@@ -1,6 +1,5 @@
 package ch.crepe.game.entities;
 
-import ch.crepe.game.PlayerInput;
 import ch.crepe.game.engines.Renderer.Renderer;
 import ch.crepe.game.entities.ship.weapons.Weapen;
 import ch.crepe.game.visitor.Visitor;
@@ -24,7 +23,7 @@ public class Spaceship extends Entity {
                 hitbox.y - (height - hitbox.height) / 2, width, height);
         Renderer.getInstance().getBatch().end();
         renderer.begin(ShapeRenderer.ShapeType.Line);
-        renderer.setColor(Color.BLACK);
+        renderer.setColor(Color.RED);
         renderer.rect(hitbox.getX(), hitbox.getY(), hitbox.width, hitbox.height);
         renderer.end();
     }

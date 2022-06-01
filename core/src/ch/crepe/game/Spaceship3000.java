@@ -4,9 +4,11 @@ import ch.crepe.game.Screens.GameScreen;
 import ch.crepe.game.Screens.MainMenuScreen;
 import ch.crepe.game.Screens.ScreenType;
 import ch.crepe.game.assets.AssetsLoader;
+import ch.crepe.game.entities.Spaceship;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.utils.ScreenUtils;
 
 public class Spaceship3000 extends Game {
 	private static final int screenWidth = 1280;

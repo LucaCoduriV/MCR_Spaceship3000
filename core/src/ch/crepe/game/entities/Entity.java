@@ -11,14 +11,16 @@ abstract public class Entity implements Visitable {
     protected final float width;
     protected final float height;
     protected final Rectangle hitbox;
+    private Vector2 speed;
     private final float reduction = 0.8f;
 
-    public Entity(Vector2 position, Sprite sprite, Vector2 speed, float width, float height) {
+    public Entity(Vector2 position, Sprite sprite,  Vector2 speed, float width, float height) {
         this.position = position;
         this.sprite = sprite;
         this.height = height;
         this.width = width;
         this.hitbox = new Rectangle(position.x, position.y, width * reduction, height * reduction);
+        this.speed = speed;
     }
 
     /**
@@ -35,5 +37,20 @@ abstract public class Entity implements Visitable {
 
     public Rectangle getHitbox() {
         return hitbox;
+    }
+
+    //TODO temporaire en attendant visiteur
+    public void draw() {}
+
+    public Sprite getSprite() {
+        return sprite;
+    }
+
+    public void update(float delta){
+        position.add(speed);
+    }
+
+    public Vector2 speed() {
+        return speed;
     }
 }
