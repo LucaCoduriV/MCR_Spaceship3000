@@ -1,10 +1,8 @@
 package ch.crepe.game.entities;
 
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
 
-public class Entity {
+public abstract class Entity {
     private final Vector2 position;
 
     Entity(Vector2 position) {
@@ -17,5 +15,13 @@ public class Entity {
      */
     public Vector2 position() {
         return position;
+    }
+
+    public float getX() {
+        return position.x;
+    }
+
+    public float getY() {
+        return position().y;
     }
 }
