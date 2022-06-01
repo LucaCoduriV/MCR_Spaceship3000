@@ -1,20 +1,12 @@
 package ch.crepe.game.entities.ship.weapons.projectiles;
 
 import ch.crepe.game.entities.Entity;
-import ch.crepe.game.entities.VectorialMovableEntity;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 
-abstract public class Projectile extends VectorialMovableEntity {
-    Vector2 direction;
+abstract public class Projectile extends Entity {
 
-    protected Projectile(Vector2 position, Texture texture, float speed, Vector2 direction) {
+    protected Projectile(Vector2 position, Texture texture, Vector2 speed) {
         super(position, texture, speed);
-        this.direction = direction;
-    }
-
-    @Override
-    public void move() {
-        vectorialMove(direction);
     }
 }

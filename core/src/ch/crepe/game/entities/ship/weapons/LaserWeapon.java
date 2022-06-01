@@ -13,7 +13,7 @@ public class LaserWeapon extends Weapen {
     @Override
     void createProjectile() {
         //TODO changer direction
-        new Laser(getSpaceship().position(), new Vector2());
+        new Laser(getSpaceship().position());
     }
 
     @Override

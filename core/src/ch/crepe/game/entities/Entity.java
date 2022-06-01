@@ -1,20 +1,23 @@
 package ch.crepe.game.entities;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
 
 abstract public class Entity {
     private Vector2 position;
+    private Vector2 speed;
     private final Sprite sprite;
 
-    public Entity(Vector2 position, Texture texture) {
-        this(position, new Sprite(texture));
+    public Entity(Vector2 position, Texture texture, Vector2 speed) {
+        this(position, new Sprite(texture), speed);
     }
 
-    public Entity(Vector2 position, Sprite sprite) {
+    public Entity(Vector2 position, Sprite sprite, Vector2 speed) {
         this.position = position;
         this.sprite = sprite;
+        this.speed = speed;
     }
 
     /**
@@ -29,5 +32,21 @@ abstract public class Entity {
         this.position = position;
     }
 
-    abstract public void move();
+    //TODO temporaire en attendant visiteur
+    public void draw(Batch batch) {
+        getSprite().setPosition(position().x, position().y);
+        getSprite().draw(batch);
+    }
+
+    public Sprite getSprite() {
+        return sprite;
+    }
+
+    public void update(float delta){
+        position.add(speed);
+    }
+
+    public Vector2 speed() {
+        return speed;
+    }
 }
