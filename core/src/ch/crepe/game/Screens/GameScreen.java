@@ -15,9 +15,16 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 
 public class GameScreen extends ScreenAdapter {
+    private enum GameState{
+        playing,
+        pause
+    }
+    private GameState gameState = GameState.playing;
     private final Spaceship3000 parent;
     private final FitViewport viewport;
     private final HeadUpDisplay hud;
+    private final PauseOverlay pauseOverlay;
+    private final PlayerInput playerInput;
     private static final float WORLD_WIDTH = 96;
     private static final float WORLD_HEIGHT = 54;
     private final Spaceship spaceship = new Spaceship(new Vector2(), AssetsLoader.getInstance().getSpaceship(SpaceShip.bowFighter),new Vector2());
@@ -28,11 +35,14 @@ public class GameScreen extends ScreenAdapter {
         this.parent = parent;
         this.viewport = new FitViewport(WORLD_WIDTH,WORLD_HEIGHT);
         this.hud = new HeadUpDisplay();
+        this.pauseOverlay = new PauseOverlay(parent, this);
+        this.playerInput = new PlayerInput(this, spaceship);
     }
 
     @Override
     public void show() {
         Playlist musicPlaylist = new Playlist(musics);
+        musicPlaylist.shuffle();
         parent.getAudioManager().loadPlaylist(musicPlaylist);
         parent.getAudioManager().resumeMusic();
 
@@ -41,13 +51,26 @@ public class GameScreen extends ScreenAdapter {
 
 
 
-        Gdx.input.setInputProcessor(new PlayerInput(spaceship));
+        Gdx.input.setInputProcessor(playerInput);
     }
 
     @Override
     public void render(float delta) {
-        spaceship.update(delta);
+        if(gameState == GameState.playing){
+                updateGame(delta);
+                drawGame();
+        }else if(gameState == GameState.pause){
+            Gdx.gl.glClearColor(0f, 0f, 0f, 0.1f);
+            Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+            drawPauseMenu();
+        }
 
+    }
+
+    private void updateGame(float delta){
+        spaceship.update(delta);
+    }
+    private void drawGame(){
         Gdx.gl.glClearColor(0f, 0f, 0f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
@@ -61,7 +84,10 @@ public class GameScreen extends ScreenAdapter {
         parent.getBatch().end();
 
         hud.draw();
+    }
 
+    private void drawPauseMenu(){
+        pauseOverlay.draw(parent.getBatch());
     }
 
     @Override
@@ -72,6 +98,17 @@ public class GameScreen extends ScreenAdapter {
     @Override
     public void resize(int width, int height) {
         viewport.update(width, height);
+        pauseOverlay.update(width,height);
         hud.update(width, height);
+    }
+
+    public void pauseGame(){
+        Gdx.input.setInputProcessor(pauseOverlay.getInputProcessor());
+        gameState = GameState.pause;
+    }
+
+    public void resumeGame(){
+        Gdx.input.setInputProcessor(playerInput);
+        gameState = GameState.playing;
     }
 }
