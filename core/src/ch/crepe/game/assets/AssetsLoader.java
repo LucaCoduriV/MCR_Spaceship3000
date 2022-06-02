@@ -40,7 +40,6 @@ public class AssetsLoader extends AssetManager {
         load(Other.skin.getPath(), Skin.class);
 
         load(LEVEL_BACKGROUND_IMG, Texture.class);
-        load(MENU_IMG, Texture.class);
 
         for(Music music : Music.values()){
             load(music.getPath(), com.badlogic.gdx.audio.Music.class);
@@ -49,6 +48,8 @@ public class AssetsLoader extends AssetManager {
         for(Sound sound : Sound.values()){
             load(sound.getPath(), com.badlogic.gdx.audio.Sound.class);
         }
+
+        load(Other.logo.getPath(), Texture.class);
 
     }
 
@@ -70,6 +71,9 @@ public class AssetsLoader extends AssetManager {
 
     public Texture getBackground(){
         return get(LEVEL_BACKGROUND_IMG, Texture.class);
+    }
+    public Texture getLogo(){
+        return get(Other.logo.getPath(), Texture.class);
     }
     public Texture getMenu(){
         return get(MENU_IMG, Texture.class);
