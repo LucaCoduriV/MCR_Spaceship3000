@@ -7,10 +7,10 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
 public class AppPreferences {
-    static final String PREF_MUSIC_VOLUME = "music.volume";
-    static final String PREF_MUSIC_ENABLED = "music.enabled";
-    static final String PREF_SOUND_ENABLED = "sound.enabled";
-    static final String PREF_SOUND_VOLUME = "sound.volume";
+    public static final String PREF_MUSIC_VOLUME = "music.volume";
+    public static final String PREF_MUSIC_ENABLED = "music.enabled";
+    public static final String PREF_SOUND_ENABLED = "sound.enabled";
+    public static final String PREF_SOUND_VOLUME = "sound.volume";
     private static final String PREFS_NAME = "spaceship3000";
     private final PropertyChangeSupport propChangeSupport =
             new PropertyChangeSupport(this);

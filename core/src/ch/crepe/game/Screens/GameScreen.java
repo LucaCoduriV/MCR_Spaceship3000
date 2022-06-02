@@ -5,6 +5,7 @@ import ch.crepe.game.Spaceship3000;
 import ch.crepe.game.assets.AssetsLoader;
 import ch.crepe.game.assets.Music;
 import ch.crepe.game.assets.SpaceShip;
+import ch.crepe.game.audio.Playlist;
 import ch.crepe.game.entities.Spaceship;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
@@ -31,13 +32,8 @@ public class GameScreen extends ScreenAdapter {
 
     @Override
     public void show() {
-        parent.getAudioManager().loadMusic(musics[(int) (Math.random() * musics.length)]);
-        parent.getAudioManager().onMusicCompletion(new com.badlogic.gdx.audio.Music.OnCompletionListener() {
-            @Override
-            public void onCompletion(com.badlogic.gdx.audio.Music music) {
-                parent.getAudioManager().loadMusic(musics[(int) (Math.random() * musics.length)]);
-            }
-        });
+        Playlist musicPlaylist = new Playlist(musics);
+        parent.getAudioManager().loadPlaylist(musicPlaylist);
         parent.getAudioManager().resumeMusic();
 
         backgroundSprite.setSize(WORLD_WIDTH,WORLD_HEIGHT);

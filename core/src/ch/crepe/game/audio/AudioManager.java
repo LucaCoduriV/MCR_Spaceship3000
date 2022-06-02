@@ -1,5 +1,6 @@
-package ch.crepe.game;
+package ch.crepe.game.audio;
 
+import ch.crepe.game.AppPreferences;
 import ch.crepe.game.assets.AssetsLoader;
 import ch.crepe.game.assets.Music;
 import ch.crepe.game.assets.Sound;
@@ -18,8 +19,15 @@ public class AudioManager implements PropertyChangeListener {
     private boolean soundEnabled = true;
 
     public void loadMusic(Music music){
-        if(this.music != null) this.music.dispose();
+        stopMusic();
         this.music = am.newMusic(assets.getAudio(music));
+        this.music.setVolume(musicVolume);
+
+    }
+
+    public void loadPlaylist(Playlist playlist){
+        stopMusic();
+        this.music = playlist;
         this.music.setVolume(musicVolume);
     }
 
