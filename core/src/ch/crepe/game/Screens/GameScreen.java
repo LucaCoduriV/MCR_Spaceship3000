@@ -1,18 +1,25 @@
 package ch.crepe.game.Screens;
 
+import ch.crepe.game.EnnemySpawner;
 import ch.crepe.game.PlayerInput;
 import ch.crepe.game.Spaceship3000;
 import ch.crepe.game.assets.AssetsLoader;
 import ch.crepe.game.assets.Music;
 import ch.crepe.game.assets.SpaceShip;
 import ch.crepe.game.audio.Playlist;
+import ch.crepe.game.entities.Entity;
 import ch.crepe.game.entities.Spaceship;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.Timer;
 import com.badlogic.gdx.utils.viewport.FitViewport;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.TimerTask;
 
 public class GameScreen extends ScreenAdapter {
     private enum GameState{
@@ -30,13 +37,25 @@ public class GameScreen extends ScreenAdapter {
     private final Spaceship spaceship = new Spaceship(new Vector2(), AssetsLoader.getInstance().getSpaceship(SpaceShip.bowFighter),new Vector2());
     private final Sprite backgroundSprite = new Sprite(AssetsLoader.getInstance().getBackground());
     private final Music[] musics = { Music.aloneAgainstEnemy, Music.deathMatch, Music.battleInTheStars, Music.epicEnd, Music.rainOfLasers, Music.spaceHeroes, Music.withoutFear };
-
+    private final List<Entity> ennemies = new ArrayList<Entity>();
     public GameScreen(Spaceship3000 parent){
+
         this.parent = parent;
         this.viewport = new FitViewport(WORLD_WIDTH,WORLD_HEIGHT);
         this.hud = new HeadUpDisplay();
         this.pauseOverlay = new PauseOverlay(parent, this);
         this.playerInput = new PlayerInput(this, spaceship);
+
+        final EnnemySpawner spawner = new EnnemySpawner(96, 54);
+        new Timer().scheduleTask(new Timer.Task() {
+            @Override
+            public void run() {
+                ennemies.add(spawner.spawnEnnemy());
+
+            }
+        }, 0, 2);
+
+
     }
 
     @Override
@@ -68,6 +87,9 @@ public class GameScreen extends ScreenAdapter {
     }
 
     private void updateGame(float delta){
+        for (Entity entity : ennemies) {
+            entity.update(delta);
+        }
         spaceship.update(delta);
     }
     private void drawGame(){
@@ -80,6 +102,9 @@ public class GameScreen extends ScreenAdapter {
 
         parent.getBatch().begin();
         backgroundSprite.draw(parent.getBatch());
+        for (Entity entity : ennemies) {
+            entity.draw(parent.getBatch());
+        }
         spaceship.draw(parent.getBatch());
         parent.getBatch().end();
 
