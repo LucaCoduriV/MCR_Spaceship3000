@@ -12,6 +12,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -33,15 +34,22 @@ public class GameScreen extends ScreenAdapter {
     private final Sprite testSprite = new Sprite(AssetsLoader.getInstance().getSpaceship(SpaceShip.bowFighter));
     private final Sprite backgroundSprite = new Sprite(AssetsLoader.getInstance().getBackground());
 
-    private final Background background = new Background(
-            new Vector2(-WORLD_WIDTH/2f,-WORLD_HEIGHT/2f),
+    private final Background background = new Background(new Vector2(-WORLD_WIDTH / 2f, -WORLD_HEIGHT / 2f),
             new Vector2(WORLD_WIDTH, WORLD_HEIGHT),
-            AssetsLoader.getInstance().getBackground(),
-            10);
+            AssetsLoader.getInstance().getBackground(), 15, new Rectangle(-WORLD_WIDTH / 2f, -WORLD_HEIGHT / 2f,
+            WORLD_WIDTH, WORLD_HEIGHT));
+
     public GameScreen(Spaceship3000 parent){
         this.parent = parent;
         this.viewport = new FitViewport(WORLD_WIDTH,WORLD_HEIGHT);
         this.hud = new HeadUpDisplay();
+
+        /*
+                Sprite backgroundSprite = new Sprite(AssetsLoader.getInstance().getBackground());
+        backgroundSprite.setPosition(-WORLD_WIDTH / 2f, -WORLD_HEIGHT / 2f);
+        //Vector2 realSize = viewport.unproject(new Vector2(AssetsLoader.getInstance().getBackground().getWidth(), AssetsLoader.getInstance().getBackground().getHeight()));
+        //backgroundSprite.setSize(realSize.x, realSize.y);
+         */
     }
 
     @Override

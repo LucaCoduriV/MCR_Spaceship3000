@@ -8,7 +8,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 public class AssetsLoader extends AssetManager {
     private static AssetsLoader instance;
 
-    private static final String LEVEL_BACKGROUND_IMG = "backgrounds/space_background.png";
+    private static final String LEVEL_BACKGROUND_IMG = "backgrounds/space_background_2.png";
     private static final String MENU_IMG = "items.png";
 
     public static AssetsLoader getInstance(){
@@ -29,6 +29,10 @@ public class AssetsLoader extends AssetManager {
             load(s.getPath(), Texture.class);
         }
 
+        for(Star s : Star.values()){
+            load(s.getPath(), Texture.class);
+        }
+
         for(Laser l : Laser.values()){
             load(l.getPath(), Texture.class);
         }
@@ -40,6 +44,10 @@ public class AssetsLoader extends AssetManager {
 
     public Texture getSpaceship(SpaceShip ship){
         return get(ship.getPath(), Texture.class);
+    }
+
+    public Texture getStar(Star star){
+        return get(star.getPath(), Texture.class);
     }
 
     public Texture getExplosion(Explosions explosion){

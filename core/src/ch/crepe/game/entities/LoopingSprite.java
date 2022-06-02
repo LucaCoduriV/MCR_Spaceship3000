@@ -1,35 +1,31 @@
 package ch.crepe.game.entities;
 
-import ch.crepe.game.assets.AssetsLoader;
-import ch.crepe.game.assets.Laser;
-import ch.crepe.game.entities.Entity;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
-public class Star extends Entity {
+public class LoopingSprite extends Entity {
     private Float speed;
     private Rectangle bounds;
-
-    private Vector2 basePosition;
-
     private Vector2 respawnPosition;
+
+    public Sprite getSprite() {
+        return sprite;
+    }
 
     private Sprite sprite;
 
-    public Star(Vector2 respawnPosition, Vector2 basePosition, Float speed, Rectangle bounds) {
+    public LoopingSprite(Texture texture, Vector2 size, Vector2 respawnPosition, Vector2 basePosition, Float speed, Rectangle bounds) {
         super(basePosition);
-        
-        this.basePosition = new Vector2(basePosition.x, basePosition.y);
         this.respawnPosition = new Vector2(respawnPosition.x, respawnPosition.y);
         this.speed = speed;
         this.bounds = bounds;
 
-        sprite = new Sprite(AssetsLoader.getInstance().getLaser(Laser.blueFast));
+        sprite = new Sprite(texture);
         sprite.setPosition(basePosition.x, basePosition.y);
-        sprite.setSize(10, 10); // TODO factory bref modif
+        sprite.setSize(size.x, size.y);
     }
 
     public void move() {
@@ -41,7 +37,7 @@ public class Star extends Entity {
     private boolean checkBounds() {
         if(!bounds.contains(position())){
             System.out.println("Reseting position");
-            setPosition(respawnPosition);
+            setPosition(respawnPosition.cpy());
             return false;
         }
         return true;
