@@ -28,7 +28,7 @@ abstract public class Entity {
         return position;
     }
 
-    protected void setPosition(Vector2 position) {
+    public void setPosition(Vector2 position) {
         this.position = position;
     }
 

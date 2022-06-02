@@ -1,5 +1,6 @@
 package ch.crepe.game.Screens;
 
+import ch.crepe.game.Background;
 import ch.crepe.game.EnnemySpawner;
 import ch.crepe.game.PlayerInput;
 import ch.crepe.game.Spaceship3000;
@@ -13,6 +14,12 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Timer;
 import com.badlogic.gdx.utils.viewport.FitViewport;
@@ -36,6 +43,10 @@ public class GameScreen extends ScreenAdapter {
     private static final float WORLD_HEIGHT = 54;
     private final Spaceship spaceship = new Spaceship(new Vector2(), AssetsLoader.getInstance().getSpaceship(SpaceShip.bowFighter),new Vector2());
     private final Sprite backgroundSprite = new Sprite(AssetsLoader.getInstance().getBackground());
+    private final Background background = new Background(new Vector2(-WORLD_WIDTH / 2f, -WORLD_HEIGHT / 2f),
+            new Vector2(WORLD_WIDTH, WORLD_HEIGHT),
+            AssetsLoader.getInstance().getBackground(), 15, new Rectangle(-WORLD_WIDTH / 2f, -WORLD_HEIGHT / 2f,
+            WORLD_WIDTH, WORLD_HEIGHT));
     private final Music[] musics = { Music.aloneAgainstEnemy, Music.deathMatch, Music.battleInTheStars, Music.epicEnd, Music.rainOfLasers, Music.spaceHeroes, Music.withoutFear };
     private final List<Entity> ennemies = new ArrayList<Entity>();
     public GameScreen(Spaceship3000 parent){
@@ -54,8 +65,6 @@ public class GameScreen extends ScreenAdapter {
 
             }
         }, 0, 2);
-
-
     }
 
     @Override
@@ -101,7 +110,13 @@ public class GameScreen extends ScreenAdapter {
 
 
         parent.getBatch().begin();
-        backgroundSprite.draw(parent.getBatch());
+        //backgroundSprite.draw(parent.getBatch());
+        background.draw(parent.getBatch());
+        background.update();
+        //testSprite.setPosition(testSprite.getX() - testSprite.getX() / 2, testSprite.getY() - testSprite.getY() / 2);
+        testSprite.setSize(10,10);
+        testSprite.setPosition(posX, posY);
+        testSprite.draw(parent.getBatch());
         for (Entity entity : ennemies) {
             entity.draw(parent.getBatch());
         }
