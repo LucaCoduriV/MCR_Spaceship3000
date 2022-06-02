@@ -38,7 +38,6 @@ public class PlayerInput extends InputAdapter {
 
     @Override
     public boolean keyUp(int keycode) {
-        System.out.println(keycode);
         switch (keycode){
             case Input.Keys.UP:
             case Input.Keys.DOWN:
@@ -50,6 +49,9 @@ public class PlayerInput extends InputAdapter {
                 break;
             case Input.Keys.ESCAPE:
                 screen.pauseGame();
+            default:
+                System.out.println(keycode);
+                break;
         }
         return super.keyUp(keycode);
     }

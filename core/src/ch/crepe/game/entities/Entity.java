@@ -34,7 +34,7 @@ abstract public class Entity {
 
     //TODO temporaire en attendant visiteur
     public void draw(Batch batch) {
-        getSprite().setPosition(position().x, position().y);
+        getSprite().setCenter(position().x, position().y);
         getSprite().draw(batch);
     }
 
