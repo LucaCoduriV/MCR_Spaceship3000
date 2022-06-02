@@ -6,6 +6,7 @@ import com.badlogic.gdx.audio.Music;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Playlist implements Music {
@@ -17,6 +18,10 @@ public class Playlist implements Music {
         for (ch.crepe.game.assets.Music music: musics) {
             this.musics.add(AssetsLoader.getInstance().getMusic(music));
         }
+    }
+
+    public void shuffle(){
+        Collections.shuffle(this.musics);
     }
 
     @Override
