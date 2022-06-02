@@ -33,8 +33,8 @@ public class Background {
                 2 * bounds.height
         );
         Vector2 tileSpawn = new Vector2(position.x, position.y + size.y);
-        tile_1 = new LoopingSprite(image, size, tileSpawn, position, 0.03f, this.bounds);
-        tile_2 = new LoopingSprite(image, size, tileSpawn, tileSpawn, 0.03f, this.bounds);
+        tile_1 = new LoopingSprite(image, size, tileSpawn, position, 0.01f, this.bounds);
+        tile_2 = new LoopingSprite(image, size, tileSpawn, tileSpawn, 0.01f, this.bounds);
         this.stars = new LinkedList<>();
         createStars(nbStars);
     }
@@ -61,10 +61,10 @@ public class Background {
             Star starType =  Star.values()[rnd.nextInt(Star.values().length)];
             this.stars.add(new LoopingAnimation(
                     AssetsLoader.getInstance().getStar(starType),
-                    new Vector2(15 * size, 15 * size),
+                    new Vector2(14 * size, 14 * size),
                     new Vector2(rndPositionX, position.y + (int)tile_1.getSprite().getHeight()),
                     new Vector2(rndPositionX, rndPositionY),
-                    size / 2,
+                    size / 10,
                     new Rectangle(bounds.x, bounds.y, bounds.width, bounds.height),
                     starType.getTileWidth(), starType.getTileHeight()));
         }

@@ -114,9 +114,6 @@ public class GameScreen extends ScreenAdapter {
         background.draw(parent.getBatch());
         background.update();
         //testSprite.setPosition(testSprite.getX() - testSprite.getX() / 2, testSprite.getY() - testSprite.getY() / 2);
-        testSprite.setSize(10,10);
-        testSprite.setPosition(posX, posY);
-        testSprite.draw(parent.getBatch());
         for (Entity entity : ennemies) {
             entity.draw(parent.getBatch());
         }

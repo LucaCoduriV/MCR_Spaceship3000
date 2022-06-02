@@ -6,7 +6,9 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
-public class LoopingSprite extends Entity {
+public class LoopingSprite {
+    private Vector2 position;
+
     private Float speed;
     private Rectangle bounds;
     private Vector2 respawnPosition;
@@ -18,7 +20,7 @@ public class LoopingSprite extends Entity {
     private Sprite sprite;
 
     public LoopingSprite(Texture texture, Vector2 size, Vector2 respawnPosition, Vector2 basePosition, Float speed, Rectangle bounds) {
-        super(basePosition);
+        this.position = basePosition;
         this.respawnPosition = new Vector2(respawnPosition.x, respawnPosition.y);
         this.speed = speed;
         this.bounds = bounds;
@@ -43,10 +45,13 @@ public class LoopingSprite extends Entity {
         return true;
     }
 
-    @Override
     public void setPosition(Vector2 position) {
-        super.setPosition(position);
+        this.position = position;
         sprite.setPosition(position.x, position.y);
+    }
+
+    protected Vector2 position() {
+        return this.position;
     }
 
     public void draw(SpriteBatch batch) {

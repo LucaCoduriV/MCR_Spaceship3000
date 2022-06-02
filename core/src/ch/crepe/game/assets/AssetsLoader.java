@@ -9,7 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 public class AssetsLoader extends AssetManager {
     private static AssetsLoader instance;
 
-    private static final String LEVEL_BACKGROUND_IMG = "backgrounds/space_background_2.png";
+    private static final String LEVEL_BACKGROUND_IMG = "backgrounds/space_background_3.png";
     private static final String MENU_IMG = "items.png";
 
     public static AssetsLoader getInstance(){
