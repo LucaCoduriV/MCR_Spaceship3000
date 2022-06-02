@@ -2,6 +2,7 @@ package ch.crepe.game;
 
 import ch.crepe.game.Screens.*;
 import ch.crepe.game.assets.AssetsLoader;
+import ch.crepe.game.audio.AudioManager;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
