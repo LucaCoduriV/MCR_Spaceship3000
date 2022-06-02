@@ -1,6 +1,7 @@
 package ch.crepe.game.assets;
 
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
@@ -40,6 +41,15 @@ public class AssetsLoader extends AssetManager {
 
         load(LEVEL_BACKGROUND_IMG, Texture.class);
         load(MENU_IMG, Texture.class);
+
+        for(Music music : Music.values()){
+            load(music.getPath(), com.badlogic.gdx.audio.Music.class);
+        }
+
+        for(Sound sound : Sound.values()){
+            load(sound.getPath(), com.badlogic.gdx.audio.Sound.class);
+        }
+
     }
 
     public Texture getSpaceship(SpaceShip ship){
@@ -67,6 +77,17 @@ public class AssetsLoader extends AssetManager {
 
     public Skin getSkin(){
         return get(Other.skin.getPath(), Skin.class);
+    }
+    public FileHandle getAudio(Music music){
+        return getFileHandleResolver().resolve(music.getPath());
+    }
+
+    public com.badlogic.gdx.audio.Music getMusic(Music music){
+        return get(music.getPath(), com.badlogic.gdx.audio.Music.class);
+    }
+
+    public com.badlogic.gdx.audio.Sound getSound(Sound sound){
+        return get(sound.getPath(), com.badlogic.gdx.audio.Sound.class);
     }
 }
 

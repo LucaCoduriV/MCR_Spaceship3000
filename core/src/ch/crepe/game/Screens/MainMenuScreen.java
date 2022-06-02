@@ -2,6 +2,7 @@ package ch.crepe.game.Screens;
 
 import ch.crepe.game.Spaceship3000;
 import ch.crepe.game.assets.AssetsLoader;
+import ch.crepe.game.assets.Music;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
@@ -29,12 +30,16 @@ public class MainMenuScreen extends ScreenAdapter {
 
     @Override
     public void show() {
+        parent.getAudioManager().loadMusic(Music.menu);
+        parent.getAudioManager().loopMusic(true);
+        parent.getAudioManager().resumeMusic();
+
         Gdx.input.setInputProcessor(stage);
 
         // Create a table that fills the screen. Everything else will go inside this table.
         Table table = new Table();
         table.setFillParent(true);
-        table.setDebug(true);
+        table.setDebug(false);
         stage.addActor(table);
 
         Skin skin = AssetsLoader.getInstance().getSkin();
