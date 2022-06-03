@@ -8,8 +8,6 @@ import ch.crepe.game.visitor.Visitor;
 
 public class Asteroid extends Entity {
 
-    //public Asteroid(Vector2 position, Sprite sprite, Vector2 speed) {
-    //super(position, sprite, speed);
     public Asteroid(Vector2 position, Sprite sprite, Vector2 speed, float width, float height) {
         super(position, sprite, speed, width, height);
     }

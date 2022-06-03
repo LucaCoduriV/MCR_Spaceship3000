@@ -23,7 +23,7 @@ public class Spaceship extends Entity {
 
     @Override
     public void accept(Visitor v) {
-        v.visitSpaceship(this);
+        v.visitEntity(this);
     }
 
     public void setWeapon(Weapon weapon) {

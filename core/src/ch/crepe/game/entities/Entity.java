@@ -41,8 +41,7 @@ abstract public class Entity implements Visitable {
 
     //TODO temporaire en attendant visiteur
     public void draw(Batch batch) {
-        getSprite().setPosition(hitbox.x - (width - hitbox.width) / 2,
-                hitbox.y - (height - hitbox.height) / 2);
+        getSprite().setCenter(hitbox.x, hitbox.y);
         getSprite().draw(batch);
     }
 

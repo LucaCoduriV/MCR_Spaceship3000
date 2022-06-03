@@ -1,7 +1,7 @@
 package ch.crepe.game.visitor;
 
-import ch.crepe.game.entities.Spaceship;
+import ch.crepe.game.entities.Entity;
 
 public interface Visitor {
-    void visitSpaceship(Spaceship ship);
+    void visitEntity(Entity entity);
 }
