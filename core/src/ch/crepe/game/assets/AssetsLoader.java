@@ -19,7 +19,9 @@ public class AssetsLoader extends AssetManager {
         return instance;
     }
     private AssetsLoader(){
+    }
 
+    public void loadAll(){
         // loading is async
 
         for(Explosions e: Explosions.values()){
@@ -50,7 +52,6 @@ public class AssetsLoader extends AssetManager {
         }
 
         load(Other.logo.getPath(), Texture.class);
-
     }
 
     public Texture getSpaceship(SpaceShip ship){
