@@ -3,24 +3,18 @@ package ch.crepe.game.Screens;
 import ch.crepe.game.*;
 import ch.crepe.game.assets.AssetsLoader;
 import ch.crepe.game.assets.Music;
-import ch.crepe.game.assets.SpaceShip;
 import ch.crepe.game.audio.Playlist;
 import ch.crepe.game.entities.Entity;
-import ch.crepe.game.entities.Spaceship;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.utils.Timer;
+import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.TimerTask;
-
 public class GameScreen extends ScreenAdapter {
-    private GameController controller;
+    private final GameController controller;
     private final Spaceship3000 parent;
     private final FitViewport viewport;
     private final HeadUpDisplay hud;
@@ -37,14 +31,25 @@ public class GameScreen extends ScreenAdapter {
             Music.spaceHeroes,
             Music.withoutFear
     };
-    public GameScreen(Spaceship3000 parent){
-        this.controller = new GameController();
+    public GameScreen(final Spaceship3000 parent){
         this.parent = parent;
         this.viewport = new FitViewport(WORLD_WIDTH,WORLD_HEIGHT);
         this.hud = new HeadUpDisplay();
-        this.pauseOverlay = new PauseOverlay(parent, this);
-
-
+        this.controller = new GameController();
+        final ChangeListener onResume = new ChangeListener() {
+            @Override
+            public void changed(ChangeEvent event, Actor actor) {
+                controller.resumeGame();
+            }
+        };
+        final ChangeListener onQuit = new ChangeListener() {
+            @Override
+            public void changed(ChangeEvent event, Actor actor) {
+                parent.changeScreen(ScreenType.MainMenu);
+            }
+        };
+        this.pauseOverlay = new PauseOverlay(onQuit, onResume);
+        this.controller.setPauseMenuInputProcessor(pauseOverlay.getInputProcessor());
 
     }
 
@@ -112,15 +117,5 @@ public class GameScreen extends ScreenAdapter {
         viewport.update(width, height);
         pauseOverlay.update(width,height);
         hud.update(width, height);
-    }
-
-    public void pauseGame(){
-        Gdx.input.setInputProcessor(pauseOverlay.getInputProcessor());
-        controller.getGameInfo().setState(GameInfo.GameState.pause);
-    }
-
-    public void resumeGame(){
-        Gdx.input.setInputProcessor(controller.getPlayerInput());
-        controller.getGameInfo().setState(GameInfo.GameState.playing);
     }
 }
