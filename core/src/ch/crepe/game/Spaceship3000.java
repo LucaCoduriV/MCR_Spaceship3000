@@ -21,19 +21,21 @@ public class Spaceship3000 extends Game {
 	@Override
 	public void create () {
 		Gdx.graphics.setWindowedMode(960,540);
-		AssetsLoader.getInstance().finishLoading();
 		batcher = new SpriteBatch();
 		preferences = new AppPreferences();
 		audioManager = new AudioManager();
 
 		preferences.addListener(audioManager);
 
-		changeScreen(ScreenType.GameOver);
+		changeScreen(ScreenType.Loading);
 	}
 
 	public void changeScreen(ScreenType screen){
 		switch (screen){
+			case Loading:
+				setScreen(new LoadingScreen(this));
 
+				break;
 			case MainMenu:
 				System.out.println("Showing MainMenu screen !");
 				setScreen(new MainMenuScreen(this));
