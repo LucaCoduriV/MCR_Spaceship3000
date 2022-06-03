@@ -2,8 +2,22 @@ package ch.crepe.game;
 
 public class GameInfo {
     private int score = 0;
-    private int lives = 3;
+    private int lives = 100;
     private int level = 1;
+
+    public GameState getState() {
+        return state;
+    }
+
+    public void setState(GameState state) {
+        this.state = state;
+    }
+
+    public enum GameState{
+        playing,
+        pause
+    }
+    private GameState state = GameState.playing;
 
     public int getScore() {
         return score;

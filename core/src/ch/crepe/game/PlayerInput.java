@@ -1,5 +1,6 @@
 package ch.crepe.game;
 
+import ch.crepe.game.Screens.GameScreen;
 import ch.crepe.game.assets.SpaceShip;
 import ch.crepe.game.entities.Entity;
 import com.badlogic.gdx.Input;
@@ -8,9 +9,11 @@ import com.badlogic.gdx.math.Vector2;
 
 public class PlayerInput extends InputAdapter {
     private final Entity entity;
+    private final GameController controller;
 
-    public PlayerInput(Entity entity) {
+    public PlayerInput(GameController gameController, Entity entity) {
         this.entity = entity;
+        this.controller = gameController;
     }
 
     @Override
@@ -35,7 +38,6 @@ public class PlayerInput extends InputAdapter {
 
     @Override
     public boolean keyUp(int keycode) {
-        System.out.println(keycode);
         switch (keycode){
             case Input.Keys.UP:
             case Input.Keys.DOWN:
@@ -44,6 +46,11 @@ public class PlayerInput extends InputAdapter {
             case Input.Keys.LEFT:
             case Input.Keys.RIGHT:
                 entity.speed().x = 0;
+                break;
+            case Input.Keys.ESCAPE:
+                controller.pauseGame();
+            default:
+                System.out.println(keycode);
                 break;
         }
         return super.keyUp(keycode);

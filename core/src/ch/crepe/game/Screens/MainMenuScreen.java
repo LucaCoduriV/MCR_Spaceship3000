@@ -2,22 +2,26 @@ package ch.crepe.game.Screens;
 
 import ch.crepe.game.Spaceship3000;
 import ch.crepe.game.assets.AssetsLoader;
+import ch.crepe.game.assets.Music;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.scenes.scene2d.utils.SpriteDrawable;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 public class MainMenuScreen extends ScreenAdapter {
     private final Spaceship3000 parent;
     private final Stage stage;
     private final Sprite backgroundSprite = new Sprite(AssetsLoader.getInstance().getBackground());
+    private final Sprite logoSprite = new Sprite(AssetsLoader.getInstance().getLogo());
     public MainMenuScreen(Spaceship3000 parent){
         this.parent = parent;
 
@@ -29,12 +33,16 @@ public class MainMenuScreen extends ScreenAdapter {
 
     @Override
     public void show() {
+        parent.getAudioManager().loadMusic(Music.menu);
+        parent.getAudioManager().loopMusic(true);
+        parent.getAudioManager().resumeMusic();
+
         Gdx.input.setInputProcessor(stage);
 
         // Create a table that fills the screen. Everything else will go inside this table.
         Table table = new Table();
         table.setFillParent(true);
-        table.setDebug(true);
+        table.setDebug(false);
         stage.addActor(table);
 
         Skin skin = AssetsLoader.getInstance().getSkin();
@@ -43,8 +51,11 @@ public class MainMenuScreen extends ScreenAdapter {
         TextButton newGame = new TextButton("New Game", skin);
         TextButton preferences = new TextButton("Preferences", skin);
         TextButton exit = new TextButton("Exit", skin);
+        Image image = new Image(new SpriteDrawable(logoSprite));
 
         //add buttons to table
+        table.add(image).fillX().uniformX();
+        table.row().pad(10, 0, 10, 0);
         table.add(newGame).fillX().uniformX();
         table.row().pad(10, 0, 10, 0);
         table.add(preferences).fillX().uniformX();

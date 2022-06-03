@@ -1,57 +1,97 @@
 package ch.crepe.game.Screens;
 
-import ch.crepe.game.PlayerInput;
-import ch.crepe.game.Spaceship3000;
+import ch.crepe.game.*;
 import ch.crepe.game.assets.AssetsLoader;
-import ch.crepe.game.assets.SpaceShip;
-import ch.crepe.game.engines.CollisionEngine;
+import ch.crepe.game.assets.Music;
+import ch.crepe.game.audio.Playlist;
 import ch.crepe.game.entities.Entity;
-import ch.crepe.game.entities.Spaceship;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 
-import java.util.LinkedList;
-
 public class GameScreen extends ScreenAdapter {
+    private final GameController controller;
     private final Spaceship3000 parent;
     private final FitViewport viewport;
     private final HeadUpDisplay hud;
+    private final PauseOverlay pauseOverlay;
     private static final float WORLD_WIDTH = 96;
     private static final float WORLD_HEIGHT = 54;
-    private final Spaceship spaceship = new Spaceship(new Vector2(0, 0), new Sprite(AssetsLoader.getInstance().getSpaceship(SpaceShip.bowFighterDebug)),new Vector2(), 10, 10);
-    private final Spaceship spaceship2 = new Spaceship(new Vector2(10, 10), new Sprite(AssetsLoader.getInstance().getSpaceship(SpaceShip.bowFighterDebug)),new Vector2(), 10, 10);
-    private final Spaceship spaceship3 = new Spaceship(new Vector2(-10, -20), new Sprite(AssetsLoader.getInstance().getSpaceship(SpaceShip.bowFighterDebug)),new Vector2(), 10, 10);
     private final Sprite backgroundSprite = new Sprite(AssetsLoader.getInstance().getBackground());
+    private static final Music[] musics = {
+            Music.aloneAgainstEnemy,
+            Music.deathMatch,
+            Music.battleInTheStars,
+            Music.epicEnd,
+            Music.rainOfLasers,
+            Music.spaceHeroes,
+            Music.withoutFear
+    };
+    private final Background background = new Background(new Vector2(-WORLD_WIDTH / 2f, -WORLD_HEIGHT / 2f),
+            new Vector2(WORLD_WIDTH, WORLD_HEIGHT),
+            AssetsLoader.getInstance().getBackground(), 15, new Rectangle(-WORLD_WIDTH / 2f, -WORLD_HEIGHT / 2f,
+            WORLD_WIDTH, WORLD_HEIGHT));
 
-
-    private final LinkedList<Spaceship> entites = new LinkedList<>();
-    private final CollisionEngine ce = new CollisionEngine(entites);
-
-    public GameScreen(Spaceship3000 parent){
+    public GameScreen(final Spaceship3000 parent){
         this.parent = parent;
         this.viewport = new FitViewport(WORLD_WIDTH,WORLD_HEIGHT);
         this.hud = new HeadUpDisplay();
-        entites.add(spaceship);
-        entites.add(spaceship2);
-        entites.add(spaceship3);
+        this.controller = new GameController();
+        final ChangeListener onResume = new ChangeListener() {
+            @Override
+            public void changed(ChangeEvent event, Actor actor) {
+                controller.resumeGame();
+            }
+        };
+        final ChangeListener onQuit = new ChangeListener() {
+            @Override
+            public void changed(ChangeEvent event, Actor actor) {
+                parent.changeScreen(ScreenType.MainMenu);
+            }
+        };
+        this.pauseOverlay = new PauseOverlay(onQuit, onResume);
+        this.controller.setPauseMenuInputProcessor(pauseOverlay.getInputProcessor());
+
     }
 
     @Override
     public void show() {
+        Playlist musicPlaylist = new Playlist(musics);
+        musicPlaylist.shuffle();
+        parent.getAudioManager().loadPlaylist(musicPlaylist);
+        parent.getAudioManager().resumeMusic();
+
         backgroundSprite.setSize(WORLD_WIDTH,WORLD_HEIGHT);
         backgroundSprite.setPosition(-WORLD_WIDTH/2f,-WORLD_HEIGHT/2f);
 
-        Gdx.input.setInputProcessor(new PlayerInput(spaceship));
+
+
+        Gdx.input.setInputProcessor(controller.getPlayerInput());
     }
 
     @Override
     public void render(float delta) {
-        spaceship.update(delta);
+        if(controller.getGameInfo().getState() == GameInfo.GameState.playing){
+                updateGame(delta);
+                drawGame();
+        }else if(controller.getGameInfo().getState() == GameInfo.GameState.pause){
+            Gdx.gl.glClearColor(0f, 0f, 0f, 0.1f);
+            Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+            drawPauseMenu();
+        }
 
+    }
+
+    private void updateGame(float delta){
+        controller.update(delta);
+    }
+    private void drawGame(){
         Gdx.gl.glClearColor(0f, 0f, 0f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
@@ -60,16 +100,21 @@ public class GameScreen extends ScreenAdapter {
 
 
         parent.getBatch().begin();
-        backgroundSprite.draw(parent.getBatch());
-        for (Entity entity : entites) {
+        //backgroundSprite.draw(parent.getBatch());
+        background.draw(parent.getBatch());
+        background.update();
+        //testSprite.setPosition(testSprite.getX() - testSprite.getX() / 2, testSprite.getY() - testSprite.getY() / 2);
+        for (Entity entity : controller.getEntities()) {
             entity.draw(parent.getBatch());
-            entity.accept(ce);
         }
+        controller.getPlayerShip().draw(parent.getBatch());
         parent.getBatch().end();
 
-
         hud.draw();
+    }
 
+    private void drawPauseMenu(){
+        pauseOverlay.draw(parent.getBatch());
     }
 
     @Override
@@ -80,6 +125,7 @@ public class GameScreen extends ScreenAdapter {
     @Override
     public void resize(int width, int height) {
         viewport.update(width, height);
+        pauseOverlay.update(width,height);
         hud.update(width, height);
     }
 }
