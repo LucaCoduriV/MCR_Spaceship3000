@@ -18,7 +18,7 @@ public class CollisionEngine extends Engine {
         for (Spaceship other : entities) {
             if(ship == other) continue;
             if(Intersector.overlaps(ship.getHitbox(), other.getHitbox())) {
-                System.out.println("Collision between " + ship.getClass().getSimpleName() + " and " + other.getClass().getSimpleName());
+                //System.out.println("Collision between " + ship.getClass().getSimpleName() + " and " + other.getClass().getSimpleName());
             }
         }
     }
