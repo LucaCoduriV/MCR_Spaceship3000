@@ -1,12 +1,8 @@
 package ch.crepe.game.entities;
 
-import ch.crepe.game.engines.Renderer.Renderer;
 import ch.crepe.game.entities.ship.weapons.Weapon;
 import ch.crepe.game.visitor.Visitor;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;

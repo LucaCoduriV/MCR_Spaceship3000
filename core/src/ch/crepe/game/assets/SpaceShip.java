@@ -10,6 +10,7 @@ public enum SpaceShip {
     iceSpeedster("ships/starships_0004_Ice-Speedster.png"),
     centenialHawk("ships/starships_0005_Centenial-Hawk.png"),
     bowFighter("ships/starships_0006_Bow-fighter.png"),
+    bowFighterDebug("ships/starships_0006_Bow-fighter_debug.png"),
     exVing("ships/starships_0007_Ex-ving.png");
 
     private final String path;
