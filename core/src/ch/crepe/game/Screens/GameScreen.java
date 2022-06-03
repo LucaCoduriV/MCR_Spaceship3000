@@ -1,8 +1,6 @@
 package ch.crepe.game.Screens;
 
-import ch.crepe.game.EnnemySpawner;
-import ch.crepe.game.PlayerInput;
-import ch.crepe.game.Spaceship3000;
+import ch.crepe.game.*;
 import ch.crepe.game.assets.AssetsLoader;
 import ch.crepe.game.assets.Music;
 import ch.crepe.game.assets.SpaceShip;
@@ -22,38 +20,30 @@ import java.util.List;
 import java.util.TimerTask;
 
 public class GameScreen extends ScreenAdapter {
-    private enum GameState{
-        playing,
-        pause
-    }
-    private GameState gameState = GameState.playing;
+    private GameController controller;
     private final Spaceship3000 parent;
     private final FitViewport viewport;
     private final HeadUpDisplay hud;
     private final PauseOverlay pauseOverlay;
-    private final PlayerInput playerInput;
     private static final float WORLD_WIDTH = 96;
     private static final float WORLD_HEIGHT = 54;
-    private final Spaceship spaceship = new Spaceship(new Vector2(), AssetsLoader.getInstance().getSpaceship(SpaceShip.bowFighter),new Vector2());
     private final Sprite backgroundSprite = new Sprite(AssetsLoader.getInstance().getBackground());
-    private final Music[] musics = { Music.aloneAgainstEnemy, Music.deathMatch, Music.battleInTheStars, Music.epicEnd, Music.rainOfLasers, Music.spaceHeroes, Music.withoutFear };
-    private final List<Entity> ennemies = new ArrayList<Entity>();
+    private static final Music[] musics = {
+            Music.aloneAgainstEnemy,
+            Music.deathMatch,
+            Music.battleInTheStars,
+            Music.epicEnd,
+            Music.rainOfLasers,
+            Music.spaceHeroes,
+            Music.withoutFear
+    };
     public GameScreen(Spaceship3000 parent){
-
+        this.controller = new GameController();
         this.parent = parent;
         this.viewport = new FitViewport(WORLD_WIDTH,WORLD_HEIGHT);
         this.hud = new HeadUpDisplay();
         this.pauseOverlay = new PauseOverlay(parent, this);
-        this.playerInput = new PlayerInput(this, spaceship);
 
-        final EnnemySpawner spawner = new EnnemySpawner(96, 54);
-        new Timer().scheduleTask(new Timer.Task() {
-            @Override
-            public void run() {
-                ennemies.add(spawner.spawnEnnemy());
-
-            }
-        }, 0, 2);
 
 
     }
@@ -70,15 +60,15 @@ public class GameScreen extends ScreenAdapter {
 
 
 
-        Gdx.input.setInputProcessor(playerInput);
+        Gdx.input.setInputProcessor(controller.getPlayerInput());
     }
 
     @Override
     public void render(float delta) {
-        if(gameState == GameState.playing){
+        if(controller.getGameInfo().getState() == GameInfo.GameState.playing){
                 updateGame(delta);
                 drawGame();
-        }else if(gameState == GameState.pause){
+        }else if(controller.getGameInfo().getState() == GameInfo.GameState.pause){
             Gdx.gl.glClearColor(0f, 0f, 0f, 0.1f);
             Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
             drawPauseMenu();
@@ -87,10 +77,7 @@ public class GameScreen extends ScreenAdapter {
     }
 
     private void updateGame(float delta){
-        for (Entity entity : ennemies) {
-            entity.update(delta);
-        }
-        spaceship.update(delta);
+        controller.update(delta);
     }
     private void drawGame(){
         Gdx.gl.glClearColor(0f, 0f, 0f, 1);
@@ -102,10 +89,10 @@ public class GameScreen extends ScreenAdapter {
 
         parent.getBatch().begin();
         backgroundSprite.draw(parent.getBatch());
-        for (Entity entity : ennemies) {
+        for (Entity entity : controller.getEntities()) {
             entity.draw(parent.getBatch());
         }
-        spaceship.draw(parent.getBatch());
+        controller.getPlayerShip().draw(parent.getBatch());
         parent.getBatch().end();
 
         hud.draw();
@@ -129,11 +116,11 @@ public class GameScreen extends ScreenAdapter {
 
     public void pauseGame(){
         Gdx.input.setInputProcessor(pauseOverlay.getInputProcessor());
-        gameState = GameState.pause;
+        controller.getGameInfo().setState(GameInfo.GameState.pause);
     }
 
     public void resumeGame(){
-        Gdx.input.setInputProcessor(playerInput);
-        gameState = GameState.playing;
+        Gdx.input.setInputProcessor(controller.getPlayerInput());
+        controller.getGameInfo().setState(GameInfo.GameState.playing);
     }
 }
