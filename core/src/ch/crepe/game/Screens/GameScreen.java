@@ -9,6 +9,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.viewport.FitViewport;
@@ -31,6 +33,11 @@ public class GameScreen extends ScreenAdapter {
             Music.spaceHeroes,
             Music.withoutFear
     };
+    private final Background background = new Background(new Vector2(-WORLD_WIDTH / 2f, -WORLD_HEIGHT / 2f),
+            new Vector2(WORLD_WIDTH, WORLD_HEIGHT),
+            AssetsLoader.getInstance().getBackground(), 15, new Rectangle(-WORLD_WIDTH / 2f, -WORLD_HEIGHT / 2f,
+            WORLD_WIDTH, WORLD_HEIGHT));
+
     public GameScreen(final Spaceship3000 parent){
         this.parent = parent;
         this.viewport = new FitViewport(WORLD_WIDTH,WORLD_HEIGHT);
@@ -93,7 +100,10 @@ public class GameScreen extends ScreenAdapter {
 
 
         parent.getBatch().begin();
-        backgroundSprite.draw(parent.getBatch());
+        //backgroundSprite.draw(parent.getBatch());
+        background.draw(parent.getBatch());
+        background.update();
+        //testSprite.setPosition(testSprite.getX() - testSprite.getX() / 2, testSprite.getY() - testSprite.getY() / 2);
         for (Entity entity : controller.getEntities()) {
             entity.draw(parent.getBatch());
         }

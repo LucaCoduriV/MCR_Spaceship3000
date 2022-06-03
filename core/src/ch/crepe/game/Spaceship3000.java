@@ -6,6 +6,8 @@ import ch.crepe.game.audio.AudioManager;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.ScreenUtils;
 
 public class Spaceship3000 extends Game {
 	private static final int screenWidth = 1280;
@@ -13,6 +15,8 @@ public class Spaceship3000 extends Game {
 	private SpriteBatch batcher;
 	private AppPreferences preferences;
 	private AudioManager audioManager;
+
+	Background background;
 
 	@Override
 	public void create () {
