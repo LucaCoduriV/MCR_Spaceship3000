@@ -9,11 +9,11 @@ import com.badlogic.gdx.math.Vector2;
 
 public class PlayerInput extends InputAdapter {
     private final Entity entity;
-    private final GameScreen screen;
+    private final GameController controller;
 
-    public PlayerInput(GameScreen gameScreen, Entity entity) {
+    public PlayerInput(GameController gameController, Entity entity) {
         this.entity = entity;
-        this.screen = gameScreen;
+        this.controller = gameController;
     }
 
     @Override
@@ -48,7 +48,7 @@ public class PlayerInput extends InputAdapter {
                 entity.speed().x = 0;
                 break;
             case Input.Keys.ESCAPE:
-                screen.pauseGame();
+                controller.pauseGame();
             default:
                 System.out.println(keycode);
                 break;

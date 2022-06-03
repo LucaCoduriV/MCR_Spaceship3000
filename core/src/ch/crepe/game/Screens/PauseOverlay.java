@@ -1,5 +1,6 @@
 package ch.crepe.game.Screens;
 
+import ch.crepe.game.GameController;
 import ch.crepe.game.Spaceship3000;
 import ch.crepe.game.assets.AssetsLoader;
 import com.badlogic.gdx.Gdx;
@@ -13,16 +14,15 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 public class PauseOverlay {
-    Spaceship3000 parent;
-    GameScreen gameScreen;
+    final ChangeListener onResume;
+    final ChangeListener onQuit;
     private final Stage stage;
-    public PauseOverlay(final Spaceship3000 parent, final GameScreen gameScreen){
+    public PauseOverlay(ChangeListener onQuit, ChangeListener onResume){
         this.stage = new Stage(new FitViewport(Gdx.graphics.getWidth(),Gdx.graphics.getHeight()));
-        this.parent = parent;
-        this.gameScreen = gameScreen;
+        this.onQuit = onQuit;
+        this.onResume = onResume;
 
         // Create a table that fills the screen. Everything else will go inside this table.
         Table table = new Table();
@@ -46,19 +46,9 @@ public class PauseOverlay {
         table.add(mainMenuButton).fillX().uniformX();
         table.row();
 
-        resumeButton.addListener(new ChangeListener() {
-            @Override
-            public void changed(ChangeEvent event, Actor actor) {
-                gameScreen.resumeGame();
-            }
-        });
+        resumeButton.addListener(onResume);
 
-        mainMenuButton.addListener(new ChangeListener() {
-            @Override
-            public void changed(ChangeEvent event, Actor actor) {
-                parent.changeScreen(ScreenType.MainMenu);
-            }
-        });
+        mainMenuButton.addListener(onQuit);
     }
 
     public void draw(Batch batch){

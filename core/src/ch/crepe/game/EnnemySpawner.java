@@ -7,6 +7,7 @@ import ch.crepe.game.entities.Entity;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
 
+import java.util.List;
 import java.util.Random;
 
 public class EnnemySpawner {
@@ -15,10 +16,13 @@ public class EnnemySpawner {
     private final Vector2 worldMinLeftPos;
     private final Vector2 worldMinRightPos;
     private final Random r;
+    private float elapsedTime = 0;
+    private final List<Entity> entityList;
 
-    public EnnemySpawner(int worldWidth, int worldHeight) {
+    public EnnemySpawner(int worldWidth, int worldHeight, List<Entity> entityList) {
         this.worldWidth = worldWidth;
         this.worldHeight = worldHeight;
+        this.entityList = entityList;
         this.r = new Random();
         this.worldMinLeftPos = new Vector2(-worldWidth/2f,-worldHeight/2f);
         this.worldMinRightPos = new Vector2(worldWidth/2f,-worldHeight/2f);
@@ -42,5 +46,14 @@ public class EnnemySpawner {
         sprite.setSize(size,size);
 
         return new Asteroid(position, sprite, velocity);
+    }
+
+    public void update(float delta){
+        elapsedTime += delta;
+
+        if(elapsedTime > 5f){
+            elapsedTime = 0;
+            entityList.add(spawnEnnemy());
+        }
     }
 }
