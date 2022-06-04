@@ -43,10 +43,10 @@ public class GameScreen extends ScreenAdapter {
     private static final float WORLD_HEIGHT = 54;
     //private final Spaceship spaceship = new Spaceship(new Vector2(), AssetsLoader.getInstance().getSpaceship(SpaceShip.bowFighter),new Vector2());
     private final Sprite backgroundSprite = new Sprite(AssetsLoader.getInstance().getBackground());
-    private final Background background = new Background(new Vector2(-WORLD_WIDTH / 2f, -WORLD_HEIGHT / 2f),
-            new Vector2(WORLD_WIDTH, WORLD_HEIGHT),
-            AssetsLoader.getInstance().getBackground(), 15, new Rectangle(-WORLD_WIDTH / 2f, -WORLD_HEIGHT / 2f,
-            WORLD_WIDTH, WORLD_HEIGHT));
+    private final Background background = new Background(
+            new Rectangle(-WORLD_WIDTH / 2f, -WORLD_HEIGHT / 2f, WORLD_WIDTH, WORLD_HEIGHT),
+            AssetsLoader.getInstance().getBackground(),
+            15);
     private final Music[] musics = { Music.aloneAgainstEnemy, Music.deathMatch, Music.battleInTheStars, Music.epicEnd, Music.rainOfLasers, Music.spaceHeroes, Music.withoutFear };
     private final List<Entity> ennemies = new ArrayList<Entity>();
     public GameScreen(Spaceship3000 parent){

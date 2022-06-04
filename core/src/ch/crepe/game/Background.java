@@ -13,33 +13,37 @@ public class Background {
     private static Random rnd = new Random();
 
     private Rectangle bounds;
-
-    private Vector2 position;
+    private Rectangle area;
     private LoopingSprite tile_1;
     private LoopingSprite tile_2;
     private List<LoopingSprite> stars;
 
-    public Background(Vector2 position, Vector2 size, Texture image, int nbStars, Rectangle bounds) {
+    public Background(Rectangle area, Texture image, int nbStars) {
 
-        this.position = position;
+        this.area = new Rectangle(area);
         this.bounds = new Rectangle(
-                bounds.x,
-                bounds.y - bounds.height,
-                bounds.width,
-                2 * bounds.height
+                area.getX(),
+                area.getY() - area.getHeight(),
+                area.getWidth(),
+                2 * area.getHeight()
         );
-        Vector2 tileSpawn = new Vector2(position.x, position.y + size.y);
-        tile_1 = new LoopingSprite(new DisplayedSprite(image, size, position), new Vector2(0, -0.01f), tileSpawn, this.bounds);
-        tile_2 = new LoopingSprite(new DisplayedSprite(image, size, tileSpawn), new Vector2(0, -0.01f), tileSpawn, this.bounds);
+        // Get the position of the rectangle offset-ed by its height
+        Vector2 tileSpawn = area.getPosition(new Vector2()).add(0, area.getHeight());
+
+        tile_1 = new LoopingSprite(
+                new DisplayedSprite(image, area),
+                new Vector2(0, -0.01f), tileSpawn, this.bounds);
+        tile_2 = new LoopingSprite(
+                new DisplayedSprite(image, new Rectangle(tileSpawn.x, tileSpawn.y, area.getWidth(), area.getHeight())),
+                new Vector2(0, -0.01f), tileSpawn, this.bounds);
         this.stars = new LinkedList<>();
         createStars(nbStars);
     }
 
     private void createStars(int nbStars) {
         for (int i = 0; i < nbStars; i++) {
-            float rndPositionX = rnd.nextInt((int)bounds.width) + position.x;
-            float rndPositionY = rnd.nextInt((int)bounds.height) + position.y;
-
+            float rndPositionX = rnd.nextInt((int) bounds.width) + area.getX();
+            float rndPositionY = rnd.nextInt((int) bounds.height) + area.getY();
 
 
             float rndDistanceRatio = rnd.nextInt(100);
@@ -54,35 +58,37 @@ public class Background {
                                                                             rndDistanceRatio < 93 ? 0.8f :
                                                                                     rndDistanceRatio < 96 ? 0.9f : 1;
 
-            Star starType =  Star.values()[rnd.nextInt(Star.values().length)];
+            Star starType = Star.values()[rnd.nextInt(Star.values().length)];
             this.stars.add(new LoopingSprite(
                     new DisplayedAnimation(
                             AssetsLoader.getInstance().getStar(starType),
-                            new Vector2(14 * size, 14 * size),
-                            new Vector2(rndPositionX, rndPositionY),
+                            new Rectangle(
+                                    rndPositionX, rndPositionY,
+                                    14 * size, 14 * size
+                            ),
                             starType.getTileWidth(),
                             starType.getTileHeight(),
-                            1/40f
-                            ),
+                            1 / 40f
+                    ),
                     new Vector2(0, -size / 10),
                     new Vector2(rndPositionX, bounds.height + bounds.y),
                     new Rectangle(bounds)
-                    ));
+            ));
         }
 
-       /* Collections.sort(stars, new Comparator<LoopingAnimation>() {
-            @Override
-            public int compare(LoopingAnimation o1, LoopingAnimation o2) {
-                return Float.compare(o1.getSize().x + o1.getSize().y, o2.getSize().x + o2.getSize().y);
-            }
-        });*/
+       Collections.sort(stars, new Comparator<LoopingSprite>() {
+           @Override
+           public int compare(LoopingSprite o1, LoopingSprite o2) {
+               return (int)(o1.getDrawingArea().area() - o2.getDrawingArea().area());
+           }
+       });
     }
 
     public void draw(SpriteBatch batch) {
         tile_1.draw(batch);
         tile_2.draw(batch);
 
-        for (LoopingSprite s: stars) {
+        for (LoopingSprite s : stars) {
             s.draw(batch);
         }
     }

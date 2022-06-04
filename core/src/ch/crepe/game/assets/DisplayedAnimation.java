@@ -10,13 +10,11 @@ import com.badlogic.gdx.math.Vector2;
 
 public class DisplayedAnimation extends DisplayedAsset{
 
-    private TextureRegion[] animationFrames;
-    private Animation<TextureRegion> animation;
+    private final Animation<TextureRegion> animation;
     private float elapsedTime = 0f;
-    private Vector2 size;
 
-    public DisplayedAnimation(Texture texture, Vector2 size, Vector2 position, int tileWidth, int tileHeight, float secondsPerFrame) {
-        super(position);
+    public DisplayedAnimation(Texture texture, Rectangle animationArea, int tileWidth, int tileHeight, float secondsPerFrame) {
+        super(animationArea);
 
         TextureRegion[][] tmpFrames = TextureRegion.split(texture,tileWidth,tileHeight);
 
@@ -25,7 +23,7 @@ public class DisplayedAnimation extends DisplayedAsset{
         int i_max = tmpFrames.length;
         int j_max = tmpFrames[0].length;
 
-        animationFrames = new TextureRegion[i_max * j_max];
+        TextureRegion[] animationFrames = new TextureRegion[i_max * j_max];
 
         for (int i = 0; i < i_max; i++){
             for(int j = 0; j < j_max; j++) {
@@ -34,12 +32,16 @@ public class DisplayedAnimation extends DisplayedAsset{
         }
 
         animation = new Animation<>(secondsPerFrame, animationFrames);
-        this.size = size;
     }
 
     @Override
     public void draw(Batch batch) {
-        elapsedTime += Gdx.graphics.getDeltaTime();
-        batch.draw(animation.getKeyFrame(elapsedTime,true),position().x,position().y, size.x, size.y);
+        elapsedTime += Gdx.graphics.getDeltaTime(); // TODO mettre en parametre
+        super.draw(batch);
+    }
+
+    @Override
+    protected TextureRegion getDrawable() {
+        return animation.getKeyFrame(elapsedTime, true);
     }
 }

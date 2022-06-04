@@ -15,7 +15,7 @@ public class LoopingSprite extends Entity{
     public LoopingSprite(DisplayedAsset asset, Vector2 speed, Vector2 respawnPosition, Rectangle bounds) {
         super(asset, speed);
         this.respawnPosition = new Vector2(respawnPosition);
-        this.bounds = new Rectangle(bounds); // TODO est-ce qu'il faut copier ce genre de paramètre enfaite ?
+        this.bounds = new Rectangle(bounds);
     }
 
     @Override
@@ -32,5 +32,9 @@ public class LoopingSprite extends Entity{
             return false;
         }
         return true;
+    }
+
+    public Rectangle getDrawingArea() {
+        return asset.getDrawingArea();
     }
 }
