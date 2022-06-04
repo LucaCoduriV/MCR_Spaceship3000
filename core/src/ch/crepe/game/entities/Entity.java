@@ -28,7 +28,7 @@ abstract public class Entity implements Visitable {
      * @return entity position.
      */
     public Vector2 position() {
-        return new Vector2(hitbox.x, hitbox.y);
+        return new Vector2(hitbox.x + hitbox.width / 2, hitbox.y + hitbox.height / 2);
     }
 
     protected void setPosition(Vector2 position) {

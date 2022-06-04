@@ -10,13 +10,7 @@ public class LaserWeapon extends Weapon {
     }
 
     @Override
-    void createProjectile() {
-        //TODO changer direction
-        new Laser(getSpaceship().position(), new Vector2(), 10, 10);
-    }
-
-    @Override
-    void createExplosion() {
-
+    public void createProjectile() {
+        getSpaceship().getGameController().addProjectile(new Laser(new Vector2(getSpaceship().position().add(new Vector2())), getSpaceship().getSprite().getRotation() + 90));
     }
 }

@@ -10,6 +10,9 @@ import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -17,6 +20,7 @@ public class GameController {
     private final GameInfo gameInfo;
     private final Spaceship playerShip;
     private final LinkedList<Entity> entities;
+    private final LinkedList<Entity> projectiles;
     private final InputProcessor playerInput;
     private final EnnemySpawner ennemySpawner;
     private InputProcessor pauseMenuInputProcessor;
@@ -25,8 +29,9 @@ public class GameController {
 
     public GameController(Rectangle worldBounds) {
         this.worldBounds = worldBounds;
-        this.playerShip = new Spaceship(new Vector2(), new Sprite(AssetsLoader.getInstance().getSpaceship(SpaceShip.bowFighter)), new Vector2(), 10, 10);
+        this.playerShip = new Spaceship(new Vector2(), new Sprite(AssetsLoader.getInstance().getSpaceship(SpaceShip.bowFighter)), new Vector2(), this, 10, 10);
         this.entities = new LinkedList<>();
+        this.projectiles = new LinkedList<>();
         this.playerInput = new PlayerInput(this, playerShip);
         this.gameInfo = new GameInfo();
         this.ennemySpawner = new EnnemySpawner(96,54,entities);
@@ -43,6 +48,15 @@ public class GameController {
         for (Entity entity : entities) {
             entity.accept(ce);
             entity.update(delta);
+        }
+
+        Iterator<Entity> it = projectiles.iterator();
+        while (it.hasNext()) {
+            Entity entity = it.next();
+            if (!worldBounds.contains(entity.position()))
+                it.remove();
+            else
+                entity.update(delta);
         }
 
         if(!worldBounds.contains(playerShip.position().cpy().add(playerShip.speed()))) {
@@ -85,5 +99,13 @@ public class GameController {
 
     public GameInfo getGameInfo() {
         return gameInfo;
+    }
+
+    public void addProjectile(Entity entity) {
+        projectiles.add(entity);
+    }
+
+    public LinkedList<Entity> getProjectiles() {
+        return projectiles;
     }
 }

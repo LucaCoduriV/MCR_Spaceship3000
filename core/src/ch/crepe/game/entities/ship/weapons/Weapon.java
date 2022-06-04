@@ -9,10 +9,9 @@ abstract public class Weapon {
         this.spaceship = spaceship;
     }
 
-    abstract void createProjectile();
-    abstract void createExplosion();
+    public abstract void createProjectile();
 
-    public Spaceship getSpaceship() {
+    protected Spaceship getSpaceship() {
         return spaceship;
     }
 }

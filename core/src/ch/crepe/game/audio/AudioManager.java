@@ -4,12 +4,14 @@ import ch.crepe.game.AppPreferences;
 import ch.crepe.game.assets.AssetsLoader;
 import ch.crepe.game.assets.Music;
 import ch.crepe.game.assets.Sound;
+import com.badlogic.gdx.Audio;
 import com.badlogic.gdx.Gdx;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
 public class AudioManager implements PropertyChangeListener {
+    private static AudioManager instance;
     private final com.badlogic.gdx.Audio am = Gdx.audio;
     private final AssetsLoader assets = AssetsLoader.getInstance();
     private com.badlogic.gdx.audio.Music music;
@@ -18,12 +20,13 @@ public class AudioManager implements PropertyChangeListener {
     private boolean musicEnabled = true;
     private boolean soundEnabled = true;
 
-    public AudioManager(float musicVolume, float soundVolume, boolean musicEnabled, boolean soundEnabled) {
-        this.musicVolume = musicVolume;
-        this.soundVolume = soundVolume;
-        this.musicEnabled = musicEnabled;
-        this.soundEnabled = soundEnabled;
+    public static AudioManager getInstance() {
+        if (instance == null)
+            instance = new AudioManager();
+        return instance;
     }
+
+    private AudioManager() {}
 
     public void loadMusic(Music music){
         stopMusic();
@@ -102,5 +105,21 @@ public class AudioManager implements PropertyChangeListener {
             default:
                 break;
         }
+    }
+
+    public void setMusicVolume(float musicVolume) {
+        this.musicVolume = musicVolume;
+    }
+
+    public void setSoundVolume(float soundVolume) {
+        this.soundVolume = soundVolume;
+    }
+
+    public void setMusicEnabled(boolean musicEnabled) {
+        this.musicEnabled = musicEnabled;
+    }
+
+    public void setSoundEnabled(boolean soundEnabled) {
+        this.soundEnabled = soundEnabled;
     }
 }
