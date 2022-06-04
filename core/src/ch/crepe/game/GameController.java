@@ -6,6 +6,7 @@ import ch.crepe.game.entities.Entity;
 import ch.crepe.game.entities.Spaceship;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 import java.util.ArrayList;
@@ -18,9 +19,13 @@ public class GameController {
     private final InputProcessor playerInput;
     private EnnemySpawner ennemySpawner;
     private InputProcessor pauseMenuInputProcessor;
+    private final Rectangle worldBounds;
+    private Vector2 playersOldPosition;
 
-    public GameController() {
+    public GameController(Rectangle worldBounds) {
+        this.worldBounds = worldBounds;
         this.playerShip = new Spaceship(new Vector2(), AssetsLoader.getInstance().getSpaceship(SpaceShip.bowFighter), new Vector2());
+        this.playersOldPosition = playerShip.position().cpy();
         this.entities = new ArrayList<>();
         this.playerInput = new PlayerInput(this, playerShip);
         this.gameInfo = new GameInfo();
@@ -36,7 +41,13 @@ public class GameController {
         for (Entity entity : entities) {
             entity.update(delta);
         }
-        playerShip.update(delta);
+
+        if(worldBounds.contains(playerShip.position())){
+            playersOldPosition = playerShip.position().cpy();
+            playerShip.update(delta);
+        }else{
+            playerShip.position().set(playersOldPosition);
+        }
     }
 
     public Spaceship getPlayerShip() {
