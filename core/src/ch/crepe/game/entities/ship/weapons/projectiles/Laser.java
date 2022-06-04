@@ -8,7 +8,7 @@ abstract public class Laser extends Projectile {
     private final static float SIZE = 3;
 
     protected Laser(Vector2 position, float orientation, Sprite sprite) {
-        super(position, sprite, new Vector2(0, 1), SIZE, SIZE);
+        super(position, sprite, new Vector2(1, 0).rotateDeg(orientation), SIZE, SIZE);
         getSprite().setOrigin(SIZE/2,SIZE/2);
         getSprite().rotate(orientation);
         getSprite().setSize(SIZE, SIZE);

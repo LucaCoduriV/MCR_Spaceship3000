@@ -4,6 +4,7 @@ import ch.crepe.game.assets.AssetsLoader;
 import ch.crepe.game.assets.SpaceShip;
 import ch.crepe.game.entities.Asteroid;
 import ch.crepe.game.entities.Entity;
+import ch.crepe.game.entities.SpaceShipAI;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
 
@@ -18,8 +19,10 @@ public class EnnemySpawner {
     private final Random r;
     private float elapsedTime = 0;
     private final List<Entity> entityList;
+    private final GameController gameController;
 
-    public EnnemySpawner(int worldWidth, int worldHeight, List<Entity> entityList) {
+    public EnnemySpawner(GameController controller, int worldWidth, int worldHeight, List<Entity> entityList) {
+        this.gameController = controller;
         this.worldWidth = worldWidth;
         this.worldHeight = worldHeight;
         this.entityList = entityList;
@@ -40,12 +43,12 @@ public class EnnemySpawner {
         velocity.setAngleDeg(angle);
         velocity.rotateDeg(180);
 
-        Sprite sprite = new Sprite(AssetsLoader.getInstance().getAsteroid(ch.crepe.game.assets.Asteroid.blue3));
+        Sprite sprite = new Sprite(AssetsLoader.getInstance().getSpaceship(SpaceShip.iceSpeedster));
         sprite.setOrigin(size/2,size/2);
         sprite.rotate(180);
         sprite.setSize(size,size);
 
-        return new Asteroid(position, sprite, velocity, size, size);
+        return new SpaceShipAI(position, sprite, velocity,gameController, size, size);
     }
 
     public void update(float delta){
