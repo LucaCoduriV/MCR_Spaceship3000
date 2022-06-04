@@ -1,8 +1,7 @@
 package ch.crepe.game.entities.ship.weapons.projectiles;
 
-import ch.crepe.game.assets.DisplayedAsset;
+import ch.crepe.game.assets.displayers.DisplayedAsset;
 import ch.crepe.game.entities.Entity;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 
 abstract public class Projectile extends Entity {

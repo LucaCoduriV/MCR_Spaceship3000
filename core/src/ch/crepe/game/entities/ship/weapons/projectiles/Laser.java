@@ -1,7 +1,6 @@
 package ch.crepe.game.entities.ship.weapons.projectiles;
 
-import ch.crepe.game.assets.DisplayedAsset;
-import com.badlogic.gdx.graphics.Texture;
+import ch.crepe.game.assets.displayers.DisplayedAsset;
 import com.badlogic.gdx.math.Vector2;
 
 public class Laser extends Projectile {

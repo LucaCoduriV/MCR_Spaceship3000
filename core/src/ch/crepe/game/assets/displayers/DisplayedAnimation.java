@@ -1,4 +1,4 @@
-package ch.crepe.game.assets;
+package ch.crepe.game.assets.displayers;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
@@ -13,7 +13,6 @@ import com.badlogic.gdx.math.Rectangle;
  *     The animation is created from a sprite-sheet.
  * </p>
  * @author      nelson.jeanrenaud@heig-vd.ch
- * @version     %I%, %G%
  */
 public class DisplayedAnimation extends DisplayedAsset{
     /**
@@ -56,7 +55,7 @@ public class DisplayedAnimation extends DisplayedAsset{
 
     @Override
     public void draw(Batch batch) {
-        elapsedTime += Gdx.graphics.getDeltaTime(); // TODO mettre en parametre
+        elapsedTime += Gdx.graphics.getDeltaTime(); // TODO mettre en parametre ?
         super.draw(batch);
     }
 

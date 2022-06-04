@@ -1,4 +1,4 @@
-package ch.crepe.game.assets;
+package ch.crepe.game.assets.displayers;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -8,7 +8,6 @@ import com.badlogic.gdx.math.Rectangle;
 /**
  * Represent a drawable sprite on screen.
  * @author      nelson.jeanrenaud@heig-vd.ch
- * @version     %I%, %G%
  */
 public class DisplayedSprite extends DisplayedAsset {
     /**

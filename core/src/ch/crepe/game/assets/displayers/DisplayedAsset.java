@@ -1,4 +1,4 @@
-package ch.crepe.game.assets;
+package ch.crepe.game.assets.displayers;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -15,7 +15,6 @@ import com.badlogic.gdx.math.Vector2;
  *     Subclasses needs to provide the concrete type of the drawable asset by overriding the getDrawable method.
  * </p>
  * @author      nelson.jeanrenaud@heig-vd.ch
- * @version     %I%, %G%
  */
 public abstract class DisplayedAsset {
     /**

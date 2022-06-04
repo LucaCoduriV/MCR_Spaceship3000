@@ -1,8 +1,6 @@
 package ch.crepe.game.entities;
 
-import ch.crepe.game.assets.DisplayedAsset;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Sprite;
+import ch.crepe.game.assets.displayers.DisplayedAsset;
 import com.badlogic.gdx.math.Vector2;
 
 public class Asteroid extends Entity {

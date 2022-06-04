@@ -1,9 +1,8 @@
 package ch.crepe.game.entities;
 
-import ch.crepe.game.assets.DisplayedAsset;
-import com.badlogic.gdx.graphics.Texture;
+import ch.crepe.game.assets.displayers.DisplayedAsset;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 abstract public class Entity {
@@ -21,7 +20,7 @@ abstract public class Entity {
      * @return entity position.
      */
     public Vector2 position() {
-        return asset.position();
+        return asset.getDrawingArea().getPosition(new Vector2());
     }
 
     //TODO temporaire en attendant visiteur
@@ -30,10 +29,14 @@ abstract public class Entity {
     }
 
     public void update(float delta){
-        asset.setPosition(asset.position().add(speed));
+        asset.setPosition(asset.getDrawingArea().getPosition(new Vector2()).add(speed));
     }
 
     public Vector2 speed() {
         return speed;
+    }
+
+    public Rectangle getDrawingArea() {
+        return asset.getDrawingArea();
     }
 }
