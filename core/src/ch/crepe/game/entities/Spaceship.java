@@ -16,7 +16,7 @@ public class Spaceship extends Entity {
 
     public Spaceship(Vector2 position, Sprite sprite, Vector2 speed, GameController gameController, float width, float height) {
         super(position, sprite, speed, width, height);
-        getSprite().setSize(10, 10);
+        getSprite().setSize(width, height);
         getSprite().setCenter(getSprite().getWidth() / 2,getSprite().getHeight() / 2);
         this.weapon = new LaserWeapon(this);
         this.gameController = gameController;

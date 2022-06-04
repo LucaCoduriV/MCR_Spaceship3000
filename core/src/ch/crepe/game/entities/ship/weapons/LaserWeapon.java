@@ -11,6 +11,6 @@ public class LaserWeapon extends Weapon {
 
     @Override
     public void createProjectile() {
-        getSpaceship().getGameController().addProjectile(new Laser(new Vector2(getSpaceship().position()), getSpaceship().getSprite().getRotation() + 90));
+        getSpaceship().getGameController().addProjectile(new Laser(new Vector2(getSpaceship().position().add(new Vector2())), getSpaceship().getSprite().getRotation() + 90));
     }
 }

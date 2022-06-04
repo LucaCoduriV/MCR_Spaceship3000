@@ -29,7 +29,7 @@ public class GameController {
 
     public GameController(Rectangle worldBounds) {
         this.worldBounds = worldBounds;
-        this.playerShip = new Spaceship(new Vector2(), AssetsLoader.getInstance().getSpaceship(SpaceShip.bowFighter), new Vector2(), this);
+        this.playerShip = new Spaceship(new Vector2(), new Sprite(AssetsLoader.getInstance().getSpaceship(SpaceShip.bowFighter)), new Vector2(), this, 10, 10);
         this.entities = new LinkedList<>();
         this.projectiles = new LinkedList<>();
         this.playerInput = new PlayerInput(this, playerShip);
@@ -82,10 +82,6 @@ public class GameController {
         return entities;
     }
 
-    public List<Entity> getProjectiles() {
-        return projectiles;
-    }
-
     public void pauseGame() {
         gameInfo.setState(GameInfo.GameState.pause);
         Gdx.input.setInputProcessor(pauseMenuInputProcessor);
@@ -107,5 +103,9 @@ public class GameController {
 
     public void addProjectile(Entity entity) {
         projectiles.add(entity);
+    }
+
+    public LinkedList<Entity> getProjectiles() {
+        return projectiles;
     }
 }
