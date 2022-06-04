@@ -66,14 +66,15 @@ public class Background {
                 2 * area.getHeight()
         );
         // Get the position of the rectangle offset-ed by its height
-        Vector2 tileSpawn = area.getPosition(new Vector2()).add(0, area.getHeight());
+        Vector2 tileSpawn = area.getCenter(new Vector2()).add(0, area.getHeight());
 
-        tile_1 = new LoopingEntity(area.getPosition(new Vector2()),
+        tile_1 = new LoopingEntity(area.getCenter(new Vector2()),
                 new DisplayedSprite(image, area),
                 new Vector2(0, -0.01f), tileSpawn, this.bounds, area.getWidth(), area.getHeight());
 
-        tile_2 = new LoopingEntity(area.getPosition(new Vector2()),
-                new DisplayedSprite(image, new Rectangle(tileSpawn.x, tileSpawn.y, area.getWidth(), area.getHeight())),
+        Rectangle tile2_rect = new Rectangle(area.getX(), area.getY() + area.getHeight(), area.getWidth(), area.getHeight());
+        tile_2 = new LoopingEntity(tile2_rect.getCenter(new Vector2()),
+                new DisplayedSprite(image, tile2_rect),
                 new Vector2(0, -0.01f), tileSpawn, this.bounds, area.getWidth(), area.getHeight());
 
         this.stars = new LinkedList<>();
@@ -117,7 +118,7 @@ public class Background {
                     gameSizeRatio * sizePercentage, gameSizeRatio * sizePercentage
             );
             this.stars.add(new LoopingEntity(
-                    hitbox.getPosition(new Vector2()),
+                    hitbox.getCenter(new Vector2()),
                     new DisplayedAnimation(
                             AssetsLoader.getInstance().getStar(starType),
                             hitbox,

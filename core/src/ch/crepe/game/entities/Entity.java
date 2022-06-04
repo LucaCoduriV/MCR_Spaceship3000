@@ -12,7 +12,7 @@ abstract public class Entity implements Visitable {
     protected final float height;
     protected final Rectangle hitbox;
     protected final Vector2 speed; // TODO getter protected
-    private final float reduction = 0.6f;
+    private final float reduction = 0.6f; // TODO la réduction de la hitbox doit être spécifique au vaisseau
 
     public Entity(Vector2 position, DisplayedAsset asset, Vector2 speed, float width, float height) {
         this.asset = asset;
@@ -35,7 +35,7 @@ abstract public class Entity implements Visitable {
     protected void setPosition(Vector2 position) {
         this.hitbox.x = position.x;
         this.hitbox.y = position.y;
-        asset.setPosition(new Vector2(hitbox.x + hitbox.width / 2, hitbox.y + hitbox.height / 2)); // TODO setCenter sinon ça marche pas je crois
+        asset.setCenter(new Vector2(hitbox.x + hitbox.width / 2, hitbox.y + hitbox.height / 2)); // TODO setCenter sinon ça marche pas je crois
     }
 
     public Rectangle getHitbox() {

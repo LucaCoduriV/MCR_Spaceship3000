@@ -54,6 +54,10 @@ public abstract class DisplayedAsset {
         drawingArea.setPosition(newPosition);
     }
 
+    public void setCenter(Vector2 newPosition) {
+        drawingArea.setCenter(newPosition);
+    }
+
     /**
      * Returns the texture to be drawn.
      * @return the texture

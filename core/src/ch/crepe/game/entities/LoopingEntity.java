@@ -47,9 +47,9 @@ public class LoopingEntity extends Entity{
      * @return True if the bounds are respected by the entity, false otherwise.
      */
     private boolean checkBounds() {
-        if(!bounds.contains(position())){
+        if(!bounds.overlaps(getHitbox())){
             System.out.println("Reseting position");
-            asset.setPosition(respawnPosition.cpy());
+            setPosition(respawnPosition.cpy());
             return false;
         }
         return true;
