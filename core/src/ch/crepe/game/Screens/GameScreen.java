@@ -3,6 +3,7 @@ package ch.crepe.game.Screens;
 import ch.crepe.game.*;
 import ch.crepe.game.assets.AssetsLoader;
 import ch.crepe.game.assets.Music;
+import ch.crepe.game.audio.AudioManager;
 import ch.crepe.game.audio.Playlist;
 import ch.crepe.game.entities.Entity;
 import com.badlogic.gdx.Gdx;
@@ -64,8 +65,8 @@ public class GameScreen extends ScreenAdapter {
     public void show() {
         Playlist musicPlaylist = new Playlist(musics);
         musicPlaylist.shuffle();
-        parent.getAudioManager().loadPlaylist(musicPlaylist);
-        parent.getAudioManager().resumeMusic();
+        AudioManager.getInstance().loadPlaylist(musicPlaylist);
+        AudioManager.getInstance().resumeMusic();
 
         backgroundSprite.setSize(WORLD_WIDTH,WORLD_HEIGHT);
         backgroundSprite.setPosition(-WORLD_WIDTH/2f,-WORLD_HEIGHT/2f);

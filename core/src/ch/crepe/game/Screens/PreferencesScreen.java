@@ -2,6 +2,7 @@ package ch.crepe.game.Screens;
 
 import ch.crepe.game.Spaceship3000;
 import ch.crepe.game.assets.AssetsLoader;
+import ch.crepe.game.audio.AudioManager;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.ScreenAdapter;
@@ -53,7 +54,7 @@ public class PreferencesScreen extends ScreenAdapter {
         Skin skin = AssetsLoader.getInstance().getSkin();
 
         // music volume
-        final Slider volumeMusicSlider = new Slider(0f, 1f, 0.1f, false, skin);
+        final Slider volumeMusicSlider = new Slider(0f, 1, 0.1f, false, skin);
         volumeMusicSlider.setValue(parent.getPreferences().getMusicVolume());
         volumeMusicSlider.addListener(new EventListener() {
             @Override
@@ -65,7 +66,7 @@ public class PreferencesScreen extends ScreenAdapter {
         });
 
         // sound volume
-        final Slider soundMusicSlider = new Slider(0f, 1f, 0.1f, false, skin);
+        final Slider soundMusicSlider = new Slider(0f, 1, 0.1f, false, skin);
         soundMusicSlider.setValue(parent.getPreferences().getSoundVolume());
         soundMusicSlider.addListener(new EventListener() {
             @Override

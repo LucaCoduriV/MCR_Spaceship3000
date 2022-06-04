@@ -14,7 +14,6 @@ public class Spaceship3000 extends Game {
 	private static final int screenHeight = 720;
 	private SpriteBatch batcher;
 	private AppPreferences preferences;
-	private AudioManager audioManager;
 
 	Background background;
 
@@ -23,9 +22,8 @@ public class Spaceship3000 extends Game {
 		Gdx.graphics.setWindowedMode(960,540);
 		batcher = new SpriteBatch();
 		preferences = new AppPreferences();
-		audioManager = new AudioManager();
 
-		preferences.addListener(audioManager);
+		preferences.addListener(AudioManager.getInstance());
 
 		changeScreen(ScreenType.Loading);
 	}
@@ -75,10 +73,6 @@ public class Spaceship3000 extends Game {
 
 	public int getScreenHeight(){
 		return screenHeight;
-	}
-
-	public AudioManager getAudioManager(){
-		return audioManager;
 	}
 
 	public AppPreferences getPreferences() {

@@ -4,12 +4,14 @@ import ch.crepe.game.AppPreferences;
 import ch.crepe.game.assets.AssetsLoader;
 import ch.crepe.game.assets.Music;
 import ch.crepe.game.assets.Sound;
+import com.badlogic.gdx.Audio;
 import com.badlogic.gdx.Gdx;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
 public class AudioManager implements PropertyChangeListener {
+    private static AudioManager instance;
     private final com.badlogic.gdx.Audio am = Gdx.audio;
     private final AssetsLoader assets = AssetsLoader.getInstance();
     private com.badlogic.gdx.audio.Music music;
@@ -17,6 +19,14 @@ public class AudioManager implements PropertyChangeListener {
     private float soundVolume = 1f;
     private boolean musicEnabled = true;
     private boolean soundEnabled = true;
+
+    public static AudioManager getInstance() {
+        if (instance == null)
+            instance = new AudioManager();
+        return instance;
+    }
+
+    private AudioManager() {}
 
     public void loadMusic(Music music){
         stopMusic();
