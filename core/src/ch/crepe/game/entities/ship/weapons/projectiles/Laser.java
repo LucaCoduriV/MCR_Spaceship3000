@@ -12,7 +12,7 @@ public class Laser extends Projectile {
     private final static float SIZE = 3;
 
     public Laser(Vector2 position, float orientation) {
-        super(position, new Sprite(AssetsLoader.getInstance().getLaser(ch.crepe.game.assets.Laser.blueFast)), new Vector2(0, 1), SIZE, SIZE);
+        super(position, new Sprite(AssetsLoader.getInstance().getLaser(ch.crepe.game.assets.Laser.blueFast)), new Vector2(1, 0).rotateDeg(orientation), SIZE, SIZE);
         getSprite().setOrigin(SIZE/2,SIZE/2);
         getSprite().rotate(orientation);
         getSprite().setSize(SIZE, SIZE);
