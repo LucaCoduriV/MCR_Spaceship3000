@@ -3,6 +3,7 @@ package ch.crepe.game;
 import ch.crepe.game.Screens.*;
 import ch.crepe.game.assets.AssetsLoader;
 import ch.crepe.game.audio.AudioManager;
+import com.badlogic.gdx.Audio;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -24,6 +25,10 @@ public class Spaceship3000 extends Game {
 		preferences = new AppPreferences();
 
 		preferences.addListener(AudioManager.getInstance());
+		AudioManager.getInstance().setMusicVolume(preferences.getMusicVolume());
+		AudioManager.getInstance().setSoundVolume(preferences.getSoundVolume());
+		AudioManager.getInstance().setMusicEnabled(preferences.isMusicEnabled());
+		AudioManager.getInstance().setSoundEnabled(preferences.isSoundEffectsEnabled());
 
 		changeScreen(ScreenType.Loading);
 	}
