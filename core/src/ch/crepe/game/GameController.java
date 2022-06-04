@@ -17,15 +17,12 @@ public class GameController {
     private final Spaceship playerShip;
     private final List<Entity> entities;
     private final InputProcessor playerInput;
-    private EnnemySpawner ennemySpawner;
+    private final EnnemySpawner ennemySpawner;
     private InputProcessor pauseMenuInputProcessor;
     private final Rectangle worldBounds;
-    private Vector2 playersOldPosition;
-
     public GameController(Rectangle worldBounds) {
         this.worldBounds = worldBounds;
         this.playerShip = new Spaceship(new Vector2(), AssetsLoader.getInstance().getSpaceship(SpaceShip.bowFighter), new Vector2());
-        this.playersOldPosition = playerShip.position().cpy();
         this.entities = new ArrayList<>();
         this.playerInput = new PlayerInput(this, playerShip);
         this.gameInfo = new GameInfo();
@@ -42,12 +39,19 @@ public class GameController {
             entity.update(delta);
         }
 
-        if(worldBounds.contains(playerShip.position())){
-            playersOldPosition = playerShip.position().cpy();
-            playerShip.update(delta);
-        }else{
-            playerShip.position().set(playersOldPosition);
+        if(!worldBounds.contains(playerShip.position().cpy().add(playerShip.speed()))) {
+            Vector2 newSpeed = playerShip.speed().cpy();
+            if(playerShip.position().x < worldBounds.x || playerShip.position().x > worldBounds.x + worldBounds.width){
+                newSpeed.x = 0;
+                playerShip.position().x = playerShip.position().x - (playerShip.speed().x / Math.abs(playerShip.speed().x)) * 0.5f;
+            }
+            if(playerShip.position().y < worldBounds.y || playerShip.position().y > worldBounds.y + worldBounds.height){
+                newSpeed.y = 0;
+                playerShip.position().y = playerShip.position().y - (playerShip.speed().y / Math.abs(playerShip.speed().y)) * 0.5f;
+            }
+            playerShip.speed().set(newSpeed);
         }
+        playerShip.update(delta);
     }
 
     public Spaceship getPlayerShip() {
