@@ -1,7 +1,7 @@
 package ch.crepe.game;
 
 import ch.crepe.game.assets.*;
-import ch.crepe.game.entities.LoopingSprite;
+import ch.crepe.game.entities.LoopingEntity;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
@@ -14,9 +14,9 @@ public class Background {
 
     private Rectangle bounds;
     private Rectangle area;
-    private LoopingSprite tile_1;
-    private LoopingSprite tile_2;
-    private List<LoopingSprite> stars;
+    private LoopingEntity tile_1;
+    private LoopingEntity tile_2;
+    private List<LoopingEntity> stars;
 
     public Background(Rectangle area, Texture image, int nbStars) {
 
@@ -30,10 +30,10 @@ public class Background {
         // Get the position of the rectangle offset-ed by its height
         Vector2 tileSpawn = area.getPosition(new Vector2()).add(0, area.getHeight());
 
-        tile_1 = new LoopingSprite(
+        tile_1 = new LoopingEntity(
                 new DisplayedSprite(image, area),
                 new Vector2(0, -0.01f), tileSpawn, this.bounds);
-        tile_2 = new LoopingSprite(
+        tile_2 = new LoopingEntity(
                 new DisplayedSprite(image, new Rectangle(tileSpawn.x, tileSpawn.y, area.getWidth(), area.getHeight())),
                 new Vector2(0, -0.01f), tileSpawn, this.bounds);
         this.stars = new LinkedList<>();
@@ -59,7 +59,7 @@ public class Background {
                                                                                     rndDistanceRatio < 96 ? 0.9f : 1;
 
             Star starType = Star.values()[rnd.nextInt(Star.values().length)];
-            this.stars.add(new LoopingSprite(
+            this.stars.add(new LoopingEntity(
                     new DisplayedAnimation(
                             AssetsLoader.getInstance().getStar(starType),
                             new Rectangle(
@@ -76,9 +76,9 @@ public class Background {
             ));
         }
 
-       Collections.sort(stars, new Comparator<LoopingSprite>() {
+       Collections.sort(stars, new Comparator<LoopingEntity>() {
            @Override
-           public int compare(LoopingSprite o1, LoopingSprite o2) {
+           public int compare(LoopingEntity o1, LoopingEntity o2) {
                return (int)(o1.getDrawingArea().area() - o2.getDrawingArea().area());
            }
        });
@@ -88,7 +88,7 @@ public class Background {
         tile_1.draw(batch);
         tile_2.draw(batch);
 
-        for (LoopingSprite s : stars) {
+        for (LoopingEntity s : stars) {
             s.draw(batch);
         }
     }
@@ -97,7 +97,7 @@ public class Background {
         tile_1.update(delta);
         tile_2.update(delta);
 
-        for (LoopingSprite s : stars) {
+        for (LoopingEntity s : stars) {
             s.update(delta);
         }
     }

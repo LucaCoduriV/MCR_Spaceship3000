@@ -6,31 +6,51 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.math.Vector2;
 
+/**
+ * Represent an animation that can be drawn on the screen.
+ * <p>
+ *     The animation is created from a sprite-sheet.
+ * </p>
+ * @author      nelson.jeanrenaud@heig-vd.ch
+ * @version     %I%, %G%
+ */
 public class DisplayedAnimation extends DisplayedAsset{
-
+    /**
+     * List of sprites composing the animation
+     */
     private final Animation<TextureRegion> animation;
+    /**
+     * Current time since the start of the animation
+     */
     private float elapsedTime = 0f;
 
+    /**
+     * Creates a displayable animation from a sprite-sheet.
+     * @param texture Sprite-sheet used to build the animation.
+     * @param animationArea Area in which the frames will be drawn.
+     * @param tileWidth Width of the tiles in the sprite-sheet.
+     * @param tileHeight Height of the tiles in the sprite-sheet.
+     * @param secondsPerFrame Time between frames in seconds.
+     */
     public DisplayedAnimation(Texture texture, Rectangle animationArea, int tileWidth, int tileHeight, float secondsPerFrame) {
         super(animationArea);
 
-        TextureRegion[][] tmpFrames = TextureRegion.split(texture,tileWidth,tileHeight);
+        TextureRegion[][] frameTiles = TextureRegion.split(texture,tileWidth,tileHeight);
 
-        int index = 0;
-
-        int i_max = tmpFrames.length;
-        int j_max = tmpFrames[0].length;
-
-        TextureRegion[] animationFrames = new TextureRegion[i_max * j_max];
-
-        for (int i = 0; i < i_max; i++){
-            for(int j = 0; j < j_max; j++) {
-                animationFrames[index++] = tmpFrames[i][j];
-            }
+        if(frameTiles.length == 0 || frameTiles[0].length == 0) {
+            throw new IllegalArgumentException("Can't extract tiles from Texture");
         }
 
+
+        TextureRegion[] animationFrames = new TextureRegion[frameTiles.length * frameTiles[0].length];
+
+        int index = 0;
+        for (TextureRegion[] frameTileLine : frameTiles) {
+            for(TextureRegion frameTile : frameTileLine) {
+                animationFrames[index++] = frameTile;
+            }
+        }
         animation = new Animation<>(secondsPerFrame, animationFrames);
     }
 
