@@ -34,7 +34,7 @@ public class GameController {
         this.projectiles = new LinkedList<>();
         this.playerInput = new PlayerInput(this, playerShip);
         this.gameInfo = new GameInfo();
-        this.ennemySpawner = new EnnemySpawner(96,54,entities);
+        this.ennemySpawner = new EnnemySpawner(this,96,54,entities);
         this.ce = new CollisionEngine(entities);
         entities.add(playerShip);
     }
