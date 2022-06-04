@@ -11,5 +11,6 @@ public class DesktopLauncher {
 		config.setForegroundFPS(60);
 		config.setTitle("Spaceship3000");
 		new Lwjgl3Application(new Spaceship3000(), config);
+		//new Lwjgl3Application(new GameController(), config);
 	}
 }

@@ -1,4 +1,7 @@
 package ch.crepe.game.engines;
 
-abstract public class UIEngine {
+import ch.crepe.game.entities.Spaceship;
+
+abstract public class UIEngine extends Engine {
+
 }

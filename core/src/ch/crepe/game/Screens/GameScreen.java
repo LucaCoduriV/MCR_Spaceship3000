@@ -7,8 +7,10 @@ import ch.crepe.game.audio.Playlist;
 import ch.crepe.game.entities.Entity;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
@@ -37,6 +39,9 @@ public class GameScreen extends ScreenAdapter {
             new Vector2(WORLD_WIDTH, WORLD_HEIGHT),
             AssetsLoader.getInstance().getBackground(), 15, new Rectangle(-WORLD_WIDTH / 2f, -WORLD_HEIGHT / 2f,
             WORLD_WIDTH, WORLD_HEIGHT));
+
+    private final ShapeRenderer sr = new ShapeRenderer();
+    private static final boolean DEBUG = true;
 
     public GameScreen(final Spaceship3000 parent){
         this.parent = parent;
@@ -95,20 +100,29 @@ public class GameScreen extends ScreenAdapter {
     private void drawGame(){
         Gdx.gl.glClearColor(0f, 0f, 0f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        sr.setProjectionMatrix(parent.getBatch().getProjectionMatrix());
 
         viewport.apply();
         parent.getBatch().setProjectionMatrix(viewport.getCamera().combined);
 
-
         parent.getBatch().begin();
-        //backgroundSprite.draw(parent.getBatch());
         background.draw(parent.getBatch());
         background.update();
-        //testSprite.setPosition(testSprite.getX() - testSprite.getX() / 2, testSprite.getY() - testSprite.getY() / 2);
+        controller.getPlayerShip().draw(parent.getBatch());
         for (Entity entity : controller.getEntities()) {
             entity.draw(parent.getBatch());
+
+            // Enable debug to see the hitboxes
+            if(DEBUG) {
+                parent.getBatch().end();
+                sr.begin(ShapeRenderer.ShapeType.Line);
+                sr.setColor(Color.RED);
+                sr.rect(entity.getHitbox().x, entity.getHitbox().y, entity.getHitbox().width, entity.getHitbox().height);
+                sr.end();
+                parent.getBatch().begin();
+            }
+
         }
-        controller.getPlayerShip().draw(parent.getBatch());
         parent.getBatch().end();
 
         hud.draw();

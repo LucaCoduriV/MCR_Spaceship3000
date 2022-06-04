@@ -45,7 +45,7 @@ public class AudioManager implements PropertyChangeListener {
     }
 
     public void stopMusic(){
-        if(this.music != null)
+        if(this.music != null && musicEnabled)
             music.stop();
     }
 
