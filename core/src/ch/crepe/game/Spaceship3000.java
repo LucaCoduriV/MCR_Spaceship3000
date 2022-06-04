@@ -3,6 +3,7 @@ package ch.crepe.game;
 import ch.crepe.game.Screens.*;
 import ch.crepe.game.assets.AssetsLoader;
 import ch.crepe.game.audio.AudioManager;
+import com.badlogic.gdx.Audio;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -14,26 +15,30 @@ public class Spaceship3000 extends Game {
 	private static final int screenHeight = 720;
 	private SpriteBatch batcher;
 	private AppPreferences preferences;
-	private AudioManager audioManager;
 
 	Background background;
 
 	@Override
 	public void create () {
 		Gdx.graphics.setWindowedMode(960,540);
-		AssetsLoader.getInstance().finishLoading();
 		batcher = new SpriteBatch();
 		preferences = new AppPreferences();
-		audioManager = new AudioManager();
 
-		preferences.addListener(audioManager);
+		preferences.addListener(AudioManager.getInstance());
+		AudioManager.getInstance().setMusicVolume(preferences.getMusicVolume());
+		AudioManager.getInstance().setSoundVolume(preferences.getSoundVolume());
+		AudioManager.getInstance().setMusicEnabled(preferences.isMusicEnabled());
+		AudioManager.getInstance().setSoundEnabled(preferences.isSoundEffectsEnabled());
 
-		changeScreen(ScreenType.GameOver);
+		changeScreen(ScreenType.Loading);
 	}
 
 	public void changeScreen(ScreenType screen){
 		switch (screen){
+			case Loading:
+				setScreen(new LoadingScreen(this));
 
+				break;
 			case MainMenu:
 				System.out.println("Showing MainMenu screen !");
 				setScreen(new MainMenuScreen(this));
@@ -73,10 +78,6 @@ public class Spaceship3000 extends Game {
 
 	public int getScreenHeight(){
 		return screenHeight;
-	}
-
-	public AudioManager getAudioManager(){
-		return audioManager;
 	}
 
 	public AppPreferences getPreferences() {

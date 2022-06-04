@@ -2,8 +2,8 @@ package ch.crepe.game.assets.displayers;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
 
 /**
  * Represent a drawable sprite on screen.
@@ -26,8 +26,16 @@ public class DisplayedSprite extends DisplayedAsset {
         // TODO Vous utilisiez setCenter ?
     }
 
+    public DisplayedSprite(Texture texture, Rectangle spriteArea, Vector2 orientationCenter, float orientation) {
+        this(texture, spriteArea);
+        sprite.setOrigin(orientationCenter.x, orientationCenter.y);
+        sprite.rotate(orientation);
+    }
+
+    // TODO ça brise pas carrément l'encapsulation ? :'(
     @Override
-    protected TextureRegion getDrawable() {
+    protected Sprite getDrawable() {
         return sprite;
     }
+
 }

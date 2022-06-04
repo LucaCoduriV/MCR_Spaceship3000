@@ -3,6 +3,7 @@ package ch.crepe.game.Screens;
 import ch.crepe.game.Spaceship3000;
 import ch.crepe.game.assets.AssetsLoader;
 import ch.crepe.game.assets.Music;
+import ch.crepe.game.audio.AudioManager;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
@@ -34,8 +35,8 @@ public class GameOverScreen extends ScreenAdapter {
 
     @Override
     public void show() {
-        parent.getAudioManager().loadMusic(Music.defeat);
-        parent.getAudioManager().resumeMusic();
+        AudioManager.getInstance().loadMusic(Music.defeat);
+        AudioManager.getInstance().resumeMusic();
 
         Gdx.input.setInputProcessor(stage);
 

@@ -68,13 +68,13 @@ public class Background {
         // Get the position of the rectangle offset-ed by its height
         Vector2 tileSpawn = area.getPosition(new Vector2()).add(0, area.getHeight());
 
-        tile_1 = new LoopingEntity(
+        tile_1 = new LoopingEntity(area.getPosition(new Vector2()),
                 new DisplayedSprite(image, area),
-                new Vector2(0, -0.01f), tileSpawn, this.bounds);
+                new Vector2(0, -0.01f), tileSpawn, this.bounds, area.getWidth(), area.getHeight());
 
-        tile_2 = new LoopingEntity(
+        tile_2 = new LoopingEntity(area.getPosition(new Vector2()),
                 new DisplayedSprite(image, new Rectangle(tileSpawn.x, tileSpawn.y, area.getWidth(), area.getHeight())),
-                new Vector2(0, -0.01f), tileSpawn, this.bounds);
+                new Vector2(0, -0.01f), tileSpawn, this.bounds, area.getWidth(), area.getHeight());
 
         this.stars = new LinkedList<>();
 
@@ -111,20 +111,23 @@ public class Background {
                                                                                     randomPercentile < 96 ? 0.9f : 1;
 
             final Star starType = Star.values()[rnd.nextInt(Star.values().length)]; // Get a random type of celestial body
+
+            final Rectangle hitbox = new Rectangle(
+                    rndPositionX, rndPositionY,
+                    gameSizeRatio * sizePercentage, gameSizeRatio * sizePercentage
+            );
             this.stars.add(new LoopingEntity(
+                    hitbox.getPosition(new Vector2()),
                     new DisplayedAnimation(
                             AssetsLoader.getInstance().getStar(starType),
-                            new Rectangle(
-                                    rndPositionX, rndPositionY,
-                                    gameSizeRatio * sizePercentage, gameSizeRatio * sizePercentage
-                            ),
+                            hitbox,
                             starType.getTileWidth(),
                             starType.getTileHeight(),
                             frameSpeedRatio / sizePercentage
                     ),
                     new Vector2(0, -sizePercentage * speedRatio),
                     new Vector2(rndPositionX, bounds.height + bounds.y),
-                    new Rectangle(bounds)
+                    new Rectangle(bounds), hitbox.getWidth(), hitbox.getHeight()
             ));
         }
 

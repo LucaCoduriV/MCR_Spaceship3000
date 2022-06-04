@@ -1,6 +1,7 @@
 package ch.crepe.game.entities;
 
 import ch.crepe.game.assets.displayers.DisplayedAsset;
+import ch.crepe.game.visitor.Visitor;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
@@ -21,13 +22,16 @@ public class LoopingEntity extends Entity{
 
     /**
      * Creates an instance of LoopingEntity.
+     * @param position Position of the Entity.
      * @param asset Asset displayed by the entity.
      * @param speed Speed at which the entity is moving.
      * @param respawnPosition Position where the entity returns to when it's out of bounds.
      * @param bounds Area in which the Entity is confined.
+     * @param width Width of the hitbox.
+     * @param height Height of the hitbox.
      */
-    public LoopingEntity(DisplayedAsset asset, Vector2 speed, Vector2 respawnPosition, Rectangle bounds) {
-        super(asset, speed);
+    public LoopingEntity(Vector2 position, DisplayedAsset asset, Vector2 speed, Vector2 respawnPosition, Rectangle bounds, float width, float height) {
+        super(position, asset, speed, width, height);
         this.respawnPosition = new Vector2(respawnPosition);
         this.bounds = new Rectangle(bounds);
     }
@@ -49,5 +53,10 @@ public class LoopingEntity extends Entity{
             return false;
         }
         return true;
+    }
+
+    @Override
+    public void accept(Visitor v) {
+        v.visitEntity(this);
     }
 }

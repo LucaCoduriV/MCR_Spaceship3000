@@ -1,7 +1,7 @@
 package ch.crepe.game.assets;
 
 public enum Sound {
-    ;
+    laserSound("audios/soundeffects/laser5.mp3");
     private final String path;
 
 
