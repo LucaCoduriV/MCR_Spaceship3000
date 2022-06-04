@@ -13,6 +13,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.VerticalGroup;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.SpriteDrawable;
@@ -41,10 +42,19 @@ public class MainMenuScreen extends ScreenAdapter {
         Gdx.input.setInputProcessor(stage);
 
         // Create a table that fills the screen. Everything else will go inside this table.
+        VerticalGroup vg = new VerticalGroup();
+        vg.setFillParent(true);
+        vg.setDebug(true);
+        vg.center();
+
+        Image image = new Image(new SpriteDrawable(logoSprite));
+
         Table table = new Table();
-        table.setFillParent(true);
+        //table.setFillParent(true);
         table.setDebug(false);
-        stage.addActor(table);
+        vg.addActor(image);
+        vg.addActor(table);
+        stage.addActor(vg);
 
         Skin skin = AssetsLoader.getInstance().getSkin();
 
@@ -52,10 +62,9 @@ public class MainMenuScreen extends ScreenAdapter {
         TextButton newGame = new TextButton("New Game", skin);
         TextButton preferences = new TextButton("Preferences", skin);
         TextButton exit = new TextButton("Exit", skin);
-        Image image = new Image(new SpriteDrawable(logoSprite));
 
         //add buttons to table
-        table.add(image).fillX().uniformX();
+        //table.add(image).fillX().uniformX();
         table.row().pad(10, 0, 10, 0);
         table.add(newGame).fillX().uniformX();
         table.row().pad(10, 0, 10, 0);
