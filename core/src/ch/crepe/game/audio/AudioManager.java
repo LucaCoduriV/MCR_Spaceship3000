@@ -18,6 +18,13 @@ public class AudioManager implements PropertyChangeListener {
     private boolean musicEnabled = true;
     private boolean soundEnabled = true;
 
+    public AudioManager(float musicVolume, float soundVolume, boolean musicEnabled, boolean soundEnabled) {
+        this.musicVolume = musicVolume;
+        this.soundVolume = soundVolume;
+        this.musicEnabled = musicEnabled;
+        this.soundEnabled = soundEnabled;
+    }
+
     public void loadMusic(Music music){
         stopMusic();
         this.music = am.newMusic(assets.getAudio(music));
@@ -53,7 +60,7 @@ public class AudioManager implements PropertyChangeListener {
     }
 
     public void resumeMusic(){
-        if(this.music != null){
+        if(this.music != null && musicEnabled){
             music.setVolume(musicVolume);
             music.play();
         }
