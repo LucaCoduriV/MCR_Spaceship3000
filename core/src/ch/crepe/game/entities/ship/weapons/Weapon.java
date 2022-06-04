@@ -12,7 +12,7 @@ abstract public class Weapon {
     public abstract void createProjectile();
     public abstract void createExplosion();
 
-    public Spaceship getSpaceship() {
+    protected Spaceship getSpaceship() {
         return spaceship;
     }
 }
