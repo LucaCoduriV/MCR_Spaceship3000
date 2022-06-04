@@ -63,7 +63,7 @@ public class AudioManager implements PropertyChangeListener {
     }
 
     public void resumeMusic(){
-        if(this.music != null){
+        if(this.music != null && musicEnabled){
             music.setVolume(musicVolume);
             music.play();
         }
