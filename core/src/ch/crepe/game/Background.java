@@ -1,10 +1,6 @@
 package ch.crepe.game;
 
-import ch.crepe.game.assets.AssetsLoader;
-import ch.crepe.game.assets.Laser;
-import ch.crepe.game.assets.SpaceShip;
-import ch.crepe.game.assets.Star;
-import ch.crepe.game.entities.LoopingAnimation;
+import ch.crepe.game.assets.*;
 import ch.crepe.game.entities.LoopingSprite;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -21,7 +17,7 @@ public class Background {
     private Vector2 position;
     private LoopingSprite tile_1;
     private LoopingSprite tile_2;
-    private List<LoopingAnimation> stars;
+    private List<LoopingSprite> stars;
 
     public Background(Vector2 position, Vector2 size, Texture image, int nbStars, Rectangle bounds) {
 
@@ -33,16 +29,16 @@ public class Background {
                 2 * bounds.height
         );
         Vector2 tileSpawn = new Vector2(position.x, position.y + size.y);
-        tile_1 = new LoopingSprite(image, size, tileSpawn, position, 0.01f, this.bounds);
-        tile_2 = new LoopingSprite(image, size, tileSpawn, tileSpawn, 0.01f, this.bounds);
+        tile_1 = new LoopingSprite(new DisplayedSprite(image, size, position), new Vector2(0, -0.01f), tileSpawn, this.bounds);
+        tile_2 = new LoopingSprite(new DisplayedSprite(image, size, tileSpawn), new Vector2(0, -0.01f), tileSpawn, this.bounds);
         this.stars = new LinkedList<>();
         createStars(nbStars);
     }
 
     private void createStars(int nbStars) {
         for (int i = 0; i < nbStars; i++) {
-            float rndPositionX = rnd.nextInt((int)tile_1.getSprite().getWidth()) + position.x;
-            float rndPositionY = rnd.nextInt((int)tile_1.getSprite().getHeight()) + position.y;
+            float rndPositionX = rnd.nextInt((int)bounds.width) + position.x;
+            float rndPositionY = rnd.nextInt((int)bounds.height) + position.y;
 
 
 
@@ -59,22 +55,27 @@ public class Background {
                                                                                     rndDistanceRatio < 96 ? 0.9f : 1;
 
             Star starType =  Star.values()[rnd.nextInt(Star.values().length)];
-            this.stars.add(new LoopingAnimation(
-                    AssetsLoader.getInstance().getStar(starType),
-                    new Vector2(14 * size, 14 * size),
-                    new Vector2(rndPositionX, position.y + (int)tile_1.getSprite().getHeight()),
-                    new Vector2(rndPositionX, rndPositionY),
-                    size / 10,
-                    new Rectangle(bounds.x, bounds.y, bounds.width, bounds.height),
-                    starType.getTileWidth(), starType.getTileHeight()));
+            this.stars.add(new LoopingSprite(
+                    new DisplayedAnimation(
+                            AssetsLoader.getInstance().getStar(starType),
+                            new Vector2(14 * size, 14 * size),
+                            new Vector2(rndPositionX, rndPositionY),
+                            starType.getTileWidth(),
+                            starType.getTileHeight(),
+                            1/40f
+                            ),
+                    new Vector2(0, -size / 10),
+                    new Vector2(rndPositionX, bounds.height + bounds.y),
+                    new Rectangle(bounds)
+                    ));
         }
 
-        Collections.sort(stars, new Comparator<LoopingAnimation>() {
+       /* Collections.sort(stars, new Comparator<LoopingAnimation>() {
             @Override
             public int compare(LoopingAnimation o1, LoopingAnimation o2) {
                 return Float.compare(o1.getSize().x + o1.getSize().y, o2.getSize().x + o2.getSize().y);
             }
-        });
+        });*/
     }
 
     public void draw(SpriteBatch batch) {
@@ -86,12 +87,12 @@ public class Background {
         }
     }
 
-    public void update() {
-        tile_1.move();
-        tile_2.move();
+    public void update(float delta) {
+        tile_1.update(delta);
+        tile_2.update(delta);
 
         for (LoopingSprite s : stars) {
-            s.move();
+            s.update(delta);
         }
     }
 

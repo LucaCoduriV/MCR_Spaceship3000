@@ -38,10 +38,10 @@ public class GameScreen extends ScreenAdapter {
     private final FitViewport viewport;
     private final HeadUpDisplay hud;
     private final PauseOverlay pauseOverlay;
-    private final PlayerInput playerInput;
+    //private final PlayerInput playerInput;
     private static final float WORLD_WIDTH = 96;
     private static final float WORLD_HEIGHT = 54;
-    private final Spaceship spaceship = new Spaceship(new Vector2(), AssetsLoader.getInstance().getSpaceship(SpaceShip.bowFighter),new Vector2());
+    //private final Spaceship spaceship = new Spaceship(new Vector2(), AssetsLoader.getInstance().getSpaceship(SpaceShip.bowFighter),new Vector2());
     private final Sprite backgroundSprite = new Sprite(AssetsLoader.getInstance().getBackground());
     private final Background background = new Background(new Vector2(-WORLD_WIDTH / 2f, -WORLD_HEIGHT / 2f),
             new Vector2(WORLD_WIDTH, WORLD_HEIGHT),
@@ -55,7 +55,7 @@ public class GameScreen extends ScreenAdapter {
         this.viewport = new FitViewport(WORLD_WIDTH,WORLD_HEIGHT);
         this.hud = new HeadUpDisplay();
         this.pauseOverlay = new PauseOverlay(parent, this);
-        this.playerInput = new PlayerInput(this, spaceship);
+        //this.playerInput = new PlayerInput(this, spaceship);
 
         final EnnemySpawner spawner = new EnnemySpawner(96, 54);
         new Timer().scheduleTask(new Timer.Task() {
@@ -79,7 +79,7 @@ public class GameScreen extends ScreenAdapter {
 
 
 
-        Gdx.input.setInputProcessor(playerInput);
+       // Gdx.input.setInputProcessor(playerInput);
     }
 
     @Override
@@ -97,9 +97,10 @@ public class GameScreen extends ScreenAdapter {
 
     private void updateGame(float delta){
         for (Entity entity : ennemies) {
-            entity.update(delta);
+            //entity.update(delta);
         }
-        spaceship.update(delta);
+       // spaceship.update(delta);
+        background.update(delta);
     }
     private void drawGame(){
         Gdx.gl.glClearColor(0f, 0f, 0f, 1);
@@ -112,12 +113,11 @@ public class GameScreen extends ScreenAdapter {
         parent.getBatch().begin();
         //backgroundSprite.draw(parent.getBatch());
         background.draw(parent.getBatch());
-        background.update();
         //testSprite.setPosition(testSprite.getX() - testSprite.getX() / 2, testSprite.getY() - testSprite.getY() / 2);
         for (Entity entity : ennemies) {
-            entity.draw(parent.getBatch());
+            //entity.draw(parent.getBatch());
         }
-        spaceship.draw(parent.getBatch());
+        //spaceship.draw(parent.getBatch());
         parent.getBatch().end();
 
         hud.draw();
@@ -145,7 +145,7 @@ public class GameScreen extends ScreenAdapter {
     }
 
     public void resumeGame(){
-        Gdx.input.setInputProcessor(playerInput);
+        //Gdx.input.setInputProcessor(playerInput);
         gameState = GameState.playing;
     }
 }
