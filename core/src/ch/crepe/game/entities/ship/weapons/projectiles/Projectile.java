@@ -9,4 +9,6 @@ abstract public class Projectile extends Entity {
     protected Projectile(Vector2 position, Sprite sprite, Vector2 speed, float width, float height) {
         super(position, sprite, speed, width, height);
     }
+
+    abstract void makeNoise();
 }
