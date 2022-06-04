@@ -47,7 +47,7 @@ public class GameScreen extends ScreenAdapter {
         this.parent = parent;
         this.viewport = new FitViewport(WORLD_WIDTH,WORLD_HEIGHT);
         this.hud = new HeadUpDisplay();
-        this.controller = new GameController();
+        this.controller = new GameController(new Rectangle(-WORLD_WIDTH/2,-WORLD_HEIGHT/2,WORLD_WIDTH,WORLD_HEIGHT));
         final ChangeListener onResume = new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
@@ -62,6 +62,7 @@ public class GameScreen extends ScreenAdapter {
         };
         this.pauseOverlay = new PauseOverlay(onQuit, onResume);
         this.controller.setPauseMenuInputProcessor(pauseOverlay.getInputProcessor());
+
 
     }
 

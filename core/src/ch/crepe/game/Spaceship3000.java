@@ -23,7 +23,7 @@ public class Spaceship3000 extends Game {
 		Gdx.graphics.setWindowedMode(960,540);
 		batcher = new SpriteBatch();
 		preferences = new AppPreferences();
-		audioManager = new AudioManager();
+		audioManager = new AudioManager(preferences.getMusicVolume(), preferences.getSoundVolume(), preferences.isMusicEnabled(), preferences.isSoundEffectsEnabled());
 
 		preferences.addListener(audioManager);
 

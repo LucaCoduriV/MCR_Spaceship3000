@@ -8,6 +8,7 @@ import ch.crepe.game.entities.Spaceship;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import java.util.LinkedList;
 import java.util.List;
@@ -17,18 +18,20 @@ public class GameController {
     private final Spaceship playerShip;
     private final LinkedList<Entity> entities;
     private final InputProcessor playerInput;
-    private EnnemySpawner ennemySpawner;
+    private final EnnemySpawner ennemySpawner;
     private InputProcessor pauseMenuInputProcessor;
-    private CollisionEngine ce;
+    private final CollisionEngine ce;
+    private final Rectangle worldBounds;
 
-    public GameController() {
+    public GameController(Rectangle worldBounds) {
+        this.worldBounds = worldBounds;
         this.playerShip = new Spaceship(new Vector2(), new Sprite(AssetsLoader.getInstance().getSpaceship(SpaceShip.bowFighter)), new Vector2(), 10, 10);
         this.entities = new LinkedList<>();
         this.playerInput = new PlayerInput(this, playerShip);
         this.gameInfo = new GameInfo();
-        entities.add(playerShip);
         this.ennemySpawner = new EnnemySpawner(96,54,entities);
         this.ce = new CollisionEngine(entities);
+        entities.add(playerShip);
     }
 
     public void setPauseMenuInputProcessor(InputProcessor pauseMenuInputProcessor) {
@@ -40,6 +43,19 @@ public class GameController {
         for (Entity entity : entities) {
             entity.accept(ce);
             entity.update(delta);
+        }
+
+        if(!worldBounds.contains(playerShip.position().cpy().add(playerShip.speed()))) {
+            Vector2 newSpeed = playerShip.speed().cpy();
+            if(playerShip.position().x < worldBounds.x || playerShip.position().x > worldBounds.x + worldBounds.width){
+                newSpeed.x = 0;
+                playerShip.position().x = playerShip.position().x - (playerShip.speed().x / Math.abs(playerShip.speed().x)) * 0.5f;
+            }
+            if(playerShip.position().y < worldBounds.y || playerShip.position().y > worldBounds.y + worldBounds.height){
+                newSpeed.y = 0;
+                playerShip.position().y = playerShip.position().y - (playerShip.speed().y / Math.abs(playerShip.speed().y)) * 0.5f;
+            }
+            playerShip.speed().set(newSpeed);
         }
         playerShip.update(delta);
     }
