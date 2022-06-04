@@ -107,6 +107,11 @@ public class GameScreen extends ScreenAdapter {
         for (Entity entity : controller.getEntities()) {
             entity.draw(parent.getBatch());
         }
+
+        for (Entity entity : controller.getProjectiles()) {
+            entity.draw(parent.getBatch());
+        }
+
         controller.getPlayerShip().draw(parent.getBatch());
         parent.getBatch().end();
 

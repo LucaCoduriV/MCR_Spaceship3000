@@ -9,19 +9,23 @@ import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.math.Vector2;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class GameController {
     private final GameInfo gameInfo;
     private final Spaceship playerShip;
     private final List<Entity> entities;
+    private final List<Entity> projectiles;
     private final InputProcessor playerInput;
     private EnnemySpawner ennemySpawner;
     private InputProcessor pauseMenuInputProcessor;
 
+
     public GameController() {
-        this.playerShip = new Spaceship(new Vector2(), AssetsLoader.getInstance().getSpaceship(SpaceShip.bowFighter), new Vector2());
+        this.playerShip = new Spaceship(new Vector2(), AssetsLoader.getInstance().getSpaceship(SpaceShip.bowFighter), new Vector2(), this);
         this.entities = new ArrayList<>();
+        this.projectiles = new LinkedList<>();
         this.playerInput = new PlayerInput(this, playerShip);
         this.gameInfo = new GameInfo();
         this.ennemySpawner = new EnnemySpawner(96,54,entities);
@@ -36,6 +40,10 @@ public class GameController {
         for (Entity entity : entities) {
             entity.update(delta);
         }
+
+        for (Entity entity : projectiles)
+            entity.update(delta);
+
         playerShip.update(delta);
     }
 
@@ -45,6 +53,10 @@ public class GameController {
 
     public List<Entity> getEntities() {
         return entities;
+    }
+
+    public List<Entity> getProjectiles() {
+        return projectiles;
     }
 
     public void pauseGame() {
@@ -64,5 +76,9 @@ public class GameController {
 
     public GameInfo getGameInfo() {
         return gameInfo;
+    }
+
+    public void addProjectile(Entity entity) {
+        projectiles.add(entity);
     }
 }

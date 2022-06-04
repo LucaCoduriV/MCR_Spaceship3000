@@ -1,14 +1,12 @@
 package ch.crepe.game;
 
-import ch.crepe.game.Screens.GameScreen;
 import ch.crepe.game.assets.SpaceShip;
-import ch.crepe.game.entities.Entity;
+import ch.crepe.game.entities.Spaceship;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
-import com.badlogic.gdx.math.Vector2;
 
 public class PlayerInput extends InputAdapter {
-    private final Entity entity;
+    private final Spaceship entity;
     private final GameController controller;
     private final int upKey = Input.Keys.W;
     private final int downKey = Input.Keys.S;
@@ -16,7 +14,7 @@ public class PlayerInput extends InputAdapter {
     private final int rightKey = Input.Keys.D;
     private final int quitKey = Input.Keys.ESCAPE;
 
-    public PlayerInput(GameController gameController, Entity entity) {
+    public PlayerInput(GameController gameController, Spaceship entity) {
         this.entity = entity;
         this.controller = gameController;
     }
@@ -36,6 +34,9 @@ public class PlayerInput extends InputAdapter {
                 break;
             case rightKey:
                 entity.speed().x = 0.5f;
+                break;
+            case Input.Keys.SPACE :
+                entity.shoot();
                 break;
         }
         return super.keyDown(keycode);
