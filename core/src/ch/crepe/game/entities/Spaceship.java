@@ -1,7 +1,8 @@
 package ch.crepe.game.entities;
 
 import ch.crepe.game.GameController;
-import ch.crepe.game.entities.ship.weapons.LaserWeapon;
+import ch.crepe.game.entities.ship.weapons.BlueLaserWeapon;
+import ch.crepe.game.entities.ship.weapons.GreenLaserWeapon;
 import ch.crepe.game.entities.ship.weapons.Weapon;
 import ch.crepe.game.visitor.Visitor;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -18,7 +19,7 @@ public class Spaceship extends Entity {
         super(position, sprite, speed, width, height);
         getSprite().setSize(width, height);
         getSprite().setCenter(getSprite().getWidth() / 2,getSprite().getHeight() / 2);
-        this.weapon = new LaserWeapon(this);
+        this.weapon = new GreenLaserWeapon(this);
         this.gameController = gameController;
     }
 
