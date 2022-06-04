@@ -52,6 +52,10 @@ public class AssetsLoader extends AssetManager {
         }
 
         load(Other.logo.getPath(), Texture.class);
+
+        for(Asteroid asteroid : Asteroid.values()){
+            load(asteroid.getPath(), Texture.class);
+        }
     }
 
     public Texture getSpaceship(SpaceShip ship){
@@ -93,6 +97,10 @@ public class AssetsLoader extends AssetManager {
 
     public com.badlogic.gdx.audio.Sound getSound(Sound sound){
         return get(sound.getPath(), com.badlogic.gdx.audio.Sound.class);
+    }
+
+    public Texture getAsteroid(Asteroid asteroid){
+        return get(asteroid.getPath(), Texture.class);
     }
 }
 

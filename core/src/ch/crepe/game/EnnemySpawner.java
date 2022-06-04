@@ -40,7 +40,7 @@ public class EnnemySpawner {
         velocity.setAngleDeg(angle);
         velocity.rotateDeg(180);
 
-        Sprite sprite = new Sprite(AssetsLoader.getInstance().getSpaceship(SpaceShip.bowFighter));
+        Sprite sprite = new Sprite(AssetsLoader.getInstance().getAsteroid(ch.crepe.game.assets.Asteroid.blue3));
         sprite.setOrigin(size/2,size/2);
         sprite.rotate(180);
         sprite.setSize(size,size);
