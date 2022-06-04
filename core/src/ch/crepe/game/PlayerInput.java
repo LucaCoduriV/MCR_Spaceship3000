@@ -10,6 +10,11 @@ import com.badlogic.gdx.math.Vector2;
 public class PlayerInput extends InputAdapter {
     private final Entity entity;
     private final GameController controller;
+    private final int upKey = Input.Keys.W;
+    private final int downKey = Input.Keys.S;
+    private final int leftKey = Input.Keys.A;
+    private final int rightKey = Input.Keys.D;
+    private final int quitKey = Input.Keys.ESCAPE;
 
     public PlayerInput(GameController gameController, Entity entity) {
         this.entity = entity;
@@ -20,16 +25,16 @@ public class PlayerInput extends InputAdapter {
     public boolean keyDown(int keycode) {
 
         switch (keycode){
-            case Input.Keys.UP:
+            case upKey:
                 entity.speed().y = 0.5f;
                 break;
-            case Input.Keys.DOWN:
+            case downKey:
                 entity.speed().y = -0.5f;
                 break;
-            case Input.Keys.LEFT:
+            case leftKey:
                 entity.speed().x = -0.5f;
                 break;
-            case Input.Keys.RIGHT:
+            case rightKey:
                 entity.speed().x = 0.5f;
                 break;
         }
@@ -39,15 +44,15 @@ public class PlayerInput extends InputAdapter {
     @Override
     public boolean keyUp(int keycode) {
         switch (keycode){
-            case Input.Keys.UP:
-            case Input.Keys.DOWN:
+            case upKey:
+            case downKey:
                 entity.speed().y = 0;
                 break;
-            case Input.Keys.LEFT:
-            case Input.Keys.RIGHT:
+            case leftKey:
+            case rightKey:
                 entity.speed().x = 0;
                 break;
-            case Input.Keys.ESCAPE:
+            case quitKey:
                 controller.pauseGame();
             default:
                 System.out.println(keycode);
