@@ -10,6 +10,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -44,8 +45,14 @@ public class GameController {
             entity.update(delta);
         }
 
-        for (Entity entity : projectiles)
-            entity.update(delta);
+        Iterator<Entity> it = projectiles.iterator();
+        while (it.hasNext()) {
+            Entity entity = it.next();
+            if (!worldBounds.contains(entity.position()))
+                it.remove();
+            else
+                entity.update(delta);
+        }
 
         if(!worldBounds.contains(playerShip.position().cpy().add(playerShip.speed()))) {
             Vector2 newSpeed = playerShip.speed().cpy();
