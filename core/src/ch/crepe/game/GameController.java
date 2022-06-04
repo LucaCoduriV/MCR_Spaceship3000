@@ -2,10 +2,12 @@ package ch.crepe.game;
 
 import ch.crepe.game.assets.AssetsLoader;
 import ch.crepe.game.assets.SpaceShip;
+import ch.crepe.game.engines.CollisionEngine;
 import ch.crepe.game.entities.Entity;
 import ch.crepe.game.entities.Spaceship;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
@@ -17,22 +19,24 @@ import java.util.List;
 public class GameController {
     private final GameInfo gameInfo;
     private final Spaceship playerShip;
-    private final List<Entity> entities;
-    private final List<Entity> projectiles;
+    private final LinkedList<Entity> entities;
+    private final LinkedList<Entity> projectiles;
     private final InputProcessor playerInput;
     private final EnnemySpawner ennemySpawner;
     private InputProcessor pauseMenuInputProcessor;
+    private final CollisionEngine ce;
     private final Rectangle worldBounds;
-
 
     public GameController(Rectangle worldBounds) {
         this.worldBounds = worldBounds;
         this.playerShip = new Spaceship(new Vector2(), AssetsLoader.getInstance().getSpaceship(SpaceShip.bowFighter), new Vector2(), this);
-        this.entities = new ArrayList<>();
+        this.entities = new LinkedList<>();
         this.projectiles = new LinkedList<>();
         this.playerInput = new PlayerInput(this, playerShip);
         this.gameInfo = new GameInfo();
         this.ennemySpawner = new EnnemySpawner(96,54,entities);
+        this.ce = new CollisionEngine(entities);
+        entities.add(playerShip);
     }
 
     public void setPauseMenuInputProcessor(InputProcessor pauseMenuInputProcessor) {
@@ -42,6 +46,7 @@ public class GameController {
     public void update(float delta) {
         ennemySpawner.update(delta);
         for (Entity entity : entities) {
+            entity.accept(ce);
             entity.update(delta);
         }
 

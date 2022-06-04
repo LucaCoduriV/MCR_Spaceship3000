@@ -1,22 +1,25 @@
 package ch.crepe.game.entities;
 
-import com.badlogic.gdx.graphics.Texture;
+import ch.crepe.game.visitor.Visitable;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
-abstract public class Entity {
-    private Vector2 position;
-    private Vector2 speed;
-    private final Sprite sprite;
+abstract public class Entity implements Visitable {
+    protected final Sprite sprite;
+    protected final float width;
+    protected final float height;
+    protected final Rectangle hitbox;
+    private final Vector2 speed;
+    private final float reduction = 0.6f;
 
-    public Entity(Vector2 position, Texture texture, Vector2 speed) {
-        this(position, new Sprite(texture), speed);
-    }
-
-    public Entity(Vector2 position, Sprite sprite, Vector2 speed) {
-        this.position = position;
+    public Entity(Vector2 position, Sprite sprite,  Vector2 speed, float width, float height) {
         this.sprite = sprite;
+        this.height = height;
+        this.width = width;
+        this.hitbox = new Rectangle(0, 0, width * reduction, height * reduction);
+        this.hitbox.setCenter(position);
         this.speed = speed;
     }
 
@@ -25,16 +28,21 @@ abstract public class Entity {
      * @return entity position.
      */
     public Vector2 position() {
-        return position;
+        return new Vector2(hitbox.x, hitbox.y);
     }
 
-    public void setPosition(Vector2 position) {
-        this.position = position;
+    protected void setPosition(Vector2 position) {
+        this.hitbox.x = position.x;
+        this.hitbox.y = position.y;
+    }
+
+    public Rectangle getHitbox() {
+        return hitbox;
     }
 
     //TODO temporaire en attendant visiteur
     public void draw(Batch batch) {
-        getSprite().setCenter(position().x, position().y);
+        getSprite().setCenter(hitbox.x + hitbox.width / 2, hitbox.y + hitbox.height / 2);
         getSprite().draw(batch);
     }
 
@@ -43,7 +51,8 @@ abstract public class Entity {
     }
 
     public void update(float delta){
-        position.add(speed);
+        hitbox.x += speed.x;
+        hitbox.y += speed.y;
     }
 
     public Vector2 speed() {

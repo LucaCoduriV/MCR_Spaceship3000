@@ -45,7 +45,7 @@ public class EnnemySpawner {
         sprite.rotate(180);
         sprite.setSize(size,size);
 
-        return new Asteroid(position, sprite, velocity);
+        return new Asteroid(position, sprite, velocity, size, size);
     }
 
     public void update(float delta){
