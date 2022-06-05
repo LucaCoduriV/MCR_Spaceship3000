@@ -73,23 +73,23 @@ public class EnemySpawner {
             case 0:
                 return new SpaceShipAI(position, new DisplayedSprite(
                         AssetsLoader.getInstance().getSpaceship(SpaceShip.iceSpeedster),
-                        new Rectangle(width/2,height/2, width, height),
+                        new Rectangle(0,0, width, height),
                         new Vector2(width/2, height/2),
-                        180),  new Vector2(0,0),
+                        180),  direction,
                         gameController, width, height, 180);
             case 1:
                 return new Asteroid(position, new DisplayedSprite(
                         AssetsLoader.getInstance().getAsteroid(ch.crepe.game.assets.Asteroid.blue1),
-                                new Rectangle(width/2,height/2, width, height),
+                                new Rectangle(0,0, width, height),
                                 new Vector2(width/2, height/2),
                                 180),
-                        direction, width, height); // TODO pk c'est direction et pas speed ?
+                        direction, width, height);
             default:
                 return new SpaceShipAI(position, new DisplayedSprite(
                         AssetsLoader.getInstance().getSpaceship(SpaceShip.iceSpeedster),
                         new Rectangle(width/2,height/2, width, height),
                         new Vector2(width/2, height/2),
-                        180),  new Vector2(0,0),
+                        0),  new Vector2(0,0),
                         gameController, 10, 10, 180);
         }
     }

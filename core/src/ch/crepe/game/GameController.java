@@ -59,15 +59,9 @@ public class GameController {
             entity.accept(ce);
             entity.update(delta);
         }
-
-
-        Iterator<Entity> it = projectiles.iterator();
-        while (it.hasNext()) {
-            Entity entity = it.next();
-            if (!worldBounds.contains(entity.getCenter()))
-                it.remove();
-            else
-                entity.update(delta);
+        for (Entity projectile : projectiles) {
+            projectile.accept(ce);
+            projectile.update(delta);
         }
 
         if(!worldBounds.contains(playerShip.getCenter().cpy().add(playerShip.speed()))) {

@@ -1,6 +1,7 @@
 package ch.crepe.game.assets.displayers;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
@@ -23,7 +24,6 @@ public class DisplayedSprite extends DisplayedAsset {
     public DisplayedSprite(Texture texture, Rectangle spriteArea) {
         super(spriteArea);
         this.sprite = new Sprite(texture);
-        // TODO Vous utilisiez setCenter ?
     }
 
     public DisplayedSprite(Texture texture, Rectangle spriteArea, Vector2 orientationCenter, float orientation) {
@@ -32,7 +32,14 @@ public class DisplayedSprite extends DisplayedAsset {
         sprite.rotate(orientation);
     }
 
-    // TODO ça brise pas carrément l'encapsulation ? :'(
+    @Override
+    public void draw(Batch batch) { // TODO trouver un moyen plus élégant de gérer la rotation des sprites
+        batch.draw(getDrawable(), getDrawingArea().getX(), getDrawingArea().getY(),
+                sprite.getOriginX(), sprite.getOriginY(),
+                getDrawingArea().getWidth(), getDrawingArea().getHeight(),
+                1, 1, sprite.getRotation());
+    }
+
     @Override
     protected Sprite getDrawable() {
         return sprite;

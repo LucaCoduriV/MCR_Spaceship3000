@@ -21,7 +21,7 @@ abstract public class Laser extends Projectile {
                 new Rectangle(position.x, position.y, SIZE, SIZE),
                 new Vector2(SIZE / 2, SIZE / 2),
                 orientation
-                ), new Vector2(0, 1), SIZE, SIZE);
+                ), new Vector2(1, 0).rotateDeg(orientation), SIZE, SIZE);
         makeNoise();
     }
 }
