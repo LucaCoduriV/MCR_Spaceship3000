@@ -24,12 +24,14 @@ public class Spaceship extends Entity {
     private GameController gameController;
     private final ShapeRenderer renderer = new ShapeRenderer();
     private final static float HITBOX_PERCENTAGE = 0.6f;
+    private int points;
 
     public Spaceship(Vector2 position, DisplayedAsset asset, Vector2 speed, GameController gameController, float width, float height, float orientation) {
         super(position, asset, speed, width * HITBOX_PERCENTAGE, height * HITBOX_PERCENTAGE);
         this.weapon = new GreenLaserWeapon(this);
         this.gameController = gameController;
         this.orientation = orientation;
+        this.points = 0;
     }
 
     public void setWeapon(Weapon weapon) {
@@ -51,6 +53,14 @@ public class Spaceship extends Entity {
 
     @Override
     public void accept(Visitor v) {
-        v.visitEntity(this);
+        v.visitSpaceship(this);
+    }
+
+    public int getScore() {
+        return points;
+    }
+
+    public void increaseScore() {
+        points += 1;
     }
 }

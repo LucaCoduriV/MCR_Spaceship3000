@@ -55,8 +55,8 @@ public class LoopingEntity extends Entity{
         return true;
     }
 
+
     @Override
     public void accept(Visitor v) {
-        v.visitEntity(this);
     }
 }

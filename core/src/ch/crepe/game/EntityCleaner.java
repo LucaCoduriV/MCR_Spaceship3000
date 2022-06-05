@@ -21,7 +21,7 @@ public class EntityCleaner {
         Iterator<Entity> it = entities.iterator();
         while (it.hasNext()) {
             Entity entity = it.next();
-            if(isOutOfBounds(entity)){
+            if(isOutOfBounds(entity) || !entity.isAlive()){
                 it.remove();
             }
         }

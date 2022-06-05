@@ -97,6 +97,7 @@ public class GameScreen extends ScreenAdapter {
         controller.update(delta);
         background.update(delta);
     }
+
     private void drawGame(){
         Gdx.gl.glClearColor(0f, 0f, 0f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -125,6 +126,12 @@ public class GameScreen extends ScreenAdapter {
 
         for (Entity entity : controller.getProjectiles()) {
             entity.draw(parent.getBatch());
+        }
+
+        hud.setLife(controller.getPlayerShip().getPercentLife());
+        hud.setScore(controller.getPlayerShip().getScore());
+        if (!controller.getPlayerShip().isAlive()) {
+            parent.changeScreen(ScreenType.GameOver);
         }
 
         controller.getPlayerShip().draw(parent.getBatch());

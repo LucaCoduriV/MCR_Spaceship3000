@@ -11,7 +11,6 @@ import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -59,6 +58,7 @@ public class GameController {
             entity.accept(ce);
             entity.update(delta);
         }
+
         for (Entity projectile : projectiles) {
             projectile.accept(ce);
             projectile.update(delta);

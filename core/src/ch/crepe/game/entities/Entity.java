@@ -13,6 +13,11 @@ abstract public class Entity implements Visitable {
     protected final Rectangle hitbox;
     protected final Vector2 speed; // TODO getter protected
 
+    private int life;
+    private final int damage;
+
+    private static final int DEFAULT_LIFE = 20;
+
     public Entity(Vector2 position, DisplayedAsset asset, Vector2 speed, float width, float height) {
         this.asset = asset;
         this.height = height;
@@ -20,6 +25,8 @@ abstract public class Entity implements Visitable {
         this.hitbox = new Rectangle(0, 0, width, height);
         this.hitbox.setCenter(position);
         this.speed = new Vector2(speed);
+        this.life = DEFAULT_LIFE;
+        this.damage = 5;
     }
 
     /**
@@ -58,5 +65,28 @@ abstract public class Entity implements Visitable {
 
     public Rectangle getDrawingArea() {
         return asset.getDrawingArea();
+    }
+    public boolean isAlive() {
+        return life > 0;
+    }
+
+    public int getLife() {
+        return life;
+    }
+
+    public int getPercentLife() {
+        return (int) ((life / (float) DEFAULT_LIFE) * 100);
+    }
+
+    public int getDamage() {
+        return damage;
+    }
+
+    public void setLife(int life) {
+        this.life = life;
+    }
+
+    public void kill() {
+        this.life = 0;
     }
 }
