@@ -15,7 +15,6 @@ abstract public class Entity implements Visitable {
     private final float reduction = 0.6f;
     private int life;
     private final int damage;
-    private int points;
 
     private static final int DEFAULT_LIFE = 20;
 
@@ -28,7 +27,6 @@ abstract public class Entity implements Visitable {
         this.speed = speed;
         this.life = DEFAULT_LIFE;
         this.damage = 5;
-        this.points = 0;
     }
 
     /**
@@ -89,13 +87,5 @@ abstract public class Entity implements Visitable {
 
     public void kill() {
         this.life = 0;
-    }
-
-    public int getScore() {
-        return points;
-    }
-
-    public void increaseScore() {
-        points += 1;
     }
 }
