@@ -11,7 +11,6 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -22,7 +21,7 @@ public class GameController {
     private final LinkedList<Entity> entities;
     private final LinkedList<Entity> projectiles;
     private final InputProcessor playerInput;
-    private final EnnemySpawner ennemySpawner;
+    private final EnemySpawner ennemySpawner;
     private InputProcessor pauseMenuInputProcessor;
     private final CollisionEngine ce;
     private final Rectangle worldBounds;
@@ -34,7 +33,7 @@ public class GameController {
         this.projectiles = new LinkedList<>();
         this.playerInput = new PlayerInput(this, playerShip);
         this.gameInfo = new GameInfo();
-        this.ennemySpawner = new EnnemySpawner(this,96,54,entities);
+        this.ennemySpawner = new EnemySpawner(this,96,54,entities);
         this.ce = new CollisionEngine(entities);
         entities.add(playerShip);
     }

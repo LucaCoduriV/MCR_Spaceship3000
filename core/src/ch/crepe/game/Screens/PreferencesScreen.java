@@ -54,7 +54,7 @@ public class PreferencesScreen extends ScreenAdapter {
         Skin skin = AssetsLoader.getInstance().getSkin();
 
         // music volume
-        final Slider volumeMusicSlider = new Slider(0f, 1, 0.1f, false, skin);
+        final Slider volumeMusicSlider = new Slider(0f, 1, 0.01f, false, skin);
         volumeMusicSlider.setValue(parent.getPreferences().getMusicVolume());
         volumeMusicSlider.addListener(new EventListener() {
             @Override
