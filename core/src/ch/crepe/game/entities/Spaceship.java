@@ -12,7 +12,7 @@ import com.badlogic.gdx.math.Vector2;
 
 public class Spaceship extends Entity {
     private Weapon weapon;
-    private GameController gameController;
+    private final GameController gameController;
     private final ShapeRenderer renderer = new ShapeRenderer();
 
     public Spaceship(Vector2 position, Sprite sprite, Vector2 speed, GameController gameController, float width, float height) {
@@ -42,6 +42,6 @@ public class Spaceship extends Entity {
 
     @Override
     public void accept(Visitor v) {
-        v.visitEntity(this);
+        v.visitSpaceship(this);
     }
 }

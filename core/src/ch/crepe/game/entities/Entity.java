@@ -13,6 +13,9 @@ abstract public class Entity implements Visitable {
     protected final Rectangle hitbox;
     private final Vector2 speed;
     private final float reduction = 0.6f;
+    private int life;
+    private final int damage;
+    private int points;
 
     public Entity(Vector2 position, Sprite sprite,  Vector2 speed, float width, float height) {
         this.sprite = sprite;
@@ -21,6 +24,9 @@ abstract public class Entity implements Visitable {
         this.hitbox = new Rectangle(0, 0, width * reduction, height * reduction);
         this.hitbox.setCenter(position);
         this.speed = speed;
+        this.life = 20;
+        this.damage = 5;
+        this.points = 0;
     }
 
     /**
@@ -57,5 +63,33 @@ abstract public class Entity implements Visitable {
 
     public Vector2 speed() {
         return speed;
+    }
+
+    public boolean isAlive() {
+        return life > 0;
+    }
+
+    public int getLife() {
+        return life;
+    }
+
+    public int getDamage() {
+        return damage;
+    }
+
+    public void setLife(int life) {
+        this.life = life;
+    }
+
+    public void kill() {
+        this.life = 0;
+    }
+
+    public int getScore() {
+        return points;
+    }
+
+    public void increaseScore() {
+        points += 1;
     }
 }

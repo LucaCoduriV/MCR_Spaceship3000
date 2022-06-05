@@ -11,7 +11,6 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -53,9 +52,9 @@ public class GameController {
             entity.update(delta);
         }
 
-        for (Entity entity : projectiles) {
-            entity.accept(ce);
-            entity.update(delta);
+        for (Entity projectile : projectiles) {
+            projectile.accept(ce);
+            projectile.update(delta);
         }
 
         if(!worldBounds.contains(playerShip.position().cpy().add(playerShip.speed()))) {
