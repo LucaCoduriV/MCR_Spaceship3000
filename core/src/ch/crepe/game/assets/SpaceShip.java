@@ -1,6 +1,6 @@
 package ch.crepe.game.assets;
 
-public enum SpaceShip {
+public enum SpaceShip implements AssetPath {
     speedsterSimple("ships/starships_0000_Ice-Speedster-simple.png"),
     sunKillerSimple("ships/starships_0000_sun-killer-simple.png"),
     centenialHawkSimple("ships/starships_0001_Centenial-Hawk-simple.png"),

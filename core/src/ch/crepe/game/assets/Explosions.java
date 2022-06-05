@@ -1,6 +1,6 @@
 package ch.crepe.game.assets;
 
-public enum Explosions {
+public enum Explosions implements AssetPath {
     roundExplosion("explosions/round_explosion/spritesheet/spritesheet.png"),
     roundVortex("explosions/round_vortex/spritesheet/spritesheet.png"),
     verticalExplosion("explosions/vertical_explosion/spritesheet/spritesheet.png"),

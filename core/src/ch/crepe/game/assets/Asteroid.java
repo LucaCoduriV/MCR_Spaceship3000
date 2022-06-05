@@ -1,6 +1,6 @@
 package ch.crepe.game.assets;
 
-public enum Asteroid {
+public enum Asteroid implements AssetPath{
     blue1("asteroids/blue/1.png"),
     blue2("asteroids/blue/2.png"),
     blue3("asteroids/blue/3.png"),
