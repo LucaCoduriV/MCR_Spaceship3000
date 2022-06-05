@@ -54,6 +54,7 @@ public class GameController {
         }
 
         for (Entity entity : projectiles) {
+            entity.accept(ce);
             entity.update(delta);
         }
 

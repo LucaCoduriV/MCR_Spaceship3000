@@ -17,9 +17,4 @@ public class BlueLaser extends Laser {
     public void makeNoise() {
         AudioManager.getInstance().playSound(Sound.blueLaserSound);
     }
-
-    @Override
-    public void accept(Visitor v) {
-
-    }
 }

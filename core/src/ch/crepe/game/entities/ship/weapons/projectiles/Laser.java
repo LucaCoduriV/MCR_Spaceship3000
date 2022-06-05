@@ -1,6 +1,7 @@
 package ch.crepe.game.entities.ship.weapons.projectiles;
 
 import ch.crepe.game.assets.AssetsLoader;
+import ch.crepe.game.visitor.Visitor;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
 
@@ -14,5 +15,10 @@ abstract public class Laser extends Projectile {
         getSprite().setSize(SIZE, SIZE);
 
         makeNoise();
+    }
+
+    @Override
+    public void accept(Visitor v) {
+        v.visitProjectile(this);
     }
 }
