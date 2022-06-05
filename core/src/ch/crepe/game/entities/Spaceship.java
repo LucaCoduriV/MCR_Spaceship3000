@@ -12,8 +12,9 @@ import com.badlogic.gdx.math.Vector2;
 
 public class Spaceship extends Entity {
     private Weapon weapon;
-    private GameController gameController;
+    private final GameController gameController;
     private final ShapeRenderer renderer = new ShapeRenderer();
+    private int points;
 
     public Spaceship(Vector2 position, Sprite sprite, Vector2 speed, GameController gameController, float width, float height) {
         super(position, sprite, speed, width, height);
@@ -21,6 +22,7 @@ public class Spaceship extends Entity {
         getSprite().setCenter(getSprite().getWidth() / 2,getSprite().getHeight() / 2);
         this.weapon = new GreenLaserWeapon(this);
         this.gameController = gameController;
+        this.points = 0;
     }
 
     public void setWeapon(Weapon weapon) {
@@ -42,6 +44,14 @@ public class Spaceship extends Entity {
 
     @Override
     public void accept(Visitor v) {
-        v.visitEntity(this);
+        v.visitSpaceship(this);
+    }
+
+    public int getScore() {
+        return points;
+    }
+
+    public void increaseScore() {
+        points += 1;
     }
 }

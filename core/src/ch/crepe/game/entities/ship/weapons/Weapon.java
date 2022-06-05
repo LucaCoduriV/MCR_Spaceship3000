@@ -3,7 +3,7 @@ package ch.crepe.game.entities.ship.weapons;
 import ch.crepe.game.entities.Spaceship;
 
 abstract public class Weapon {
-    private Spaceship spaceship;
+    private final Spaceship spaceship;
 
     protected Weapon(Spaceship spaceship) {
         this.spaceship = spaceship;
@@ -12,6 +12,10 @@ abstract public class Weapon {
     public abstract void createProjectile();
 
     protected Spaceship getSpaceship() {
+        return spaceship;
+    }
+
+    public Spaceship getOwner() {
         return spaceship;
     }
 }
