@@ -34,7 +34,7 @@ public class EnemySpawner {
     }
 
     public Entity spawnEnemy() {
-        final float size = 10;
+        final float size = 5;
         Vector2 position = generateRandomPosition(size);
         Vector2 direction = generateRandomDirection(position);
 
