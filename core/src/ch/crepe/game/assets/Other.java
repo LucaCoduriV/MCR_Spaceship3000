@@ -1,6 +1,6 @@
 package ch.crepe.game.assets;
 
-public enum Other {
+public enum Other implements AssetPath {
     skin("menu/neonskin/neon-ui.json"),
     logo("logo.png");
     private final String path;

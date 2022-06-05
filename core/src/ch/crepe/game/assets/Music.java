@@ -1,6 +1,6 @@
 package ch.crepe.game.assets;
 
-public enum Music {
+public enum Music implements AssetPath {
     defeat("audios/musics/Defeated.ogg"),
     menu("audios/musics/MenuScreen.ogg"),
     aloneAgainstEnemy("audios/musics/Alone Against Enemy.ogg"),
