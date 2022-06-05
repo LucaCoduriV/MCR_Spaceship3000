@@ -23,9 +23,11 @@ public class Spaceship extends Entity {
     private float orientation;
     private GameController gameController;
     private final ShapeRenderer renderer = new ShapeRenderer();
+    private final static float HITBOX_PERCENTAGE = 0.6f;
+
 
     public Spaceship(Vector2 position, DisplayedAsset asset, Vector2 speed, GameController gameController, float width, float height, float orientation) {
-        super(position, asset, speed, width, height);
+        super(position, asset, speed, width * HITBOX_PERCENTAGE, height * HITBOX_PERCENTAGE);
         this.weapon = new LaserWeapon(this);
         this.gameController = gameController;
         this.orientation = orientation;
