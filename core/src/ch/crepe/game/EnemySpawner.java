@@ -2,10 +2,12 @@ package ch.crepe.game;
 
 import ch.crepe.game.assets.AssetsLoader;
 import ch.crepe.game.assets.SpaceShip;
+import ch.crepe.game.assets.displayers.DisplayedSprite;
 import ch.crepe.game.entities.Asteroid;
 import ch.crepe.game.entities.Entity;
 import ch.crepe.game.entities.SpaceShipAI;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 import java.util.List;
@@ -69,23 +71,26 @@ public class EnemySpawner {
         int randomNumber = r.nextInt(2);
         switch (randomNumber){
             case 0:
-                Sprite sprite = new Sprite(AssetsLoader.getInstance().getSpaceship(SpaceShip.iceSpeedster));
-                sprite.setOrigin(width/2,height/2);
-                sprite.rotate(180);
-                sprite.setSize(width,height);
-                return new SpaceShipAI(position, sprite, direction, gameController, width, height);
+                return new SpaceShipAI(position, new DisplayedSprite(
+                        AssetsLoader.getInstance().getSpaceship(SpaceShip.iceSpeedster),
+                        new Rectangle(width/2,height/2, width, height),
+                        new Vector2(width/2, height/2),
+                        180),  new Vector2(0,0),
+                        gameController, width, height, 180);
             case 1:
-                Sprite sprite1 = new Sprite(AssetsLoader.getInstance().getAsteroid(ch.crepe.game.assets.Asteroid.blue1));
-                sprite1.setOrigin(width/2,height/2);
-                sprite1.rotate(180);
-                sprite1.setSize(width,height);
-                return new Asteroid(position, sprite1, direction, width, height);
+                return new Asteroid(position, new DisplayedSprite(
+                        AssetsLoader.getInstance().getAsteroid(ch.crepe.game.assets.Asteroid.blue1),
+                                new Rectangle(width/2,height/2, width, height),
+                                new Vector2(width/2, height/2),
+                                180),
+                        direction, width, height); // TODO pk c'est direction et pas speed ?
             default:
-                Sprite defaultSprite = new Sprite(AssetsLoader.getInstance().getSpaceship(SpaceShip.iceSpeedster));
-                defaultSprite.setOrigin(width/2,height/2);
-                defaultSprite.rotate(180);
-                defaultSprite.setSize(width,height);
-                return new SpaceShipAI(new Vector2(0,0), defaultSprite, new Vector2(0,0), gameController, 10, 10);
+                return new SpaceShipAI(position, new DisplayedSprite(
+                        AssetsLoader.getInstance().getSpaceship(SpaceShip.iceSpeedster),
+                        new Rectangle(width/2,height/2, width, height),
+                        new Vector2(width/2, height/2),
+                        180),  new Vector2(0,0),
+                        gameController, 10, 10, 180);
         }
     }
 }

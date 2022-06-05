@@ -1,11 +1,9 @@
 package ch.crepe.game;
 
-import ch.crepe.game.assets.AssetsLoader;
-import ch.crepe.game.assets.Laser;
-import ch.crepe.game.assets.SpaceShip;
-import ch.crepe.game.assets.Star;
-import ch.crepe.game.entities.LoopingAnimation;
-import ch.crepe.game.entities.LoopingSprite;
+import ch.crepe.game.assets.*;
+import ch.crepe.game.assets.displayers.DisplayedAnimation;
+import ch.crepe.game.assets.displayers.DisplayedSprite;
+import ch.crepe.game.entities.LoopingEntity;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
@@ -13,85 +11,161 @@ import com.badlogic.gdx.math.Vector2;
 
 import java.util.*;
 
+/**
+ * Represent the background of the game.
+ * <p>
+ *     It contains 2 Sprites of the background image that travels from the top to the bottom of the screen,
+ *     returning to the top once it's out of the screen. Creating an illusion of movement.
+ * </p>
+ * <p>
+ *     It also contains a defined number of stars generated randomly who follows the same behavior.
+ * </p>
+ * @author      nelson.jeanrenaud@heig-vd.ch
+ */
 public class Background {
-    private static Random rnd = new Random();
+    /**
+     * Random number generator.
+     */
+    private static final Random rnd = new Random();
+    /**
+     * Area displayed on the screen.
+     */
+    private final Rectangle area;
+    /**
+     * Rectangle of "bounds" calculated from the displayed area.
+     * Objects are moved to their respawn position when they leave this rectangle.
+     */
+    private final Rectangle bounds;
+    /**
+     * First background sprite tile.
+     */
+    private final LoopingEntity tile_1;
+    /**
+     * Second background sprite tile.
+     */
+    private final LoopingEntity tile_2;
+    /**
+     * List of all the stars.
+     */
+    private final List<LoopingEntity> stars;
 
-    private Rectangle bounds;
+    /**
+     * Creates a background in the given area with a specified number of stars.
+     * @param area Area of the background.
+     * @param image Texture used for the background.
+     * @param nbStars Number of stars to generate in the background.
+     */
+    public Background(Rectangle area, Texture image, int nbStars) {
 
-    private Vector2 position;
-    private LoopingSprite tile_1;
-    private LoopingSprite tile_2;
-    private List<LoopingAnimation> stars;
-
-    public Background(Vector2 position, Vector2 size, Texture image, int nbStars, Rectangle bounds) {
-
-        this.position = position;
+        this.area = new Rectangle(area);
+        // Calculate the bounds from the screen area. It's twice as long (y-axis) and starts "further up" (y-axis).
         this.bounds = new Rectangle(
-                bounds.x,
-                bounds.y - bounds.height,
-                bounds.width,
-                2 * bounds.height
+                area.getX(),
+                area.getY(),
+                area.getWidth(),
+                2 * area.getHeight()
         );
-        Vector2 tileSpawn = new Vector2(position.x, position.y + size.y);
-        tile_1 = new LoopingSprite(image, size, tileSpawn, position, 0.01f, this.bounds);
-        tile_2 = new LoopingSprite(image, size, tileSpawn, tileSpawn, 0.01f, this.bounds);
+        // Get the position of the rectangle offset-ed by its height
+        final Vector2 tileSpawn = area.getCenter(new Vector2()).add(0, area.getHeight());
+
+        tile_1 = new LoopingEntity(area.getCenter(new Vector2()),
+                new DisplayedSprite(image, area),
+                new Vector2(0, -0.01f), tileSpawn, this.bounds, area.getWidth(), area.getHeight());
+
+        final Rectangle tile2_rect = new Rectangle(area.getX(), area.getY() + area.getHeight(), area.getWidth(), area.getHeight());
+
+        tile_2 = new LoopingEntity(tile2_rect.getCenter(new Vector2()),
+                new DisplayedSprite(image, tile2_rect),
+                new Vector2(0, -0.01f), tileSpawn, this.bounds, area.getWidth(), area.getHeight());
+
         this.stars = new LinkedList<>();
+
         createStars(nbStars);
     }
 
+    /**
+     * Creates a specified number of stars randomly and adds them to the background.
+     * @param nbStars Number of stars to create.
+     */
     private void createStars(int nbStars) {
         for (int i = 0; i < nbStars; i++) {
-            float rndPositionX = rnd.nextInt((int)tile_1.getSprite().getWidth()) + position.x;
-            float rndPositionY = rnd.nextInt((int)tile_1.getSprite().getHeight()) + position.y;
 
+            // Ratio by which the characteristics of the star are affected by it size.
+            final float gameSizeRatio = 14f; // Converts the size which is in the interval ]0, 1] to the actual size.
+            final float speedRatio = 1/10f;
+            final float frameSpeedRatio = 1/40f;
 
+            final float rndPositionX = rnd.nextInt((int) bounds.width) + area.getX();
+            final float rndPositionY = rnd.nextInt((int) bounds.height) + area.getY();
 
-            float rndDistanceRatio = rnd.nextInt(100);
-            float size =
-                    rndDistanceRatio < 20 ? 0.1f :
-                            rndDistanceRatio < 40 ? 0.2f :
-                                    rndDistanceRatio < 55 ? 0.3f :
-                                            rndDistanceRatio < 80 ? 0.4f :
-                                                    rndDistanceRatio < 85 ? 0.5f :
-                                                            rndDistanceRatio < 87 ? 0.6f :
-                                                                    rndDistanceRatio < 90 ? 0.7f :
-                                                                            rndDistanceRatio < 93 ? 0.8f :
-                                                                                    rndDistanceRatio < 96 ? 0.9f : 1;
+            // TODO Trouver un meilleur moyen de gérer la distribution de taille.
+            // Generate the size of the star based on a size distribution.
+            final float randomPercentile = rnd.nextInt(100);
+            final float sizePercentage =
+                    randomPercentile < 20 ? 0.1f :
+                            randomPercentile < 40 ? 0.2f :
+                                    randomPercentile < 55 ? 0.3f :
+                                            randomPercentile < 80 ? 0.4f :
+                                                    randomPercentile < 85 ? 0.5f :
+                                                            randomPercentile < 87 ? 0.6f :
+                                                                    randomPercentile < 90 ? 0.7f :
+                                                                            randomPercentile < 93 ? 0.8f :
+                                                                                    randomPercentile < 96 ? 0.9f : 1;
 
-            Star starType =  Star.values()[rnd.nextInt(Star.values().length)];
-            this.stars.add(new LoopingAnimation(
-                    AssetsLoader.getInstance().getStar(starType),
-                    new Vector2(14 * size, 14 * size),
-                    new Vector2(rndPositionX, position.y + (int)tile_1.getSprite().getHeight()),
-                    new Vector2(rndPositionX, rndPositionY),
-                    size / 10,
-                    new Rectangle(bounds.x, bounds.y, bounds.width, bounds.height),
-                    starType.getTileWidth(), starType.getTileHeight()));
+            final Star starType = Star.values()[rnd.nextInt(Star.values().length)]; // Get a random type of celestial body
+
+            final Rectangle hitbox = new Rectangle(
+                    rndPositionX, rndPositionY,
+                    gameSizeRatio * sizePercentage, gameSizeRatio * sizePercentage
+            );
+            this.stars.add(new LoopingEntity(
+                    hitbox.getCenter(new Vector2()),
+                    new DisplayedAnimation(
+                            AssetsLoader.getInstance().getStar(starType),
+                            hitbox,
+                            starType.getTileWidth(),
+                            starType.getTileHeight(),
+                            frameSpeedRatio / sizePercentage
+                    ),
+                    new Vector2(0, -sizePercentage * speedRatio),
+                    new Vector2(rndPositionX, bounds.height + bounds.y),
+                    new Rectangle(bounds), hitbox.getWidth(), hitbox.getHeight()
+            ));
         }
 
-        Collections.sort(stars, new Comparator<LoopingAnimation>() {
-            @Override
-            public int compare(LoopingAnimation o1, LoopingAnimation o2) {
-                return Float.compare(o1.getSize().x + o1.getSize().y, o2.getSize().x + o2.getSize().y);
-            }
-        });
+        // Sorts the list so the smallest body are drawn firsts and hidden by the bigger objects
+        // (since they are further from the camera view).
+       Collections.sort(stars, new Comparator<LoopingEntity>() {
+           @Override
+           public int compare(LoopingEntity o1, LoopingEntity o2) {
+               return (int)(o1.getDrawingArea().area() - o2.getDrawingArea().area());
+           }
+       });
     }
 
+    /**
+     * Draws the background onto the specified batch.
+     * @param batch The batch.
+     */
     public void draw(SpriteBatch batch) {
         tile_1.draw(batch);
         tile_2.draw(batch);
 
-        for (LoopingSprite s: stars) {
+        for (LoopingEntity s : stars) {
             s.draw(batch);
         }
     }
 
-    public void update() {
-        tile_1.move();
-        tile_2.move();
+    /**
+     * Update the background.
+     * @param delta Time delta since last update.
+     */
+    public void update(float delta) {
+        tile_1.update(delta);
+        tile_2.update(delta);
 
-        for (LoopingSprite s : stars) {
-            s.move();
+        for (LoopingEntity s : stars) {
+            s.update(delta);
         }
     }
 

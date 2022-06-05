@@ -11,6 +11,6 @@ public class BlueLaserWeapon extends Weapon {
 
     @Override
     public void createProjectile() {
-        getSpaceship().getGameController().addProjectile(new BlueLaser(new Vector2(getSpaceship().position().add(new Vector2())), getSpaceship().getSprite().getRotation() + 90));
+        getSpaceship().getGameController().addProjectile(new BlueLaser(new Vector2(getSpaceship().getCenter().add(new Vector2())), getSpaceship().getOrientation() + 90));
     }
 }

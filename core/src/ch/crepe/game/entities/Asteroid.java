@@ -1,15 +1,13 @@
 package ch.crepe.game.entities;
 
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Sprite;
+import ch.crepe.game.assets.displayers.DisplayedAsset;
 import com.badlogic.gdx.math.Vector2;
 
 import ch.crepe.game.visitor.Visitor;
 
 public class Asteroid extends Entity {
-
-    public Asteroid(Vector2 position, Sprite sprite, Vector2 speed, float width, float height) {
-        super(position, sprite, speed, width, height);
+    public Asteroid(Vector2 position, DisplayedAsset asset, Vector2 speed, float width, float height) {
+        super(position, asset, speed, width, height);
     }
 
     @Override

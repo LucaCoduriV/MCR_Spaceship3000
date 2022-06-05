@@ -24,6 +24,7 @@ public class GameScreen extends ScreenAdapter {
     private final FitViewport viewport;
     private final HeadUpDisplay hud;
     private final PauseOverlay pauseOverlay;
+
     private static final float WORLD_WIDTH = 96;
     private static final float WORLD_HEIGHT = 54;
     private final Sprite backgroundSprite = new Sprite(AssetsLoader.getInstance().getBackground());
@@ -36,10 +37,10 @@ public class GameScreen extends ScreenAdapter {
             Music.spaceHeroes,
             Music.withoutFear
     };
-    private final Background background = new Background(new Vector2(-WORLD_WIDTH / 2f, -WORLD_HEIGHT / 2f),
-            new Vector2(WORLD_WIDTH, WORLD_HEIGHT),
-            AssetsLoader.getInstance().getBackground(), 15, new Rectangle(-WORLD_WIDTH / 2f, -WORLD_HEIGHT / 2f,
-            WORLD_WIDTH, WORLD_HEIGHT));
+    private final Background background = new Background(
+            new Rectangle(-WORLD_WIDTH / 2f, -WORLD_HEIGHT / 2f, WORLD_WIDTH, WORLD_HEIGHT),
+            AssetsLoader.getInstance().getBackground(),
+            15);
 
     private final ShapeRenderer sr = new ShapeRenderer();
     private static final boolean DEBUG = true;
@@ -76,9 +77,6 @@ public class GameScreen extends ScreenAdapter {
 
         backgroundSprite.setSize(WORLD_WIDTH,WORLD_HEIGHT);
         backgroundSprite.setPosition(-WORLD_WIDTH/2f,-WORLD_HEIGHT/2f);
-
-
-
         Gdx.input.setInputProcessor(controller.getPlayerInput());
     }
 
@@ -97,6 +95,7 @@ public class GameScreen extends ScreenAdapter {
 
     private void updateGame(float delta){
         controller.update(delta);
+        background.update(delta);
     }
     private void drawGame(){
         Gdx.gl.glClearColor(0f, 0f, 0f, 1);
@@ -108,7 +107,6 @@ public class GameScreen extends ScreenAdapter {
 
         parent.getBatch().begin();
         background.draw(parent.getBatch());
-        background.update();
         controller.getPlayerShip().draw(parent.getBatch());
         for (Entity entity : controller.getEntities()) {
             entity.draw(parent.getBatch());

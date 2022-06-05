@@ -2,12 +2,12 @@ package ch.crepe.game;
 
 import ch.crepe.game.assets.AssetsLoader;
 import ch.crepe.game.assets.SpaceShip;
+import ch.crepe.game.assets.displayers.DisplayedSprite;
 import ch.crepe.game.engines.CollisionEngine;
 import ch.crepe.game.entities.Entity;
 import ch.crepe.game.entities.Spaceship;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
@@ -30,7 +30,14 @@ public class GameController {
 
     public GameController(Rectangle worldBounds) {
         this.worldBounds = worldBounds;
-        this.playerShip = new Spaceship(new Vector2(), new Sprite(AssetsLoader.getInstance().getSpaceship(SpaceShip.bowFighter)), new Vector2(), this, 5, 5);
+        this.playerShip = new Spaceship(
+                new Vector2(),
+                new DisplayedSprite(
+                        AssetsLoader.getInstance().getSpaceship(SpaceShip.bowFighter),
+                        new Rectangle(0, 0, 10, 10)
+                        ),
+                new Vector2(),
+                this, 10, 10, 0);
         this.entities = new LinkedList<>();
         this.projectiles = new LinkedList<>();
         this.playerInput = new PlayerInput(this, playerShip);
@@ -53,19 +60,25 @@ public class GameController {
             entity.update(delta);
         }
 
-        for (Entity entity : projectiles) {
-            entity.update(delta);
+
+        Iterator<Entity> it = projectiles.iterator();
+        while (it.hasNext()) {
+            Entity entity = it.next();
+            if (!worldBounds.contains(entity.getCenter()))
+                it.remove();
+            else
+                entity.update(delta);
         }
 
-        if(!worldBounds.contains(playerShip.position().cpy().add(playerShip.speed()))) {
+        if(!worldBounds.contains(playerShip.getCenter().cpy().add(playerShip.speed()))) {
             Vector2 newSpeed = playerShip.speed().cpy();
-            if(playerShip.position().x < worldBounds.x || playerShip.position().x > worldBounds.x + worldBounds.width){
+            if(playerShip.getCenter().x < worldBounds.x || playerShip.getCenter().x > worldBounds.x + worldBounds.width){
                 newSpeed.x = 0;
-                playerShip.position().x = playerShip.position().x - (playerShip.speed().x / Math.abs(playerShip.speed().x)) * 0.5f;
+                playerShip.getCenter().x = playerShip.getCenter().x - (playerShip.speed().x / Math.abs(playerShip.speed().x)) * 0.5f;
             }
-            if(playerShip.position().y < worldBounds.y || playerShip.position().y > worldBounds.y + worldBounds.height){
+            if(playerShip.getCenter().y < worldBounds.y || playerShip.getCenter().y > worldBounds.y + worldBounds.height){
                 newSpeed.y = 0;
-                playerShip.position().y = playerShip.position().y - (playerShip.speed().y / Math.abs(playerShip.speed().y)) * 0.5f;
+                playerShip.getCenter().y = playerShip.getCenter().y - (playerShip.speed().y / Math.abs(playerShip.speed().y)) * 0.5f;
             }
             playerShip.speed().set(newSpeed);
         }
