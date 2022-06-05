@@ -17,6 +17,8 @@ abstract public class Entity implements Visitable {
     private final int damage;
     private int points;
 
+    private static final int DEFAULT_LIFE = 20;
+
     public Entity(Vector2 position, Sprite sprite,  Vector2 speed, float width, float height) {
         this.sprite = sprite;
         this.height = height;
@@ -24,7 +26,7 @@ abstract public class Entity implements Visitable {
         this.hitbox = new Rectangle(0, 0, width * reduction, height * reduction);
         this.hitbox.setCenter(position);
         this.speed = speed;
-        this.life = 20;
+        this.life = DEFAULT_LIFE;
         this.damage = 5;
         this.points = 0;
     }
@@ -71,6 +73,10 @@ abstract public class Entity implements Visitable {
 
     public int getLife() {
         return life;
+    }
+
+    public int getPercentLife() {
+        return (int) ((life / (float) DEFAULT_LIFE) * 100);
     }
 
     public int getDamage() {

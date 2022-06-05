@@ -130,7 +130,7 @@ public class GameScreen extends ScreenAdapter {
             entity.draw(parent.getBatch());
         }
 
-        hud.setLife(controller.getPlayerShip().getLife());
+        hud.setLife(controller.getPlayerShip().getPercentLife());
         hud.setScore(controller.getPlayerShip().getScore());
         if (!controller.getPlayerShip().isAlive()) {
             parent.changeScreen(ScreenType.GameOver);
