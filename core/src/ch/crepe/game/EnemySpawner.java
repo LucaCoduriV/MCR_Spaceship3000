@@ -18,6 +18,7 @@ public class EnemySpawner {
     private final Vector2 worldMinRightPos;
     private final Random r;
     private float elapsedTime = 0;
+    private float timeForNextSpawn;
     private final List<Entity> entityList;
     private final GameController gameController;
 
@@ -29,6 +30,7 @@ public class EnemySpawner {
         this.r = new Random();
         this.worldMinLeftPos = new Vector2(-worldWidth/2f,-worldHeight/2f);
         this.worldMinRightPos = new Vector2(worldWidth/2f,-worldHeight/2f);
+        this.timeForNextSpawn = r.nextInt(5000) / 1000f;
     }
 
     public Entity spawnEnemy() {
@@ -42,8 +44,9 @@ public class EnemySpawner {
     public void update(float delta){
         elapsedTime += delta;
 
-        if(elapsedTime > 5f){
+        if(elapsedTime > timeForNextSpawn){
             elapsedTime = 0;
+            this.timeForNextSpawn = r.nextInt(5000) / 1000f;
             entityList.add(spawnEnemy());
         }
     }
