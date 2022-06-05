@@ -33,10 +33,10 @@ public class GameController {
                 new Vector2(),
                 new DisplayedSprite(
                         AssetsLoader.getInstance().getSpaceship(SpaceShip.bowFighter),
-                        new Rectangle(0, 0, 10, 10)
+                        new Rectangle(0, 0, 5, 5)
                         ),
                 new Vector2(),
-                this, 10, 10, 0);
+                this, 5, 5, 0);
         this.entities = new LinkedList<>();
         this.projectiles = new LinkedList<>();
         this.playerInput = new PlayerInput(this, playerShip);

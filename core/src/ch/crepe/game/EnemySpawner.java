@@ -72,7 +72,7 @@ public class EnemySpawner {
         switch (randomNumber){
             case 0:
                 return new SpaceShipAI(position, new DisplayedSprite(
-                        AssetsLoader.getInstance().getSpaceship(SpaceShip.iceSpeedster),
+                        AssetsLoader.getInstance().getSpaceship(SpaceShip.exVing),
                         new Rectangle(0,0, width, height),
                         new Vector2(width/2, height/2),
                         180),  direction,
