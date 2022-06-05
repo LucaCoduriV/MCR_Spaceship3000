@@ -26,11 +26,8 @@ public class MainMenuScreen extends ScreenAdapter {
     private final Sprite logoSprite = new Sprite(AssetsLoader.getInstance().getLogo());
     public MainMenuScreen(Spaceship3000 parent){
         this.parent = parent;
-
         /// create stage and set it as input processor
         stage = new Stage(new ScreenViewport());
-
-
     }
 
     @Override
