@@ -11,7 +11,6 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -22,20 +21,24 @@ public class GameController {
     private final LinkedList<Entity> entities;
     private final LinkedList<Entity> projectiles;
     private final InputProcessor playerInput;
-    private final EnnemySpawner ennemySpawner;
+    private final EnemySpawner ennemySpawner;
+    private final EntityCleaner bottomCleaner;
+    private final EntityCleaner allSideCleaner;
     private InputProcessor pauseMenuInputProcessor;
     private final CollisionEngine ce;
     private final Rectangle worldBounds;
 
     public GameController(Rectangle worldBounds) {
         this.worldBounds = worldBounds;
-        this.playerShip = new Spaceship(new Vector2(), new Sprite(AssetsLoader.getInstance().getSpaceship(SpaceShip.bowFighter)), new Vector2(), this, 10, 10);
+        this.playerShip = new Spaceship(new Vector2(), new Sprite(AssetsLoader.getInstance().getSpaceship(SpaceShip.bowFighter)), new Vector2(), this, 5, 5);
         this.entities = new LinkedList<>();
         this.projectiles = new LinkedList<>();
         this.playerInput = new PlayerInput(this, playerShip);
         this.gameInfo = new GameInfo();
-        this.ennemySpawner = new EnnemySpawner(96,54,entities);
+        this.ennemySpawner = new EnemySpawner(this,96,54,entities);
         this.ce = new CollisionEngine(entities);
+        this.bottomCleaner = new BottomEntityCleaner(entities, worldBounds);
+        this.allSideCleaner = new EntityCleaner(projectiles, worldBounds);
         entities.add(playerShip);
     }
 
@@ -50,13 +53,8 @@ public class GameController {
             entity.update(delta);
         }
 
-        Iterator<Entity> it = projectiles.iterator();
-        while (it.hasNext()) {
-            Entity entity = it.next();
-            if (!worldBounds.contains(entity.position()))
-                it.remove();
-            else
-                entity.update(delta);
+        for (Entity entity : projectiles) {
+            entity.update(delta);
         }
 
         if(!worldBounds.contains(playerShip.position().cpy().add(playerShip.speed()))) {
@@ -72,6 +70,9 @@ public class GameController {
             playerShip.speed().set(newSpeed);
         }
         playerShip.update(delta);
+
+        allSideCleaner.update(delta);
+        bottomCleaner.update(delta);
     }
 
     public Spaceship getPlayerShip() {

@@ -1,6 +1,6 @@
 package ch.crepe.game.assets;
 
-public enum Laser {
+public enum Laser implements AssetPath {
     blueSimple("weapons/lasers/blue_simple.png"),
     blueFast("weapons/lasers/blue_fast.png"),
     bluePlasma("weapons/lasers/blue_plasma.png"),

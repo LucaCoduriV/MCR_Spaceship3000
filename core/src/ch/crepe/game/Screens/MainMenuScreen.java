@@ -41,7 +41,7 @@ public class MainMenuScreen extends ScreenAdapter {
         // Create a table that fills the screen. Everything else will go inside this table.
         VerticalGroup vg = new VerticalGroup();
         vg.setFillParent(true);
-        vg.setDebug(true);
+        vg.setDebug(false);
         vg.center();
 
         Image image = new Image(new SpriteDrawable(logoSprite));
