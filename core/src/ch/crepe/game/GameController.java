@@ -22,6 +22,8 @@ public class GameController {
     private final LinkedList<Entity> projectiles;
     private final InputProcessor playerInput;
     private final EnemySpawner ennemySpawner;
+    private final EntityCleaner bottomCleaner;
+    private final EntityCleaner allSideCleaner;
     private InputProcessor pauseMenuInputProcessor;
     private final CollisionEngine ce;
     private final Rectangle worldBounds;
@@ -35,6 +37,8 @@ public class GameController {
         this.gameInfo = new GameInfo();
         this.ennemySpawner = new EnemySpawner(this,96,54,entities);
         this.ce = new CollisionEngine(entities);
+        this.bottomCleaner = new BottomEntityCleaner(entities, worldBounds);
+        this.allSideCleaner = new EntityCleaner(projectiles, worldBounds);
         entities.add(playerShip);
     }
 
@@ -49,13 +53,8 @@ public class GameController {
             entity.update(delta);
         }
 
-        Iterator<Entity> it = projectiles.iterator();
-        while (it.hasNext()) {
-            Entity entity = it.next();
-            if (!worldBounds.contains(entity.position()))
-                it.remove();
-            else
-                entity.update(delta);
+        for (Entity entity : projectiles) {
+            entity.update(delta);
         }
 
         if(!worldBounds.contains(playerShip.position().cpy().add(playerShip.speed()))) {
@@ -71,6 +70,9 @@ public class GameController {
             playerShip.speed().set(newSpeed);
         }
         playerShip.update(delta);
+
+        allSideCleaner.update(delta);
+        bottomCleaner.update(delta);
     }
 
     public Spaceship getPlayerShip() {
