@@ -49,7 +49,7 @@ public class LoopingEntity extends Entity{
     private boolean checkBounds() {
         if(!bounds.overlaps(getHitbox())){
             System.out.println("Reseting position");
-            setPosition(respawnPosition.cpy());
+            setCenter(respawnPosition.cpy());
             return false;
         }
         return true;

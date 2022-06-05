@@ -40,7 +40,7 @@ public class GameScreen extends ScreenAdapter {
     private final Background background = new Background(
             new Rectangle(-WORLD_WIDTH / 2f, -WORLD_HEIGHT / 2f, WORLD_WIDTH, WORLD_HEIGHT),
             AssetsLoader.getInstance().getBackground(),
-            0);
+            15);
 
     private final ShapeRenderer sr = new ShapeRenderer();
     private static final boolean DEBUG = true;

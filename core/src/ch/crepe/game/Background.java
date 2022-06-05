@@ -61,18 +61,19 @@ public class Background {
         // Calculate the bounds from the screen area. It's twice as long (y-axis) and starts "further up" (y-axis).
         this.bounds = new Rectangle(
                 area.getX(),
-                area.getY() - area.getHeight(),
+                area.getY(),
                 area.getWidth(),
                 2 * area.getHeight()
         );
         // Get the position of the rectangle offset-ed by its height
-        Vector2 tileSpawn = area.getCenter(new Vector2()).add(0, area.getHeight());
+        final Vector2 tileSpawn = area.getCenter(new Vector2()).add(0, area.getHeight());
 
         tile_1 = new LoopingEntity(area.getCenter(new Vector2()),
                 new DisplayedSprite(image, area),
                 new Vector2(0, -0.01f), tileSpawn, this.bounds, area.getWidth(), area.getHeight());
 
-        Rectangle tile2_rect = new Rectangle(area.getX(), area.getY() + area.getHeight(), area.getWidth(), area.getHeight());
+        final Rectangle tile2_rect = new Rectangle(area.getX(), area.getY() + area.getHeight(), area.getWidth(), area.getHeight());
+
         tile_2 = new LoopingEntity(tile2_rect.getCenter(new Vector2()),
                 new DisplayedSprite(image, tile2_rect),
                 new Vector2(0, -0.01f), tileSpawn, this.bounds, area.getWidth(), area.getHeight());

@@ -8,11 +8,9 @@ import ch.crepe.game.entities.Entity;
 import ch.crepe.game.entities.Spaceship;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -61,21 +59,21 @@ public class GameController {
         Iterator<Entity> it = projectiles.iterator();
         while (it.hasNext()) {
             Entity entity = it.next();
-            if (!worldBounds.contains(entity.position()))
+            if (!worldBounds.contains(entity.getCenter()))
                 it.remove();
             else
                 entity.update(delta);
         }
 
-        if(!worldBounds.contains(playerShip.position().cpy().add(playerShip.speed()))) {
+        if(!worldBounds.contains(playerShip.getCenter().cpy().add(playerShip.speed()))) {
             Vector2 newSpeed = playerShip.speed().cpy();
-            if(playerShip.position().x < worldBounds.x || playerShip.position().x > worldBounds.x + worldBounds.width){
+            if(playerShip.getCenter().x < worldBounds.x || playerShip.getCenter().x > worldBounds.x + worldBounds.width){
                 newSpeed.x = 0;
-                playerShip.position().x = playerShip.position().x - (playerShip.speed().x / Math.abs(playerShip.speed().x)) * 0.5f;
+                playerShip.getCenter().x = playerShip.getCenter().x - (playerShip.speed().x / Math.abs(playerShip.speed().x)) * 0.5f;
             }
-            if(playerShip.position().y < worldBounds.y || playerShip.position().y > worldBounds.y + worldBounds.height){
+            if(playerShip.getCenter().y < worldBounds.y || playerShip.getCenter().y > worldBounds.y + worldBounds.height){
                 newSpeed.y = 0;
-                playerShip.position().y = playerShip.position().y - (playerShip.speed().y / Math.abs(playerShip.speed().y)) * 0.5f;
+                playerShip.getCenter().y = playerShip.getCenter().y - (playerShip.speed().y / Math.abs(playerShip.speed().y)) * 0.5f;
             }
             playerShip.speed().set(newSpeed);
         }
