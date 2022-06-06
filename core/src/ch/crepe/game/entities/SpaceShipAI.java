@@ -13,8 +13,8 @@ public class SpaceShipAI extends Spaceship {
     float nextShotTime;
     private final static Random r = new Random();
 
-    public SpaceShipAI(Vector2 position, DisplayedAsset asset, Vector2 speed, GameController gameController, float width, float height, float orientation) {
-        super(position, asset, speed, gameController, width, height, orientation);
+    public SpaceShipAI(Vector2 position, Vector2 speed, GameController gameController, float width, float height, float orientation) {
+        super(position, speed, gameController, width, height, orientation);
         generateNextShotTime();
     }
 

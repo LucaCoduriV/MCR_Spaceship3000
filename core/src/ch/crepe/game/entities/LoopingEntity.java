@@ -2,6 +2,7 @@ package ch.crepe.game.entities;
 
 import ch.crepe.game.assets.displayers.DisplayedAsset;
 import ch.crepe.game.visitor.Visitor;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
@@ -14,7 +15,7 @@ public class LoopingEntity extends Entity{
      * Position where the Entity returns to when it's out of bounds.
      */
     private final Vector2 respawnPosition;
-
+    protected final DisplayedAsset asset;
     /**
      * Area in which the Entity is confined.
      */
@@ -31,9 +32,17 @@ public class LoopingEntity extends Entity{
      * @param height Height of the hitbox.
      */
     public LoopingEntity(Vector2 position, DisplayedAsset asset, Vector2 speed, Vector2 respawnPosition, Rectangle bounds, float width, float height) {
-        super(position, asset, speed, width, height, 0); //TODO orientation
+        super(position, speed, width, height, 0); //TODO orientation
+        this.asset = asset;
         this.respawnPosition = new Vector2(respawnPosition);
         this.bounds = new Rectangle(bounds);
+    }
+
+
+
+    //TODO temporaire en attendant visiteur
+    public void draw(Batch batch) {
+        asset.draw(batch);
     }
 
     @Override
@@ -58,5 +67,15 @@ public class LoopingEntity extends Entity{
 
     @Override
     public void accept(Visitor v) {
+    }
+
+    public Rectangle getDrawingArea() {
+        return asset.getDrawingArea();
+    }
+
+    @Override
+    protected void setPosition(Vector2 position) {
+        super.setPosition(position);
+        asset.setCenter(new Vector2(hitbox.x + hitbox.width / 2, hitbox.y + hitbox.height / 2));
     }
 }

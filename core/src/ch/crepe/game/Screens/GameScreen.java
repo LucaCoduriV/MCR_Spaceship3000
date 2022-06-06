@@ -7,7 +7,6 @@ import ch.crepe.game.audio.AudioManager;
 import ch.crepe.game.audio.Playlist;
 import ch.crepe.game.engines.RenderingEngine;
 import ch.crepe.game.entities.Entity;
-import ch.crepe.game.visitor.RenderVisitor;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.Color;
@@ -15,7 +14,6 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.viewport.FitViewport;
@@ -111,7 +109,7 @@ public class GameScreen extends ScreenAdapter {
 
         parent.getBatch().begin();
         background.draw(parent.getBatch());
-        controller.getPlayerShip().accept(renderVisitor); // player dessiné 2x car il est dans la liste des entités
+
         for (Entity entity : controller.getEntities()) {
             entity.accept(renderVisitor);
 
@@ -137,7 +135,7 @@ public class GameScreen extends ScreenAdapter {
             parent.changeScreen(ScreenType.GameOver);
         }
 
-        controller.getPlayerShip().draw(parent.getBatch());
+        controller.getPlayerShip().accept(renderVisitor);
         parent.getBatch().end();
 
         hud.draw();

@@ -19,12 +19,7 @@ abstract public class Laser extends Projectile {
     private final Spaceship owner;
 
     protected Laser(Spaceship owner, Vector2 position, float orientation, Texture texture) {
-        super(position, new DisplayedSprite(
-                texture,
-                new Rectangle(position.x, position.y, SIZE, SIZE),
-                new Vector2(SIZE / 2, SIZE / 2),
-                orientation
-                ), new Vector2(1, 0).rotateDeg(orientation), SIZE, SIZE);
+        super(position, new Vector2(1, 0).rotateDeg(orientation), SIZE, SIZE);
         this.owner = owner;
         makeNoise();
     }

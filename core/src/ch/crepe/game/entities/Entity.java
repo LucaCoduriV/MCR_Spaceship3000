@@ -7,7 +7,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 abstract public class Entity implements Visitable {
-    protected final DisplayedAsset asset;
+
     protected final float width;
     protected final float height;
     protected final Rectangle hitbox;
@@ -19,8 +19,7 @@ abstract public class Entity implements Visitable {
     private static final int DEFAULT_LIFE = 20;
     private float orientation;
 
-    public Entity(Vector2 position, DisplayedAsset asset, Vector2 speed, float width, float height, float orientation) {
-        this.asset = asset;
+    public Entity(Vector2 position, Vector2 speed, float width, float height, float orientation) {
         this.height = height;
         this.width = width;
         this.hitbox = new Rectangle(0, 0, width, height);
@@ -50,7 +49,6 @@ abstract public class Entity implements Visitable {
     protected void setPosition(Vector2 position) {
         this.hitbox.x = position.x;
         this.hitbox.y = position.y;
-        asset.setCenter(new Vector2(hitbox.x + hitbox.width / 2, hitbox.y + hitbox.height / 2));
     }
 
     protected void setCenter(Vector2 position) {
@@ -58,11 +56,6 @@ abstract public class Entity implements Visitable {
     }
     public Rectangle getHitbox() {
         return hitbox;
-    }
-
-    //TODO temporaire en attendant visiteur
-    public void draw(Batch batch) {
-        asset.draw(batch);
     }
 
     public void update(float delta){
@@ -73,9 +66,6 @@ abstract public class Entity implements Visitable {
         return speed;
     }
 
-    public Rectangle getDrawingArea() {
-        return asset.getDrawingArea();
-    }
     public boolean isAlive() {
         return life > 0;
     }

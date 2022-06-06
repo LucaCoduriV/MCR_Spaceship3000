@@ -31,10 +31,6 @@ public class GameController {
         this.worldBounds = worldBounds;
         this.playerShip = new Spaceship(
                 new Vector2(),
-                new DisplayedSprite(
-                        AssetsLoader.getInstance().getSpaceship(SpaceShip.bowFighter),
-                        new Rectangle(0, 0, 5, 5)
-                        ),
                 new Vector2(),
                 this, 5, 5, 0);
         this.entities = new LinkedList<>();
