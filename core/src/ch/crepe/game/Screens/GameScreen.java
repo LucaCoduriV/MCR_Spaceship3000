@@ -5,6 +5,7 @@ import ch.crepe.game.assets.AssetsLoader;
 import ch.crepe.game.assets.Music;
 import ch.crepe.game.audio.AudioManager;
 import ch.crepe.game.audio.Playlist;
+import ch.crepe.game.engines.CartoonRenderer;
 import ch.crepe.game.engines.RenderingEngine;
 import ch.crepe.game.entities.Entity;
 import com.badlogic.gdx.Gdx;
@@ -65,7 +66,7 @@ public class GameScreen extends ScreenAdapter {
         };
         this.pauseOverlay = new PauseOverlay(onQuit, onResume);
         this.controller.setPauseMenuInputProcessor(pauseOverlay.getInputProcessor());
-        this.renderVisitor = new RenderingEngine(parent.getBatch());
+        this.renderVisitor = new CartoonRenderer(parent.getBatch());
 
     }
 
