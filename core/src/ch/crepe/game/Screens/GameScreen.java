@@ -83,12 +83,12 @@ public class GameScreen extends ScreenAdapter {
 
     @Override
     public void render(float delta) {
+        Gdx.gl.glClearColor(0f, 0f, 0f, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         if(controller.getGameInfo().getState() == GameInfo.GameState.playing){
                 updateGame(delta);
                 drawGame();
         }else if(controller.getGameInfo().getState() == GameInfo.GameState.pause){
-            Gdx.gl.glClearColor(0f, 0f, 0f, 0.1f);
-            Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
             drawPauseMenu();
         }
 
@@ -100,8 +100,7 @@ public class GameScreen extends ScreenAdapter {
     }
 
     private void drawGame(){
-        Gdx.gl.glClearColor(0f, 0f, 0f, 1);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
         sr.setProjectionMatrix(parent.getBatch().getProjectionMatrix());
 
         viewport.apply();
