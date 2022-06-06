@@ -35,6 +35,6 @@ abstract public class Laser extends Projectile {
 
     @Override
     public void accept(Visitor v) {
-        v.visitLaser(this);
+        v.visit(this);
     }
 }

@@ -8,7 +8,7 @@ import com.badlogic.gdx.math.Vector2;
 public class Explosion extends Entity {
 
     public Explosion(Vector2 position, DisplayedAsset animation, Vector2 speed, float width, float height) {
-        super(position, animation, speed, width, height);
+        super(position, animation, speed, width, height, 0); // TODO orientation
     }
 
     @Override

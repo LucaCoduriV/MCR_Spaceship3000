@@ -17,8 +17,9 @@ abstract public class Entity implements Visitable {
     private final int damage;
 
     private static final int DEFAULT_LIFE = 20;
+    private float orientation;
 
-    public Entity(Vector2 position, DisplayedAsset asset, Vector2 speed, float width, float height) {
+    public Entity(Vector2 position, DisplayedAsset asset, Vector2 speed, float width, float height, float orientation) {
         this.asset = asset;
         this.height = height;
         this.width = width;
@@ -27,6 +28,11 @@ abstract public class Entity implements Visitable {
         this.speed = new Vector2(speed);
         this.life = DEFAULT_LIFE;
         this.damage = 5;
+        this.orientation = orientation;
+
+    }
+    public float getOrientation() {
+        return orientation;
     }
 
     /**
@@ -35,6 +41,10 @@ abstract public class Entity implements Visitable {
      */
     public Vector2 getCenter() {
         return new Vector2(hitbox.x + hitbox.width / 2, hitbox.y + hitbox.height / 2);
+    }
+
+    public Vector2 getPositon() {
+        return hitbox.getPosition(new Vector2());
     }
 
     protected void setPosition(Vector2 position) {

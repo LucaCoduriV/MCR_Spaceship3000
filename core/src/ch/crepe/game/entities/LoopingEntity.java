@@ -31,7 +31,7 @@ public class LoopingEntity extends Entity{
      * @param height Height of the hitbox.
      */
     public LoopingEntity(Vector2 position, DisplayedAsset asset, Vector2 speed, Vector2 respawnPosition, Rectangle bounds, float width, float height) {
-        super(position, asset, speed, width, height);
+        super(position, asset, speed, width, height, 0); //TODO orientation
         this.respawnPosition = new Vector2(respawnPosition);
         this.bounds = new Rectangle(bounds);
     }

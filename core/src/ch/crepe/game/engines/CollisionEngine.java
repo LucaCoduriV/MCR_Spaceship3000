@@ -1,7 +1,11 @@
 package ch.crepe.game.engines;
 
+import ch.crepe.game.entities.Asteroid;
 import ch.crepe.game.entities.Entity;
+import ch.crepe.game.entities.SpaceShipAI;
 import ch.crepe.game.entities.Spaceship;
+import ch.crepe.game.entities.ship.weapons.projectiles.BlueLaser;
+import ch.crepe.game.entities.ship.weapons.projectiles.GreenLaser;
 import ch.crepe.game.entities.ship.weapons.projectiles.Laser;
 import com.badlogic.gdx.math.Intersector;
 
@@ -19,7 +23,7 @@ public class CollisionEngine extends Engine {
      * Spaceship vs Spaceship
      */
     @Override
-    public void visitSpaceship(Spaceship ship) {
+    public void visit(Spaceship ship) {
         for (Entity other : entities) {
             if(ship == other) continue;
             if(isColliding(ship, other)) {
@@ -29,11 +33,31 @@ public class CollisionEngine extends Engine {
         }
     }
 
+    @Override
+    public void visit(SpaceShipAI ship) {
+
+    }
+
+    @Override
+    public void visit(Asteroid asteroid) {
+
+    }
+
+    @Override
+    public void visit(BlueLaser laser) {
+        visit((Laser) laser);
+    }
+
+    @Override
+    public void visit(GreenLaser laser) {
+        visit((Laser) laser);
+    }
+
     /**
      * Spaceship vs Laser
      */
     @Override
-    public void visitLaser(Laser laser) {
+    public void visit(Laser laser) {
         for (Entity entity : entities) {
             if(laser == entity || laser.getOwner() == entity) continue;
             if(isColliding(laser, entity)) {

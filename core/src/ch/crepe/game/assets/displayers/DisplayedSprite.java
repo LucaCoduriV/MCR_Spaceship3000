@@ -40,6 +40,10 @@ public class DisplayedSprite extends DisplayedAsset {
                 1, 1, sprite.getRotation());
     }
 
+    public void setRotation(float deg){
+        sprite.setRotation(deg);
+    }
+
     @Override
     protected Sprite getDrawable() {
         return sprite;

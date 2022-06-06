@@ -6,7 +6,7 @@ import com.badlogic.gdx.math.Vector2;
 
 abstract public class Projectile extends Entity {
     protected Projectile(Vector2 position, DisplayedAsset asset, Vector2 speed, float width, float height) {
-        super(position, asset, speed, width, height);
+        super(position, asset, speed, width, height, 0); // TODO orientation
     }
 
     abstract void makeNoise();

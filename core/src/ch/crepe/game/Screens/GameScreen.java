@@ -5,7 +5,9 @@ import ch.crepe.game.assets.AssetsLoader;
 import ch.crepe.game.assets.Music;
 import ch.crepe.game.audio.AudioManager;
 import ch.crepe.game.audio.Playlist;
+import ch.crepe.game.engines.RenderingEngine;
 import ch.crepe.game.entities.Entity;
+import ch.crepe.game.visitor.RenderVisitor;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.Color;
@@ -28,6 +30,7 @@ public class GameScreen extends ScreenAdapter {
     private static final float WORLD_WIDTH = 96;
     private static final float WORLD_HEIGHT = 54;
     private final Sprite backgroundSprite = new Sprite(AssetsLoader.getInstance().getBackground());
+    private RenderingEngine renderVisitor;
     private static final Music[] musics = {
             Music.aloneAgainstEnemy,
             Music.deathMatch,
@@ -64,7 +67,7 @@ public class GameScreen extends ScreenAdapter {
         };
         this.pauseOverlay = new PauseOverlay(onQuit, onResume);
         this.controller.setPauseMenuInputProcessor(pauseOverlay.getInputProcessor());
-
+        this.renderVisitor = new RenderingEngine(parent.getBatch());
 
     }
 
@@ -108,9 +111,9 @@ public class GameScreen extends ScreenAdapter {
 
         parent.getBatch().begin();
         background.draw(parent.getBatch());
-        controller.getPlayerShip().draw(parent.getBatch());
+        controller.getPlayerShip().accept(renderVisitor); // player dessiné 2x car il est dans la liste des entités
         for (Entity entity : controller.getEntities()) {
-            entity.draw(parent.getBatch());
+            entity.accept(renderVisitor);
 
             // Enable debug to see the hitboxes
             if(DEBUG) {
@@ -125,7 +128,7 @@ public class GameScreen extends ScreenAdapter {
         }
 
         for (Entity entity : controller.getProjectiles()) {
-            entity.draw(parent.getBatch());
+            entity.accept(renderVisitor);
         }
 
         hud.setLife(controller.getPlayerShip().getPercentLife());
