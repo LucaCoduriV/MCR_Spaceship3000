@@ -2,6 +2,7 @@ package ch.crepe.game.entities;
 
 import ch.crepe.game.GameController;
 import ch.crepe.game.assets.displayers.DisplayedAsset;
+import ch.crepe.game.visitor.Visitor;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
 
@@ -12,8 +13,8 @@ public class SpaceShipAI extends Spaceship {
     float nextShotTime;
     private final static Random r = new Random();
 
-    public SpaceShipAI(Vector2 position, DisplayedAsset asset, Vector2 speed, GameController gameController, float width, float height, float orientation) {
-        super(position, asset, speed, gameController, width, height, orientation);
+    public SpaceShipAI(Vector2 position, Vector2 speed, GameController gameController, float width, float height, float orientation) {
+        super(position, speed, gameController, width, height, orientation);
         generateNextShotTime();
     }
 
@@ -26,6 +27,11 @@ public class SpaceShipAI extends Spaceship {
             shoot();
             generateNextShotTime();
         }
+    }
+
+    @Override
+    public void accept(Visitor v) {
+        v.visit(this);
     }
 
     private void generateNextShotTime() {

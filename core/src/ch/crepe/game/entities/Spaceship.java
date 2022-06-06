@@ -16,31 +16,23 @@ public class Spaceship extends Entity {
      * Gets the orientation of the ship
      * @return The orientation of the ship in degrees
      */
-    public float getOrientation() {
-        return orientation;
-    }
 
-    private float orientation;
+
+
     private GameController gameController;
     private final ShapeRenderer renderer = new ShapeRenderer();
     private final static float HITBOX_PERCENTAGE = 0.6f;
     private int points;
 
-    public Spaceship(Vector2 position, DisplayedAsset asset, Vector2 speed, GameController gameController, float width, float height, float orientation) {
-        super(position, asset, speed, width * HITBOX_PERCENTAGE, height * HITBOX_PERCENTAGE);
+    public Spaceship(Vector2 position, Vector2 speed, GameController gameController, float width, float height, float orientation) {
+        super(position, speed, width * HITBOX_PERCENTAGE, height * HITBOX_PERCENTAGE, orientation);
         this.weapon = new GreenLaserWeapon(this);
         this.gameController = gameController;
-        this.orientation = orientation;
         this.points = 0;
     }
 
     public void setWeapon(Weapon weapon) {
         this.weapon = weapon;
-    }
-
-    @Override
-    public void draw(Batch batch) {
-        super.draw(batch);
     }
 
     public void shoot() {
@@ -53,7 +45,7 @@ public class Spaceship extends Entity {
 
     @Override
     public void accept(Visitor v) {
-        v.visitSpaceship(this);
+        v.visit(this);
     }
 
     public int getScore() {

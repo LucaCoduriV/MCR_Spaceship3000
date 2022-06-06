@@ -71,26 +71,11 @@ public class EnemySpawner {
         int randomNumber = r.nextInt(2);
         switch (randomNumber){
             case 0:
-                return new SpaceShipAI(position, new DisplayedSprite(
-                        AssetsLoader.getInstance().getSpaceship(SpaceShip.exVing),
-                        new Rectangle(0,0, width, height),
-                        new Vector2(width/2, height/2),
-                        180),  direction,
-                        gameController, width, height, 180);
+                return new SpaceShipAI(position,  direction, gameController, width, height, 180);
             case 1:
-                return new Asteroid(position, new DisplayedSprite(
-                        AssetsLoader.getInstance().getAsteroid(ch.crepe.game.assets.Asteroid.blue1),
-                                new Rectangle(0,0, width, height),
-                                new Vector2(width/2, height/2),
-                                180),
-                        direction, width, height);
+                return new Asteroid(position, direction, width, height);
             default:
-                return new SpaceShipAI(position, new DisplayedSprite(
-                        AssetsLoader.getInstance().getSpaceship(SpaceShip.iceSpeedster),
-                        new Rectangle(width/2,height/2, width, height),
-                        new Vector2(width/2, height/2),
-                        0),  new Vector2(0,0),
-                        gameController, 10, 10, 180);
+                return new SpaceShipAI(position, new Vector2(0,0), gameController, 10, 10, 180);
         }
     }
 }

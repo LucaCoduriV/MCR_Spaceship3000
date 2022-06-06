@@ -5,6 +5,7 @@ import ch.crepe.game.assets.AssetsLoader;
 import ch.crepe.game.assets.Music;
 import ch.crepe.game.audio.AudioManager;
 import ch.crepe.game.audio.Playlist;
+import ch.crepe.game.engines.RenderingEngine;
 import ch.crepe.game.entities.Entity;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
@@ -13,7 +14,6 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.viewport.FitViewport;
@@ -28,6 +28,7 @@ public class GameScreen extends ScreenAdapter {
     private static final float WORLD_WIDTH = 96;
     private static final float WORLD_HEIGHT = 54;
     private final Sprite backgroundSprite = new Sprite(AssetsLoader.getInstance().getBackground());
+    private RenderingEngine renderVisitor;
     private static final Music[] musics = {
             Music.aloneAgainstEnemy,
             Music.deathMatch,
@@ -64,7 +65,7 @@ public class GameScreen extends ScreenAdapter {
         };
         this.pauseOverlay = new PauseOverlay(onQuit, onResume);
         this.controller.setPauseMenuInputProcessor(pauseOverlay.getInputProcessor());
-
+        this.renderVisitor = new RenderingEngine(parent.getBatch());
 
     }
 
@@ -108,9 +109,9 @@ public class GameScreen extends ScreenAdapter {
 
         parent.getBatch().begin();
         background.draw(parent.getBatch());
-        controller.getPlayerShip().draw(parent.getBatch());
+
         for (Entity entity : controller.getEntities()) {
-            entity.draw(parent.getBatch());
+            entity.accept(renderVisitor);
 
             // Enable debug to see the hitboxes
             if(DEBUG) {
@@ -125,7 +126,7 @@ public class GameScreen extends ScreenAdapter {
         }
 
         for (Entity entity : controller.getProjectiles()) {
-            entity.draw(parent.getBatch());
+            entity.accept(renderVisitor);
         }
 
         hud.setLife(controller.getPlayerShip().getPercentLife());
@@ -134,7 +135,7 @@ public class GameScreen extends ScreenAdapter {
             parent.changeScreen(ScreenType.GameOver);
         }
 
-        controller.getPlayerShip().draw(parent.getBatch());
+        controller.getPlayerShip().accept(renderVisitor);
         parent.getBatch().end();
 
         hud.draw();
