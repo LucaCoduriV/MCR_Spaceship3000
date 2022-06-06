@@ -74,7 +74,7 @@ public class LoopingEntity extends Entity{
     }
 
     @Override
-    protected void setPosition(Vector2 position) {
+    public void setPosition(Vector2 position) {
         super.setPosition(position);
         asset.setCenter(new Vector2(hitbox.x + hitbox.width / 2, hitbox.y + hitbox.height / 2));
     }

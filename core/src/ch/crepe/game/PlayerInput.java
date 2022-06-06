@@ -24,34 +24,38 @@ public class PlayerInput extends InputAdapter {
 
         switch (keycode){
             case upKey:
-                entity.speed().y = 0.5f;
+                entity.speed().y = entity.speed().y + 0.5f;
                 break;
             case downKey:
-                entity.speed().y = -0.5f;
+                entity.speed().y = entity.speed().y - 0.5f;
                 break;
             case leftKey:
-                entity.speed().x = -0.5f;
+                entity.speed().x = entity.speed().x - 0.5f;
                 break;
             case rightKey:
-                entity.speed().x = 0.5f;
+                entity.speed().x = entity.speed().x + 0.5f;
                 break;
             case Input.Keys.SPACE :
                 entity.shoot();
                 break;
         }
-        return super.keyDown(keycode);
+        return true;
     }
 
     @Override
     public boolean keyUp(int keycode) {
         switch (keycode){
             case upKey:
+                entity.speed().y = entity.speed().y - 0.5f;
+                break;
             case downKey:
-                entity.speed().y = 0;
+                entity.speed().y = entity.speed().y + 0.5f;
                 break;
             case leftKey:
+                entity.speed().x = entity.speed().x + 0.5f;
+                break;
             case rightKey:
-                entity.speed().x = 0;
+                entity.speed().x = entity.speed().x - 0.5f;
                 break;
             case quitKey:
                 controller.pauseGame();
@@ -59,6 +63,6 @@ public class PlayerInput extends InputAdapter {
                 System.out.println(keycode);
                 break;
         }
-        return super.keyUp(keycode);
+        return true;
     }
 }

@@ -46,12 +46,12 @@ abstract public class Entity implements Visitable {
         return hitbox.getPosition(new Vector2());
     }
 
-    protected void setPosition(Vector2 position) {
+    public void setPosition(Vector2 position) {
         this.hitbox.x = position.x;
         this.hitbox.y = position.y;
     }
 
-    protected void setCenter(Vector2 position) {
+    public void setCenter(Vector2 position) {
         setPosition(new Vector2(position.x - getHitbox().getWidth() / 2, position.y - getHitbox().getHeight() / 2));
     }
     public Rectangle getHitbox() {

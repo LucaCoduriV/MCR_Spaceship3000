@@ -60,20 +60,30 @@ public class GameController {
             projectile.update(delta);
         }
 
+        // TODO Je pense que l'on peut mettre ça dans le CollisionEngine
         if(!worldBounds.contains(playerShip.getCenter().cpy().add(playerShip.speed()))) {
-            Vector2 newSpeed = playerShip.speed().cpy();
-            if(playerShip.getCenter().x < worldBounds.x || playerShip.getCenter().x > worldBounds.x + worldBounds.width){
-                newSpeed.x = 0;
-                playerShip.getCenter().x = playerShip.getCenter().x - (playerShip.speed().x / Math.abs(playerShip.speed().x)) * 0.5f;
-            }
-            if(playerShip.getCenter().y < worldBounds.y || playerShip.getCenter().y > worldBounds.y + worldBounds.height){
-                newSpeed.y = 0;
-                playerShip.getCenter().y = playerShip.getCenter().y - (playerShip.speed().y / Math.abs(playerShip.speed().y)) * 0.5f;
-            }
-            playerShip.speed().set(newSpeed);
-        }
-        playerShip.update(delta);
+            Vector2 newPosition = playerShip.getCenter();
+            if(playerShip.getCenter().x < worldBounds.x){
+                newPosition.x = worldBounds.x;
 
+            }
+            if(playerShip.getCenter().x > worldBounds.x + worldBounds.width){
+
+                newPosition.x = worldBounds.x + worldBounds.width;
+            }
+            if(playerShip.getCenter().y < worldBounds.y){
+                newPosition.y = worldBounds.y;
+
+            }
+            if(playerShip.getCenter().y > worldBounds.y + worldBounds.height) {
+
+                newPosition.y = worldBounds.y + worldBounds.height;
+            }
+            playerShip.setCenter(newPosition);
+
+        }
+
+        // TODO discuter si il faut mettre ça dans collision engine
         allSideCleaner.update(delta);
         bottomCleaner.update(delta);
     }
