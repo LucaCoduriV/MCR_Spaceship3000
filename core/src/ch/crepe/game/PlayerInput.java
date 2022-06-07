@@ -38,6 +38,9 @@ public class PlayerInput extends InputAdapter {
             case Input.Keys.SPACE :
                 entity.shoot();
                 break;
+            case Input.Keys.F1:
+                controller.toggleRenderer();
+                break;
         }
         return true;
     }

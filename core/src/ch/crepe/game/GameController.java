@@ -3,11 +3,15 @@ package ch.crepe.game;
 import ch.crepe.game.assets.AssetsLoader;
 import ch.crepe.game.assets.SpaceShip;
 import ch.crepe.game.assets.displayers.DisplayedSprite;
+import ch.crepe.game.engines.CartoonRenderer;
 import ch.crepe.game.engines.CollisionEngine;
+import ch.crepe.game.engines.RealRenderer;
+import ch.crepe.game.engines.RenderingEngine;
 import ch.crepe.game.entities.Entity;
 import ch.crepe.game.entities.Spaceship;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
@@ -26,8 +30,12 @@ public class GameController {
     private InputProcessor pauseMenuInputProcessor;
     private final CollisionEngine ce;
     private final Rectangle worldBounds;
+    private RenderingEngine renderingEngine;
+    private Spaceship3000 game;
 
-    public GameController(Rectangle worldBounds) {
+    public GameController(Spaceship3000 game, Rectangle worldBounds) {
+        this.game = game;
+        this.renderingEngine = new CartoonRenderer(game.getBatch());
         this.worldBounds = worldBounds;
         this.playerShip = new Spaceship(
                 new Vector2(),
@@ -121,5 +129,17 @@ public class GameController {
 
     public LinkedList<Entity> getProjectiles() {
         return projectiles;
+    }
+
+    public void toggleRenderer(){
+        if(renderingEngine instanceof CartoonRenderer) {
+            renderingEngine = new RealRenderer(game.getBatch());
+        } else {
+            renderingEngine = new CartoonRenderer(game.getBatch());
+        }
+    }
+
+    public RenderingEngine getRenderer(){
+        return renderingEngine;
     }
 }

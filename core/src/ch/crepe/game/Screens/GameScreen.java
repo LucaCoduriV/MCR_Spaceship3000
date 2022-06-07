@@ -5,6 +5,7 @@ import ch.crepe.game.assets.AssetsLoader;
 import ch.crepe.game.assets.Music;
 import ch.crepe.game.audio.AudioManager;
 import ch.crepe.game.audio.Playlist;
+import ch.crepe.game.engines.CartoonRenderer;
 import ch.crepe.game.engines.RenderingEngine;
 import ch.crepe.game.entities.Entity;
 import com.badlogic.gdx.Gdx;
@@ -28,7 +29,6 @@ public class GameScreen extends ScreenAdapter {
     private static final float WORLD_WIDTH = 96;
     private static final float WORLD_HEIGHT = 54;
     private final Sprite backgroundSprite = new Sprite(AssetsLoader.getInstance().getBackground());
-    private RenderingEngine renderVisitor;
     private static final Music[] musics = {
             Music.aloneAgainstEnemy,
             Music.deathMatch,
@@ -50,7 +50,7 @@ public class GameScreen extends ScreenAdapter {
         this.parent = parent;
         this.viewport = new FitViewport(WORLD_WIDTH,WORLD_HEIGHT);
         this.hud = new HeadUpDisplay();
-        this.controller = new GameController(new Rectangle(-WORLD_WIDTH/2,-WORLD_HEIGHT/2,WORLD_WIDTH,WORLD_HEIGHT));
+        this.controller = new GameController(parent, new Rectangle(-WORLD_WIDTH/2,-WORLD_HEIGHT/2,WORLD_WIDTH,WORLD_HEIGHT));
         final ChangeListener onResume = new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
@@ -65,7 +65,6 @@ public class GameScreen extends ScreenAdapter {
         };
         this.pauseOverlay = new PauseOverlay(onQuit, onResume);
         this.controller.setPauseMenuInputProcessor(pauseOverlay.getInputProcessor());
-        this.renderVisitor = new RenderingEngine(parent.getBatch());
 
     }
 
@@ -110,7 +109,7 @@ public class GameScreen extends ScreenAdapter {
         background.draw(parent.getBatch());
 
         for (Entity entity : controller.getEntities()) {
-            entity.accept(renderVisitor);
+            entity.accept(controller.getRenderer());
 
             // Enable debug to see the hitboxes
             if(DEBUG) {
@@ -125,7 +124,7 @@ public class GameScreen extends ScreenAdapter {
         }
 
         for (Entity entity : controller.getProjectiles()) {
-            entity.accept(renderVisitor);
+            entity.accept(controller.getRenderer());
         }
 
         hud.setLife(controller.getPlayerShip().getPercentLife());
@@ -134,7 +133,7 @@ public class GameScreen extends ScreenAdapter {
             parent.changeScreen(ScreenType.GameOver);
         }
 
-        controller.getPlayerShip().accept(renderVisitor);
+        controller.getPlayerShip().accept(controller.getRenderer());
         parent.getBatch().end();
 
         hud.draw();

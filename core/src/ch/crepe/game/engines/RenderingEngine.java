@@ -2,6 +2,7 @@ package ch.crepe.game.engines;
 
 import ch.crepe.game.assets.AssetsLoader;
 import ch.crepe.game.assets.SpaceShip;
+import ch.crepe.game.assets.displayers.DisplayedAsset;
 import ch.crepe.game.assets.displayers.DisplayedSprite;
 import ch.crepe.game.entities.Asteroid;
 import ch.crepe.game.entities.SpaceShipAI;
@@ -15,7 +16,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
-public class RenderingEngine implements Visitor {
+abstract public class RenderingEngine implements Visitor {
     private final SpriteBatch batch;
     private final DisplayedSprite spaceShipSprite;
     private final DisplayedSprite spaceShipAISprite;
@@ -23,21 +24,17 @@ public class RenderingEngine implements Visitor {
     private final DisplayedSprite blueLaserSprite;
     private final DisplayedSprite greenLaserSprite;
 
-    public RenderingEngine(SpriteBatch batch){
-        final Texture blueLaser = AssetsLoader.getInstance().getLaser(ch.crepe.game.assets.Laser.blueFast);
-        final Texture greenLaser = AssetsLoader.getInstance().getLaser(ch.crepe.game.assets.Laser.greenElectric);
-        final Texture player = AssetsLoader.getInstance().getSpaceship(SpaceShip.bowFighter);
-        final Texture AI = AssetsLoader.getInstance().getSpaceship(SpaceShip.exVing);
-        final Texture asteroid = AssetsLoader.getInstance().getAsteroid(ch.crepe.game.assets.Asteroid.blue1);
+    public RenderingEngine(SpriteBatch batch, Texture spaceShipTexture, Texture spaceShipAITexture, Texture asteroidTexture, Texture blueLaserTexture, Texture greenLaserTexture) {
+
 
 
         this.batch = batch;
         // TODO corriger les paramètres inutiles
-        spaceShipSprite = new DisplayedSprite(player,new Rectangle(0, 0, 5, 5),new Vector2(5 / 2f, 5 / 2f),0);
-        spaceShipAISprite = new DisplayedSprite(AI,new Rectangle(0, 0, 5, 5),new Vector2(5 / 2f, 5 / 2f),0);
-        asteroidSprite = new DisplayedSprite(asteroid,new Rectangle(0, 0, 5, 5),new Vector2(5 / 2f, 5 / 2f),0);
-        blueLaserSprite = new DisplayedSprite(blueLaser,new Rectangle(0, 0, 5, 5),new Vector2(5 / 2f, 5 / 2f),0);
-        greenLaserSprite = new DisplayedSprite(greenLaser,new Rectangle(0, 0, 5, 5),new Vector2(5 / 2f, 5 / 2f),0);
+        spaceShipSprite = new DisplayedSprite(spaceShipTexture,new Rectangle(0, 0, 5, 5),new Vector2(5 / 2f, 5 / 2f),0);
+        spaceShipAISprite = new DisplayedSprite(spaceShipAITexture,new Rectangle(0, 0, 5, 5),new Vector2(5 / 2f, 5 / 2f),0);
+        asteroidSprite = new DisplayedSprite(asteroidTexture,new Rectangle(0, 0, 5, 5),new Vector2(5 / 2f, 5 / 2f),0);
+        blueLaserSprite = new DisplayedSprite(blueLaserTexture,new Rectangle(0, 0, 5, 5),new Vector2(5 / 2f, 5 / 2f),0);
+        greenLaserSprite = new DisplayedSprite(greenLaserTexture,new Rectangle(0, 0, 5, 5),new Vector2(5 / 2f, 5 / 2f),0);
     }
 
 
