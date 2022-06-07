@@ -66,11 +66,11 @@ public class AppPreferences {
     }
 
     public void setBestScore(int score) {
-        getPrefs().putInteger("BEST_SCORE", score);
+        getPrefs().putInteger(BEST_SCORE, score);
         getPrefs().flush();
     }
 
     public int getBestScore(){
-        return getPrefs().getInteger("BEST_SCORE", 0);
+        return getPrefs().getInteger(BEST_SCORE, 0);
     }
 }
