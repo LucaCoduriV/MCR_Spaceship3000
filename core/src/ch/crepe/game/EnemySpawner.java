@@ -17,7 +17,8 @@ public class EnemySpawner {
     private float elapsedTimeSpawn = 0;
     private float elapsedTime = 0;
     private float timeForNextSpawn;
-    private int timeForNextLevel = 5000;
+    private static final int TIME_FOR_NEXT_LEVEL = 5000;
+    private static final float ENNEMY_SIZE = 5f;
     private final List<Entity> entityList;
     private final GameController gameController;
     private int maxNextSpawnTimeMs = 5000;
@@ -35,11 +36,10 @@ public class EnemySpawner {
     }
 
     public Entity spawnEnemy() {
-        final float size = 5;
-        Vector2 position = generateRandomPosition(size);
+        Vector2 position = generateRandomPosition(ENNEMY_SIZE);
         Vector2 direction = generateRandomDirection(position);
 
-        return randomEnemy(position, direction, size, size);
+        return randomEnemy(position, direction, ENNEMY_SIZE, ENNEMY_SIZE);
     }
 
     public void update(float delta){
@@ -51,7 +51,7 @@ public class EnemySpawner {
             this.timeForNextSpawn = r.nextInt(maxNextSpawnTimeMs) / 1000f;
             entityList.add(spawnEnemy());
         }
-        if(elapsedTime / timeForNextLevel > level){
+        if(elapsedTime * 1000 / TIME_FOR_NEXT_LEVEL > level){
             updateNextMaxSpawnTime();
             System.out.println("Changing to level " + level);
         }
@@ -84,7 +84,7 @@ public class EnemySpawner {
     }
 
     private void updateNextMaxSpawnTime(){
-        maxNextSpawnTimeMs = Math.round(maxNextSpawnTimeMs / 1.5f);
+        maxNextSpawnTimeMs = Math.round(maxNextSpawnTimeMs / 1.1f);
         level++;
     }
 }
