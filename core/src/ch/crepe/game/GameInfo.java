@@ -26,6 +26,9 @@ public class GameInfo {
     public void setScore(int score) {
         this.score = score;
     }
+    public void addScore(int score) {
+        this.score += score;
+    }
 
     public int getLives() {
         return lives;
