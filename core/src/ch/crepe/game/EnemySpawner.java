@@ -1,13 +1,8 @@
 package ch.crepe.game;
 
-import ch.crepe.game.assets.AssetsLoader;
-import ch.crepe.game.assets.SpaceShip;
-import ch.crepe.game.assets.displayers.DisplayedSprite;
 import ch.crepe.game.entities.Asteroid;
 import ch.crepe.game.entities.Entity;
 import ch.crepe.game.entities.SpaceShipAI;
-import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 import java.util.List;
@@ -19,10 +14,15 @@ public class EnemySpawner {
     private final Vector2 worldMinLeftPos;
     private final Vector2 worldMinRightPos;
     private final Random r;
+    private float elapsedTimeSpawn = 0;
     private float elapsedTime = 0;
     private float timeForNextSpawn;
+    private static final int TIME_FOR_NEXT_LEVEL = 5000;
+    private static final float ENNEMY_SIZE = 5f;
     private final List<Entity> entityList;
     private final GameController gameController;
+    private int maxNextSpawnTimeMs = 5000;
+    private int level = 0;
 
     public EnemySpawner(GameController controller, int worldWidth, int worldHeight, List<Entity> entityList) {
         this.gameController = controller;
@@ -32,24 +32,28 @@ public class EnemySpawner {
         this.r = new Random();
         this.worldMinLeftPos = new Vector2(-worldWidth/2f,-worldHeight/2f);
         this.worldMinRightPos = new Vector2(worldWidth/2f,-worldHeight/2f);
-        this.timeForNextSpawn = r.nextInt(5000) / 1000f;
+        this.timeForNextSpawn = r.nextInt(maxNextSpawnTimeMs) / 1000f;
     }
 
     public Entity spawnEnemy() {
-        final float size = 5;
-        Vector2 position = generateRandomPosition(size);
+        Vector2 position = generateRandomPosition(ENNEMY_SIZE);
         Vector2 direction = generateRandomDirection(position);
 
-        return randomEnemy(position, direction, size, size);
+        return randomEnemy(position, direction, ENNEMY_SIZE, ENNEMY_SIZE);
     }
 
     public void update(float delta){
+        elapsedTimeSpawn += delta;
         elapsedTime += delta;
 
-        if(elapsedTime > timeForNextSpawn){
-            elapsedTime = 0;
-            this.timeForNextSpawn = r.nextInt(5000) / 1000f;
+        if(elapsedTimeSpawn > timeForNextSpawn){
+            elapsedTimeSpawn = 0;
+            this.timeForNextSpawn = r.nextInt(maxNextSpawnTimeMs) / 1000f;
             entityList.add(spawnEnemy());
+        }
+        if(elapsedTime * 1000 / TIME_FOR_NEXT_LEVEL > level){
+            updateNextMaxSpawnTime();
+            System.out.println("Changing to level " + level);
         }
     }
 
@@ -77,5 +81,10 @@ public class EnemySpawner {
             default:
                 return new SpaceShipAI(position, new Vector2(0,0), gameController, 10, 10, 180);
         }
+    }
+
+    private void updateNextMaxSpawnTime(){
+        maxNextSpawnTimeMs = Math.round(maxNextSpawnTimeMs / 1.1f);
+        level++;
     }
 }
