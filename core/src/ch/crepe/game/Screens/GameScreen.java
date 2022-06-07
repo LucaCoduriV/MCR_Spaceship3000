@@ -5,8 +5,6 @@ import ch.crepe.game.assets.AssetsLoader;
 import ch.crepe.game.assets.Music;
 import ch.crepe.game.audio.AudioManager;
 import ch.crepe.game.audio.Playlist;
-import ch.crepe.game.engines.CartoonRenderer;
-import ch.crepe.game.engines.RenderingEngine;
 import ch.crepe.game.entities.Entity;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
@@ -128,9 +126,12 @@ public class GameScreen extends ScreenAdapter {
         }
 
         hud.setLife(controller.getPlayerShip().getPercentLife());
-        hud.setScore(controller.getPlayerShip().getScore());
+        hud.setScore(controller.getGameInfo().getScore());
         if (!controller.getPlayerShip().isAlive()) {
-            parent.changeScreen(ScreenType.GameOver);
+            if(parent.getPreferences().getBestScore() < controller.getGameInfo().getScore()){
+                parent.getPreferences().setBestScore(controller.getGameInfo().getScore());
+            }
+            parent.changeScreen(ScreenType.GameOver, controller.getGameInfo().getScore());
         }
 
         controller.getPlayerShip().accept(controller.getRenderer());

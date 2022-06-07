@@ -1,14 +1,10 @@
 package ch.crepe.game;
 
 import ch.crepe.game.Screens.*;
-import ch.crepe.game.assets.AssetsLoader;
 import ch.crepe.game.audio.AudioManager;
-import com.badlogic.gdx.Audio;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.utils.ScreenUtils;
 
 public class Spaceship3000 extends Game {
 	private static final int screenWidth = 1280;
@@ -33,7 +29,7 @@ public class Spaceship3000 extends Game {
 		changeScreen(ScreenType.Loading);
 	}
 
-	public void changeScreen(ScreenType screen){
+	public void changeScreen(ScreenType screen, Object... args) {
 		switch (screen){
 			case Loading:
 				setScreen(new LoadingScreen(this));
@@ -53,7 +49,7 @@ public class Spaceship3000 extends Game {
 				break;
 			case GameOver:
 				System.out.println("Showing Game Over screen !");
-				setScreen(new GameOverScreen(this, 10329023, 18));
+				setScreen(new GameOverScreen(this, preferences.getBestScore(), (int)args[0]));
 				break;
 		}
 	}

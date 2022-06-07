@@ -31,7 +31,7 @@ public class GameController {
     private final CollisionEngine ce;
     private final Rectangle worldBounds;
     private RenderingEngine renderingEngine;
-    private Spaceship3000 game;
+    private final Spaceship3000 game;
 
     public GameController(Spaceship3000 game, Rectangle worldBounds) {
         this.game = game;
@@ -46,7 +46,7 @@ public class GameController {
         this.playerInput = new PlayerInput(this, playerShip);
         this.gameInfo = new GameInfo();
         this.ennemySpawner = new EnemySpawner(this,96,54,entities);
-        this.ce = new CollisionEngine(entities);
+        this.ce = new CollisionEngine(this);
         this.bottomCleaner = new BottomEntityCleaner(entities, worldBounds);
         this.allSideCleaner = new EntityCleaner(projectiles, worldBounds);
         entities.add(playerShip);

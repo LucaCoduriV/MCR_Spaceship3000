@@ -1,5 +1,6 @@
 package ch.crepe.game.engines;
 
+import ch.crepe.game.GameController;
 import ch.crepe.game.entities.Asteroid;
 import ch.crepe.game.entities.Entity;
 import ch.crepe.game.entities.SpaceShipAI;
@@ -12,11 +13,10 @@ import com.badlogic.gdx.math.Intersector;
 import java.util.LinkedList;
 
 public class CollisionEngine extends Engine {
+    private final GameController controller;
 
-    private final LinkedList<Entity> entities;
-
-    public CollisionEngine(LinkedList<Entity> entities) {
-        this.entities = entities;
+    public CollisionEngine(GameController controller) {
+        this.controller = controller;
     }
 
     /**
@@ -24,11 +24,12 @@ public class CollisionEngine extends Engine {
      */
     @Override
     public void visit(Spaceship ship) {
-        for (Entity other : entities) {
+        for (Entity other : controller.getEntities()) {
             if(ship == other) continue;
             if(isColliding(ship, other)) {
                 ship.setLife(ship.getLife() - other.getDamage());
-                other.setLife(other.getLife() - ship.getDamage());
+                controller.getGameInfo().addScore(1);
+                other.setLife(0);
             }
         }
     }
@@ -58,14 +59,18 @@ public class CollisionEngine extends Engine {
      */
     @Override
     public void visit(Laser laser) {
-        for (Entity entity : entities) {
+        for (Entity entity : controller.getEntities()) {
             if(laser == entity || laser.getOwner() == entity) continue;
             if(isColliding(laser, entity)) {
+                if(laser.getOwner() != controller.getPlayerShip() && entity != controller.getPlayerShip()){
+                    continue;
+                }
                 laser.kill();
                 entity.setLife(entity.getLife() - laser.getDamage());
                 if(!entity.isAlive()) {
-                    laser.getOwner().increaseScore();
+                    controller.getGameInfo().addScore(1);
                 }
+
             }
         }
     }

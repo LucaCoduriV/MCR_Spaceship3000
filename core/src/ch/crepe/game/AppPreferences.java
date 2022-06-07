@@ -70,7 +70,7 @@ public class AppPreferences {
         getPrefs().flush();
     }
 
-    public int getScore(){
+    public int getBestScore(){
         return getPrefs().getInteger("BEST_SCORE", 0);
     }
 }
