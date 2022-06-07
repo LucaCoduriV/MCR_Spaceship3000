@@ -1,8 +1,5 @@
 package ch.crepe.game;
 
-import ch.crepe.game.assets.AssetsLoader;
-import ch.crepe.game.assets.SpaceShip;
-import ch.crepe.game.assets.displayers.DisplayedSprite;
 import ch.crepe.game.engines.CartoonRenderer;
 import ch.crepe.game.engines.CollisionEngine;
 import ch.crepe.game.engines.RealRenderer;
@@ -11,7 +8,6 @@ import ch.crepe.game.entities.Entity;
 import ch.crepe.game.entities.Spaceship;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 

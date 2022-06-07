@@ -1,8 +1,6 @@
 package ch.crepe.game.entities;
 
-import ch.crepe.game.assets.displayers.DisplayedAsset;
 import ch.crepe.game.visitor.Visitable;
-import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 

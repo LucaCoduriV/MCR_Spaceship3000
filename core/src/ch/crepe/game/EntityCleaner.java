@@ -2,7 +2,6 @@ package ch.crepe.game;
 
 import ch.crepe.game.entities.Entity;
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.math.Vector2;
 
 import java.util.Iterator;
 import java.util.List;

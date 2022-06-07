@@ -1,11 +1,9 @@
 package ch.crepe.game.entities;
 
 import ch.crepe.game.GameController;
-import ch.crepe.game.assets.displayers.DisplayedAsset;
 import ch.crepe.game.entities.ship.weapons.GreenLaserWeapon;
 import ch.crepe.game.entities.ship.weapons.Weapon;
 import ch.crepe.game.visitor.Visitor;
-import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
 
@@ -19,7 +17,7 @@ public class Spaceship extends Entity {
 
 
 
-    private GameController gameController;
+    private final GameController gameController;
     private final ShapeRenderer renderer = new ShapeRenderer();
     private final static float HITBOX_PERCENTAGE = 0.6f;
 

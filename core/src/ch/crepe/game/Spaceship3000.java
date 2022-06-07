@@ -12,8 +12,6 @@ public class Spaceship3000 extends Game {
 	private SpriteBatch batcher;
 	private AppPreferences preferences;
 
-	Background background;
-
 	@Override
 	public void create () {
 		Gdx.graphics.setWindowedMode(960,540);
