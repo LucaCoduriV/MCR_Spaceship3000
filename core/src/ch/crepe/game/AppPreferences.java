@@ -12,6 +12,7 @@ public class AppPreferences {
     public static final String PREF_SOUND_ENABLED = "sound.enabled";
     public static final String PREF_SOUND_VOLUME = "sound.volume";
     private static final String PREFS_NAME = "spaceship3000";
+    private static final String BEST_SCORE = "game.bestScore";
     private final PropertyChangeSupport propChangeSupport =
             new PropertyChangeSupport(this);
 
@@ -62,5 +63,14 @@ public class AppPreferences {
         propChangeSupport.firePropertyChange(PREF_SOUND_VOLUME, getPrefs().getBoolean(PREF_SOUND_VOLUME), volume);
         getPrefs().putFloat(PREF_SOUND_VOLUME, volume);
         getPrefs().flush();
+    }
+
+    public void setBestScore(int score) {
+        getPrefs().putInteger("BEST_SCORE", score);
+        getPrefs().flush();
+    }
+
+    public int getScore(){
+        return getPrefs().getInteger("BEST_SCORE", 0);
     }
 }
