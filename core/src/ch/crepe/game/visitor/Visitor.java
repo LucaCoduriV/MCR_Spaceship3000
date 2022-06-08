@@ -7,6 +7,9 @@ import ch.crepe.game.entities.ship.weapons.projectiles.BlueLaser;
 import ch.crepe.game.entities.ship.weapons.projectiles.GreenLaser;
 import ch.crepe.game.entities.ship.weapons.projectiles.Laser;
 
+/**
+ * Interface representing a visitor in the design pattern Visitor
+ */
 public interface Visitor {
     void visit(Spaceship ship);
     void visit(SpaceShipAI ship);

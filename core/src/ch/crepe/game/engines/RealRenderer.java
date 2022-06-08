@@ -6,14 +6,19 @@ import ch.crepe.game.assets.Laser;
 import ch.crepe.game.assets.SpaceShip;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-public class RealRenderer extends RenderingEngine{
+/**
+ * Real rendering engine
+ * This engine is used to render the game in a realistic style
+ */
+public class RealRenderer extends RenderingEngine {
+
     public RealRenderer(SpriteBatch batch) {
         super(batch,
                 AssetsLoader.getInstance().getSpaceship(SpaceShip.speedsterSimple),
                 AssetsLoader.getInstance().getSpaceship(SpaceShip.sunKiller),
                 AssetsLoader.getInstance().getAsteroid(Asteroid.orange2),
-                AssetsLoader.getInstance().getLaser(Laser.bluePlasma)
-                , AssetsLoader.getInstance().getLaser(Laser.greenPlasma)
+                AssetsLoader.getInstance().getLaser(Laser.bluePlasma),
+                AssetsLoader.getInstance().getLaser(Laser.greenPlasma)
         );
     }
 }
