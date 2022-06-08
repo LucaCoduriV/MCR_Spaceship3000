@@ -6,6 +6,10 @@ import com.badlogic.gdx.Preferences;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
+/**
+ * This class is used to store data of the game.
+ * It fires a property change event when a value is changed.
+ */
 public class AppPreferences {
     public static final String PREF_MUSIC_VOLUME = "music.volume";
     public static final String PREF_MUSIC_ENABLED = "music.enabled";
