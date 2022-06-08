@@ -10,6 +10,9 @@ import com.badlogic.gdx.Gdx;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
+/**
+ * This singleton class manages the audio.
+ */
 public class AudioManager implements PropertyChangeListener {
     private static AudioManager instance;
     private final com.badlogic.gdx.Audio am = Gdx.audio;
@@ -20,6 +23,10 @@ public class AudioManager implements PropertyChangeListener {
     private boolean musicEnabled = true;
     private boolean soundEnabled = true;
 
+    /**
+     * Get the singleton instance of the AudioManager.
+     * @return The singleton instance of the AudioManager.
+     */
     public static AudioManager getInstance() {
         if (instance == null)
             instance = new AudioManager();
@@ -28,40 +35,65 @@ public class AudioManager implements PropertyChangeListener {
 
     private AudioManager() {}
 
+    /**
+     * This method loads the music file.
+     * @param music The music file to load.
+     */
     public void loadMusic(Music music){
         stopMusic();
-        this.music = am.newMusic(assets.getAudio(music));
+        this.music = assets.getMusic(music);
         this.music.setVolume(musicVolume);
 
     }
 
+    /**
+     * This method loads a playlist.
+     * @param playlist The playlist file to load.
+     */
     public void loadPlaylist(Playlist playlist){
         stopMusic();
         this.music = playlist;
         this.music.setVolume(musicVolume);
     }
 
+    /**
+     * Register a listener for when the music completes.
+     * @param listener The listener to register.
+     */
     public void onMusicCompletion(com.badlogic.gdx.audio.Music.OnCompletionListener listener){
         if(music != null){
             music.setOnCompletionListener(listener);
         }
     }
 
+    /**
+     * This method stops the music
+     */
     public void stopMusic(){
         if(this.music != null && musicEnabled)
             music.stop();
     }
 
+    /**
+     * Set the music to loop or not.
+     * @param loop True if the music should loop, false otherwise.
+     */
     public void loopMusic(boolean loop){
         if(music != null){
             music.setLooping(loop);
         }
     }
 
+    /**
+     * This method pauses the music.
+     */
     public void pauseMusic(){
         music.pause();
     }
 
+    /**
+     * This method resumes the music.
+     */
     public void resumeMusic(){
         if(this.music != null && musicEnabled){
             music.setVolume(musicVolume);
@@ -70,12 +102,21 @@ public class AudioManager implements PropertyChangeListener {
 
     }
 
+    /**
+     * This method plays a sound.
+     * @param sound The sound to play.
+     */
     public void playSound(Sound sound){
         if(soundEnabled) {
             assets.getSound(sound).play(soundVolume);
         }
     }
 
+    /**
+     * This method is used to register to the AppPreferences.
+     * It listens when the player changes the settings.
+     * @param propertyChangeEvent The event that is fired.
+     */
     @Override
     public void propertyChange(PropertyChangeEvent propertyChangeEvent) {
         switch (propertyChangeEvent.getPropertyName()){
