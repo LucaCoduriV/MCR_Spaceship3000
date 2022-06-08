@@ -1,6 +1,7 @@
 package ch.crepe.game.engines;
 
 import ch.crepe.game.assets.AssetsLoader;
+import ch.crepe.game.assets.Asteroid;
 import ch.crepe.game.assets.SpaceShip;
 import ch.crepe.game.assets.displayers.DisplayedSprite;
 import com.badlogic.gdx.graphics.Texture;
@@ -14,8 +15,9 @@ public class CartoonRenderer extends RenderingEngine{
                 AssetsLoader.getInstance().getSpaceship(SpaceShip.bowFighter),
                 AssetsLoader.getInstance().getSpaceship(SpaceShip.exVing),
                 AssetsLoader.getInstance().getAsteroid(ch.crepe.game.assets.Asteroid.blue1),
-                AssetsLoader.getInstance().getLaser(ch.crepe.game.assets.Laser.blueFast)
-                , AssetsLoader.getInstance().getLaser(ch.crepe.game.assets.Laser.greenElectric)
+                AssetsLoader.getInstance().getAsteroid(ch.crepe.game.assets.Asteroid.green1),
+                AssetsLoader.getInstance().getLaser(ch.crepe.game.assets.Laser.blueFast),
+                AssetsLoader.getInstance().getLaser(ch.crepe.game.assets.Laser.greenElectric)
         );
     }
 }

@@ -1,12 +1,11 @@
 package ch.crepe.game.engines;
 
-import ch.crepe.game.assets.AssetsLoader;
-import ch.crepe.game.assets.SpaceShip;
-import ch.crepe.game.assets.displayers.DisplayedAsset;
 import ch.crepe.game.assets.displayers.DisplayedSprite;
-import ch.crepe.game.entities.Asteroid;
+import ch.crepe.game.entities.asteroids.Asteroid;
 import ch.crepe.game.entities.SpaceShipAI;
 import ch.crepe.game.entities.Spaceship;
+import ch.crepe.game.entities.asteroids.BlueAsteroid;
+import ch.crepe.game.entities.asteroids.GreenAsteroid;
 import ch.crepe.game.entities.ship.weapons.projectiles.BlueLaser;
 import ch.crepe.game.entities.ship.weapons.projectiles.GreenLaser;
 import ch.crepe.game.entities.ship.weapons.projectiles.Laser;
@@ -15,16 +14,18 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+import org.w3c.dom.Text;
 
 abstract public class RenderingEngine implements Visitor {
     private final SpriteBatch batch;
     private final DisplayedSprite spaceShipSprite;
     private final DisplayedSprite spaceShipAISprite;
-    private final DisplayedSprite asteroidSprite;
+    private final DisplayedSprite blueAsteroidSprite;
+    private final DisplayedSprite greenAsteroidSprite;
     private final DisplayedSprite blueLaserSprite;
     private final DisplayedSprite greenLaserSprite;
 
-    public RenderingEngine(SpriteBatch batch, Texture spaceShipTexture, Texture spaceShipAITexture, Texture asteroidTexture, Texture blueLaserTexture, Texture greenLaserTexture) {
+    public RenderingEngine(SpriteBatch batch, Texture spaceShipTexture, Texture spaceShipAITexture, Texture blueAsteroidTexture, Texture greenAsteroidTexture, Texture blueLaserTexture, Texture greenLaserTexture) {
 
 
 
@@ -32,7 +33,8 @@ abstract public class RenderingEngine implements Visitor {
         // TODO corriger les paramètres inutiles
         spaceShipSprite = new DisplayedSprite(spaceShipTexture,new Rectangle(0, 0, 5, 5),new Vector2(5 / 2f, 5 / 2f),0);
         spaceShipAISprite = new DisplayedSprite(spaceShipAITexture,new Rectangle(0, 0, 5, 5),new Vector2(5 / 2f, 5 / 2f),0);
-        asteroidSprite = new DisplayedSprite(asteroidTexture,new Rectangle(0, 0, 5, 5),new Vector2(5 / 2f, 5 / 2f),0);
+        blueAsteroidSprite = new DisplayedSprite(blueAsteroidTexture,new Rectangle(0, 0, 5, 5),new Vector2(5 / 2f, 5 / 2f),0);
+        greenAsteroidSprite = new DisplayedSprite(greenAsteroidTexture,new Rectangle(0, 0, 5, 5),new Vector2(5 / 2f, 5 / 2f),0);
         blueLaserSprite = new DisplayedSprite(blueLaserTexture,new Rectangle(0, 0, 5, 5),new Vector2(5 / 2f, 5 / 2f),0);
         greenLaserSprite = new DisplayedSprite(greenLaserTexture,new Rectangle(0, 0, 5, 5),new Vector2(5 / 2f, 5 / 2f),0);
     }
@@ -53,9 +55,15 @@ abstract public class RenderingEngine implements Visitor {
     }
 
     @Override
-    public void visit(Asteroid asteroid) {
-        asteroidSprite.setCenter(asteroid.getCenter());
-        asteroidSprite.draw(batch);
+    public void visit(BlueAsteroid asteroid) {
+        blueAsteroidSprite.setCenter(asteroid.getCenter());
+        blueAsteroidSprite.draw(batch);
+    }
+
+    @Override
+    public void visit(GreenAsteroid asteroid) {
+        greenAsteroidSprite.setCenter(asteroid.getCenter());
+        greenAsteroidSprite.draw(batch);
     }
 
     @Override

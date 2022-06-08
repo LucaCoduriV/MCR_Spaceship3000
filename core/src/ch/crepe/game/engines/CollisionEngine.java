@@ -1,16 +1,16 @@
 package ch.crepe.game.engines;
 
 import ch.crepe.game.GameController;
-import ch.crepe.game.entities.Asteroid;
+import ch.crepe.game.entities.asteroids.Asteroid;
 import ch.crepe.game.entities.Entity;
 import ch.crepe.game.entities.SpaceShipAI;
 import ch.crepe.game.entities.Spaceship;
+import ch.crepe.game.entities.asteroids.BlueAsteroid;
+import ch.crepe.game.entities.asteroids.GreenAsteroid;
 import ch.crepe.game.entities.ship.weapons.projectiles.BlueLaser;
 import ch.crepe.game.entities.ship.weapons.projectiles.GreenLaser;
 import ch.crepe.game.entities.ship.weapons.projectiles.Laser;
 import com.badlogic.gdx.math.Intersector;
-
-import java.util.LinkedList;
 
 public class CollisionEngine extends Engine {
     private final GameController controller;
@@ -40,7 +40,12 @@ public class CollisionEngine extends Engine {
     }
 
     @Override
-    public void visit(Asteroid asteroid) {
+    public void visit(BlueAsteroid asteroid) {
+
+    }
+
+    @Override
+    public void visit(GreenAsteroid asteroid) {
 
     }
 

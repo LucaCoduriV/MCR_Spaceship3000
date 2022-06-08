@@ -1,8 +1,10 @@
 package ch.crepe.game;
 
-import ch.crepe.game.entities.Asteroid;
+import ch.crepe.game.entities.asteroids.Asteroid;
 import ch.crepe.game.entities.Entity;
 import ch.crepe.game.entities.SpaceShipAI;
+import ch.crepe.game.entities.asteroids.BlueAsteroid;
+import ch.crepe.game.entities.asteroids.GreenAsteroid;
 import com.badlogic.gdx.math.Vector2;
 
 import java.util.List;
@@ -72,12 +74,14 @@ public class EnemySpawner {
     }
 
     private Entity randomEnemy(Vector2 position, Vector2 direction, float width, float height){
-        int randomNumber = r.nextInt(2);
+        int randomNumber = r.nextInt(3);
         switch (randomNumber){
             case 0:
                 return new SpaceShipAI(position,  direction, gameController, width, height, 180);
             case 1:
-                return new Asteroid(position, direction, width, height);
+                return new BlueAsteroid(position, direction, width, height);
+            case 2:
+                return new GreenAsteroid(position, direction, width, height);
             default:
                 return new SpaceShipAI(position, new Vector2(0,0), gameController, 10, 10, 180);
         }
