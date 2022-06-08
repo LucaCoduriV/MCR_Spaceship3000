@@ -10,8 +10,10 @@ import ch.crepe.game.entities.ship.weapons.projectiles.GreenLaser;
 import ch.crepe.game.entities.ship.weapons.projectiles.Laser;
 import com.badlogic.gdx.math.Intersector;
 
-import java.util.LinkedList;
-
+/**
+ * Engine managing the collision between entities
+ * This class is implemented as a visitor
+ */
 public class CollisionEngine extends Engine {
     private final GameController controller;
 
@@ -20,7 +22,10 @@ public class CollisionEngine extends Engine {
     }
 
     /**
-     * Spaceship vs Spaceship
+     * Check if a spaceship has collided with an other entity
+     * If the collision is detected, the spaceship is damaged and
+     * the entity is destroyed
+     * @param ship Ship to check collision with
      */
     @Override
     public void visit(Spaceship ship) {
@@ -34,28 +39,47 @@ public class CollisionEngine extends Engine {
         }
     }
 
+    /**
+     * Check if a spaceshipAI has collided with an other entity
+     * @param ship
+     */
     @Override
     public void visit(SpaceShipAI ship) {
 
     }
 
+    /**
+     * Check if an asteroid has collided with an other entity
+     * @param asteroid Asteroid to check collision with
+     */
     @Override
     public void visit(Asteroid asteroid) {
 
     }
 
+    /**
+     * Check if a blue laser has collided with an other entity
+     * @param laser Laser to check collision with
+     */
     @Override
     public void visit(BlueLaser laser) {
         visit((Laser) laser);
     }
 
+    /**
+     * Check if a green laser has collided with an other entity
+     * @param laser Laser to check collision with
+     */
     @Override
     public void visit(GreenLaser laser) {
         visit((Laser) laser);
     }
 
     /**
-     * Spaceship vs Laser
+     * Check if a laser has collided with an other entity
+     * If the laser has collided with an other entity, the laser is destroyed
+     * and the other entity is damaged or destroyed
+     * @param laser Laser to check collision with
      */
     @Override
     public void visit(Laser laser) {
@@ -75,6 +99,12 @@ public class CollisionEngine extends Engine {
         }
     }
 
+    /**
+     * Check if two entities are colliding
+     * @param entity First entity to check collision with
+     * @param other Second entity to check collision with
+     * @return If the two entities are colliding
+     */
     public boolean isColliding(Entity entity, Entity other) {
         return Intersector.overlaps(entity.getHitbox(), other.getHitbox());
     }
