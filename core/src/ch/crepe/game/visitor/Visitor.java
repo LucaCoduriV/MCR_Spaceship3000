@@ -14,7 +14,4 @@ public interface Visitor {
     void visit(SpaceShipAI ship);
     void visit(BlueAsteroid asteroid);
     void visit(GreenAsteroid asteroid);
-    void visit(BlueLaser laser);
-    void visit(GreenLaser laser);
-    void visit(Laser laser);
 }

@@ -13,84 +13,12 @@ import ch.crepe.game.entities.ship.weapons.projectiles.Laser;
 import ch.crepe.game.entities.ship.weapons.projectiles.Projectile;
 import com.badlogic.gdx.math.Intersector;
 
-public class CollisionEngine extends Engine {
-    private final GameController controller;
+public class CollisionEngine {
 
-    public CollisionEngine(GameController controller) {
-        this.controller = controller;
+    public CollisionEngine() {
     }
 
-    /**
-     * Spaceship vs Spaceship
-     */
-    @Override
-    public void visit(Spaceship ship) {
-        for (Entity other : controller.getEntities()) {
-            if(ship == other) continue;
-            if(isColliding(ship, other)) {
-                ship.setLife(ship.getLife() - other.getDamage());
-                controller.getGameInfo().addScore(1);
-                other.setLife(0);
-            }
-        }
-    }
-
-    @Override
-    public void visit(SpaceShipAI ship) {
-
-    }
-
-    @Override
-    public void visit(BlueAsteroid asteroid) {
-        for (Projectile projectile : controller.getProjectiles()) {
-            if(isColliding(projectile, asteroid)) {
-                projectile.reactToCollision(asteroid, controller);
-            }
-        }
-    }
-
-    @Override
-    public void visit(GreenAsteroid asteroid) {
-        for (Projectile projectile : controller.getProjectiles()) {
-            if(isColliding(projectile, asteroid)) {
-                projectile.reactToCollision(asteroid, controller);
-            }
-        }
-    }
-
-    @Override
-    public void visit(BlueLaser laser) {
-        //visit((Laser) laser);
-    }
-
-    @Override
-    public void visit(GreenLaser laser) {
-        //visit((Laser) laser);
-    }
-
-    /**
-     * Spaceship vs Laser
-     */
-    @Override
-    public void visit(Laser laser) {
-        for (Entity entity : controller.getEntities()) {
-            if(laser == entity || laser.getOwner() == entity) continue;
-            if(isColliding(laser, entity)) {
-                if(laser.getOwner() != controller.getPlayerShip() && entity != controller.getPlayerShip()){
-                    continue;
-                }
-
-                /*laser.kill();
-                entity.setLife(entity.getLife() - laser.getDamage());
-                if(!entity.isAlive()) {
-                    controller.getGameInfo().addScore(1);
-                }*/
-
-            }
-        }
-    }
-
-    public boolean isColliding(Entity entity, Entity other) {
+    static public boolean isColliding(Entity entity, Entity other) {
         return Intersector.overlaps(entity.getHitbox(), other.getHitbox());
     }
 }

@@ -21,8 +21,4 @@ abstract public class Projectile extends Entity {
     }
 
     abstract void makeNoise();
-
-    public abstract void reactToCollision(BlueAsteroid laser, GameController controller);
-
-    public abstract void reactToCollision(GreenAsteroid laser, GameController controller);
 }

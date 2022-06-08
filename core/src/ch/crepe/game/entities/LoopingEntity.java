@@ -1,6 +1,8 @@
 package ch.crepe.game.entities;
 
 import ch.crepe.game.assets.displayers.DisplayedAsset;
+import ch.crepe.game.entities.asteroids.BlueAsteroid;
+import ch.crepe.game.entities.asteroids.GreenAsteroid;
 import ch.crepe.game.visitor.Visitor;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Rectangle;
@@ -64,11 +66,6 @@ public class LoopingEntity extends Entity{
         return true;
     }
 
-
-    @Override
-    public void accept(Visitor v) {
-    }
-
     public Rectangle getDrawingArea() {
         return asset.getDrawingArea();
     }
@@ -77,5 +74,25 @@ public class LoopingEntity extends Entity{
     public void setPosition(Vector2 position) {
         super.setPosition(position);
         asset.setCenter(new Vector2(hitbox.x + hitbox.width / 2, hitbox.y + hitbox.height / 2));
+    }
+
+    @Override
+    public void visit(Spaceship ship) {
+
+    }
+
+    @Override
+    public void visit(SpaceShipAI ship) {
+
+    }
+
+    @Override
+    public void visit(BlueAsteroid asteroid) {
+
+    }
+
+    @Override
+    public void visit(GreenAsteroid asteroid) {
+
     }
 }

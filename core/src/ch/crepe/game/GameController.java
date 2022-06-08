@@ -5,6 +5,7 @@ import ch.crepe.game.engines.CollisionEngine;
 import ch.crepe.game.engines.RealRenderer;
 import ch.crepe.game.engines.RenderingEngine;
 import ch.crepe.game.entities.Entity;
+import ch.crepe.game.entities.KillableEntity;
 import ch.crepe.game.entities.Spaceship;
 import ch.crepe.game.entities.ship.weapons.projectiles.Projectile;
 import com.badlogic.gdx.Gdx;
@@ -18,7 +19,7 @@ import java.util.List;
 public class GameController {
     private final GameInfo gameInfo;
     private final Spaceship playerShip;
-    private final LinkedList<Entity> entities;
+    private final LinkedList<KillableEntity> entities;
     private final LinkedList<Projectile> projectiles;
     private final InputProcessor playerInput;
     private final EnemySpawner ennemySpawner;
@@ -43,7 +44,7 @@ public class GameController {
         this.playerInput = new PlayerInput(this, playerShip);
         this.gameInfo = new GameInfo();
         this.ennemySpawner = new EnemySpawner(this,96,54,entities);
-        this.ce = new CollisionEngine(this);
+        this.ce = new CollisionEngine();
         this.bottomCleaner = new BottomEntityCleaner(entities, worldBounds);
         this.allSideCleaner = new EntityCleaner(projectiles, worldBounds);
         entities.add(playerShip);

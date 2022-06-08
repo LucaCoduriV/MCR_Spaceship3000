@@ -4,6 +4,8 @@ import ch.crepe.game.GameController;
 import ch.crepe.game.assets.AssetsLoader;
 import ch.crepe.game.assets.Sound;
 import ch.crepe.game.audio.AudioManager;
+import ch.crepe.game.engines.CollisionEngine;
+import ch.crepe.game.entities.SpaceShipAI;
 import ch.crepe.game.entities.Spaceship;
 import ch.crepe.game.entities.asteroids.BlueAsteroid;
 import ch.crepe.game.entities.asteroids.GreenAsteroid;
@@ -23,20 +25,18 @@ public class BlueLaser extends Laser {
     }
 
     @Override
-    public void reactToCollision(BlueAsteroid asteroid, GameController controller) {
-        //TODO factoriser ?
-        asteroid.setLife(asteroid.getLife() - getDamage());
-        if(!asteroid.isAlive()) {
-            controller.getGameInfo().addScore(1);
+    public void visit(BlueAsteroid asteroid) {
+        if(CollisionEngine.isColliding(this, asteroid)) {
+            asteroid.setLife(asteroid.getLife() - getDamage());
+            if(!asteroid.isAlive()) {
+                getOwner().getGameController().getGameInfo().addScore(1);
+            }
+            kill();
         }
-        kill();
     }
 
     @Override
-    public void reactToCollision(GreenAsteroid asteroid, GameController controller) { }
-
-    @Override
-    public void accept(Visitor v) {
-        v.visit(this);
+    public void visit(GreenAsteroid asteroid) {
+        //TODO augmenter taille
     }
 }

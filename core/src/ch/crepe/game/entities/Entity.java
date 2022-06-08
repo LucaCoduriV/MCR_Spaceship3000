@@ -1,10 +1,11 @@
 package ch.crepe.game.entities;
 
 import ch.crepe.game.visitor.Visitable;
+import ch.crepe.game.visitor.Visitor;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
-abstract public class Entity implements Visitable {
+abstract public class Entity implements Visitor {
 
     protected final float width;
     protected final float height;

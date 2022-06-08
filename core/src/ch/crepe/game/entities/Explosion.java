@@ -1,6 +1,8 @@
 package ch.crepe.game.entities;
 
 import ch.crepe.game.assets.displayers.DisplayedAsset;
+import ch.crepe.game.entities.asteroids.BlueAsteroid;
+import ch.crepe.game.entities.asteroids.GreenAsteroid;
 import ch.crepe.game.visitor.Visitor;
 import com.badlogic.gdx.math.Vector2;
 
@@ -12,7 +14,22 @@ public class Explosion extends Entity {
     }
 
     @Override
-    public void accept(Visitor v) {
+    public void visit(Spaceship ship) {
+
+    }
+
+    @Override
+    public void visit(SpaceShipAI ship) {
+
+    }
+
+    @Override
+    public void visit(BlueAsteroid asteroid) {
+
+    }
+
+    @Override
+    public void visit(GreenAsteroid asteroid) {
 
     }
 }
