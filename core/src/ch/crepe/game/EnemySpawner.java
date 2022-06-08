@@ -1,5 +1,6 @@
 package ch.crepe.game;
 
+import ch.crepe.game.entities.KillableEntity;
 import ch.crepe.game.entities.asteroids.Asteroid;
 import ch.crepe.game.entities.Entity;
 import ch.crepe.game.entities.SpaceShipAI;
@@ -21,12 +22,12 @@ public class EnemySpawner {
     private float timeForNextSpawn;
     private static final int TIME_FOR_NEXT_LEVEL = 5000;
     private static final float ENNEMY_SIZE = 5f;
-    private final List<Entity> entityList;
+    private final List<KillableEntity> entityList;
     private final GameController gameController;
     private int maxNextSpawnTimeMs = 5000;
     private int level = 0;
 
-    public EnemySpawner(GameController controller, int worldWidth, int worldHeight, List<Entity> entityList) {
+    public EnemySpawner(GameController controller, int worldWidth, int worldHeight, List<KillableEntity> entityList) {
         this.gameController = controller;
         this.worldWidth = worldWidth;
         this.worldHeight = worldHeight;
@@ -37,7 +38,7 @@ public class EnemySpawner {
         this.timeForNextSpawn = r.nextInt(maxNextSpawnTimeMs) / 1000f;
     }
 
-    public Entity spawnEnemy() {
+    public KillableEntity spawnEnemy() {
         Vector2 position = generateRandomPosition(ENNEMY_SIZE);
         Vector2 direction = generateRandomDirection(position);
 
@@ -73,7 +74,7 @@ public class EnemySpawner {
         return new Vector2(result,worldHeight / 2f + size);
     }
 
-    private Entity randomEnemy(Vector2 position, Vector2 direction, float width, float height){
+    private KillableEntity randomEnemy(Vector2 position, Vector2 direction, float width, float height){
         int randomNumber = r.nextInt(3);
         switch (randomNumber){
             case 0:

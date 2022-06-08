@@ -1,16 +1,13 @@
 package ch.crepe.game.entities.ship.weapons.projectiles;
 
-import ch.crepe.game.GameController;
 import ch.crepe.game.assets.AssetsLoader;
 import ch.crepe.game.assets.Sound;
 import ch.crepe.game.audio.AudioManager;
 import ch.crepe.game.engines.CollisionEngine;
-import ch.crepe.game.entities.SpaceShipAI;
 import ch.crepe.game.entities.Spaceship;
 import ch.crepe.game.entities.asteroids.BlueAsteroid;
 import ch.crepe.game.entities.asteroids.GreenAsteroid;
 import ch.crepe.game.visitor.Visitor;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
 
 public class BlueLaser extends Laser {
@@ -38,5 +35,20 @@ public class BlueLaser extends Laser {
     @Override
     public void visit(GreenAsteroid asteroid) {
         //TODO augmenter taille
+    }
+
+    @Override
+    public void visit(GreenLaser greenLaser) {
+
+    }
+
+    @Override
+    public void visit(BlueLaser blueLaser) {
+
+    }
+
+    @Override
+    public void accept(Visitor v) {
+        v.visit(this);
     }
 }

@@ -4,6 +4,8 @@ import ch.crepe.game.assets.AssetsLoader;
 import ch.crepe.game.assets.Asteroid;
 import ch.crepe.game.assets.SpaceShip;
 import ch.crepe.game.assets.displayers.DisplayedSprite;
+import ch.crepe.game.entities.ship.weapons.projectiles.BlueLaser;
+import ch.crepe.game.entities.ship.weapons.projectiles.GreenLaser;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;

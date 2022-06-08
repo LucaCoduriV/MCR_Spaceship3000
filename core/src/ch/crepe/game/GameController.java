@@ -43,8 +43,8 @@ public class GameController {
         this.projectiles = new LinkedList<>();
         this.playerInput = new PlayerInput(this, playerShip);
         this.gameInfo = new GameInfo();
-        this.ennemySpawner = new EnemySpawner(this,96,54,entities);
-        this.ce = new CollisionEngine();
+        this.ennemySpawner = new EnemySpawner(this,96,54, entities);
+        this.ce = new CollisionEngine(this);
         this.bottomCleaner = new BottomEntityCleaner(entities, worldBounds);
         this.allSideCleaner = new EntityCleaner(projectiles, worldBounds);
         entities.add(playerShip);
@@ -56,13 +56,14 @@ public class GameController {
 
     public void update(float delta) {
         ennemySpawner.update(delta);
-        for (Entity entity : entities) {
-            entity.accept(ce);
+        for (KillableEntity entity : entities) {
+            ce.checkAllCollisions(entity);
             entity.update(delta);
         }
 
+        //TODO
         for (Entity projectile : projectiles) {
-            projectile.accept(ce);
+            //projectile.accept(ce);
             projectile.update(delta);
         }
 
@@ -98,7 +99,7 @@ public class GameController {
         return playerShip;
     }
 
-    public List<Entity> getEntities() {
+    public List<KillableEntity> getEntities() {
         return entities;
     }
 

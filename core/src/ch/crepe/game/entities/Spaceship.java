@@ -6,6 +6,8 @@ import ch.crepe.game.entities.asteroids.BlueAsteroid;
 import ch.crepe.game.entities.asteroids.GreenAsteroid;
 import ch.crepe.game.entities.ship.weapons.GreenLaserWeapon;
 import ch.crepe.game.entities.ship.weapons.Weapon;
+import ch.crepe.game.entities.ship.weapons.projectiles.BlueLaser;
+import ch.crepe.game.entities.ship.weapons.projectiles.GreenLaser;
 import ch.crepe.game.visitor.Visitor;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
@@ -80,5 +82,15 @@ public class Spaceship extends KillableEntity {
             gameController.getGameInfo().addScore(1);
             asteroid.setLife(0);
         }
+    }
+
+    @Override
+    public void visit(GreenLaser greenLaser) {
+
+    }
+
+    @Override
+    public void visit(BlueLaser blueLaser) {
+
     }
 }

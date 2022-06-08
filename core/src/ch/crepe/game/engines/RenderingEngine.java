@@ -1,20 +1,17 @@
 package ch.crepe.game.engines;
 
 import ch.crepe.game.assets.displayers.DisplayedSprite;
-import ch.crepe.game.entities.asteroids.Asteroid;
 import ch.crepe.game.entities.SpaceShipAI;
 import ch.crepe.game.entities.Spaceship;
 import ch.crepe.game.entities.asteroids.BlueAsteroid;
 import ch.crepe.game.entities.asteroids.GreenAsteroid;
 import ch.crepe.game.entities.ship.weapons.projectiles.BlueLaser;
 import ch.crepe.game.entities.ship.weapons.projectiles.GreenLaser;
-import ch.crepe.game.entities.ship.weapons.projectiles.Laser;
 import ch.crepe.game.visitor.Visitor;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
-import org.w3c.dom.Text;
 
 abstract public class RenderingEngine implements Visitor {
     private final SpriteBatch batch;
@@ -67,21 +64,12 @@ abstract public class RenderingEngine implements Visitor {
     }
 
     @Override
-    public void visit(BlueLaser laser) {
-        blueLaserSprite.setCenter(laser.getCenter());
-        blueLaserSprite.setRotation(laser.getOrientation() + 90);
-        blueLaserSprite.draw(batch);
+    public void visit(GreenLaser greenLaser) {
+
     }
 
     @Override
-    public void visit(GreenLaser laser) {
-        greenLaserSprite.setCenter(laser.getCenter());
-        greenLaserSprite.setRotation(laser.getOrientation() + 90);
-        greenLaserSprite.draw(batch);
-    }
+    public void visit(BlueLaser blueLaser) {
 
-    @Override
-    public void visit(Laser laser) {
-        throw new RuntimeException("Not implemented");
     }
 }

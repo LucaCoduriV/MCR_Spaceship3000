@@ -6,6 +6,8 @@ import ch.crepe.game.assets.Music;
 import ch.crepe.game.audio.AudioManager;
 import ch.crepe.game.audio.Playlist;
 import ch.crepe.game.entities.Entity;
+import ch.crepe.game.entities.KillableEntity;
+import ch.crepe.game.entities.ship.weapons.projectiles.Projectile;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.Color;
@@ -106,7 +108,7 @@ public class GameScreen extends ScreenAdapter {
         parent.getBatch().begin();
         background.draw(parent.getBatch());
 
-        for (Entity entity : controller.getEntities()) {
+        for (KillableEntity entity : controller.getEntities()) {
             entity.accept(controller.getRenderer());
 
             // Enable debug to see the hitboxes
@@ -121,7 +123,7 @@ public class GameScreen extends ScreenAdapter {
 
         }
 
-        for (Entity entity : controller.getProjectiles()) {
+        for (Projectile entity : controller.getProjectiles()) {
             entity.accept(controller.getRenderer());
         }
 

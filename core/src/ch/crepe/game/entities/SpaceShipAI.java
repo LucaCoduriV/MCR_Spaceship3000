@@ -1,9 +1,7 @@
 package ch.crepe.game.entities;
 
 import ch.crepe.game.GameController;
-import ch.crepe.game.assets.displayers.DisplayedAsset;
 import ch.crepe.game.visitor.Visitor;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
 
 import java.util.Random;

@@ -5,7 +5,7 @@ import ch.crepe.game.visitor.Visitor;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
-abstract public class Entity implements Visitor {
+abstract public class Entity implements Visitable, Visitor {
 
     protected final float width;
     protected final float height;

@@ -1,5 +1,7 @@
 package ch.crepe.game.entities.asteroids;
 
+import ch.crepe.game.entities.ship.weapons.projectiles.BlueLaser;
+import ch.crepe.game.entities.ship.weapons.projectiles.GreenLaser;
 import ch.crepe.game.visitor.Visitor;
 import com.badlogic.gdx.math.Vector2;
 
