@@ -1,0 +1,405 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": true,
+    "cutInterfaceStructures": true,
+    "cutDataStructures": true,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 20,
+    "backwardDepth": 3,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": true,
+    "hideDataStructures": true,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "BothDirections" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showClassGenericTypes": false,
+    "showMethods": false,
+    "showMethodParameterNames": false,
+    "showMethodParameterTypes": false,
+    "showMethodReturnType": false,
+    "showPackageLevels": 0,
+    "showDetailedClassStructure": false
+  },
+  "rootClass": "ch.crepe.game.EnemySpawner",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+AppPreferences1819384542[
+	label="(C)AppPreferences"
+	style=filled
+	shape=rect
+	fillcolor="#FFFFFF"
+];
+
+AssetsLoader1709102957[
+	label="(C)AssetsLoader"
+	style=filled
+	shape=rect
+	fillcolor="#FFFFFF"
+];
+
+Asteroid795605201[
+	label="(C)Asteroid"
+	style=filled
+	shape=rect
+	fillcolor="#FFFFFF"
+];
+
+AudioManager1191838918[
+	label="(C)AudioManager"
+	style=filled
+	shape=rect
+	fillcolor="#FFFFFF"
+];
+
+BlueLaser1670101538[
+	label="(C)BlueLaser"
+	style=filled
+	shape=rect
+	fillcolor="#FFFFFF"
+];
+
+BlueLaserWeapon2004206046[
+	label="(C)BlueLaserWeapon"
+	style=filled
+	shape=rect
+	fillcolor="#FFFFFF"
+];
+
+BottomEntityCleaner1819384542[
+	label="(C)BottomEntityCleaner"
+	style=filled
+	shape=rect
+	fillcolor="#FFFFFF"
+];
+
+CartoonRenderer1953315681[
+	label="(C)CartoonRenderer"
+	style=filled
+	shape=rect
+	fillcolor="#FFFFFF"
+];
+
+CollisionEngine1953315681[
+	label="(C)CollisionEngine"
+	style=filled
+	shape=rect
+	fillcolor="#FFFFFF"
+];
+
+DisplayedAnimation783125919[
+	label="(C)DisplayedAnimation"
+	style=filled
+	shape=rect
+	fillcolor="#FFFFFF"
+];
+
+DisplayedAsset783125919[
+	label="(C)DisplayedAsset"
+	style=filled
+	shape=rect
+	fillcolor="#FFFFFF"
+];
+
+DisplayedSprite783125919[
+	label="(C)DisplayedSprite"
+	style=filled
+	shape=rect
+	fillcolor="#FFFFFF"
+];
+
+EnemySpawner1819384542[
+	label="(C)EnemySpawner"
+	style=filled
+	shape=rect
+	fillcolor="#FFFFFF"
+];
+
+Engine1953315681[
+	label="(C)Engine"
+	style=filled
+	shape=rect
+	fillcolor="#FFFFFF"
+];
+
+Entity795605201[
+	label="(C)Entity"
+	style=filled
+	shape=rect
+	fillcolor="#FFFFFF"
+];
+
+EntityCleaner1819384542[
+	label="(C)EntityCleaner"
+	style=filled
+	shape=rect
+	fillcolor="#FFFFFF"
+];
+
+Explosion795605201[
+	label="(C)Explosion"
+	style=filled
+	shape=rect
+	fillcolor="#FFFFFF"
+];
+
+GameController1819384542[
+	label="(C)GameController"
+	style=filled
+	shape=rect
+	fillcolor="#FFFFFF"
+];
+
+GameInfo1819384542[
+	label="(C)GameInfo"
+	style=filled
+	shape=rect
+	fillcolor="#FFFFFF"
+];
+
+GameScreen1441738153[
+	label="(C)GameScreen"
+	style=filled
+	shape=rect
+	fillcolor="#FFFFFF"
+];
+
+GreenLaser1670101538[
+	label="(C)GreenLaser"
+	style=filled
+	shape=rect
+	fillcolor="#FFFFFF"
+];
+
+GreenLaserWeapon2004206046[
+	label="(C)GreenLaserWeapon"
+	style=filled
+	shape=rect
+	fillcolor="#FFFFFF"
+];
+
+Laser1670101538[
+	label="(C)Laser"
+	style=filled
+	shape=rect
+	fillcolor="#FFFFFF"
+];
+
+LoopingEntity795605201[
+	label="(C)LoopingEntity"
+	style=filled
+	shape=rect
+	fillcolor="#FFFFFF"
+];
+
+PlayerInput1819384542[
+	label="(C)PlayerInput"
+	style=filled
+	shape=rect
+	fillcolor="#FFFFFF"
+];
+
+Projectile1670101538[
+	label="(C)Projectile"
+	style=filled
+	shape=rect
+	fillcolor="#FFFFFF"
+];
+
+RealRenderer1953315681[
+	label="(C)RealRenderer"
+	style=filled
+	shape=rect
+	fillcolor="#FFFFFF"
+];
+
+RenderingEngine1953315681[
+	label="(C)RenderingEngine"
+	style=filled
+	shape=rect
+	fillcolor="#FFFFFF"
+];
+
+SpaceShipAI795605201[
+	label="(C)SpaceShipAI"
+	style=filled
+	shape=rect
+	fillcolor="#FFFFFF"
+];
+
+Spaceship30001819384542[
+	label="(C)Spaceship3000"
+	style=filled
+	shape=rect
+	fillcolor="#FFFFFF"
+];
+
+Spaceship795605201[
+	label="(C)Spaceship"
+	style=filled
+	shape=rect
+	fillcolor="#FFFFFF"
+];
+
+UIEngine1953315681[
+	label="(C)UIEngine"
+	style=filled
+	shape=rect
+	fillcolor="#FFFFFF"
+];
+
+Weapon2004206046[
+	label="(C)Weapon"
+	style=filled
+	shape=rect
+	fillcolor="#FFFFFF"
+];
+
+'edges    
+AudioManager1191838918 -> AssetsLoader1709102957[label="assets
+[0..1]"];
+BlueLaser1670101538 -> AudioManager1191838918[label="makeNoise() -> playSound()"];
+BlueLaserWeapon2004206046 -> GameController1819384542[label="createProjectile() -> addProjectile()"];
+CollisionEngine1953315681 -> Entity795605201[label="visit() -> kill()"];
+CollisionEngine1953315681 -> GameController1819384542[label="controller
+[0..1]"];
+DisplayedAsset783125919 -> DisplayedAnimation783125919[arrowhead=none, arrowtail=empty, dir=both];
+DisplayedAsset783125919 -> DisplayedSprite783125919[arrowhead=none, arrowtail=empty, dir=both];
+EnemySpawner1819384542 -> Entity795605201[label="entityList
+[0..*]"];
+EnemySpawner1819384542 -> GameController1819384542[label="gameController
+[0..1]"];
+Engine1953315681 -> CollisionEngine1953315681[arrowhead=none, arrowtail=empty, dir=both];
+Engine1953315681 -> UIEngine1953315681[arrowhead=none, arrowtail=empty, dir=both];
+Entity795605201 -> Asteroid795605201[arrowhead=none, arrowtail=empty, dir=both];
+Entity795605201 -> Explosion795605201[arrowhead=none, arrowtail=empty, dir=both];
+Entity795605201 -> LoopingEntity795605201[arrowhead=none, arrowtail=empty, dir=both];
+Entity795605201 -> Projectile1670101538[arrowhead=none, arrowtail=empty, dir=both];
+Entity795605201 -> SpaceShipAI795605201[label="update() -> update()"];
+Entity795605201 -> Spaceship795605201[arrowhead=none, arrowtail=empty, dir=both];
+EntityCleaner1819384542 -> BottomEntityCleaner1819384542[arrowhead=none, arrowtail=empty, dir=both];
+EntityCleaner1819384542 -> Entity795605201[label="entities
+[0..*]"];
+GameController1819384542 -> Asteroid795605201[label="accept() -> accept()", arrowhead=none];
+GameController1819384542 -> CollisionEngine1953315681[label="ce
+[0..1]"];
+GameController1819384542 -> EnemySpawner1819384542[label="ennemySpawner
+[0..1]"];
+GameController1819384542 -> Entity795605201[arrowhead=none];
+GameController1819384542 -> EntityCleaner1819384542[label="allSideCleaner
+[0..1]"];
+GameController1819384542 -> EntityCleaner1819384542[label="bottomCleaner
+[0..1]"];
+GameController1819384542 -> Explosion795605201[label="accept() -> accept()", arrowhead=none];
+GameController1819384542 -> GameInfo1819384542[label="gameInfo
+[0..1]"];
+GameController1819384542 -> Laser1670101538[label="accept() -> accept()", arrowhead=none];
+GameController1819384542 -> LoopingEntity795605201[label="accept() -> accept()", arrowhead=none];
+GameController1819384542 -> RenderingEngine1953315681[label="renderingEngine
+[0..1]"];
+GameController1819384542 -> Spaceship30001819384542[label="game
+[0..1]"];
+GameController1819384542 -> Spaceship795605201[label="accept() -> accept()", arrowhead=none];
+GameScreen1441738153 -> GameController1819384542[label="controller
+[0..1]"];
+GreenLaser1670101538 -> AudioManager1191838918[label="makeNoise() -> playSound()"];
+GreenLaserWeapon2004206046 -> GameController1819384542[label="createProjectile() -> addProjectile()"];
+Laser1670101538 -> BlueLaser1670101538[arrowhead=none, arrowtail=empty, dir=both];
+Laser1670101538 -> Engine1953315681[arrowhead=none];
+Laser1670101538 -> GreenLaser1670101538[arrowhead=none, arrowtail=empty, dir=both];
+Laser1670101538 -> RenderingEngine1953315681[arrowhead=none];
+Laser1670101538 -> Spaceship795605201[label="owner
+[0..1]"];
+LoopingEntity795605201 -> DisplayedAsset783125919[label="asset
+[0..1]"];
+PlayerInput1819384542 -> GameController1819384542[label="controller
+[0..1]"];
+Projectile1670101538 -> BlueLaser1670101538[label="makeNoise() -> makeNoise()"];
+Projectile1670101538 -> GreenLaser1670101538[label="makeNoise() -> makeNoise()"];
+Projectile1670101538 -> Laser1670101538[arrowhead=none, arrowtail=empty, dir=both];
+RenderingEngine1953315681 -> CartoonRenderer1953315681[arrowhead=none, arrowtail=empty, dir=both];
+RenderingEngine1953315681 -> DisplayedSprite783125919[label="asteroidSprite
+[0..1]"];
+RenderingEngine1953315681 -> DisplayedSprite783125919[label="blueLaserSprite
+[0..1]"];
+RenderingEngine1953315681 -> DisplayedSprite783125919[label="greenLaserSprite
+[0..1]"];
+RenderingEngine1953315681 -> DisplayedSprite783125919[label="spaceShipAISprite
+[0..1]"];
+RenderingEngine1953315681 -> DisplayedSprite783125919[label="spaceShipSprite
+[0..1]"];
+RenderingEngine1953315681 -> RealRenderer1953315681[arrowhead=none, arrowtail=empty, dir=both];
+SpaceShipAI795605201 -> Entity795605201[label="update() -> update()"];
+Spaceship30001819384542 -> AppPreferences1819384542[label="preferences
+[0..1]"];
+Spaceship795605201 -> GameController1819384542[label="gameController
+[0..1]"];
+Spaceship795605201 -> SpaceShipAI795605201[arrowhead=none, arrowtail=empty, dir=both];
+Spaceship795605201 -> Weapon2004206046[label="weapon
+[0..1]"];
+Weapon2004206046 -> BlueLaserWeapon2004206046[arrowhead=none, arrowtail=empty, dir=both];
+Weapon2004206046 -> GreenLaserWeapon2004206046[arrowhead=none, arrowtail=empty, dir=both];
+Weapon2004206046 -> Spaceship795605201[label="spaceship
+[0..1]"];
+    
+}
+@enduml
