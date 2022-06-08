@@ -9,10 +9,17 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * A playlist of music.
+ */
 public class Playlist implements Music {
     private final List<Music> musics;
     private int index = 0;
 
+    /**
+     * It creates a new playlist.
+     * @param musics the musics to add to the playlist.
+     */
     public Playlist(ch.crepe.game.assets.Music[] musics){
         this.musics = new ArrayList<>();
         for (ch.crepe.game.assets.Music music: musics) {
@@ -20,10 +27,16 @@ public class Playlist implements Music {
         }
     }
 
+    /**
+     * It shuffles the playlist.
+     */
     public void shuffle(){
         Collections.shuffle(this.musics);
     }
 
+    /**
+     * It plays the next music in the playlist.
+     */
     @Override
     public void play() {
         getCurrentSong().play();
@@ -31,7 +44,7 @@ public class Playlist implements Music {
             @Override
             public void onCompletion(Music music) {
                 getCurrentSong().setOnCompletionListener(null);
-                setNextSong();
+                nextSong();
                 play();
             }
         });
@@ -41,7 +54,11 @@ public class Playlist implements Music {
         return musics.get(index);
     }
 
-    private Music setNextSong(){
+    /**
+     * It plays the next music in the playlist.
+     * @return the next music in the playlist.
+     */
+    private Music nextSong(){
         if(index < musics.size()){
             index++;
         }else{
@@ -50,11 +67,17 @@ public class Playlist implements Music {
         return musics.get(index);
     }
 
+    /**
+     * It pauses the current music.
+     */
     @Override
     public void pause() {
         musics.get(index).pause();
     }
 
+    /**
+     * It stops the current music.
+     */
     @Override
     public void stop() {
         musics.get(index).stop();
@@ -94,17 +117,19 @@ public class Playlist implements Music {
 
     @Override
     public void setPosition(float position) {
-        throw new NotImplementedException();
+        getCurrentSong().setPosition(position);
     }
 
     @Override
     public float getPosition() {
-        return 0;
+        return getCurrentSong().getPosition();
     }
 
     @Override
     public void dispose() {
-        throw new NotImplementedException();
+        for (Music music : musics){
+            music.dispose();
+        }
     }
 
     @Override
