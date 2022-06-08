@@ -6,6 +6,7 @@ import ch.crepe.game.engines.RealRenderer;
 import ch.crepe.game.engines.RenderingEngine;
 import ch.crepe.game.entities.Entity;
 import ch.crepe.game.entities.Spaceship;
+import ch.crepe.game.entities.ship.weapons.projectiles.Projectile;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.math.Rectangle;
@@ -18,7 +19,7 @@ public class GameController {
     private final GameInfo gameInfo;
     private final Spaceship playerShip;
     private final LinkedList<Entity> entities;
-    private final LinkedList<Entity> projectiles;
+    private final LinkedList<Projectile> projectiles;
     private final InputProcessor playerInput;
     private final EnemySpawner ennemySpawner;
     private final EntityCleaner bottomCleaner;
@@ -119,11 +120,11 @@ public class GameController {
         return gameInfo;
     }
 
-    public void addProjectile(Entity entity) {
+    public void addProjectile(Projectile entity) {
         projectiles.add(entity);
     }
 
-    public LinkedList<Entity> getProjectiles() {
+    public LinkedList<Projectile> getProjectiles() {
         return projectiles;
     }
 

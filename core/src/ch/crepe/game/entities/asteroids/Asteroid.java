@@ -2,6 +2,7 @@ package ch.crepe.game.entities.asteroids;
 
 import ch.crepe.game.assets.displayers.DisplayedAsset;
 import ch.crepe.game.entities.Entity;
+import ch.crepe.game.entities.ship.weapons.projectiles.BlueLaser;
 import com.badlogic.gdx.math.Vector2;
 
 import ch.crepe.game.visitor.Visitor;

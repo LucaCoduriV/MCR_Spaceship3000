@@ -10,6 +10,7 @@ import ch.crepe.game.entities.asteroids.GreenAsteroid;
 import ch.crepe.game.entities.ship.weapons.projectiles.BlueLaser;
 import ch.crepe.game.entities.ship.weapons.projectiles.GreenLaser;
 import ch.crepe.game.entities.ship.weapons.projectiles.Laser;
+import ch.crepe.game.entities.ship.weapons.projectiles.Projectile;
 import com.badlogic.gdx.math.Intersector;
 
 public class CollisionEngine extends Engine {
@@ -41,22 +42,30 @@ public class CollisionEngine extends Engine {
 
     @Override
     public void visit(BlueAsteroid asteroid) {
-
+        for (Projectile projectile : controller.getProjectiles()) {
+            if(isColliding(projectile, asteroid)) {
+                projectile.reactToCollision(asteroid, controller);
+            }
+        }
     }
 
     @Override
     public void visit(GreenAsteroid asteroid) {
-
+        for (Projectile projectile : controller.getProjectiles()) {
+            if(isColliding(projectile, asteroid)) {
+                projectile.reactToCollision(asteroid, controller);
+            }
+        }
     }
 
     @Override
     public void visit(BlueLaser laser) {
-        visit((Laser) laser);
+        //visit((Laser) laser);
     }
 
     @Override
     public void visit(GreenLaser laser) {
-        visit((Laser) laser);
+        //visit((Laser) laser);
     }
 
     /**
@@ -70,11 +79,12 @@ public class CollisionEngine extends Engine {
                 if(laser.getOwner() != controller.getPlayerShip() && entity != controller.getPlayerShip()){
                     continue;
                 }
-                laser.kill();
+
+                /*laser.kill();
                 entity.setLife(entity.getLife() - laser.getDamage());
                 if(!entity.isAlive()) {
                     controller.getGameInfo().addScore(1);
-                }
+                }*/
 
             }
         }
