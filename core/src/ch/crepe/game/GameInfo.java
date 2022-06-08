@@ -1,5 +1,8 @@
 package ch.crepe.game;
 
+/**
+ * This class contains all the information about the game.
+ */
 public class GameInfo {
     private int score = 0;
     private int lives = 100;

@@ -8,6 +8,9 @@ import com.badlogic.gdx.math.Vector2;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * This class spawns enemies over time and increase the difficulty of the game.
+ */
 public class EnemySpawner {
     private final int worldWidth;
     private final int worldHeight;
@@ -35,6 +38,11 @@ public class EnemySpawner {
         this.timeForNextSpawn = r.nextInt(maxNextSpawnTimeMs) / 1000f;
     }
 
+    /**
+     * This method spawns an enemy at a random position over the viewport and gives it a random direction.
+     * It takes care to give the ennemies a direction that goes into the player's viewport.
+     * @return the spawned enemy.
+     */
     public Entity spawnEnemy() {
         Vector2 position = generateRandomPosition(ENNEMY_SIZE);
         Vector2 direction = generateRandomDirection(position);
@@ -42,6 +50,11 @@ public class EnemySpawner {
         return randomEnemy(position, direction, ENNEMY_SIZE, ENNEMY_SIZE);
     }
 
+    /**
+     * This method is called every frame and spawns an enemy if the time is right.
+     * The time to spawn an enemy changes over time.
+     * @param delta the time since the last frame.
+     */
     public void update(float delta){
         elapsedTimeSpawn += delta;
         elapsedTime += delta;
@@ -57,6 +70,11 @@ public class EnemySpawner {
         }
     }
 
+    /**
+     * It generates a random direction for the enemy so that he goes into the player's viewport.
+     * @param position the position of the enemy.
+     * @return the direction of the enemy.
+     */
     private Vector2 generateRandomDirection(Vector2 position){
 
         float minAngle = position.cpy().sub(worldMinLeftPos).angleDeg();
@@ -66,11 +84,24 @@ public class EnemySpawner {
         return new Vector2(0,0.1f).setAngleDeg(angle).rotateDeg(180);
     }
 
+    /**
+     * It generates a random position for the enemy.
+     * @param size the size of the enemy.
+     * @return A position that stays between the viewport X axe.
+     */
     private Vector2 generateRandomPosition(float size){
         final int result = r.nextInt(worldWidth) - worldWidth / 2;
         return new Vector2(result,worldHeight / 2f + size);
     }
 
+    /**
+     * It generates a enemy of a random type. (Asteroid or SpaceShipAI)
+     * @param position the position of the enemy.
+     * @param direction the direction of the enemy.
+     * @param width the width of the enemy.
+     * @param height the height of the enemy.
+     * @return the enemy.
+     */
     private Entity randomEnemy(Vector2 position, Vector2 direction, float width, float height){
         int randomNumber = r.nextInt(2);
         switch (randomNumber){
@@ -83,6 +114,9 @@ public class EnemySpawner {
         }
     }
 
+    /**
+     * It decreases the time to spawn an enemy.
+     */
     private void updateNextMaxSpawnTime(){
         maxNextSpawnTimeMs = Math.round(maxNextSpawnTimeMs / 1.1f);
         level++;

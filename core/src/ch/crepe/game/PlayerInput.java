@@ -5,6 +5,9 @@ import ch.crepe.game.entities.Spaceship;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 
+/**
+ * This class reacts on the input of the player.
+ */
 public class PlayerInput extends InputAdapter {
     private final Spaceship entity;
     private final GameController controller;
