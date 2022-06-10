@@ -1,6 +1,15 @@
 package ch.crepe.game.assets;
 
 public enum Asteroid implements AssetPath{
+    // Realistic
+    realisticBlue("asteroids/realistic/asteroid-blue.png"),
+    realisticGreen("asteroids/realistic/asteroid-green.png"),
+
+    // Arcade
+    arcadeBlue("asteroids/arcade/asteroid-blue.png"),
+    arcadeGreen("asteroids/arcade/asteroid-green.png");
+
+    /*
     blue1("asteroids/blue/1.png"),
     blue2("asteroids/blue/2.png"),
     blue3("asteroids/blue/3.png"),
@@ -25,6 +34,7 @@ public enum Asteroid implements AssetPath{
     yellow1("asteroids/yellow/1.png"),
     yellow2("asteroids/yellow/2.png"),
     yellow3("asteroids/yellow/3.png");
+     */
 
     private final String path;
 

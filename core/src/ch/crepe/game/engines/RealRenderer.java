@@ -11,12 +11,11 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
  * This engine is used to render the game in a realistic style
  */
 public class RealRenderer extends RenderingEngine {
-
     public RealRenderer(SpriteBatch batch) {
         super(batch,
-                AssetsLoader.getInstance().getSpaceship(SpaceShip.speedsterSimple),
-                AssetsLoader.getInstance().getSpaceship(SpaceShip.sunKiller),
-                AssetsLoader.getInstance().getAsteroid(Asteroid.orange2),
+                AssetsLoader.getInstance().getSpaceship(SpaceShip.realisticUser),
+                AssetsLoader.getInstance().getSpaceship(SpaceShip.realisticAi),
+                AssetsLoader.getInstance().getAsteroid(Asteroid.realisticBlue),
                 AssetsLoader.getInstance().getLaser(Laser.bluePlasma),
                 AssetsLoader.getInstance().getLaser(Laser.greenPlasma)
         );
