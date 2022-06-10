@@ -7,7 +7,11 @@ public enum SpaceShip implements AssetPath {
 
     // Arcade
     arcadeUser("ships/arcade/user-spaceship.png"),
-    arcadeAi("ships/arcade/ai-spaceship.png");
+    arcadeAi("ships/arcade/ai-spaceship.png"),
+
+    // Paint
+    paintUser("ships/paint/user-spaceship.png"),
+    paintAi("ships/paint/ai-spaceship.png");
 
 
 

@@ -7,7 +7,12 @@ public enum Asteroid implements AssetPath{
 
     // Arcade
     arcadeBlue("asteroids/arcade/asteroid-blue.png"),
-    arcadeGreen("asteroids/arcade/asteroid-green.png");
+    arcadeGreen("asteroids/arcade/asteroid-green.png"),
+
+    // Paint
+    paintBlue("asteroids/paint/asteroid-blue.png"),
+    paintGreen("asteroids/paint/asteroid-green.png");
+
 
     /*
     blue1("asteroids/blue/1.png"),

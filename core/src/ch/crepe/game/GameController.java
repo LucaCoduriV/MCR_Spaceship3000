@@ -1,9 +1,6 @@
 package ch.crepe.game;
 
-import ch.crepe.game.engines.CartoonRenderer;
-import ch.crepe.game.engines.CollisionEngine;
-import ch.crepe.game.engines.RealRenderer;
-import ch.crepe.game.engines.RenderingEngine;
+import ch.crepe.game.engines.*;
 import ch.crepe.game.entities.Entity;
 import ch.crepe.game.entities.Spaceship;
 import com.badlogic.gdx.Gdx;
@@ -26,12 +23,12 @@ public class GameController {
     private InputProcessor pauseMenuInputProcessor;
     private final CollisionEngine ce;
     private final Rectangle worldBounds;
-    private RenderingEngine renderingEngine;
     private final Spaceship3000 game;
+    private int currentRenderer = 0;
+    private final RenderingEngine[] renderers;
 
     public GameController(Spaceship3000 game, Rectangle worldBounds) {
         this.game = game;
-        this.renderingEngine = new CartoonRenderer(game.getBatch());
         this.worldBounds = worldBounds;
         this.playerShip = new Spaceship(
                 new Vector2(),
@@ -46,6 +43,11 @@ public class GameController {
         this.bottomCleaner = new BottomEntityCleaner(entities, worldBounds);
         this.allSideCleaner = new EntityCleaner(projectiles, worldBounds);
         entities.add(playerShip);
+        renderers = new RenderingEngine[]{
+                new CartoonRenderer(game.getBatch()),
+                new RealRenderer(game.getBatch()),
+                new PaintRenderer(game.getBatch())
+        };
     }
 
     public void setPauseMenuInputProcessor(InputProcessor pauseMenuInputProcessor) {
@@ -128,14 +130,10 @@ public class GameController {
     }
 
     public void toggleRenderer(){
-        if(renderingEngine instanceof CartoonRenderer) {
-            renderingEngine = new RealRenderer(game.getBatch());
-        } else {
-            renderingEngine = new CartoonRenderer(game.getBatch());
-        }
+        currentRenderer = (currentRenderer + 1) % renderers.length;
     }
 
     public RenderingEngine getRenderer(){
-        return renderingEngine;
+        return renderers[currentRenderer];
     }
 }
