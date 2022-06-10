@@ -7,14 +7,14 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class Spaceship3000 extends Game {
-	private static final int screenWidth = 1280;
-	private static final int screenHeight = 720;
+	private static final int screenWidth = 960;
+	private static final int screenHeight = 540;
 	private SpriteBatch batcher;
 	private AppPreferences preferences;
 
 	@Override
 	public void create () {
-		Gdx.graphics.setWindowedMode(960,540);
+		Gdx.graphics.setWindowedMode(screenWidth,screenHeight);
 		batcher = new SpriteBatch();
 		preferences = new AppPreferences();
 
@@ -27,6 +27,11 @@ public class Spaceship3000 extends Game {
 		changeScreen(ScreenType.Loading);
 	}
 
+	/**
+	 * Changes the game screen
+	 * @param screen The screen to show
+	 * @param args Data to pass to a screen
+	 */
 	public void changeScreen(ScreenType screen, Object... args) {
 		switch (screen){
 			case Loading:
@@ -64,14 +69,6 @@ public class Spaceship3000 extends Game {
 
 	public SpriteBatch getBatch() {
 		return batcher;
-	}
-
-	public int getScreenWidth(){
-		return screenWidth;
-	}
-
-	public int getScreenHeight(){
-		return screenHeight;
 	}
 
 	public AppPreferences getPreferences() {
