@@ -38,7 +38,7 @@ public class GameController {
         this.projectiles = new LinkedList<>();
         this.playerInput = new PlayerInput(this, playerShip);
         this.gameInfo = new GameInfo();
-        this.ennemySpawner = new EnemySpawner(this,96,54,entities);
+        this.ennemySpawner = new EnemySpawner(this,(int) worldBounds.x,(int) worldBounds.y,entities);
         this.ce = new SizeCollisionEngine(this);
         this.bottomCleaner = new BottomEntityCleaner(entities, worldBounds);
         this.allSideCleaner = new EntityCleaner(projectiles, worldBounds);
@@ -135,5 +135,9 @@ public class GameController {
 
     public RenderingEngine getRenderer(){
         return renderers[currentRenderer];
+    }
+
+    public Rectangle getWorldBounds() {
+        return worldBounds;
     }
 }
