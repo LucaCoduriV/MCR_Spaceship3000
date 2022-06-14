@@ -65,4 +65,8 @@ public abstract class DisplayedAsset {
      * @return the texture
      */
     protected abstract TextureRegion getDrawable();
+
+    public void setSize(float width, float height) {
+        drawingArea.setSize(width, height);
+    }
 }

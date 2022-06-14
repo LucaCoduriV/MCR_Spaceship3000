@@ -42,6 +42,7 @@ abstract public class RenderingEngine implements Visitor {
      */
     @Override
     public void visit(Spaceship ship) {
+        spaceShipSprite.setSize(ship.getWidth(), ship.getHeight());
         spaceShipSprite.setCenter(ship.getCenter());
         spaceShipSprite.setRotation(ship.getOrientation());
         spaceShipSprite.draw(batch);
@@ -53,6 +54,7 @@ abstract public class RenderingEngine implements Visitor {
      */
     @Override
     public void visit(SpaceShipAI ship) {
+        spaceShipAISprite.setSize(ship.getWidth(), ship.getHeight());
         spaceShipAISprite.setCenter(ship.getCenter());
         spaceShipAISprite.setRotation(ship.getOrientation());
         spaceShipAISprite.draw(batch);
@@ -64,6 +66,7 @@ abstract public class RenderingEngine implements Visitor {
      */
     @Override
     public void visit(Asteroid asteroid) {
+        asteroidSprite.setSize(asteroid.getWidth(), asteroid.getHeight());
         asteroidSprite.setCenter(asteroid.getCenter());
         asteroidSprite.draw(batch);
     }
@@ -74,6 +77,7 @@ abstract public class RenderingEngine implements Visitor {
      */
     @Override
     public void visit(BlueLaser laser) {
+        blueLaserSprite.setSize(laser.getWidth(), laser.getHeight());
         blueLaserSprite.setCenter(laser.getCenter());
         blueLaserSprite.setRotation(laser.getOrientation() + 90);
         blueLaserSprite.draw(batch);
@@ -85,6 +89,7 @@ abstract public class RenderingEngine implements Visitor {
      */
     @Override
     public void visit(GreenLaser laser) {
+        greenLaserSprite.setSize(laser.getWidth(), laser.getHeight());
         greenLaserSprite.setCenter(laser.getCenter());
         greenLaserSprite.setRotation(laser.getOrientation() + 90);
         greenLaserSprite.draw(batch);

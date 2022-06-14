@@ -92,7 +92,7 @@ abstract public class Entity implements Visitable {
         this.width = width;
         this.height = height;
 
-        hitbox.setSize(width, height);
+        hitbox.setSize(0.8f * width, 0.8f * height);
     }
 
     public float getWidth() {
