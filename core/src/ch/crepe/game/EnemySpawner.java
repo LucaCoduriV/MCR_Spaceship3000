@@ -14,9 +14,7 @@ import java.util.Random;
 public class EnemySpawner {
     private final int worldWidth;
     private final int worldHeight;
-    private final Vector2 worldMinLeftPos;
-    private final Vector2 worldMinRightPos;
-    private final Random r;
+    static private final Random r = new Random();
     private float elapsedTimeSpawn = 0;
     private float elapsedTime = 0;
     private float timeForNextSpawn;
@@ -32,9 +30,6 @@ public class EnemySpawner {
         this.worldWidth = worldWidth;
         this.worldHeight = worldHeight;
         this.entityList = entityList;
-        this.r = new Random();
-        this.worldMinLeftPos = new Vector2(-worldWidth/2f,-worldHeight/2f);
-        this.worldMinRightPos = new Vector2(worldWidth/2f,-worldHeight/2f);
         this.timeForNextSpawn = r.nextInt(maxNextSpawnTimeMs) / 1000f;
     }
 
@@ -45,7 +40,7 @@ public class EnemySpawner {
      */
     public Entity spawnEnemy() {
         Vector2 position = generateRandomPosition(ENNEMY_SIZE);
-        Vector2 direction = generateRandomDirection(position);
+        Vector2 direction = generateRandomDirection(position, worldWidth, worldHeight);
 
         return randomEnemy(position, direction, ENNEMY_SIZE, ENNEMY_SIZE);
     }
@@ -75,7 +70,9 @@ public class EnemySpawner {
      * @param position the position of the enemy.
      * @return the direction of the enemy.
      */
-    private Vector2 generateRandomDirection(Vector2 position){
+    static public Vector2 generateRandomDirection(Vector2 position, float worldWidth, float worldHeight) {
+        Vector2 worldMinLeftPos = new Vector2(-worldWidth/2f,-worldHeight/2f);
+        Vector2 worldMinRightPos = new Vector2(worldWidth/2f,-worldHeight/2f);
 
         float minAngle = position.cpy().sub(worldMinLeftPos).angleDeg();
         float maxAngle = position.cpy().sub(worldMinRightPos).angleDeg();
