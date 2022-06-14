@@ -108,4 +108,8 @@ public class CollisionEngine extends Engine {
     public boolean isColliding(Entity entity, Entity other) {
         return Intersector.overlaps(entity.getHitbox(), other.getHitbox());
     }
+
+    protected GameController getController() {
+        return controller;
+    }
 }

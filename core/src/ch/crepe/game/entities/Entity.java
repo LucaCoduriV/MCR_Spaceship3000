@@ -6,8 +6,8 @@ import com.badlogic.gdx.math.Vector2;
 
 abstract public class Entity implements Visitable {
 
-    protected final float width;
-    protected final float height;
+    protected float width;
+    protected float height;
     protected final Rectangle hitbox;
     protected final Vector2 speed; // TODO getter protected
 
@@ -86,5 +86,20 @@ abstract public class Entity implements Visitable {
 
     public void kill() {
         this.life = 0;
+    }
+
+    public void setSize(float width, float height) {
+        this.width = width;
+        this.height = height;
+
+        hitbox.setSize(width, height);
+    }
+
+    public float getWidth() {
+        return width;
+    }
+
+    public float getHeight() {
+        return height;
     }
 }

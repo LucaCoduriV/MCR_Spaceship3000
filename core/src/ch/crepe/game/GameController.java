@@ -39,7 +39,7 @@ public class GameController {
         this.playerInput = new PlayerInput(this, playerShip);
         this.gameInfo = new GameInfo();
         this.ennemySpawner = new EnemySpawner(this,96,54,entities);
-        this.ce = new CollisionEngine(this);
+        this.ce = new SizeCollisionEngine(this);
         this.bottomCleaner = new BottomEntityCleaner(entities, worldBounds);
         this.allSideCleaner = new EntityCleaner(projectiles, worldBounds);
         entities.add(playerShip);
