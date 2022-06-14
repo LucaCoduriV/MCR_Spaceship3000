@@ -21,11 +21,12 @@ public class GameController {
     private final EntityCleaner bottomCleaner;
     private final EntityCleaner allSideCleaner;
     private InputProcessor pauseMenuInputProcessor;
-    private final CollisionEngine ce;
     private final Rectangle worldBounds;
     private final Spaceship3000 game;
     private int currentRenderer = 0;
+    private int currentCollisionEngine = 0;
     private final RenderingEngine[] renderers;
+    private final CollisionEngine[] collisionEngines;
 
     public GameController(Spaceship3000 game, Rectangle worldBounds) {
         this.game = game;
@@ -39,7 +40,6 @@ public class GameController {
         this.playerInput = new PlayerInput(this, playerShip);
         this.gameInfo = new GameInfo();
         this.ennemySpawner = new EnemySpawner(this,(int) worldBounds.getWidth(),(int) worldBounds.getHeight(),entities);
-        this.ce = new MovementCollisionEngine(this);
         this.bottomCleaner = new BottomEntityCleaner(entities, worldBounds);
         this.allSideCleaner = new EntityCleaner(projectiles, worldBounds);
         entities.add(playerShip);
@@ -47,6 +47,10 @@ public class GameController {
                 new CartoonRenderer(game.getBatch()),
                 new RealRenderer(game.getBatch()),
                 new PaintRenderer(game.getBatch())
+        };
+        collisionEngines = new CollisionEngine[] {
+                new CollisionEngine(this),
+                new MovementCollisionEngine(this)
         };
     }
 
@@ -57,12 +61,12 @@ public class GameController {
     public void update(float delta) {
         ennemySpawner.update(delta);
         for (Entity entity : entities) {
-            entity.accept(ce);
+            entity.accept(getCollisionEngine());
             entity.update(delta);
         }
 
         for (Entity projectile : projectiles) {
-            projectile.accept(ce);
+            projectile.accept(getCollisionEngine());
             projectile.update(delta);
         }
 
@@ -133,8 +137,16 @@ public class GameController {
         currentRenderer = (currentRenderer + 1) % renderers.length;
     }
 
+    public void toggleCollisionEngine() {
+        currentCollisionEngine = (currentCollisionEngine + 1) % collisionEngines.length;
+    }
+
     public RenderingEngine getRenderer(){
         return renderers[currentRenderer];
+    }
+
+    public CollisionEngine getCollisionEngine() {
+        return collisionEngines[currentCollisionEngine];
     }
 
     public Rectangle getWorldBounds() {
