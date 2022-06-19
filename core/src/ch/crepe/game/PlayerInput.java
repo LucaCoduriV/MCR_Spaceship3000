@@ -16,11 +16,22 @@ public class PlayerInput extends InputAdapter {
     private final int rightKey = Input.Keys.D;
     private final int quitKey = Input.Keys.ESCAPE;
 
+    /**
+     * Constructor from the game controller and the user spaceship.
+     *
+     * @param gameController The game controller.
+     * @param entity The user spaceship.
+     */
     public PlayerInput(GameController gameController, Spaceship entity) {
         this.entity = entity;
         this.controller = gameController;
     }
 
+    /**
+     * This method is called when the user presses a key.
+     * @param keycode the keycode of the key that was pressed.
+     * @return whether the input was processed
+     */
     @Override
     public boolean keyDown(int keycode) {
 
@@ -50,6 +61,11 @@ public class PlayerInput extends InputAdapter {
         return true;
     }
 
+    /**
+     * This method is called when the user releases a key.
+     * @param keycode the keycode of the key that was released.
+     * @return whether the input was processed
+     */
     @Override
     public boolean keyUp(int keycode) {
         switch (keycode) {
