@@ -1,6 +1,6 @@
 package ch.crepe.game;
 
-import ch.crepe.game.Screens.*;
+import ch.crepe.game.screens.*;
 import ch.crepe.game.audio.AudioManager;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
@@ -10,8 +10,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
  * This class represents an instance of the game.
  */
 public class Spaceship3000 extends Game {
-    private static final int screenWidth = 960;
-    private static final int screenHeight = 540;
+    private static final int SCREEN_WIDTH = 960;
+    private static final int SCREEN_HEIGHT = 540;
     private SpriteBatch batcher;
     private AppPreferences preferences;
 
@@ -20,7 +20,7 @@ public class Spaceship3000 extends Game {
      */
     @Override
     public void create() {
-        Gdx.graphics.setWindowedMode(screenWidth, screenHeight);
+        Gdx.graphics.setWindowedMode(SCREEN_WIDTH, SCREEN_HEIGHT);
         batcher = new SpriteBatch();
         preferences = new AppPreferences();
 
@@ -30,7 +30,7 @@ public class Spaceship3000 extends Game {
         AudioManager.getInstance().setMusicEnabled(preferences.isMusicEnabled());
         AudioManager.getInstance().setSoundEnabled(preferences.isSoundEffectsEnabled());
 
-        changeScreen(ScreenType.Loading);
+        changeScreen(ScreenType.LOADING);
     }
 
     /**
@@ -41,35 +41,27 @@ public class Spaceship3000 extends Game {
      */
     public void changeScreen(ScreenType screen, Object... args) {
         switch (screen) {
-            case Loading:
+            case LOADING:
                 setScreen(new LoadingScreen(this));
 
                 break;
-            case MainMenu:
+            case MAIN_MENU:
                 System.out.println("Showing MainMenu screen !");
                 setScreen(new MainMenuScreen(this));
                 break;
-            case Game:
+            case GAME:
                 System.out.println("Showing Game screen !");
                 setScreen(new GameScreen(this));
                 break;
-            case Preferences:
+            case PREFERENCES:
                 System.out.println("Showing Preferences screen !");
                 setScreen(new PreferencesScreen(this));
                 break;
-            case GameOver:
+            case GAME_OVER:
                 System.out.println("Showing Game Over screen !");
                 setScreen(new GameOverScreen(this, preferences.getBestScore(), (int) args[0]));
                 break;
         }
-    }
-
-    /**
-     * Called when the game should render.
-     */
-    @Override
-    public void render() {
-        super.render();
     }
 
     /**

@@ -47,7 +47,7 @@ public class CollisionEngine extends Engine {
      */
     @Override
     public void visit(SpaceShipAI ship) {
-
+        //we do nothing
     }
 
     /**
@@ -57,7 +57,7 @@ public class CollisionEngine extends Engine {
      */
     @Override
     public void visit(Asteroid asteroid) {
-
+        //we do nothing
     }
 
     /**

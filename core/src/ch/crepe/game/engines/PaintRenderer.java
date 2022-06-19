@@ -14,11 +14,11 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class PaintRenderer extends RenderingEngine {
     public PaintRenderer(SpriteBatch batch) {
         super(batch,
-                AssetsLoader.getInstance().getSpaceship(SpaceShip.paintUser),
-                AssetsLoader.getInstance().getSpaceship(SpaceShip.paintAi),
-                AssetsLoader.getInstance().getAsteroid(Asteroid.paintBlue),
-                AssetsLoader.getInstance().getLaser(Laser.bluePlasma),
-                AssetsLoader.getInstance().getLaser(Laser.greenPlasma)
+                AssetsLoader.getInstance().getSpaceship(SpaceShip.PAINT_USER),
+                AssetsLoader.getInstance().getSpaceship(SpaceShip.PAINT_AI),
+                AssetsLoader.getInstance().getAsteroid(Asteroid.PAINT_BLUE),
+                AssetsLoader.getInstance().getLaser(Laser.BLUE_PLASMA),
+                AssetsLoader.getInstance().getLaser(Laser.GREEN_PLASMA)
         );
     }
 }

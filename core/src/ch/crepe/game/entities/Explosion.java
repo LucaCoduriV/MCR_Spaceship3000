@@ -12,6 +12,6 @@ public class Explosion extends Entity {
 
     @Override
     public void accept(Visitor v) {
-
+        // we do nothing
     }
 }

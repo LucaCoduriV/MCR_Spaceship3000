@@ -69,6 +69,7 @@ public class LoopingEntity extends Entity {
 
     @Override
     public void accept(Visitor v) {
+        // we do nothing
     }
 
     public Rectangle getDrawingArea() {

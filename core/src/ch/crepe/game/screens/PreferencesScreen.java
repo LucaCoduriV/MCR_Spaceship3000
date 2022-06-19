@@ -1,4 +1,4 @@
-package ch.crepe.game.Screens;
+package ch.crepe.game.screens;
 
 import ch.crepe.game.Spaceship3000;
 import ch.crepe.game.assets.AssetsLoader;
@@ -20,11 +20,6 @@ public class PreferencesScreen extends ScreenAdapter {
 
     private final Spaceship3000 parent;
     private final Stage stage;
-    private Label titleLabel;
-    private Label volumeMusicLabel;
-    private Label volumeSoundLabel;
-    private Label musicOnOffLabel;
-    private Label soundOnOffLabel;
 
 
     /**
@@ -50,7 +45,6 @@ public class PreferencesScreen extends ScreenAdapter {
         // this table.
         Table table = new Table();
         table.setFillParent(true);
-        //table.setDebug(true);
         stage.addActor(table);
 
         // temporary until we have asset manager in
@@ -63,7 +57,6 @@ public class PreferencesScreen extends ScreenAdapter {
             @Override
             public boolean handle(Event event) {
                 parent.getPreferences().setMusicVolume(volumeMusicSlider.getValue());
-                // updateVolumeLabel();
                 return false;
             }
         });
@@ -75,7 +68,6 @@ public class PreferencesScreen extends ScreenAdapter {
             @Override
             public boolean handle(Event event) {
                 parent.getPreferences().setSoundVolume(soundMusicSlider.getValue());
-                // updateVolumeLabel();
                 return false;
             }
         });
@@ -109,16 +101,16 @@ public class PreferencesScreen extends ScreenAdapter {
         backButton.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                parent.changeScreen(ScreenType.MainMenu);
+                parent.changeScreen(ScreenType.MAIN_MENU);
 
             }
         });
 
-        titleLabel = new Label("Preferences", skin);
-        volumeMusicLabel = new Label("Music Volume", skin);
-        volumeSoundLabel = new Label("Sound Volume", skin);
-        musicOnOffLabel = new Label("Music", skin);
-        soundOnOffLabel = new Label("Sound Effect", skin);
+        Label titleLabel = new Label("Preferences", skin);
+        Label volumeMusicLabel = new Label("Music Volume", skin);
+        Label volumeSoundLabel = new Label("Sound Volume", skin);
+        Label musicOnOffLabel = new Label("Music", skin);
+        Label soundOnOffLabel = new Label("Sound Effect", skin);
 
         table.add(titleLabel).colspan(2);
         table.row().pad(10, 0, 0, 10);

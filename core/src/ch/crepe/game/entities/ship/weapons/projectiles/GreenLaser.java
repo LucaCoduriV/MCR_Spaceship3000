@@ -9,12 +9,12 @@ import com.badlogic.gdx.math.Vector2;
 
 public class GreenLaser extends Laser {
     public GreenLaser(Vector2 position, float orientation, Spaceship owner) {
-        super(owner, position, orientation, AssetsLoader.getInstance().getLaser(ch.crepe.game.assets.Laser.greenElectric));
+        super(owner, position, orientation, AssetsLoader.getInstance().getLaser(ch.crepe.game.assets.Laser.GREEN_ELECTRIC));
     }
 
     @Override
     void makeNoise() {
-        AudioManager.getInstance().playSound(Sound.blueLaserSound);
+        AudioManager.getInstance().playSound(Sound.BLUE_LASER_SOUND);
     }
 
     @Override

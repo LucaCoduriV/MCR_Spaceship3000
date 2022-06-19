@@ -7,7 +7,7 @@ public class GameInfo {
     private int score = 0;
     private int lives = 100;
     private int level = 1;
-    private GameState state = GameState.playing;
+    private GameState state = GameState.PLAYING;
 
     public GameState getState() {
         return state;
@@ -46,7 +46,7 @@ public class GameInfo {
     }
 
     public enum GameState {
-        playing,
-        pause
+        PLAYING,
+        PAUSE
     }
 }

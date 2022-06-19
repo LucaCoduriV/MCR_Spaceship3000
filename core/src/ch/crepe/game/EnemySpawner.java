@@ -12,7 +12,7 @@ import java.util.Random;
  * This class spawns enemies over time and increase the difficulty of the game.
  */
 public class EnemySpawner {
-    static private final Random r = new Random();
+    private static final Random r = new Random();
     private static final int TIME_FOR_NEXT_LEVEL = 5000;
     private static final float ENNEMY_SIZE = 5f;
     private final int worldWidth;

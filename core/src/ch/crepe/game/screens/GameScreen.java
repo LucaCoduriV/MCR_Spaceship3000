@@ -1,4 +1,4 @@
-package ch.crepe.game.Screens;
+package ch.crepe.game.screens;
 
 import ch.crepe.game.Background;
 import ch.crepe.game.GameController;
@@ -22,13 +22,13 @@ public class GameScreen extends ScreenAdapter {
     private static final float WORLD_WIDTH = 96;
     private static final float WORLD_HEIGHT = 54;
     private static final Music[] musics = {
-            Music.aloneAgainstEnemy,
-            Music.deathMatch,
-            Music.battleInTheStars,
-            Music.epicEnd,
-            Music.rainOfLasers,
-            Music.spaceHeroes,
-            Music.withoutFear
+            Music.ALONE_AGAINST_ENEMY,
+            Music.DEATH_MATCH,
+            Music.BATTLE_IN_THE_STARS,
+            Music.EPIC_END,
+            Music.RAIN_OF_LASERS,
+            Music.SPACE_HEROES,
+            Music.WITHOUT_FEAR
     };
     private final GameController controller;
     private final Spaceship3000 parent;
@@ -55,7 +55,7 @@ public class GameScreen extends ScreenAdapter {
         final ChangeListener onQuit = new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                parent.changeScreen(ScreenType.MainMenu);
+                parent.changeScreen(ScreenType.MAIN_MENU);
             }
         };
         this.pauseOverlay = new PauseOverlay(onQuit, onResume);
@@ -79,10 +79,10 @@ public class GameScreen extends ScreenAdapter {
     public void render(float delta) {
         Gdx.gl.glClearColor(0f, 0f, 0f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        if (controller.getGameInfo().getState() == GameInfo.GameState.playing) {
+        if (controller.getGameInfo().getState() == GameInfo.GameState.PLAYING) {
             updateGame(delta);
             drawGame();
-        } else if (controller.getGameInfo().getState() == GameInfo.GameState.pause) {
+        } else if (controller.getGameInfo().getState() == GameInfo.GameState.PAUSE) {
             drawPauseMenu();
         }
 
@@ -115,7 +115,7 @@ public class GameScreen extends ScreenAdapter {
             if (parent.getPreferences().getBestScore() < controller.getGameInfo().getScore()) {
                 parent.getPreferences().setBestScore(controller.getGameInfo().getScore());
             }
-            parent.changeScreen(ScreenType.GameOver, controller.getGameInfo().getScore());
+            parent.changeScreen(ScreenType.GAME_OVER, controller.getGameInfo().getScore());
         }
 
         controller.getPlayerShip().accept(controller.getRenderer());

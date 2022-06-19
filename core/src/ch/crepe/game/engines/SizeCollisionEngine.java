@@ -5,7 +5,7 @@ import ch.crepe.game.entities.Entity;
 import ch.crepe.game.entities.ship.weapons.projectiles.Laser;
 
 public class SizeCollisionEngine extends CollisionEngine {
-    private final float sizeMult = 0.7f;
+    private static final float SIZE_MULT = 0.7f;
 
     public SizeCollisionEngine(GameController controller) {
         super(controller);
@@ -21,7 +21,7 @@ public class SizeCollisionEngine extends CollisionEngine {
                 }
                 laser.kill();
                 entity.setLife(entity.getLife() - laser.getDamage());
-                entity.setSize(entity.getWidth() * sizeMult, entity.getHeight() * sizeMult);
+                entity.setSize(entity.getWidth() * SIZE_MULT, entity.getHeight() * SIZE_MULT);
                 if (!entity.isAlive()) {
                     getController().getGameInfo().addScore(1);
                 }

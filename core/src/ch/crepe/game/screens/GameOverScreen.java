@@ -1,4 +1,4 @@
-package ch.crepe.game.Screens;
+package ch.crepe.game.screens;
 
 import ch.crepe.game.Spaceship3000;
 import ch.crepe.game.assets.AssetsLoader;
@@ -10,82 +10,77 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.*;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
-import com.badlogic.gdx.scenes.scene2d.utils.SpriteDrawable;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
-public class MainMenuScreen extends ScreenAdapter {
+public class GameOverScreen extends ScreenAdapter {
     private final Spaceship3000 parent;
     private final Stage stage;
     private final Sprite backgroundSprite = new Sprite(AssetsLoader.getInstance().getBackground());
-    private final Sprite logoSprite = new Sprite(AssetsLoader.getInstance().getLogo());
+    private final int bestScore;
+    private final int yourScore;
 
-    public MainMenuScreen(Spaceship3000 parent) {
+    public GameOverScreen(Spaceship3000 parent, int bestScore, int yourScore) {
         this.parent = parent;
+
         /// create stage and set it as input processor
         stage = new Stage(new ScreenViewport());
+        this.bestScore = bestScore;
+        this.yourScore = yourScore;
+
     }
 
     @Override
     public void show() {
-        AudioManager.getInstance().loadMusic(Music.menu);
-        AudioManager.getInstance().loopMusic(true);
+        AudioManager.getInstance().loadMusic(Music.DEFEAT);
         AudioManager.getInstance().resumeMusic();
 
         Gdx.input.setInputProcessor(stage);
 
         // Create a table that fills the screen. Everything else will go inside this table.
-        VerticalGroup vg = new VerticalGroup();
-        vg.setFillParent(true);
-        vg.setDebug(false);
-        vg.center();
-
-        Image image = new Image(new SpriteDrawable(logoSprite));
-
         Table table = new Table();
-        //table.setFillParent(true);
+        table.setFillParent(true);
         table.setDebug(false);
-        vg.addActor(image);
-        vg.addActor(table);
-        stage.addActor(vg);
+        stage.addActor(table);
 
         Skin skin = AssetsLoader.getInstance().getSkin();
 
+        Label gameOverLabel = new Label("Game Over", skin);
+        Label yourScoreLabel = new Label("Your score: " + yourScore, skin);
+        Label bestScoreLabel = new Label("Best score: " + bestScore, skin);
+        gameOverLabel.setFontScale(2);
         //create buttons
-        TextButton newGame = new TextButton("New Game", skin);
-        TextButton preferences = new TextButton("Preferences", skin);
-        TextButton exit = new TextButton("Exit", skin);
+        TextButton retryButton = new TextButton("Retry", skin);
+        TextButton mainMenuButton = new TextButton("Main menu", skin);
 
         //add buttons to table
-        //table.add(image).fillX().uniformX();
+        table.add(gameOverLabel).fillX().uniformX();
         table.row().pad(10, 0, 10, 0);
-        table.add(newGame).fillX().uniformX();
+        table.add(yourScoreLabel).fillX().uniformX();
         table.row().pad(10, 0, 10, 0);
-        table.add(preferences).fillX().uniformX();
+        table.add(bestScoreLabel).fillX().uniformX();
+        table.row().pad(10, 0, 10, 0);
+        table.add(retryButton).fillX().uniformX();
+        table.row().pad(10, 0, 10, 0);
+        table.add(mainMenuButton).fillX().uniformX();
         table.row();
-        table.add(exit).fillX().uniformX();
 
-        // create button listeners
-        exit.addListener(new ChangeListener() {
+        retryButton.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                Gdx.app.exit();
-            }
-        });
-
-        newGame.addListener(new ChangeListener() {
-            @Override
-            public void changed(ChangeEvent event, Actor actor) {
-                parent.changeScreen(ScreenType.Game);
+                parent.changeScreen(ScreenType.GAME);
 
             }
         });
 
-        preferences.addListener(new ChangeListener() {
+        mainMenuButton.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                parent.changeScreen(ScreenType.Preferences);
+                parent.changeScreen(ScreenType.MAIN_MENU);
             }
         });
 

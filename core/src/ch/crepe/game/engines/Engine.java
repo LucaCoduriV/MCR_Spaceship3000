@@ -6,6 +6,6 @@ import ch.crepe.game.visitor.Visitor;
  * All the engines created must respect the design pattern visitor
  * All the different engines must be visitors
  */
-abstract public class Engine implements Visitor {
+public abstract class Engine implements Visitor {
 
 }

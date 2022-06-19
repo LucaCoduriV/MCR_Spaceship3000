@@ -130,7 +130,7 @@ public class GameController {
      * Pause the game.
      */
     public void pauseGame() {
-        gameInfo.setState(GameInfo.GameState.pause);
+        gameInfo.setState(GameInfo.GameState.PAUSE);
         Gdx.input.setInputProcessor(pauseMenuInputProcessor);
 
     }
@@ -139,7 +139,7 @@ public class GameController {
      * Resume the game.
      */
     public void resumeGame() {
-        gameInfo.setState(GameInfo.GameState.playing);
+        gameInfo.setState(GameInfo.GameState.PLAYING);
         Gdx.input.setInputProcessor(playerInput);
     }
 

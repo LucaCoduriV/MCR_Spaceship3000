@@ -1,9 +1,9 @@
 package ch.crepe.game.assets;
 
 public enum Sound implements AssetPath {
-    blueLaserSound("audios/soundeffects/laser5.mp3"),
+    BLUE_LASER_SOUND("audios/soundeffects/laser5.mp3"),
 
-    greenLaserSound("audios/soundeffects/laser8.mp3");
+    GREEN_LASER_SOUND("audios/soundeffects/laser8.mp3");
     private final String path;
 
 

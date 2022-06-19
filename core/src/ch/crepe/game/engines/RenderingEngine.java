@@ -7,7 +7,6 @@ import ch.crepe.game.entities.Spaceship;
 import ch.crepe.game.entities.ship.weapons.projectiles.BlueLaser;
 import ch.crepe.game.entities.ship.weapons.projectiles.GreenLaser;
 import ch.crepe.game.entities.ship.weapons.projectiles.Laser;
-import ch.crepe.game.visitor.Visitor;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
@@ -17,7 +16,7 @@ import com.badlogic.gdx.math.Vector2;
  * Engine managing the rendering of entities
  * This class is implemented as a visitor
  */
-abstract public class RenderingEngine extends Engine {
+public abstract class RenderingEngine extends Engine {
     private final SpriteBatch batch;
     private final DisplayedSprite spaceShipSprite;
     private final DisplayedSprite spaceShipAISprite;
@@ -25,7 +24,7 @@ abstract public class RenderingEngine extends Engine {
     private final DisplayedSprite blueLaserSprite;
     private final DisplayedSprite greenLaserSprite;
 
-    public RenderingEngine(SpriteBatch batch, Texture spaceShipTexture, Texture spaceShipAITexture, Texture asteroidTexture, Texture blueLaserTexture, Texture greenLaserTexture) {
+    protected RenderingEngine(SpriteBatch batch, Texture spaceShipTexture, Texture spaceShipAITexture, Texture asteroidTexture, Texture blueLaserTexture, Texture greenLaserTexture) {
         this.batch = batch;
         // TODO corriger les paramètres inutiles
         spaceShipSprite = new DisplayedSprite(spaceShipTexture, new Rectangle(0, 0, 5, 5), new Vector2(5 / 2f, 5 / 2f), 0);

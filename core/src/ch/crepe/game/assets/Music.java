@@ -1,17 +1,17 @@
 package ch.crepe.game.assets;
 
 public enum Music implements AssetPath {
-    defeat("audios/musics/Defeated.ogg"),
-    menu("audios/musics/MenuScreen.ogg"),
-    aloneAgainstEnemy("audios/musics/Alone Against Enemy.ogg"),
-    battleInTheStars("audios/musics/Battle in the Stars.ogg"),
-    deathMatch("audios/musics/DeathMatch (Boss Theme).ogg"),
-    epicEnd("audios/musics/Epic End.ogg"),
-    rainOfLasers("audios/musics/Rain of Lasers.ogg"),
-    titleScreen("audios/musics/SkyFire (Title Screen).ogg"),
-    spaceHeroes("audios/musics/Space Heroes.ogg"),
-    victoryTune("audios/musics/Victory Tune.ogg"),
-    withoutFear("audios/musics/Without Fear.ogg");
+    DEFEAT("audios/musics/Defeated.ogg"),
+    MENU("audios/musics/MenuScreen.ogg"),
+    ALONE_AGAINST_ENEMY("audios/musics/Alone Against Enemy.ogg"),
+    BATTLE_IN_THE_STARS("audios/musics/Battle in the Stars.ogg"),
+    DEATH_MATCH("audios/musics/DeathMatch (Boss Theme).ogg"),
+    EPIC_END("audios/musics/Epic End.ogg"),
+    RAIN_OF_LASERS("audios/musics/Rain of Lasers.ogg"),
+    TITLE_SCREEN("audios/musics/SkyFire (Title Screen).ogg"),
+    SPACE_HEROES("audios/musics/Space Heroes.ogg"),
+    VICTORY_TUNE("audios/musics/Victory Tune.ogg"),
+    WITHOUT_FEAR("audios/musics/Without Fear.ogg");
 
     private final String path;
 

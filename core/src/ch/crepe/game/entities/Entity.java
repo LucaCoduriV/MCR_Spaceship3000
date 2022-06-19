@@ -4,7 +4,7 @@ import ch.crepe.game.visitor.Visitable;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
-abstract public class Entity implements Visitable {
+public abstract class Entity implements Visitable {
 
     private static final int DEFAULT_LIFE = 20;
     protected final Rectangle hitbox;
@@ -15,7 +15,7 @@ abstract public class Entity implements Visitable {
     protected float height;
     private int life;
 
-    public Entity(Vector2 position, Vector2 speed, float width, float height, float orientation) {
+    protected Entity(Vector2 position, Vector2 speed, float width, float height, float orientation) {
         this.height = height;
         this.width = width;
         this.hitbox = new Rectangle(0, 0, width, height);

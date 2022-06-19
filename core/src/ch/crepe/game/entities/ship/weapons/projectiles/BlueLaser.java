@@ -10,12 +10,12 @@ import com.badlogic.gdx.math.Vector2;
 public class BlueLaser extends Laser {
 
     public BlueLaser(Vector2 position, float orientation, Spaceship owner) {
-        super(owner, position, orientation, AssetsLoader.getInstance().getLaser(ch.crepe.game.assets.Laser.blueFast));
+        super(owner, position, orientation, AssetsLoader.getInstance().getLaser(ch.crepe.game.assets.Laser.BLUE_FAST));
     }
 
     @Override
     public void makeNoise() {
-        AudioManager.getInstance().playSound(Sound.blueLaserSound);
+        AudioManager.getInstance().playSound(Sound.BLUE_LASER_SOUND);
     }
 
     @Override

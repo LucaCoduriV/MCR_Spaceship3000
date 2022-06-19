@@ -10,11 +10,11 @@ import com.badlogic.gdx.InputAdapter;
 public class PlayerInput extends InputAdapter {
     private final Spaceship entity;
     private final GameController controller;
-    private final int upKey = Input.Keys.W;
-    private final int downKey = Input.Keys.S;
-    private final int leftKey = Input.Keys.A;
-    private final int rightKey = Input.Keys.D;
-    private final int quitKey = Input.Keys.ESCAPE;
+    private static final int UP_KEY = Input.Keys.W;
+    private static final int DOWN_KEY = Input.Keys.S;
+    private static final int LEFT_KEY = Input.Keys.A;
+    private static final int RIGHT_KEY = Input.Keys.D;
+    private static final int QUIT_KEY = Input.Keys.ESCAPE;
 
     /**
      * Constructor from the game controller and the user spaceship.
@@ -36,16 +36,16 @@ public class PlayerInput extends InputAdapter {
     public boolean keyDown(int keycode) {
 
         switch (keycode) {
-            case upKey:
+            case UP_KEY:
                 entity.speed().y = entity.speed().y + 0.5f;
                 break;
-            case downKey:
+            case DOWN_KEY:
                 entity.speed().y = entity.speed().y - 0.5f;
                 break;
-            case leftKey:
+            case LEFT_KEY:
                 entity.speed().x = entity.speed().x - 0.5f;
                 break;
-            case rightKey:
+            case RIGHT_KEY:
                 entity.speed().x = entity.speed().x + 0.5f;
                 break;
             case Input.Keys.SPACE:
@@ -56,6 +56,8 @@ public class PlayerInput extends InputAdapter {
                 break;
             case Input.Keys.L:
                 controller.toggleCollisionEngine();
+                break;
+            default:
                 break;
         }
         return true;
@@ -69,20 +71,21 @@ public class PlayerInput extends InputAdapter {
     @Override
     public boolean keyUp(int keycode) {
         switch (keycode) {
-            case upKey:
+            case UP_KEY:
                 entity.speed().y = entity.speed().y - 0.5f;
                 break;
-            case downKey:
+            case DOWN_KEY:
                 entity.speed().y = entity.speed().y + 0.5f;
                 break;
-            case leftKey:
+            case LEFT_KEY:
                 entity.speed().x = entity.speed().x + 0.5f;
                 break;
-            case rightKey:
+            case RIGHT_KEY:
                 entity.speed().x = entity.speed().x - 0.5f;
                 break;
-            case quitKey:
+            case QUIT_KEY:
                 controller.pauseGame();
+                break;
             default:
                 System.out.println(keycode);
                 break;

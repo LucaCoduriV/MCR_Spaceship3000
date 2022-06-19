@@ -13,11 +13,11 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class RealRenderer extends RenderingEngine {
     public RealRenderer(SpriteBatch batch) {
         super(batch,
-                AssetsLoader.getInstance().getSpaceship(SpaceShip.realisticUser),
-                AssetsLoader.getInstance().getSpaceship(SpaceShip.realisticAi),
-                AssetsLoader.getInstance().getAsteroid(Asteroid.realisticBlue),
-                AssetsLoader.getInstance().getLaser(Laser.bluePlasma),
-                AssetsLoader.getInstance().getLaser(Laser.greenPlasma)
+                AssetsLoader.getInstance().getSpaceship(SpaceShip.REALISTIC_USER),
+                AssetsLoader.getInstance().getSpaceship(SpaceShip.REALISTIC_AI),
+                AssetsLoader.getInstance().getAsteroid(Asteroid.REALISTIC_BLUE),
+                AssetsLoader.getInstance().getLaser(Laser.BLUE_PLASMA),
+                AssetsLoader.getInstance().getLaser(Laser.GREEN_PLASMA)
         );
     }
 }

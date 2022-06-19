@@ -5,9 +5,9 @@ import ch.crepe.game.visitor.Visitor;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 
-abstract public class Laser extends Projectile {
+public abstract class Laser extends Projectile {
 
-    private final static float SIZE = 3;
+    private static final float SIZE = 3;
     private final Spaceship owner;
 
     protected Laser(Spaceship owner, Vector2 position, float orientation, Texture texture) {

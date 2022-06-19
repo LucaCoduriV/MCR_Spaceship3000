@@ -1,11 +1,11 @@
 package ch.crepe.game.assets;
 
 public enum Explosions implements AssetPath {
-    roundExplosion("explosions/round_explosion/spritesheet/spritesheet.png"),
-    roundVortex("explosions/round_vortex/spritesheet/spritesheet.png"),
-    verticalExplosion("explosions/vertical_explosion/spritesheet/spritesheet.png"),
-    verticalExplosionSmall("explosions/vertical_explosion_small/spritesheet/spritesheet.png"),
-    xPlosion("explosions/X_plosion/spritesheet/spritesheet.png");
+    ROUND_EXPLOSION("explosions/round_explosion/spritesheet/spritesheet.png"),
+    ROUND_VORTEX("explosions/round_vortex/spritesheet/spritesheet.png"),
+    VERTICAL_EXPLOSION("explosions/vertical_explosion/spritesheet/spritesheet.png"),
+    VERTICAL_EXPLOSION_SMALL("explosions/vertical_explosion_small/spritesheet/spritesheet.png"),
+    X_PLOSION("explosions/X_plosion/spritesheet/spritesheet.png");
 
     private final String path;
 

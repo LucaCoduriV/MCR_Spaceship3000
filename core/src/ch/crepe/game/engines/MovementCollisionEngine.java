@@ -22,7 +22,10 @@ public class MovementCollisionEngine extends CollisionEngine {
                 entity.setLife(entity.getLife() - laser.getDamage());
 
                 if (entity != getController().getPlayerShip()) {
-                    entity.speed().set(EnemySpawner.generateRandomDirection(entity.getPositon(), getController().getWorldBounds().getWidth(), getController().getWorldBounds().getHeight()));
+                    entity.speed()
+                            .set(EnemySpawner.generateRandomDirection(entity.getPositon(),
+                                                getController().getWorldBounds().getWidth(),
+                                                getController().getWorldBounds().getHeight()));
                 }
 
                 if (!entity.isAlive()) {

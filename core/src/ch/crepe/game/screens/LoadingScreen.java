@@ -1,4 +1,4 @@
-package ch.crepe.game.Screens;
+package ch.crepe.game.screens;
 
 import ch.crepe.game.Spaceship3000;
 import ch.crepe.game.assets.AssetsLoader;
@@ -34,9 +34,9 @@ public class LoadingScreen extends ScreenAdapter {
         table.setDebug(false);
         stage.addActor(table);
 
-        manager.load(Other.skin.getPath(), Skin.class);
+        manager.load(Other.SKIN.getPath(), Skin.class);
         manager.finishLoading();
-        Skin skin = manager.get(Other.skin.getPath(), Skin.class);
+        Skin skin = manager.get(Other.SKIN.getPath(), Skin.class);
 
         //create buttons
         progressBar = new ProgressBar(0, 1, 0.001f, false, skin);
@@ -48,7 +48,7 @@ public class LoadingScreen extends ScreenAdapter {
     public void render(float delta) {
         AssetsLoader.getInstance().update();
         if (AssetsLoader.getInstance().isFinished()) {
-            parent.changeScreen(ScreenType.MainMenu);
+            parent.changeScreen(ScreenType.MAIN_MENU);
         }
 
         progressBar.setValue(AssetsLoader.getInstance().getProgress());

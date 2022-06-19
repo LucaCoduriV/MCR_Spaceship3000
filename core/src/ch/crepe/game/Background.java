@@ -35,11 +35,11 @@ public class Background {
     /**
      * First background sprite tile.
      */
-    private final LoopingEntity tile_1;
+    private final LoopingEntity tile1;
     /**
      * Second background sprite tile.
      */
-    private final LoopingEntity tile_2;
+    private final LoopingEntity tile2;
     /**
      * List of all the stars.
      */
@@ -65,14 +65,14 @@ public class Background {
         // Get the position of the rectangle offset-ed by its height
         final Vector2 tileSpawn = area.getCenter(new Vector2()).add(0, area.getHeight());
 
-        tile_1 = new LoopingEntity(area.getCenter(new Vector2()),
+        tile1 = new LoopingEntity(area.getCenter(new Vector2()),
                 new DisplayedSprite(image, area),
                 new Vector2(0, -0.01f), tileSpawn, this.bounds, area.getWidth(), area.getHeight());
 
-        final Rectangle tile2_rect = new Rectangle(area.getX(), area.getY() + area.getHeight(), area.getWidth(), area.getHeight());
+        final Rectangle tile2Rect = new Rectangle(area.getX(), area.getY() + area.getHeight(), area.getWidth(), area.getHeight());
 
-        tile_2 = new LoopingEntity(tile2_rect.getCenter(new Vector2()),
-                new DisplayedSprite(image, tile2_rect),
+        tile2 = new LoopingEntity(tile2Rect.getCenter(new Vector2()),
+                new DisplayedSprite(image, tile2Rect),
                 new Vector2(0, -0.01f), tileSpawn, this.bounds, area.getWidth(), area.getHeight());
 
         this.stars = new LinkedList<>();
@@ -146,8 +146,8 @@ public class Background {
      * @param batch The batch.
      */
     public void draw(SpriteBatch batch) {
-        tile_1.draw(batch);
-        tile_2.draw(batch);
+        tile1.draw(batch);
+        tile2.draw(batch);
 
         for (LoopingEntity s : stars) {
             s.draw(batch);
@@ -160,8 +160,8 @@ public class Background {
      * @param delta Time delta since last update.
      */
     public void update(float delta) {
-        tile_1.update(delta);
-        tile_2.update(delta);
+        tile1.update(delta);
+        tile2.update(delta);
 
         for (LoopingEntity s : stars) {
             s.update(delta);

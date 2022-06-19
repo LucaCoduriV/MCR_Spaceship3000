@@ -4,11 +4,10 @@ import ch.crepe.game.GameController;
 import ch.crepe.game.entities.ship.weapons.GreenLaserWeapon;
 import ch.crepe.game.entities.ship.weapons.Weapon;
 import ch.crepe.game.visitor.Visitor;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
 
 public class Spaceship extends Entity {
-    private final static float HITBOX_PERCENTAGE = 0.6f;
+    private static final float HITBOX_PERCENTAGE = 0.6f;
     /**
      * Gets the orientation of the ship
      *
@@ -17,7 +16,6 @@ public class Spaceship extends Entity {
 
 
     private final GameController gameController;
-    private final ShapeRenderer renderer = new ShapeRenderer();
     private Weapon weapon;
 
     public Spaceship(Vector2 position, Vector2 speed, GameController gameController, float width, float height, float orientation) {

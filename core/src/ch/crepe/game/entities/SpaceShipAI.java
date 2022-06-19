@@ -7,7 +7,7 @@ import com.badlogic.gdx.math.Vector2;
 import java.util.Random;
 
 public class SpaceShipAI extends Spaceship {
-    private final static Random r = new Random();
+    private static final Random r = new Random();
     float lastShotTime = 0;
     float nextShotTime;
 

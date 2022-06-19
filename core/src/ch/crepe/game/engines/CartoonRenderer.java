@@ -12,11 +12,11 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class CartoonRenderer extends RenderingEngine {
     public CartoonRenderer(SpriteBatch batch) {
         super(batch,
-                AssetsLoader.getInstance().getSpaceship(SpaceShip.arcadeUser),
-                AssetsLoader.getInstance().getSpaceship(SpaceShip.arcadeUser),
-                AssetsLoader.getInstance().getAsteroid(Asteroid.arcadeBlue),
-                AssetsLoader.getInstance().getLaser(ch.crepe.game.assets.Laser.blueFast),
-                AssetsLoader.getInstance().getLaser(ch.crepe.game.assets.Laser.greenElectric)
+                AssetsLoader.getInstance().getSpaceship(SpaceShip.ARCADE_USER),
+                AssetsLoader.getInstance().getSpaceship(SpaceShip.ARCADE_USER),
+                AssetsLoader.getInstance().getAsteroid(Asteroid.ARCADE_BLUE),
+                AssetsLoader.getInstance().getLaser(ch.crepe.game.assets.Laser.BLUE_FAST),
+                AssetsLoader.getInstance().getLaser(ch.crepe.game.assets.Laser.GREEN_ELECTRIC)
         );
     }
 }

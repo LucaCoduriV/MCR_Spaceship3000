@@ -2,16 +2,16 @@ package ch.crepe.game.assets;
 
 public enum SpaceShip implements AssetPath {
     // Realistic
-    realisticUser("ships/realistic/user-spaceship.png"),
-    realisticAi("ships/realistic/ai-spaceship.png"),
+    REALISTIC_USER("ships/realistic/user-spaceship.png"),
+    REALISTIC_AI("ships/realistic/ai-spaceship.png"),
 
     // Arcade
-    arcadeUser("ships/arcade/user-spaceship.png"),
-    arcadeAi("ships/arcade/ai-spaceship.png"),
+    ARCADE_USER("ships/arcade/user-spaceship.png"),
+    ARCADE_AI("ships/arcade/ai-spaceship.png"),
 
     // Paint
-    paintUser("ships/paint/user-spaceship.png"),
-    paintAi("ships/paint/ai-spaceship.png");
+    PAINT_USER("ships/paint/user-spaceship.png"),
+    PAINT_AI("ships/paint/ai-spaceship.png");
 
 
 

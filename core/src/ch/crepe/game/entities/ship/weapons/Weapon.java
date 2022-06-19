@@ -2,7 +2,7 @@ package ch.crepe.game.entities.ship.weapons;
 
 import ch.crepe.game.entities.Spaceship;
 
-abstract public class Weapon {
+public abstract class Weapon {
     private final Spaceship spaceship;
 
     protected Weapon(Spaceship spaceship) {

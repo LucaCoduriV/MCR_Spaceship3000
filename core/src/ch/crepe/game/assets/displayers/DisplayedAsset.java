@@ -1,11 +1,9 @@
 package ch.crepe.game.assets.displayers;
 
-import ch.crepe.game.Screens.GameScreen;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.utils.viewport.Viewport;
 
 
 /**
@@ -28,7 +26,7 @@ public abstract class DisplayedAsset {
      * Creates an instance of DisplayedAsset.
      * @param drawingArea Area on which the texture is drawn.
      */
-    public DisplayedAsset(Rectangle drawingArea) {
+    protected DisplayedAsset(Rectangle drawingArea) {
         this.drawingArea = new Rectangle(drawingArea);
     }
 

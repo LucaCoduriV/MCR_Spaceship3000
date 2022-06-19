@@ -4,7 +4,6 @@ import ch.crepe.game.AppPreferences;
 import ch.crepe.game.assets.AssetsLoader;
 import ch.crepe.game.assets.Music;
 import ch.crepe.game.assets.Sound;
-import com.badlogic.gdx.Gdx;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -14,7 +13,6 @@ import java.beans.PropertyChangeListener;
  */
 public class AudioManager implements PropertyChangeListener {
     private static AudioManager instance;
-    private final com.badlogic.gdx.Audio am = Gdx.audio;
     private final AssetsLoader assets = AssetsLoader.getInstance();
     private com.badlogic.gdx.audio.Music music;
     private float musicVolume = 1f;

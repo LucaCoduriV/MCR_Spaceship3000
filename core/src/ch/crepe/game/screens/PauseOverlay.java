@@ -1,4 +1,4 @@
-package ch.crepe.game.Screens;
+package ch.crepe.game.screens;
 
 import ch.crepe.game.assets.AssetsLoader;
 import com.badlogic.gdx.Gdx;
