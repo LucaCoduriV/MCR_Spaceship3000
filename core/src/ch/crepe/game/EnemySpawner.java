@@ -25,6 +25,13 @@ public class EnemySpawner {
     private int maxNextSpawnTimeMs = 5000;
     private int level = 0;
 
+    /**
+     * Constructor of the enemy spawner from a controller, a world width, a world height and a list of entities.
+     * @param controller The game controller
+     * @param worldWidth The world width
+     * @param worldHeight The world height
+     * @param entityList The list of entities
+     */
     public EnemySpawner(GameController controller, int worldWidth, int worldHeight, List<Entity> entityList) {
         this.gameController = controller;
         this.worldWidth = worldWidth;
