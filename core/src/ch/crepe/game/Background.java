@@ -14,15 +14,9 @@ import java.util.*;
 
 /**
  * Represent the background of the game.
- * <p>
  * It contains 2 Sprites of the background image that travels from the top to the bottom of the screen,
  * returning to the top once it's out of the screen. Creating an illusion of movement.
- * </p>
- * <p>
  * It also contains a defined number of stars generated randomly who follows the same behavior.
- * </p>
- *
- * @author nelson.jeanrenaud@heig-vd.ch
  */
 public class Background {
     /**
@@ -102,7 +96,6 @@ public class Background {
             final float rndPositionX = rnd.nextInt((int) bounds.width) + area.getX();
             final float rndPositionY = rnd.nextInt((int) bounds.height) + area.getY();
 
-            // TODO Trouver un meilleur moyen de gérer la distribution de taille.
             // Generate the size of the star based on a size distribution.
             final float randomPercentile = rnd.nextInt(100);
             final float sizePercentage =
