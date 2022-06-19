@@ -13,6 +13,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
+/**
+ * This class represents the preferences screen of the game.
+ */
 public class PreferencesScreen extends ScreenAdapter {
 
     private final Spaceship3000 parent;
@@ -24,6 +27,10 @@ public class PreferencesScreen extends ScreenAdapter {
     private Label soundOnOffLabel;
 
 
+    /**
+     * Constructor of the preferences screen from the parent game.
+     * @param parent The parent game
+     */
     public PreferencesScreen(Spaceship3000 parent) {
         this.parent = parent;
         /// create stage and set it as input processor
@@ -31,6 +38,9 @@ public class PreferencesScreen extends ScreenAdapter {
 
     }
 
+    /**
+     * Show the preferences screen.
+     */
     @Override
     public void show() {
         stage.clear();
@@ -128,6 +138,10 @@ public class PreferencesScreen extends ScreenAdapter {
 
     }
 
+    /**
+     * Render the preferences screen.
+     * @param delta The time in seconds since the last render.
+     */
     @Override
     public void render(float delta) {
         // clear the screen ready for next set of images to be drawn
@@ -140,6 +154,11 @@ public class PreferencesScreen extends ScreenAdapter {
 
     }
 
+    /**
+     * Resize the preferences screen.
+     * @param width The new width of the screen.
+     * @param height The new height of the screen.
+     */
     @Override
     public void resize(int width, int height) {
         // change the stage's viewport when the screen size is changed
