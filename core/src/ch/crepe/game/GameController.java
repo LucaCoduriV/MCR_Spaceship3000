@@ -11,6 +11,9 @@ import com.badlogic.gdx.math.Vector2;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * This class is the core of the game and manages the game loop.
+ */
 public class GameController {
     private final GameInfo gameInfo;
     private final Spaceship playerShip;
@@ -21,15 +24,18 @@ public class GameController {
     private final EntityCleaner bottomCleaner;
     private final EntityCleaner allSideCleaner;
     private final Rectangle worldBounds;
-    private final Spaceship3000 game;
     private final RenderingEngine[] renderers;
     private final CollisionEngine[] collisionEngines;
     private InputProcessor pauseMenuInputProcessor;
     private int currentRenderer = 0;
     private int currentCollisionEngine = 0;
 
+    /**
+     * Constructor of the game controller from a game instance and world bounds.
+     * @param game Game instance
+     * @param worldBounds World bounds
+     */
     public GameController(Spaceship3000 game, Rectangle worldBounds) {
-        this.game = game;
         this.worldBounds = worldBounds;
         this.playerShip = new Spaceship(
                 new Vector2(),
@@ -54,10 +60,18 @@ public class GameController {
         };
     }
 
+    /**
+     * Handle pause menu input.
+     * @param pauseMenuInputProcessor Input processor of the pause menu
+     */
     public void setPauseMenuInputProcessor(InputProcessor pauseMenuInputProcessor) {
         this.pauseMenuInputProcessor = pauseMenuInputProcessor;
     }
 
+    /**
+     * Update the game state.
+     * @param delta Time since last update
+     */
     public void update(float delta) {
         ennemySpawner.update(delta);
         for (Entity entity : entities) {
@@ -70,7 +84,6 @@ public class GameController {
             projectile.update(delta);
         }
 
-        // TODO Je pense que l'on peut mettre ça dans le CollisionEngine
         if (!worldBounds.contains(playerShip.getCenter().cpy().add(playerShip.speed()))) {
             Vector2 newPosition = playerShip.getCenter();
             if (playerShip.getCenter().x < worldBounds.x) {
@@ -93,62 +106,109 @@ public class GameController {
 
         }
 
-        // TODO discuter si il faut mettre ça dans collision engine
         allSideCleaner.update(delta);
         bottomCleaner.update(delta);
     }
 
+    /**
+     * Return the user ship.
+     * @return The user ship
+     */
     public Spaceship getPlayerShip() {
         return playerShip;
     }
 
+    /**
+     * Return the list of entities.
+     * @return The list of entities
+     */
     public List<Entity> getEntities() {
         return entities;
     }
 
+    /**
+     * Pause the game.
+     */
     public void pauseGame() {
         gameInfo.setState(GameInfo.GameState.pause);
         Gdx.input.setInputProcessor(pauseMenuInputProcessor);
 
     }
 
+    /**
+     * Resume the game.
+     */
     public void resumeGame() {
         gameInfo.setState(GameInfo.GameState.playing);
         Gdx.input.setInputProcessor(playerInput);
     }
 
+    /**
+     * Return the player input.
+     * @return The player input
+     */
     public InputProcessor getPlayerInput() {
         return playerInput;
     }
 
+    /**
+     * Return the game info.
+     * @return The game info
+     */
     public GameInfo getGameInfo() {
         return gameInfo;
     }
 
+    /**
+     * Add a new projectile to the list of projectiles.
+     * @param entity The projectile to add
+     */
     public void addProjectile(Entity entity) {
         projectiles.add(entity);
     }
 
+    /**
+     * Return the list of projectiles.
+     * @return The list of projectiles
+     */
     public LinkedList<Entity> getProjectiles() {
         return projectiles;
     }
 
+    /**
+     * Switch to the next renderer in the list.
+     */
     public void toggleRenderer() {
         currentRenderer = (currentRenderer + 1) % renderers.length;
     }
 
+    /**
+     * Switch to the next collision engine in the list.
+     */
     public void toggleCollisionEngine() {
         currentCollisionEngine = (currentCollisionEngine + 1) % collisionEngines.length;
     }
 
+    /**
+     * Return the current renderer.
+     * @return The current renderer
+     */
     public RenderingEngine getRenderer() {
         return renderers[currentRenderer];
     }
 
+    /**
+     * Return the current collision engine.
+     * @return The current collision engine
+     */
     public CollisionEngine getCollisionEngine() {
         return collisionEngines[currentCollisionEngine];
     }
 
+    /**
+     * Return the world bounds.
+     * @return The world bounds
+     */
     public Rectangle getWorldBounds() {
         return worldBounds;
     }
