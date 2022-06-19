@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="9mm" y="-40mm" width="17542mm" height="1746mm" viewBox="9 -40 17542 1746">
+<style type="text/css"><![CDATA[
+text { font:12px Dialog; }
+]]></style>
+<line x1="16750" y1="1090" x2="17320" y2="1090" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="17320" y1="1090" x2="17320" y2="1290" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polyline points="17312,1270 17320,1290 17328,1270" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="16680" y1="1095" x2="16680" y2="1280" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="16680" y1="1280" x2="16760" y2="1280" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polyline points="16740,1288 16760,1280 16740,1272" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="15700" y1="1200" x2="15700" y2="1170" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="15700" y1="1170" x2="16270" y2="1170" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="16270" y1="1170" x2="16270" y2="1120" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="16270,1120 16278,1140 16262,1140" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="16270,1120 16278,1140 16262,1140" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="30" y1="0" x2="30" y2="0" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="30,0 10,8 10,-8" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="30,0 10,8 10,-8" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="30" y1="0" x2="30" y2="0" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="30,0 10,8 10,-8" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="30,0 10,8 10,-8" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="30" y1="0" x2="30" y2="0" style="fill:none;stroke:rgb(64,64,64);stroke-dasharray:7;stroke-dashoffset:0" />
+<polygon points="30,0 10,8 10,-8" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="30,0 10,8 10,-8" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="17360" y1="1290" x2="17360" y2="1230" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<path d="M17314,1230 C17314,1233.3137085 17316.6862915,1236 17320,1236 C17323.3137085,1236 17326,1233.3137085 17326,1230" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="17360" y1="1230" x2="17326" y2="1230" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="17314" y1="1230" x2="17180" y2="1230" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="17180" y1="1230" x2="17180" y2="1195" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="17180,1195 17188,1215 17172,1215" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="17180,1195 17188,1215 17172,1215" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="17410" y1="1600" x2="17410" y2="1560" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="17410" y1="1560" x2="17300" y2="1560" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="17300" y1="1560" x2="17300" y2="1450" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="17300,1450 17308,1470 17292,1470" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="17300,1450 17308,1470 17292,1470" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="17220" y1="1600" x2="17220" y2="1560" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="17220" y1="1560" x2="17380" y2="1560" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="17380" y1="1560" x2="17300" y2="1560" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="17300" y1="1560" x2="17300" y2="1450" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="17300,1450 17308,1470 17292,1470" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="17300,1450 17308,1470 17292,1470" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="16880" y1="1240" x2="16880" y2="1230" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="16880" y1="1230" x2="17180" y2="1230" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="17180" y1="1230" x2="17180" y2="1195" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="17180,1195 17188,1215 17172,1215" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="17180,1195 17188,1215 17172,1215" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="16700" y1="1500" x2="16700" y2="1460" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="16700" y1="1460" x2="16880" y2="1460" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="16880" y1="1460" x2="16880" y2="1400" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="16880,1400 16888,1420 16872,1420" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="16880,1400 16888,1420 16872,1420" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="16880" y1="1500" x2="16880" y2="1460" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="16880" y1="1460" x2="16880" y2="1460" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="16880" y1="1460" x2="16880" y2="1400" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="16880,1400 16888,1420 16872,1420" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="16880,1400 16888,1420 16872,1420" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="17100" y1="1500" x2="17100" y2="1460" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="17100" y1="1460" x2="16880" y2="1460" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="16880" y1="1460" x2="16880" y2="1400" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="16880,1400 16888,1420 16872,1420" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="16880,1400 16888,1420 16872,1420" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="16520" y1="1200" x2="16520" y2="1170" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="16520" y1="1170" x2="16270" y2="1170" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="16270" y1="1170" x2="16270" y2="1120" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="16270,1120 16278,1140 16262,1140" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="16270,1120 16278,1140 16262,1140" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="15990" y1="1200" x2="15990" y2="1170" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="15990" y1="1170" x2="16270" y2="1170" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="16270" y1="1170" x2="16270" y2="1120" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="16270,1120 16278,1140 16262,1140" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="16270,1120 16278,1140 16262,1140" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="15570" y1="1480" x2="15570" y2="1460" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="15570" y1="1460" x2="15700" y2="1460" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="15700" y1="1460" x2="15700" y2="1425" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="15700,1425 15708,1445 15692,1445" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="15700,1425 15708,1445 15692,1445" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="15860" y1="1480" x2="15860" y2="1460" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="15860" y1="1460" x2="15700" y2="1460" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="15700" y1="1460" x2="15700" y2="1425" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="15700,1425 15708,1445 15692,1445" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="15700,1425 15708,1445 15692,1445" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="17180" y1="1140" x2="17180" y2="1059" style="fill:none;stroke:rgb(64,64,64);stroke-dasharray:7;stroke-dashoffset:0" />
+<polygon points="17180,1059 17188,1079 17172,1079" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="17180,1059 17188,1079 17172,1079" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="16600" y1="1080" x2="16360" y2="1080" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="15700" y1="1340" x2="15700" y2="1270" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="15700,1270 15708,1290 15692,1290" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="15700,1270 15708,1290 15692,1290" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="16270" y1="1350" x2="16270" y2="1285" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="16270,1285 16278,1305 16262,1305" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="16270,1285 16278,1305 16262,1305" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="16270" y1="1050" x2="16270" y2="984" style="fill:none;stroke:rgb(64,64,64);stroke-dasharray:7;stroke-dashoffset:0" />
+<polygon points="16270,984 16278,1004 16262,1004" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="16270,984 16278,1004 16262,1004" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<rect x="16600" y="1040" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="16600" y="1040" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="16629" y="1062" style="font:12px Ubuntu">GameController</text>
+<line x1="16600" y1="1075" x2="16750" y2="1075" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="16600" y1="1085" x2="16750" y2="1085" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="17180" y="1290" width="230" height="153" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="17180" y="1290" width="230" height="153" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="17250" y="1312" style="font:12px Ubuntu">CollisionEngine</text>
+<line x1="17180" y1="1325" x2="17410" y2="1325" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="17180" y1="1335" x2="17410" y2="1335" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="17188" y="1350" style="font:12px Ubuntu">+ CollisionEngine (controller : Game...</text>
+<text x="17188" y="1364" style="font:12px Ubuntu">+ visit (ship : Spaceship) : void</text>
+<text x="17188" y="1378" style="font:12px Ubuntu">+ visit (ship : SpaceShipAI) : void</text>
+<text x="17188" y="1392" style="font:12px Ubuntu">+ visit (asteroid : Asteroid) : void</text>
+<text x="17188" y="1406" style="font:12px Ubuntu">+ visit (laser : BlueLaser) : void</text>
+<text x="17188" y="1420" style="font:12px Ubuntu">+ visit (laser : GreenLaser) : void</text>
+<text x="17188" y="1434" style="font:12px Ubuntu">+ visit (laser : Laser) : void</text>
+<rect x="16760" y="1240" width="230" height="153" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="16760" y="1240" width="230" height="153" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="16825" y="1262" style="font:12px Ubuntu">RenderingEngine</text>
+<line x1="16760" y1="1275" x2="16990" y2="1275" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="16760" y1="1285" x2="16990" y2="1285" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="16768" y="1300" style="font:12px Ubuntu">+ RenderingEngine (batch : SpriteBa...</text>
+<text x="16768" y="1314" style="font:12px Ubuntu">+ visit (ship : Spaceship) : void</text>
+<text x="16768" y="1328" style="font:12px Ubuntu">+ visit (ship : SpaceShipAI) : void</text>
+<text x="16768" y="1342" style="font:12px Ubuntu">+ visit (asteroid : Asteroid) : void</text>
+<text x="16768" y="1356" style="font:12px Ubuntu">+ visit (laser : BlueLaser) : void</text>
+<text x="16768" y="1370" style="font:12px Ubuntu">+ visit (laser : GreenLaser) : void</text>
+<text x="16768" y="1384" style="font:12px Ubuntu">+ visit (laser : Laser) : void</text>
+<rect x="17080" y="1140" width="200" height="55" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="17080" y="1140" width="200" height="55" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="17160" y="1162" style="font:12px Ubuntu">Engine</text>
+<line x1="17080" y1="1175" x2="17280" y2="1175" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="17080" y1="1185" x2="17280" y2="1185" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="15720" y="1480" width="270" height="83" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="15720" y="1480" width="270" height="83" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="15826" y="1502" style="font:12px Ubuntu">BlueLaser</text>
+<line x1="15720" y1="1515" x2="15990" y2="1515" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="15720" y1="1525" x2="15990" y2="1525" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="15728" y="1540" style="font:12px Ubuntu">+ BlueLaser (position : Vector2, orientation ...</text>
+<text x="15728" y="1554" style="font:12px Ubuntu">+ accept (v : Visitor) : void</text>
+<rect x="15430" y="1480" width="270" height="83" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="15430" y="1480" width="270" height="83" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="15532" y="1502" style="font:12px Ubuntu">GreenLaser</text>
+<line x1="15430" y1="1515" x2="15700" y2="1515" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="15430" y1="1525" x2="15700" y2="1525" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="15438" y="1540" style="font:12px Ubuntu">+ GreenLaser (position : Vector2, orientatio...</text>
+<text x="15438" y="1554" style="font:12px Ubuntu">+ accept (v : Visitor) : void</text>
+<rect x="15560" y="1340" width="270" height="83" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="15560" y="1340" width="270" height="83" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="15679" y="1362" style="font:12px Ubuntu">Laser</text>
+<line x1="15560" y1="1375" x2="15830" y2="1375" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="15560" y1="1385" x2="15830" y2="1385" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="15568" y="1400" style="font:12px Ubuntu"># Laser (owner : Spaceship, position : Vecto...</text>
+<text x="15568" y="1414" style="font:12px Ubuntu">+ accept (v : Visitor) : void</text>
+<rect x="15560" y="1200" width="270" height="69" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="15560" y="1200" width="270" height="69" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="15667" y="1222" style="font:12px Ubuntu">Projectile</text>
+<line x1="15560" y1="1235" x2="15830" y2="1235" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="15560" y1="1245" x2="15830" y2="1245" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="15568" y="1260" style="font:12px Ubuntu"># Projectile (position : Vector2, speed : Vec...</text>
+<rect x="16140" y="1350" width="260" height="83" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="16140" y="1350" width="260" height="83" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="16234" y="1372" style="font:12px Ubuntu">SpaceShipAI</text>
+<line x1="16140" y1="1385" x2="16400" y2="1385" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="16140" y1="1395" x2="16400" y2="1395" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="16148" y="1410" style="font:12px Ubuntu">+ SpaceShipAI (position : Vector2, speed : ...</text>
+<text x="16148" y="1424" style="font:12px Ubuntu">+ accept (v : Visitor) : void</text>
+<rect x="16140" y="1200" width="250" height="83" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="16140" y="1200" width="250" height="83" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="16236" y="1222" style="font:12px Ubuntu">Spaceship</text>
+<line x1="16140" y1="1235" x2="16390" y2="1235" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="16140" y1="1245" x2="16390" y2="1245" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="16148" y="1260" style="font:12px Ubuntu">+ Spaceship (position : Vector2, speed : ...</text>
+<text x="16148" y="1274" style="font:12px Ubuntu">+ accept (v : Visitor) : void</text>
+<rect x="17080" y="900" width="200" height="153" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="17080" y="900" width="200" height="153" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="17142" y="919" style="font:11px Ubuntu">&lt;&lt; interface &gt;&gt;</text>
+<text x="17161" y="936" style="font:12px Ubuntu">Visitor</text>
+<line x1="17080" y1="949" x2="17280" y2="949" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="17080" y1="959" x2="17280" y2="959" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="17088" y="974" style="font:12px Ubuntu">+ visit (ship : Spaceship) : void</text>
+<text x="17088" y="988" style="font:12px Ubuntu">+ visit (ship : SpaceShipAI) : void</text>
+<text x="17088" y="1002" style="font:12px Ubuntu">+ visit (asteroid : Asteroid) : void</text>
+<text x="17088" y="1016" style="font:12px Ubuntu">+ visit (laser : BlueLaser) : void</text>
+<text x="17088" y="1030" style="font:12px Ubuntu">+ visit (laser : GreenLaser) : void</text>
+<text x="17088" y="1044" style="font:12px Ubuntu">+ visit (laser : Laser) : void</text>
+<rect x="16180" y="900" width="180" height="83" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="16180" y="900" width="180" height="83" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="16232" y="919" style="font:11px Ubuntu">&lt;&lt; interface &gt;&gt;</text>
+<text x="16244" y="936" style="font:12px Ubuntu">Visitable</text>
+<line x1="16180" y1="949" x2="16360" y2="949" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="16180" y1="959" x2="16360" y2="959" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="16188" y="974" style="font:12px Ubuntu">+ accept (v : Visitor) : void</text>
+<rect x="16180" y="1050" width="180" height="69" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="16180" y="1050" width="180" height="69" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="16252" y="1072" style="font:12px Ubuntu">Entity</text>
+<line x1="16180" y1="1085" x2="16360" y2="1085" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="16180" y1="1095" x2="16360" y2="1095" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="16188" y="1110" style="font:12px Ubuntu">+ Entity (position : Vector2,...</text>
+<rect x="16410" y="1200" width="230" height="83" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="16410" y="1200" width="230" height="83" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="16500" y="1222" style="font:12px Ubuntu">Asteroid</text>
+<line x1="16410" y1="1235" x2="16640" y2="1235" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="16410" y1="1245" x2="16640" y2="1245" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="16418" y="1260" style="font:12px Ubuntu">+ Asteroid (position : Vector2, speed...</text>
+<text x="16418" y="1274" style="font:12px Ubuntu">+ accept (v : Visitor) : void</text>
+<rect x="15850" y="1200" width="270" height="83" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="15850" y="1200" width="270" height="83" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="15944" y="1222" style="font:12px Ubuntu">LoopingEntity</text>
+<line x1="15850" y1="1235" x2="16120" y2="1235" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="15850" y1="1245" x2="16120" y2="1245" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="15858" y="1260" style="font:12px Ubuntu">+ LoopingEntity (position : Vector2, asset : ...</text>
+<text x="15858" y="1274" style="font:12px Ubuntu">+ accept (v : Visitor) : void</text>
+<rect x="16800" y="1500" width="190" height="69" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="16800" y="1500" width="190" height="69" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="16853" y="1522" style="font:12px Ubuntu">PaintRenderer</text>
+<line x1="16800" y1="1535" x2="16990" y2="1535" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="16800" y1="1545" x2="16990" y2="1545" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="16808" y="1560" style="font:12px Ubuntu">+ PaintRenderer (batch : Spri...</text>
+<rect x="16610" y="1500" width="160" height="69" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="16610" y="1500" width="160" height="69" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="16650" y="1522" style="font:12px Ubuntu">RealRenderer</text>
+<line x1="16610" y1="1535" x2="16770" y2="1535" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="16610" y1="1545" x2="16770" y2="1545" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="16618" y="1560" style="font:12px Ubuntu">+ RealRenderer (batch : ...</text>
+<rect x="17020" y="1500" width="190" height="69" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="17020" y="1500" width="190" height="69" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="17064" y="1522" style="font:12px Ubuntu">CartoonRenderer</text>
+<line x1="17020" y1="1535" x2="17210" y2="1535" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="17020" y1="1545" x2="17210" y2="1545" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="17028" y="1560" style="font:12px Ubuntu">+ CartoonRenderer (batch : S...</text>
+<rect x="17020" y="1600" width="240" height="83" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="17020" y="1600" width="240" height="83" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="17064" y="1622" style="font:12px Ubuntu">MovementCollisionEngine</text>
+<line x1="17020" y1="1635" x2="17260" y2="1635" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="17020" y1="1645" x2="17260" y2="1645" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="17028" y="1660" style="font:12px Ubuntu">+ MovementCollisionEngine (controlle...</text>
+<text x="17028" y="1674" style="font:12px Ubuntu">+ visit (laser : Laser) : void</text>
+<rect x="17290" y="1600" width="240" height="83" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="17290" y="1600" width="240" height="83" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="17353" y="1622" style="font:12px Ubuntu">SizeCollisionEngine</text>
+<line x1="17290" y1="1635" x2="17530" y2="1635" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="17290" y1="1645" x2="17530" y2="1645" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="17298" y="1660" style="font:12px Ubuntu">+ SizeCollisionEngine (controller : Gam...</text>
+<text x="17298" y="1674" style="font:12px Ubuntu">+ visit (laser : Laser) : void</text>
+<text x="16870" y="1071" style="font:14px Ubuntu">a ses collisions gérées par &gt;</text>
+<text x="16755" y="1082" style="font:14px Ubuntu">0..1</text>
+<text x="17294" y="1282" style="font:14px Ubuntu">1..*</text>
+<text x="16634" y="1311" style="font:14px Ubuntu">est rendu par &gt;</text>
+<text x="16652" y="1113" style="font:14px Ubuntu">0..1</text>
+<text x="16733" y="1272" style="font:14px Ubuntu">1..*</text>
+<text x="16469" y="1101" style="font:14px Ubuntu">&lt; possède</text>
+<text x="16587" y="1072" style="font:14px Ubuntu">1</text>
+<text x="16365" y="1072" style="font:14px Ubuntu">1..*</text>
+<rect x="10" y="-39" width="17539" height="1743" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+</svg>
