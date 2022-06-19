@@ -15,22 +15,22 @@ public class EntityCleaner {
         this.bounds = bounds;
     }
 
-    public void update(float delta){
+    public void update(float delta) {
         // TODO Il est peut-être mieux d'éviter de boucler tout le temps sur la liste des entités, mais plutôt de le faire une seule fois pour toute les opérations.
         Iterator<Entity> it = entities.iterator();
         while (it.hasNext()) {
             Entity entity = it.next();
-            if(isOutOfBounds(entity) || !entity.isAlive()){
+            if (isOutOfBounds(entity) || !entity.isAlive()) {
                 it.remove();
             }
         }
     }
 
-    protected boolean isOutOfBounds(Entity entity){
+    protected boolean isOutOfBounds(Entity entity) {
         return !bounds.overlaps(entity.getHitbox());
     }
 
-    protected Rectangle getBounds(){
+    protected Rectangle getBounds() {
         return bounds;
     }
 }

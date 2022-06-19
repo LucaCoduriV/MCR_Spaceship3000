@@ -1,6 +1,5 @@
 package ch.crepe.game;
 
-import ch.crepe.game.assets.SpaceShip;
 import ch.crepe.game.entities.Spaceship;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
@@ -25,7 +24,7 @@ public class PlayerInput extends InputAdapter {
     @Override
     public boolean keyDown(int keycode) {
 
-        switch (keycode){
+        switch (keycode) {
             case upKey:
                 entity.speed().y = entity.speed().y + 0.5f;
                 break;
@@ -38,7 +37,7 @@ public class PlayerInput extends InputAdapter {
             case rightKey:
                 entity.speed().x = entity.speed().x + 0.5f;
                 break;
-            case Input.Keys.SPACE :
+            case Input.Keys.SPACE:
                 entity.shoot();
                 break;
             case Input.Keys.R:
@@ -53,7 +52,7 @@ public class PlayerInput extends InputAdapter {
 
     @Override
     public boolean keyUp(int keycode) {
-        switch (keycode){
+        switch (keycode) {
             case upKey:
                 entity.speed().y = entity.speed().y - 0.5f;
                 break;

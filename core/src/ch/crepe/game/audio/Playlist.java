@@ -18,11 +18,12 @@ public class Playlist implements Music {
 
     /**
      * It creates a new playlist.
+     *
      * @param musics the musics to add to the playlist.
      */
-    public Playlist(ch.crepe.game.assets.Music[] musics){
+    public Playlist(ch.crepe.game.assets.Music[] musics) {
         this.musics = new ArrayList<>();
-        for (ch.crepe.game.assets.Music music: musics) {
+        for (ch.crepe.game.assets.Music music : musics) {
             this.musics.add(AssetsLoader.getInstance().getMusic(music));
         }
     }
@@ -30,7 +31,7 @@ public class Playlist implements Music {
     /**
      * It shuffles the playlist.
      */
-    public void shuffle(){
+    public void shuffle() {
         Collections.shuffle(this.musics);
     }
 
@@ -50,18 +51,19 @@ public class Playlist implements Music {
         });
     }
 
-    private Music getCurrentSong(){
+    private Music getCurrentSong() {
         return musics.get(index);
     }
 
     /**
      * It plays the next music in the playlist.
+     *
      * @return the next music in the playlist.
      */
-    private Music nextSong(){
-        if(index < musics.size()){
+    private Music nextSong() {
+        if (index < musics.size()) {
             index++;
-        }else{
+        } else {
             index = 0;
         }
         return musics.get(index);
@@ -89,20 +91,13 @@ public class Playlist implements Music {
     }
 
     @Override
-    public void setLooping(boolean isLooping) {
-        throw new NotImplementedException();
-    }
-
-    @Override
     public boolean isLooping() {
         return false;
     }
 
     @Override
-    public void setVolume(float volume) {
-        for(Music music : musics){
-            music.setVolume(volume);
-        }
+    public void setLooping(boolean isLooping) {
+        throw new NotImplementedException();
     }
 
     @Override
@@ -111,13 +106,15 @@ public class Playlist implements Music {
     }
 
     @Override
-    public void setPan(float pan, float volume) {
-        throw new NotImplementedException();
+    public void setVolume(float volume) {
+        for (Music music : musics) {
+            music.setVolume(volume);
+        }
     }
 
     @Override
-    public void setPosition(float position) {
-        getCurrentSong().setPosition(position);
+    public void setPan(float pan, float volume) {
+        throw new NotImplementedException();
     }
 
     @Override
@@ -126,8 +123,13 @@ public class Playlist implements Music {
     }
 
     @Override
+    public void setPosition(float position) {
+        getCurrentSong().setPosition(position);
+    }
+
+    @Override
     public void dispose() {
-        for (Music music : musics){
+        for (Music music : musics) {
             music.dispose();
         }
     }

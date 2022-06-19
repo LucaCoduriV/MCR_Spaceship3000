@@ -10,10 +10,10 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
@@ -23,6 +23,7 @@ public class GameOverScreen extends ScreenAdapter {
     private final Sprite backgroundSprite = new Sprite(AssetsLoader.getInstance().getBackground());
     private final int bestScore;
     private final int yourScore;
+
     public GameOverScreen(Spaceship3000 parent, int bestScore, int yourScore) {
         this.parent = parent;
 

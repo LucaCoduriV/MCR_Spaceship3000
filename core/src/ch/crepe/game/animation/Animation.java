@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 
 /**
  * Cette classe permet de gérer une animation.
+ *
  * @author Luca Coduri
  */
 public class Animation {
@@ -28,7 +29,7 @@ public class Animation {
         this.currentFrame++;
 
         // If at the end, loop back to the first frame.
-        if(currentFrame >= frames.length) {
+        if (currentFrame >= frames.length) {
             currentFrame = 0;
             playedOnce = true;
         }

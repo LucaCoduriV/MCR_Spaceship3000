@@ -2,18 +2,15 @@ package ch.crepe.game.Screens;
 
 import ch.crepe.game.Spaceship3000;
 import ch.crepe.game.assets.AssetsLoader;
-import ch.crepe.game.assets.Music;
 import ch.crepe.game.assets.Other;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.*;
-import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
-import com.badlogic.gdx.scenes.scene2d.utils.SpriteDrawable;
+import com.badlogic.gdx.scenes.scene2d.ui.ProgressBar;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 public class LoadingScreen extends ScreenAdapter {
@@ -21,7 +18,8 @@ public class LoadingScreen extends ScreenAdapter {
     private final AssetManager manager;
     private final Stage stage;
     private ProgressBar progressBar;
-    public LoadingScreen(Spaceship3000 parent){
+
+    public LoadingScreen(Spaceship3000 parent) {
         this.parent = parent;
         stage = new Stage(new ScreenViewport());
         manager = new AssetManager();
@@ -41,7 +39,7 @@ public class LoadingScreen extends ScreenAdapter {
         Skin skin = manager.get(Other.skin.getPath(), Skin.class);
 
         //create buttons
-        progressBar = new ProgressBar(0,1,0.001f,false, skin);
+        progressBar = new ProgressBar(0, 1, 0.001f, false, skin);
         table.add(progressBar).fillX().uniformX();
         AssetsLoader.getInstance().loadAll();
     }
@@ -49,7 +47,7 @@ public class LoadingScreen extends ScreenAdapter {
     @Override
     public void render(float delta) {
         AssetsLoader.getInstance().update();
-        if(AssetsLoader.getInstance().isFinished()){
+        if (AssetsLoader.getInstance().isFinished()) {
             parent.changeScreen(ScreenType.MainMenu);
         }
 

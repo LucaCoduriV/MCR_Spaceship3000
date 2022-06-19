@@ -1,6 +1,5 @@
 package ch.crepe.game.entities;
 
-import ch.crepe.game.assets.displayers.DisplayedAsset;
 import ch.crepe.game.visitor.Visitor;
 import com.badlogic.gdx.math.Vector2;
 

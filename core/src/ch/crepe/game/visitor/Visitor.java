@@ -12,9 +12,14 @@ import ch.crepe.game.entities.ship.weapons.projectiles.Laser;
  */
 public interface Visitor {
     void visit(Spaceship ship);
+
     void visit(SpaceShipAI ship);
+
     void visit(Asteroid asteroid);
+
     void visit(BlueLaser laser);
+
     void visit(GreenLaser laser);
+
     void visit(Laser laser);
 }

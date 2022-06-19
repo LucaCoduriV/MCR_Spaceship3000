@@ -2,21 +2,14 @@ package ch.crepe.game.Screens;
 
 import ch.crepe.game.Spaceship3000;
 import ch.crepe.game.assets.AssetsLoader;
-import ch.crepe.game.audio.AudioManager;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.CheckBox;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.scenes.scene2d.ui.Slider;
-import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
@@ -31,7 +24,7 @@ public class PreferencesScreen extends ScreenAdapter {
     private Label soundOnOffLabel;
 
 
-    public PreferencesScreen(Spaceship3000 parent){
+    public PreferencesScreen(Spaceship3000 parent) {
         this.parent = parent;
         /// create stage and set it as input processor
         stage = new Stage(new ScreenViewport());
@@ -111,26 +104,26 @@ public class PreferencesScreen extends ScreenAdapter {
             }
         });
 
-        titleLabel = new Label( "Preferences", skin );
-        volumeMusicLabel = new Label( "Music Volume", skin );
-        volumeSoundLabel = new Label( "Sound Volume", skin );
-        musicOnOffLabel = new Label( "Music", skin );
-        soundOnOffLabel = new Label( "Sound Effect", skin );
+        titleLabel = new Label("Preferences", skin);
+        volumeMusicLabel = new Label("Music Volume", skin);
+        volumeSoundLabel = new Label("Sound Volume", skin);
+        musicOnOffLabel = new Label("Music", skin);
+        soundOnOffLabel = new Label("Sound Effect", skin);
 
         table.add(titleLabel).colspan(2);
-        table.row().pad(10,0,0,10);
+        table.row().pad(10, 0, 0, 10);
         table.add(volumeMusicLabel).left();
         table.add(volumeMusicSlider);
-        table.row().pad(10,0,0,10);
+        table.row().pad(10, 0, 0, 10);
         table.add(musicOnOffLabel).left();
         table.add(musicCheckbox);
-        table.row().pad(10,0,0,10);
+        table.row().pad(10, 0, 0, 10);
         table.add(volumeSoundLabel).left();
         table.add(soundMusicSlider);
-        table.row().pad(10,0,0,10);
+        table.row().pad(10, 0, 0, 10);
         table.add(soundOnOffLabel).left();
         table.add(soundEffectsCheckbox);
-        table.row().pad(10,0,0,10);
+        table.row().pad(10, 0, 0, 10);
         table.add(backButton).colspan(2);
 
     }

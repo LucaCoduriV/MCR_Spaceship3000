@@ -1,6 +1,7 @@
 package ch.crepe.game;
 
-import ch.crepe.game.assets.*;
+import ch.crepe.game.assets.AssetsLoader;
+import ch.crepe.game.assets.Star;
 import ch.crepe.game.assets.displayers.DisplayedAnimation;
 import ch.crepe.game.assets.displayers.DisplayedSprite;
 import ch.crepe.game.entities.LoopingEntity;
@@ -14,13 +15,14 @@ import java.util.*;
 /**
  * Represent the background of the game.
  * <p>
- *     It contains 2 Sprites of the background image that travels from the top to the bottom of the screen,
- *     returning to the top once it's out of the screen. Creating an illusion of movement.
+ * It contains 2 Sprites of the background image that travels from the top to the bottom of the screen,
+ * returning to the top once it's out of the screen. Creating an illusion of movement.
  * </p>
  * <p>
- *     It also contains a defined number of stars generated randomly who follows the same behavior.
+ * It also contains a defined number of stars generated randomly who follows the same behavior.
  * </p>
- * @author      nelson.jeanrenaud@heig-vd.ch
+ *
+ * @author nelson.jeanrenaud@heig-vd.ch
  */
 public class Background {
     /**
@@ -51,8 +53,9 @@ public class Background {
 
     /**
      * Creates a background in the given area with a specified number of stars.
-     * @param area Area of the background.
-     * @param image Texture used for the background.
+     *
+     * @param area    Area of the background.
+     * @param image   Texture used for the background.
      * @param nbStars Number of stars to generate in the background.
      */
     public Background(Rectangle area, Texture image, int nbStars) {
@@ -85,6 +88,7 @@ public class Background {
 
     /**
      * Creates a specified number of stars randomly and adds them to the background.
+     *
      * @param nbStars Number of stars to create.
      */
     private void createStars(int nbStars) {
@@ -92,8 +96,8 @@ public class Background {
 
             // Ratio by which the characteristics of the star are affected by it size.
             final float gameSizeRatio = 14f; // Converts the size which is in the interval ]0, 1] to the actual size.
-            final float speedRatio = 1/10f;
-            final float frameSpeedRatio = 1/40f;
+            final float speedRatio = 1 / 10f;
+            final float frameSpeedRatio = 1 / 40f;
 
             final float rndPositionX = rnd.nextInt((int) bounds.width) + area.getX();
             final float rndPositionY = rnd.nextInt((int) bounds.height) + area.getY();
@@ -135,16 +139,17 @@ public class Background {
 
         // Sorts the list so the smallest body are drawn firsts and hidden by the bigger objects
         // (since they are further from the camera view).
-       Collections.sort(stars, new Comparator<LoopingEntity>() {
-           @Override
-           public int compare(LoopingEntity o1, LoopingEntity o2) {
-               return (int)(o1.getDrawingArea().area() - o2.getDrawingArea().area());
-           }
-       });
+        Collections.sort(stars, new Comparator<LoopingEntity>() {
+            @Override
+            public int compare(LoopingEntity o1, LoopingEntity o2) {
+                return (int) (o1.getDrawingArea().area() - o2.getDrawingArea().area());
+            }
+        });
     }
 
     /**
      * Draws the background onto the specified batch.
+     *
      * @param batch The batch.
      */
     public void draw(SpriteBatch batch) {
@@ -158,6 +163,7 @@ public class Background {
 
     /**
      * Update the background.
+     *
      * @param delta Time delta since last update.
      */
     public void update(float delta) {

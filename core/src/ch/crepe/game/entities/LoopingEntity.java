@@ -8,14 +8,15 @@ import com.badlogic.gdx.math.Vector2;
 
 /**
  * Represent an Entity that returns to a position when it's out of a specific bounding area.
- * @author      nelson.jeanrenaud@heig-vd.ch
+ *
+ * @author nelson.jeanrenaud@heig-vd.ch
  */
-public class LoopingEntity extends Entity{
+public class LoopingEntity extends Entity {
+    protected final DisplayedAsset asset;
     /**
      * Position where the Entity returns to when it's out of bounds.
      */
     private final Vector2 respawnPosition;
-    protected final DisplayedAsset asset;
     /**
      * Area in which the Entity is confined.
      */
@@ -23,13 +24,14 @@ public class LoopingEntity extends Entity{
 
     /**
      * Creates an instance of LoopingEntity.
-     * @param position Position of the Entity.
-     * @param asset Asset displayed by the entity.
-     * @param speed Speed at which the entity is moving.
+     *
+     * @param position        Position of the Entity.
+     * @param asset           Asset displayed by the entity.
+     * @param speed           Speed at which the entity is moving.
      * @param respawnPosition Position where the entity returns to when it's out of bounds.
-     * @param bounds Area in which the Entity is confined.
-     * @param width Width of the hitbox.
-     * @param height Height of the hitbox.
+     * @param bounds          Area in which the Entity is confined.
+     * @param width           Width of the hitbox.
+     * @param height          Height of the hitbox.
      */
     public LoopingEntity(Vector2 position, DisplayedAsset asset, Vector2 speed, Vector2 respawnPosition, Rectangle bounds, float width, float height) {
         super(position, speed, width, height, 0); //TODO orientation
@@ -39,7 +41,6 @@ public class LoopingEntity extends Entity{
     }
 
 
-
     //TODO temporaire en attendant visiteur
     public void draw(Batch batch) {
         asset.draw(batch);
@@ -47,16 +48,17 @@ public class LoopingEntity extends Entity{
 
     @Override
     public void update(float delta) {
-        if(checkBounds())
+        if (checkBounds())
             super.update(delta);
     }
 
     /**
      * If the star is out of bounds, return it to the base position.
+     *
      * @return True if the bounds are respected by the entity, false otherwise.
      */
     private boolean checkBounds() {
-        if(!bounds.overlaps(getHitbox())){
+        if (!bounds.overlaps(getHitbox())) {
             System.out.println("Reseting position");
             setCenter(respawnPosition.cpy());
             return false;

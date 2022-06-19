@@ -14,15 +14,15 @@ public class SizeCollisionEngine extends CollisionEngine {
     @Override
     public void visit(Laser laser) {
         for (Entity entity : getController().getEntities()) {
-            if(laser == entity || laser.getOwner() == entity) continue;
-            if(isColliding(laser, entity)) {
-                if(laser.getOwner() != getController().getPlayerShip() && entity != getController().getPlayerShip()){
+            if (laser == entity || laser.getOwner() == entity) continue;
+            if (isColliding(laser, entity)) {
+                if (laser.getOwner() != getController().getPlayerShip() && entity != getController().getPlayerShip()) {
                     continue;
                 }
                 laser.kill();
                 entity.setLife(entity.getLife() - laser.getDamage());
                 entity.setSize(entity.getWidth() * sizeMult, entity.getHeight() * sizeMult);
-                if(!entity.isAlive()) {
+                if (!entity.isAlive()) {
                     getController().getGameInfo().addScore(1);
                 }
 

@@ -1,12 +1,9 @@
 package ch.crepe.game.Screens;
 
-import ch.crepe.game.GameController;
-import ch.crepe.game.Spaceship3000;
 import ch.crepe.game.assets.AssetsLoader;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -19,8 +16,9 @@ public class PauseOverlay {
     final ChangeListener onResume;
     final ChangeListener onQuit;
     private final Stage stage;
-    public PauseOverlay(ChangeListener onQuit, ChangeListener onResume){
-        this.stage = new Stage(new FitViewport(Gdx.graphics.getWidth(),Gdx.graphics.getHeight()));
+
+    public PauseOverlay(ChangeListener onQuit, ChangeListener onResume) {
+        this.stage = new Stage(new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight()));
         this.onQuit = onQuit;
         this.onResume = onResume;
 
@@ -51,16 +49,16 @@ public class PauseOverlay {
         mainMenuButton.addListener(onQuit);
     }
 
-    public void draw(Batch batch){
+    public void draw(Batch batch) {
         stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
         stage.draw();
     }
 
-    public void update(int width, int height){
+    public void update(int width, int height) {
         stage.getViewport().update(width, height, true);
     }
 
-    public InputProcessor getInputProcessor(){
+    public InputProcessor getInputProcessor() {
         return stage;
     }
 }

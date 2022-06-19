@@ -7,6 +7,7 @@ public class GameInfo {
     private int score = 0;
     private int lives = 100;
     private int level = 1;
+    private GameState state = GameState.playing;
 
     public GameState getState() {
         return state;
@@ -16,12 +17,6 @@ public class GameInfo {
         this.state = state;
     }
 
-    public enum GameState{
-        playing,
-        pause
-    }
-    private GameState state = GameState.playing;
-
     public int getScore() {
         return score;
     }
@@ -29,6 +24,7 @@ public class GameInfo {
     public void setScore(int score) {
         this.score = score;
     }
+
     public void addScore(int score) {
         this.score += score;
     }
@@ -47,5 +43,10 @@ public class GameInfo {
 
     public void setLevel(int level) {
         this.level = level;
+    }
+
+    public enum GameState {
+        playing,
+        pause
     }
 }
