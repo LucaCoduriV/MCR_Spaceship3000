@@ -106,8 +106,8 @@ public class GameController {
 
         }
 
-        allSideCleaner.update(delta);
-        bottomCleaner.update(delta);
+        allSideCleaner.update();
+        bottomCleaner.update();
     }
 
     /**
