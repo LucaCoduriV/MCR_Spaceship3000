@@ -248,7 +248,7 @@ text { font:12px Dialog; }
 <text x="16652" y="1113" style="font:14px Ubuntu">0..1</text>
 <text x="16733" y="1272" style="font:14px Ubuntu">1..*</text>
 <text x="16469" y="1101" style="font:14px Ubuntu">&lt; possède</text>
-<text x="16587" y="1072" style="font:14px Ubuntu">1</text>
+<text x="16573" y="1071" style="font:14px Ubuntu">0..1</text>
 <text x="16365" y="1072" style="font:14px Ubuntu">1..*</text>
 <rect x="10" y="-39" width="17539" height="1743" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
 </svg>

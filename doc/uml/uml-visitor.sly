@@ -16,7 +16,7 @@
     <association aggregation="NONE" direction="BIDIRECTIONAL" id="73777" name="&lt; possède">
       <role componentId="71576" name="" visibility="PRIVATE">
         <multiplicity>
-          <min>1</min>
+          <min>0</min>
           <max>1</max>
         </multiplicity>
       </role>
@@ -758,9 +758,9 @@
         <h>16</h>
       </roleAssociation>
       <multipliciteAssociation>
-        <x>16587</x>
-        <y>1059</y>
-        <w>8</w>
+        <x>16573</x>
+        <y>1058</y>
+        <w>23</w>
         <h>16</h>
       </multipliciteAssociation>
       <multipliciteAssociation>
