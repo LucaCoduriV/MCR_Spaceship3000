@@ -11,10 +11,8 @@ import ch.crepe.game.audio.Playlist;
 import ch.crepe.game.entities.Entity;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
@@ -32,7 +30,6 @@ public class GameScreen extends ScreenAdapter {
             Music.spaceHeroes,
             Music.withoutFear
     };
-    private static final boolean DEBUG = true;
     private final GameController controller;
     private final Spaceship3000 parent;
     private final FitViewport viewport;
@@ -43,7 +40,6 @@ public class GameScreen extends ScreenAdapter {
             new Rectangle(-WORLD_WIDTH / 2f, -WORLD_HEIGHT / 2f, WORLD_WIDTH, WORLD_HEIGHT),
             AssetsLoader.getInstance().getBackground(),
             15);
-    private final ShapeRenderer sr = new ShapeRenderer();
 
     public GameScreen(final Spaceship3000 parent) {
         this.parent = parent;
@@ -99,8 +95,6 @@ public class GameScreen extends ScreenAdapter {
 
     private void drawGame() {
 
-        sr.setProjectionMatrix(parent.getBatch().getProjectionMatrix());
-
         viewport.apply();
         parent.getBatch().setProjectionMatrix(viewport.getCamera().combined);
 
@@ -109,17 +103,6 @@ public class GameScreen extends ScreenAdapter {
 
         for (Entity entity : controller.getEntities()) {
             entity.accept(controller.getRenderer());
-
-            // Enable debug to see the hitboxes
-            if (DEBUG) {
-                parent.getBatch().end();
-                sr.begin(ShapeRenderer.ShapeType.Line);
-                sr.setColor(Color.RED);
-                sr.rect(entity.getHitbox().x, entity.getHitbox().y, entity.getHitbox().width, entity.getHitbox().height);
-                sr.end();
-                parent.getBatch().begin();
-            }
-
         }
 
         for (Entity entity : controller.getProjectiles()) {

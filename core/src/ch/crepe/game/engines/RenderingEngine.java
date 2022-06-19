@@ -17,7 +17,7 @@ import com.badlogic.gdx.math.Vector2;
  * Engine managing the rendering of entities
  * This class is implemented as a visitor
  */
-abstract public class RenderingEngine implements Visitor {
+abstract public class RenderingEngine extends Engine {
     private final SpriteBatch batch;
     private final DisplayedSprite spaceShipSprite;
     private final DisplayedSprite spaceShipAISprite;
