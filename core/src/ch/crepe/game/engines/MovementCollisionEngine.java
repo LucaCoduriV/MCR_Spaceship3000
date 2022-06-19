@@ -5,6 +5,12 @@ import ch.crepe.game.GameController;
 import ch.crepe.game.entities.Entity;
 import ch.crepe.game.entities.ship.weapons.projectiles.Laser;
 
+/**
+ * Engine managing the collision between entities. Entities that aren't the main
+ * spaceship have their directon changed if they collide with laser from the
+ * main spaceship.
+ * This class is implemented as a visitor.
+ */
 public class MovementCollisionEngine extends CollisionEngine {
     public MovementCollisionEngine(GameController controller) {
         super(controller);

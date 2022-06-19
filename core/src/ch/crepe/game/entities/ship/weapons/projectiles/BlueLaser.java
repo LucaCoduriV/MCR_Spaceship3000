@@ -10,7 +10,7 @@ import com.badlogic.gdx.math.Vector2;
 public class BlueLaser extends Laser {
 
     public BlueLaser(Vector2 position, float orientation, Spaceship owner) {
-        super(owner, position, orientation, AssetsLoader.getInstance().getLaser(ch.crepe.game.assets.Laser.BLUE_FAST));
+        super(owner, position, orientation);
     }
 
     @Override

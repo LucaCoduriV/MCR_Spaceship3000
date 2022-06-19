@@ -34,10 +34,6 @@ public class AssetsLoader extends AssetManager {
     public void loadAll() {
         // loading is async
 
-        for (Explosions e : Explosions.values()) {
-            load(e.getPath(), Texture.class);
-        }
-
         for (SpaceShip s : SpaceShip.values()) {
             load(s.getPath(), Texture.class);
         }
@@ -86,16 +82,6 @@ public class AssetsLoader extends AssetManager {
      */
     public Texture getStar(Star star) {
         return get(star.getPath(), Texture.class);
-    }
-
-    /**
-     * This method is used to get the texture of the given explosion.
-     *
-     * @param explosion the explosion to get the texture.
-     * @return the texture of the given explosion.
-     */
-    public Texture getExplosion(Explosions explosion) {
-        return get(explosion.getPath(), Texture.class);
     }
 
     /**
