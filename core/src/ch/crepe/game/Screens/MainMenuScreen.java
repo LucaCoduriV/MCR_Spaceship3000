@@ -10,11 +10,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.scenes.scene2d.ui.VerticalGroup;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.SpriteDrawable;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
@@ -24,7 +20,8 @@ public class MainMenuScreen extends ScreenAdapter {
     private final Stage stage;
     private final Sprite backgroundSprite = new Sprite(AssetsLoader.getInstance().getBackground());
     private final Sprite logoSprite = new Sprite(AssetsLoader.getInstance().getLogo());
-    public MainMenuScreen(Spaceship3000 parent){
+
+    public MainMenuScreen(Spaceship3000 parent) {
         this.parent = parent;
         /// create stage and set it as input processor
         stage = new Stage(new ScreenViewport());

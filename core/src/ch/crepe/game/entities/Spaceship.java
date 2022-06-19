@@ -8,18 +8,17 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
 
 public class Spaceship extends Entity {
-    private Weapon weapon;
-
+    private final static float HITBOX_PERCENTAGE = 0.6f;
     /**
      * Gets the orientation of the ship
+     *
      * @return The orientation of the ship in degrees
      */
 
 
-
     private final GameController gameController;
     private final ShapeRenderer renderer = new ShapeRenderer();
-    private final static float HITBOX_PERCENTAGE = 0.6f;
+    private Weapon weapon;
 
     public Spaceship(Vector2 position, Vector2 speed, GameController gameController, float width, float height, float orientation) {
         super(position, speed, width * HITBOX_PERCENTAGE, height * HITBOX_PERCENTAGE, orientation);

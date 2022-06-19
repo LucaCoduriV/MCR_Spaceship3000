@@ -13,9 +13,9 @@ public class MovementCollisionEngine extends CollisionEngine {
     @Override
     public void visit(Laser laser) {
         for (Entity entity : getController().getEntities()) {
-            if(laser == entity || laser.getOwner() == entity) continue;
-            if(isColliding(laser, entity)) {
-                if(laser.getOwner() != getController().getPlayerShip() && entity != getController().getPlayerShip()){
+            if (laser == entity || laser.getOwner() == entity) continue;
+            if (isColliding(laser, entity)) {
+                if (laser.getOwner() != getController().getPlayerShip() && entity != getController().getPlayerShip()) {
                     continue;
                 }
                 laser.kill();
@@ -25,7 +25,7 @@ public class MovementCollisionEngine extends CollisionEngine {
                     entity.speed().set(EnemySpawner.generateRandomDirection(entity.getPositon(), getController().getWorldBounds().getWidth(), getController().getWorldBounds().getHeight()));
                 }
 
-                if(!entity.isAlive()) {
+                if (!entity.isAlive()) {
                     getController().getGameInfo().addScore(1);
                 }
 

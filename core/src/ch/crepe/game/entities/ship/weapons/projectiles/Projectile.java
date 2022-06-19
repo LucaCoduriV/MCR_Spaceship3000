@@ -1,6 +1,5 @@
 package ch.crepe.game.entities.ship.weapons.projectiles;
 
-import ch.crepe.game.assets.displayers.DisplayedAsset;
 import ch.crepe.game.entities.Entity;
 import com.badlogic.gdx.math.Vector2;
 

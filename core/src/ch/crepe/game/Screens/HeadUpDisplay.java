@@ -15,8 +15,8 @@ public class HeadUpDisplay {
     private final Label lifeLabel;
     private final Label scoreLabel;
 
-    public HeadUpDisplay(){
-        this.overlay = new Stage(new FitViewport(Gdx.graphics.getWidth(),Gdx.graphics.getHeight()));
+    public HeadUpDisplay() {
+        this.overlay = new Stage(new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight()));
         this.shapeRenderer = new ShapeRenderer();
 
 
@@ -34,10 +34,10 @@ public class HeadUpDisplay {
 
     }
 
-    public void draw(){
+    public void draw() {
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
-        shapeRenderer.setColor(new Color(0,0,0,0));
-        shapeRenderer.rect(overlay.getWidth() - 200,0,200,30);
+        shapeRenderer.setColor(new Color(0, 0, 0, 0));
+        shapeRenderer.rect(overlay.getWidth() - 200, 0, 200, 30);
         shapeRenderer.end();
 
         overlay.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
@@ -48,10 +48,11 @@ public class HeadUpDisplay {
         lifeLabel.setText("Life: " + life + "%");
     }
 
-    public void setScore(int score){
+    public void setScore(int score) {
         scoreLabel.setText("score: " + score);
     }
 
-    public void update(int width, int height){
-        overlay.getViewport().update(width, height);    }
+    public void update(int width, int height) {
+        overlay.getViewport().update(width, height);
+    }
 }

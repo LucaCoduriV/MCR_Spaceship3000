@@ -25,13 +25,14 @@ public class CollisionEngine extends Engine {
      * Check if a spaceship has collided with an other entity
      * If the collision is detected, the spaceship is damaged and
      * the entity is destroyed
+     *
      * @param ship Ship to check collision with
      */
     @Override
     public void visit(Spaceship ship) {
         for (Entity other : controller.getEntities()) {
-            if(ship == other) continue;
-            if(isColliding(ship, other)) {
+            if (ship == other) continue;
+            if (isColliding(ship, other)) {
                 ship.setLife(ship.getLife() - other.getDamage());
                 controller.getGameInfo().addScore(1);
                 other.setLife(0);
@@ -41,6 +42,7 @@ public class CollisionEngine extends Engine {
 
     /**
      * Check if a spaceshipAI has collided with an other entity
+     *
      * @param ship
      */
     @Override
@@ -50,6 +52,7 @@ public class CollisionEngine extends Engine {
 
     /**
      * Check if an asteroid has collided with an other entity
+     *
      * @param asteroid Asteroid to check collision with
      */
     @Override
@@ -59,6 +62,7 @@ public class CollisionEngine extends Engine {
 
     /**
      * Check if a blue laser has collided with an other entity
+     *
      * @param laser Laser to check collision with
      */
     @Override
@@ -68,6 +72,7 @@ public class CollisionEngine extends Engine {
 
     /**
      * Check if a green laser has collided with an other entity
+     *
      * @param laser Laser to check collision with
      */
     @Override
@@ -79,19 +84,20 @@ public class CollisionEngine extends Engine {
      * Check if a laser has collided with an other entity
      * If the laser has collided with an other entity, the laser is destroyed
      * and the other entity is damaged or destroyed
+     *
      * @param laser Laser to check collision with
      */
     @Override
     public void visit(Laser laser) {
         for (Entity entity : controller.getEntities()) {
-            if(laser == entity || laser.getOwner() == entity) continue;
-            if(isColliding(laser, entity)) {
-                if(laser.getOwner() != controller.getPlayerShip() && entity != controller.getPlayerShip()){
+            if (laser == entity || laser.getOwner() == entity) continue;
+            if (isColliding(laser, entity)) {
+                if (laser.getOwner() != controller.getPlayerShip() && entity != controller.getPlayerShip()) {
                     continue;
                 }
                 laser.kill();
                 entity.setLife(entity.getLife() - laser.getDamage());
-                if(!entity.isAlive()) {
+                if (!entity.isAlive()) {
                     controller.getGameInfo().addScore(1);
                 }
 
@@ -101,8 +107,9 @@ public class CollisionEngine extends Engine {
 
     /**
      * Check if two entities are colliding
+     *
      * @param entity First entity to check collision with
-     * @param other Second entity to check collision with
+     * @param other  Second entity to check collision with
      * @return If the two entities are colliding
      */
     public boolean isColliding(Entity entity, Entity other) {

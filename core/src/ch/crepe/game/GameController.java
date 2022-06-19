@@ -20,13 +20,13 @@ public class GameController {
     private final EnemySpawner ennemySpawner;
     private final EntityCleaner bottomCleaner;
     private final EntityCleaner allSideCleaner;
-    private InputProcessor pauseMenuInputProcessor;
     private final Rectangle worldBounds;
     private final Spaceship3000 game;
-    private int currentRenderer = 0;
-    private int currentCollisionEngine = 0;
     private final RenderingEngine[] renderers;
     private final CollisionEngine[] collisionEngines;
+    private InputProcessor pauseMenuInputProcessor;
+    private int currentRenderer = 0;
+    private int currentCollisionEngine = 0;
 
     public GameController(Spaceship3000 game, Rectangle worldBounds) {
         this.game = game;
@@ -39,7 +39,7 @@ public class GameController {
         this.projectiles = new LinkedList<>();
         this.playerInput = new PlayerInput(this, playerShip);
         this.gameInfo = new GameInfo();
-        this.ennemySpawner = new EnemySpawner(this,(int) worldBounds.getWidth(),(int) worldBounds.getHeight(),entities);
+        this.ennemySpawner = new EnemySpawner(this, (int) worldBounds.getWidth(), (int) worldBounds.getHeight(), entities);
         this.bottomCleaner = new BottomEntityCleaner(entities, worldBounds);
         this.allSideCleaner = new EntityCleaner(projectiles, worldBounds);
         entities.add(playerShip);
@@ -48,7 +48,7 @@ public class GameController {
                 new RealRenderer(game.getBatch()),
                 new PaintRenderer(game.getBatch())
         };
-        collisionEngines = new CollisionEngine[] {
+        collisionEngines = new CollisionEngine[]{
                 new CollisionEngine(this),
                 new MovementCollisionEngine(this)
         };
@@ -71,21 +71,21 @@ public class GameController {
         }
 
         // TODO Je pense que l'on peut mettre ça dans le CollisionEngine
-        if(!worldBounds.contains(playerShip.getCenter().cpy().add(playerShip.speed()))) {
+        if (!worldBounds.contains(playerShip.getCenter().cpy().add(playerShip.speed()))) {
             Vector2 newPosition = playerShip.getCenter();
-            if(playerShip.getCenter().x < worldBounds.x){
+            if (playerShip.getCenter().x < worldBounds.x) {
                 newPosition.x = worldBounds.x;
 
             }
-            if(playerShip.getCenter().x > worldBounds.x + worldBounds.width){
+            if (playerShip.getCenter().x > worldBounds.x + worldBounds.width) {
 
                 newPosition.x = worldBounds.x + worldBounds.width;
             }
-            if(playerShip.getCenter().y < worldBounds.y){
+            if (playerShip.getCenter().y < worldBounds.y) {
                 newPosition.y = worldBounds.y;
 
             }
-            if(playerShip.getCenter().y > worldBounds.y + worldBounds.height) {
+            if (playerShip.getCenter().y > worldBounds.y + worldBounds.height) {
 
                 newPosition.y = worldBounds.y + worldBounds.height;
             }
@@ -133,7 +133,7 @@ public class GameController {
         return projectiles;
     }
 
-    public void toggleRenderer(){
+    public void toggleRenderer() {
         currentRenderer = (currentRenderer + 1) % renderers.length;
     }
 
@@ -141,7 +141,7 @@ public class GameController {
         currentCollisionEngine = (currentCollisionEngine + 1) % collisionEngines.length;
     }
 
-    public RenderingEngine getRenderer(){
+    public RenderingEngine getRenderer() {
         return renderers[currentRenderer];
     }
 
