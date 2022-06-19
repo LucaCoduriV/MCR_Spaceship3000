@@ -46,19 +46,15 @@ public class Spaceship3000 extends Game {
 
                 break;
             case MAIN_MENU:
-                System.out.println("Showing MainMenu screen !");
                 setScreen(new MainMenuScreen(this));
                 break;
             case GAME:
-                System.out.println("Showing Game screen !");
                 setScreen(new GameScreen(this));
                 break;
             case PREFERENCES:
-                System.out.println("Showing Preferences screen !");
                 setScreen(new PreferencesScreen(this));
                 break;
             case GAME_OVER:
-                System.out.println("Showing Game Over screen !");
                 setScreen(new GameOverScreen(this, preferences.getBestScore(), (int) args[0]));
                 break;
         }

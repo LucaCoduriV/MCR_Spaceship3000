@@ -86,8 +86,8 @@ public class EnemySpawner {
             entityList.add(spawnEnemy());
         }
         if (elapsedTime * 1000 / TIME_FOR_NEXT_LEVEL > level) {
+            // changing level
             updateNextMaxSpawnTime();
-            System.out.println("Changing to level " + level);
         }
     }
 

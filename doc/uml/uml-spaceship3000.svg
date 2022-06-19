@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="39mm" y="109mm" width="2312mm" height="1078mm" viewBox="39 109 2312 1078">
+<style type="text/css"><![CDATA[
+text { font:12px Dialog; }
+]]></style>
+<line x1="2060" y1="680" x2="2180" y2="680" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polyline points="2160,688 2180,680 2160,672" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1010" y1="470" x2="710" y2="470" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="710" y1="470" x2="710" y2="436" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1010" y1="490" x2="230" y2="490" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="230" y1="490" x2="230" y2="620" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polyline points="222,600 230,620 238,600" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1080" y1="506" x2="1080" y2="610" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polyline points="1072,590 1080,610 1088,590" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1120" y1="506" x2="1120" y2="560" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1120" y1="560" x2="1220" y2="560" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1220" y1="560" x2="1220" y2="740" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1160" y1="500" x2="1350" y2="500" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1350" y1="500" x2="1350" y2="520" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1010" y1="500" x2="510" y2="500" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="510" y1="500" x2="510" y2="620" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1040" y1="506" x2="1040" y2="610" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polyline points="1032,590 1040,610 1048,590" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1120" y1="450" x2="1120" y2="400" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1120" y1="400" x2="1220" y2="400" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polyline points="1200,408 1220,400 1200,392" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<path d="M1226,620 C1226,616.6862915 1223.3137085,614 1220,614 C1216.6862915,614 1214,616.6862915 1214,620" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1160" y1="620" x2="1214" y2="620" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1226" y1="620" x2="1580" y2="620" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polyline points="1180,612 1160,620 1180,628" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1030" y1="450" x2="1030" y2="366" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polyline points="1038,386 1030,366 1022,386" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1160" y1="480" x2="1640" y2="480" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1640" y1="480" x2="1640" y2="590" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polyline points="1632,570 1640,590 1648,570" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1120" y1="796" x2="1120" y2="1000" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1120" y1="1000" x2="1210" y2="1000" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polyline points="1190,1008 1210,1000 1190,992" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1030" y1="310" x2="1030" y2="226" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polyline points="1038,246 1030,226 1022,246" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1340" y1="796" x2="1340" y2="870" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1340" y1="870" x2="1490" y2="870" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="600" y1="840" x2="600" y2="770" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="600" y1="770" x2="460" y2="770" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="460" y1="770" x2="460" y2="676" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="460,676 468,696 452,696" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="460,676 468,696 452,696" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="460" y1="840" x2="460" y2="676" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="460,676 468,696 452,696" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="460,676 468,696 452,696" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1010" y1="640" x2="850" y2="640" style="fill:none;stroke:rgb(64,64,64);stroke-dasharray:7;stroke-dashoffset:0" />
+<line x1="850" y1="640" x2="850" y2="610" style="fill:none;stroke:rgb(64,64,64);stroke-dasharray:7;stroke-dashoffset:0" />
+<polygon points="850,610 858,630 842,630" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="850,610 858,630 842,630" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="410" y1="390" x2="410" y2="320" style="fill:none;stroke:rgb(64,64,64);stroke-dasharray:7;stroke-dashoffset:0" />
+<polygon points="410,320 418,340 402,340" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="410,320 418,340 402,340" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="460" y1="620" x2="460" y2="560" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="460" y1="560" x2="410" y2="560" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<path d="M410,484 C406.6862915,484 404,486.6862915 404,490 C404,493.3137085 406.6862915,496 410,496" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="410" y1="560" x2="410" y2="496" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="410" y1="484" x2="410" y2="446" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="410,446 418,466 402,466" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="410,446 418,466 402,466" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="250" y1="830" x2="250" y2="676" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="250,676 258,696 242,696" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="250,676 258,696 242,696" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="250" y1="620" x2="250" y2="560" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="250" y1="560" x2="410" y2="560" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<path d="M410,484 C406.6862915,484 404,486.6862915 404,490 C404,493.3137085 406.6862915,496 410,496" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="410" y1="560" x2="410" y2="496" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="410" y1="484" x2="410" y2="446" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="410,446 418,466 402,466" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="410,446 418,466 402,466" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1540" y1="360" x2="1540" y2="256" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="1540,256 1548,276 1532,276" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="1540,256 1548,276 1532,276" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="140" y1="750" x2="140" y2="720" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="140" y1="720" x2="250" y2="720" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="250" y1="720" x2="250" y2="676" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="250,676 258,696 242,696" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="250,676 258,696 242,696" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="340" y1="750" x2="340" y2="720" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="340" y1="720" x2="250" y2="720" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="250" y1="720" x2="250" y2="676" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="250,676 258,696 242,696" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="250,676 258,696 242,696" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="930" y1="840" x2="930" y2="796" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="930,796 938,816 922,816" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="930,796 938,816 922,816" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="860" y1="970" x2="860" y2="940" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="860" y1="940" x2="930" y2="940" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="930" y1="940" x2="930" y2="896" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="930,896 938,916 922,916" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="930,896 938,916 922,916" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1030" y1="970" x2="1030" y2="940" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1030" y1="940" x2="930" y2="940" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="930" y1="940" x2="930" y2="896" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="930,896 938,916 922,916" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="930,896 938,916 922,916" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="930" y1="740" x2="930" y2="700" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="930" y1="700" x2="1090" y2="700" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1090" y1="700" x2="1090" y2="666" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="1090,666 1098,686 1082,686" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="1090,666 1098,686 1082,686" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1090" y1="740" x2="1090" y2="666" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="1090,666 1098,686 1082,686" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="1090,666 1098,686 1082,686" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1290" y1="1110" x2="1290" y2="1016" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="1290,1016 1298,1036 1282,1036" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="1290,1016 1298,1036 1282,1036" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1100" y1="1110" x2="1100" y2="1070" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1100" y1="1070" x2="1290" y2="1070" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1290" y1="1070" x2="1290" y2="1016" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="1290,1016 1298,1036 1282,1036" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="1290,1016 1298,1036 1282,1036" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="720" y1="740" x2="720" y2="700" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="720" y1="700" x2="1090" y2="700" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1090" y1="700" x2="1090" y2="666" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="1090,666 1098,686 1082,686" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="1090,666 1098,686 1082,686" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1280" y1="740" x2="1280" y2="700" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<path d="M1214,700 C1214,703.3137085 1216.6862915,706 1220,706 C1223.3137085,706 1226,703.3137085 1226,700" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1280" y1="700" x2="1226" y2="700" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1214" y1="700" x2="1090" y2="700" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1090" y1="700" x2="1090" y2="666" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="1090,666 1098,686 1082,686" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="1090,666 1098,686 1082,686" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1460" y1="740" x2="1460" y2="700" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<path d="M1214,700 C1214,703.3137085 1216.6862915,706 1220,706 C1223.3137085,706 1226,703.3137085 1226,700" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1460" y1="700" x2="1226" y2="700" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1214" y1="700" x2="1090" y2="700" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1090" y1="700" x2="1090" y2="666" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="1090,666 1098,686 1082,686" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="1090,666 1098,686 1082,686" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1650" y1="710" x2="1650" y2="646" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="1650,646 1658,666 1642,666" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="1650,646 1658,666 1642,666" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1240" y1="840" x2="1240" y2="796" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="1240,796 1248,816 1232,816" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="1240,796 1248,816 1232,816" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1490" y1="970" x2="1490" y2="940" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1490" y1="940" x2="1570" y2="940" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1570" y1="940" x2="1570" y2="896" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="1570,896 1578,916 1562,916" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="1570,896 1578,916 1562,916" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1680" y1="970" x2="1680" y2="940" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1680" y1="940" x2="1570" y2="940" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1570" y1="940" x2="1570" y2="896" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="1570,896 1578,916 1562,916" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="1570,896 1578,916 1562,916" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1270" y1="180" x2="1290" y2="200" style="fill:none;stroke:rgb(64,64,64);stroke-dasharray:4;stroke-dashoffset:0" />
+<line x1="1870" y1="540" x2="1910" y2="550" style="fill:none;stroke:rgb(64,64,64);stroke-dasharray:4;stroke-dashoffset:0" />
+<line x1="1870" y1="545" x2="1910" y2="650" style="fill:none;stroke:rgb(64,64,64);stroke-dasharray:4;stroke-dashoffset:0" />
+<line x1="1870" y1="545" x2="1910" y2="750" style="fill:none;stroke:rgb(64,64,64);stroke-dasharray:4;stroke-dashoffset:0" />
+<line x1="1920" y1="850" x2="1830" y2="545" style="fill:none;stroke:rgb(64,64,64);stroke-dasharray:4;stroke-dashoffset:0" />
+<rect x="560" y="840" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="560" y="840" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="587" y="864" style="font:12px Calibri">SizeCollisionEngine</text>
+<line x1="560" y1="876" x2="710" y2="876" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="560" y1="886" x2="710" y2="886" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="380" y="840" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="380" y="840" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="389" y="864" style="font:12px Calibri">MovementCollisionEngine</text>
+<line x1="380" y1="876" x2="530" y2="876" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="380" y1="886" x2="530" y2="886" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="770" y="540" width="150" height="70" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="770" y="540" width="150" height="70" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="807" y="559" style="font:11px Ubuntu">&lt;&lt; interface &gt;&gt;</text>
+<text x="823" y="578" style="font:12px Calibri">Visitable</text>
+<line x1="770" y1="590" x2="920" y2="590" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="770" y1="600" x2="920" y2="600" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="2180" y="650" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="2180" y="650" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="2225" y="674" style="font:12px Calibri">Background</text>
+<line x1="2180" y1="686" x2="2330" y2="686" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="2180" y1="696" x2="2330" y2="696" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="170" y="830" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="170" y="830" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="209" y="854" style="font:12px Calibri">PaintRenderer</text>
+<line x1="170" y1="866" x2="320" y2="866" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="170" y1="876" x2="320" y2="876" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="330" y="250" width="150" height="70" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="330" y="250" width="150" height="70" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="367" y="269" style="font:11px Ubuntu">&lt;&lt; interface &gt;&gt;</text>
+<text x="389" y="288" style="font:12px Calibri">Visitor</text>
+<line x1="330" y1="300" x2="480" y2="300" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="330" y1="310" x2="480" y2="310" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="330" y="390" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="330" y="390" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="388" y="414" style="font:12px Calibri">Engine</text>
+<line x1="330" y1="426" x2="480" y2="426" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="330" y1="436" x2="480" y2="436" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="630" y="380" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="630" y="380" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="676" y="404" style="font:12px Calibri">PlayerInput</text>
+<line x1="630" y1="416" x2="780" y2="416" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="630" y1="426" x2="780" y2="426" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="1010" y="450" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="1010" y="450" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1045" y="474" style="font:12px Calibri">GameController</text>
+<line x1="1010" y1="486" x2="1160" y2="486" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="1010" y1="496" x2="1160" y2="496" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="960" y="310" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="960" y="310" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="998" y="334" style="font:12px Calibri">Spaceship3000</text>
+<line x1="960" y1="346" x2="1110" y2="346" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="960" y1="356" x2="1110" y2="356" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="1580" y="590" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="1580" y="590" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1621" y="614" style="font:12px Calibri">EntityCleaner</text>
+<line x1="1580" y1="626" x2="1730" y2="626" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="1580" y1="636" x2="1730" y2="636" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="1220" y="370" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="1220" y="370" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1270" y="394" style="font:12px Calibri">GameInfo</text>
+<line x1="1220" y1="406" x2="1370" y2="406" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="1220" y1="416" x2="1370" y2="416" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="1290" y="520" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="1290" y="520" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1326" y="544" style="font:12px Calibri">EnemySpawner</text>
+<line x1="1290" y1="556" x2="1440" y2="556" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="1290" y1="566" x2="1440" y2="566" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="950" y="170" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="950" y="170" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="985" y="194" style="font:12px Calibri">AppPreferences</text>
+<line x1="950" y1="206" x2="1100" y2="206" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="950" y1="216" x2="1100" y2="216" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="1580" y="710" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="1580" y="710" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1602" y="734" style="font:12px Calibri">BottomEntityCleaner</text>
+<line x1="1580" y1="746" x2="1730" y2="746" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="1580" y1="756" x2="1730" y2="756" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="1010" y="610" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="1010" y="610" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1070" y="634" style="font:12px Calibri">Entity</text>
+<line x1="1010" y1="646" x2="1160" y2="646" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="1010" y1="656" x2="1160" y2="656" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="1380" y="740" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="1380" y="740" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1431" y="764" style="font:12px Calibri">Explosion</text>
+<line x1="1380" y1="776" x2="1530" y2="776" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="1380" y1="786" x2="1530" y2="786" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="640" y="740" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="640" y="740" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="694" y="764" style="font:12px Calibri">Asteroid</text>
+<line x1="640" y1="776" x2="790" y2="776" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="640" y1="786" x2="790" y2="786" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="850" y="740" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="850" y="740" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="901" y="764" style="font:12px Calibri">Projectile</text>
+<line x1="850" y1="776" x2="1000" y2="776" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="850" y1="786" x2="1000" y2="786" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="1020" y="740" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="1020" y="740" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1060" y="764" style="font:12px Calibri">LoopingEntity</text>
+<line x1="1020" y1="776" x2="1170" y2="776" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="1020" y1="786" x2="1170" y2="786" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="1210" y="960" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="1210" y="960" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1247" y="984" style="font:12px Calibri">DisplayedAsset</text>
+<line x1="1210" y1="996" x2="1360" y2="996" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="1210" y1="1006" x2="1360" y2="1006" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="1210" y="1110" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="1210" y="1110" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1234" y="1134" style="font:12px Calibri">DisplayedAnimation</text>
+<line x1="1210" y1="1146" x2="1360" y2="1146" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="1210" y1="1156" x2="1360" y2="1156" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="950" y="970" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="950" y="970" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="996" y="994" style="font:12px Calibri">GreenLaser</text>
+<line x1="950" y1="1006" x2="1100" y2="1006" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="950" y1="1016" x2="1100" y2="1016" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="780" y="970" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="780" y="970" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="831" y="994" style="font:12px Calibri">BlueLaser</text>
+<line x1="780" y1="1006" x2="930" y2="1006" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="780" y1="1016" x2="930" y2="1016" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="850" y="840" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="850" y="840" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="912" y="864" style="font:12px Calibri">Laser</text>
+<line x1="850" y1="876" x2="1000" y2="876" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="850" y1="886" x2="1000" y2="886" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="380" y="620" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="380" y="620" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="417" y="644" style="font:12px Calibri">CollisionEngine</text>
+<line x1="380" y1="656" x2="530" y2="656" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="380" y1="666" x2="530" y2="666" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="170" y="620" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="170" y="620" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="203" y="644" style="font:12px Calibri">RenderingEngine</text>
+<line x1="170" y1="656" x2="320" y2="656" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="170" y1="666" x2="320" y2="666" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="60" y="750" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="60" y="750" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="101" y="774" style="font:12px Calibri">RealRenderer</text>
+<line x1="60" y1="786" x2="210" y2="786" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="60" y1="796" x2="210" y2="796" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="260" y="750" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="260" y="750" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="292" y="774" style="font:12px Calibri">CartoonRenderer</text>
+<line x1="260" y1="786" x2="410" y2="786" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="260" y1="796" x2="410" y2="796" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="1020" y="1110" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="1020" y="1110" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1056" y="1134" style="font:12px Calibri">DisplayedSprite</text>
+<line x1="1020" y1="1146" x2="1170" y2="1146" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="1020" y1="1156" x2="1170" y2="1156" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="1200" y="740" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="1200" y="740" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1250" y="764" style="font:12px Calibri">Spaceship</text>
+<line x1="1200" y1="776" x2="1350" y2="776" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="1200" y1="786" x2="1350" y2="786" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="1160" y="840" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="1160" y="840" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1204" y="864" style="font:12px Calibri">SpaceShipAI</text>
+<line x1="1160" y1="876" x2="1310" y2="876" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="1160" y1="886" x2="1310" y2="886" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="1490" y="840" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="1490" y="840" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1544" y="864" style="font:12px Calibri">Weapon</text>
+<line x1="1490" y1="876" x2="1640" y2="876" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="1490" y1="886" x2="1640" y2="886" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="1410" y="970" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="1410" y="970" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1440" y="994" style="font:12px Calibri">BlueLaserWeapon</text>
+<line x1="1410" y1="1006" x2="1560" y2="1006" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="1410" y1="1016" x2="1560" y2="1016" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="1600" y="970" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="1600" y="970" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1625" y="994" style="font:12px Calibri">GreenLaserWeapon</text>
+<line x1="1600" y1="1006" x2="1750" y2="1006" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="1600" y1="1016" x2="1750" y2="1016" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="1460" y="360" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="1460" y="360" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1502" y="384" style="font:12px Calibri">AssetsLoader</text>
+<line x1="1460" y1="396" x2="1610" y2="396" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="1460" y1="406" x2="1610" y2="406" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="1470" y="200" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="1470" y="200" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1506" y="224" style="font:12px Calibri">AssetsManager</text>
+<line x1="1470" y1="236" x2="1620" y2="236" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="1470" y1="246" x2="1620" y2="246" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="1220" y="200" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="1220" y="200" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1277" y="224" style="font:12px Calibri">Playlist</text>
+<line x1="1220" y1="236" x2="1370" y2="236" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="1220" y1="246" x2="1370" y2="246" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="1910" y="750" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="1910" y="750" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1941" y="774" style="font:12px Calibri">GameOverScreen</text>
+<line x1="1910" y1="786" x2="2060" y2="786" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="1910" y1="796" x2="2060" y2="796" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="1910" y="650" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="1910" y="650" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1953" y="674" style="font:12px Calibri">GameScreen</text>
+<line x1="1910" y1="686" x2="2060" y2="686" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="1910" y1="696" x2="2060" y2="696" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="1910" y="540" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="1910" y="540" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1940" y="564" style="font:12px Calibri">MainMenuScreen</text>
+<line x1="1910" y1="576" x2="2060" y2="576" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="1910" y1="586" x2="2060" y2="586" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="1710" y="290" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="1710" y="290" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1748" y="314" style="font:12px Calibri">AudioManager</text>
+<line x1="1710" y1="326" x2="1860" y2="326" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="1710" y1="336" x2="1860" y2="336" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="1900" y="850" width="150" height="56" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="1900" y="850" width="150" height="56" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1939" y="874" style="font:12px Calibri">LoadingScreen</text>
+<line x1="1900" y1="886" x2="2050" y2="886" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="1900" y1="896" x2="2050" y2="896" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<polygon points="1270,150 1374,150 1389,165 1389,181 1270,181" style="fill:rgb(255,247,225);stroke:none" />
+<polygon points="1270,150 1374,150 1389,165 1389,181 1270,181" style="fill:none;stroke:rgb(64,64,64);stroke-width:1.2;stroke-linecap:square" />
+<line x1="1374" y1="150" x2="1374" y2="165" style="fill:none;stroke:rgb(64,64,64);stroke-width:1.2;stroke-linecap:square" />
+<line x1="1374" y1="165" x2="1389" y2="165" style="fill:none;stroke:rgb(64,64,64);stroke-width:1.2;stroke-linecap:square" />
+<text x="1275" y="171" style="font:12px Ubuntu">implements </text>
+<text x="1337" y="171" style="font:12px Ubuntu">Music </text>
+<polygon points="1770,500 1855,500 1870,515 1870,545 1770,545" style="fill:rgb(255,247,225);stroke:none" />
+<polygon points="1770,500 1855,500 1870,515 1870,545 1770,545" style="fill:none;stroke:rgb(64,64,64);stroke-width:1.2;stroke-linecap:square" />
+<line x1="1855" y1="500" x2="1855" y2="515" style="fill:none;stroke:rgb(64,64,64);stroke-width:1.2;stroke-linecap:square" />
+<line x1="1855" y1="515" x2="1870" y2="515" style="fill:none;stroke:rgb(64,64,64);stroke-width:1.2;stroke-linecap:square" />
+<text x="1775" y="520" style="font:12px Ubuntu">Implements </text>
+<text x="1775" y="535" style="font:12px Ubuntu">ScreenAdapter </text>
+<text x="2092" y="702" style="font:14px Calibri">possède &gt;</text>
+<text x="2065" y="673" style="font:14px Calibri">0..*</text>
+<text x="2168" y="673" style="font:14px Calibri">1</text>
+<text x="824" y="461" style="font:14px Calibri">possède &lt;</text>
+<text x="999" y="469" style="font:14px Calibri">1</text>
+<text x="698" y="456" style="font:14px Calibri">1</text>
+<text x="584" y="482" style="font:14px Calibri">possède &lt;</text>
+<text x="987" y="485" style="font:14px Calibri">0..1</text>
+<text x="203" y="615" style="font:14px Calibri">1..*</text>
+<text x="1085" y="578" style="font:14px Calibri">projectiles v</text>
+<text x="1055" y="526" style="font:14px Calibri">0..1</text>
+<text x="1094" y="604" style="font:14px Calibri">1..*</text>
+<text x="1170" y="551" style="font:14px Calibri">playerShip v</text>
+<text x="1108" y="526" style="font:14px Calibri">1</text>
+<text x="1229" y="738" style="font:14px Calibri">1</text>
+<text x="1207" y="518" style="font:14px Calibri">possède &gt;</text>
+<text x="1165" y="493" style="font:14px Calibri">1</text>
+<text x="1337" y="517" style="font:14px Calibri">1</text>
+<text x="745" y="521" style="font:14px Calibri">possède &lt;</text>
+<text x="994" y="517" style="font:14px Calibri">1</text>
+<text x="487" y="613" style="font:14px Calibri">1..*</text>
+<text x="977" y="565" style="font:14px Calibri">entities v</text>
+<text x="1017" y="526" style="font:14px Calibri">0..1</text>
+<text x="1009" y="602" style="font:14px Calibri">1..*</text>
+<text x="1133" y="419" style="font:14px Calibri">possède &gt;</text>
+<text x="1094" y="443" style="font:14px Calibri">0..1</text>
+<text x="1208" y="393" style="font:14px Calibri">1</text>
+<text x="1363" y="640" style="font:14px Calibri">possède &lt;</text>
+<text x="1169" y="647" style="font:14px Calibri">0..*</text>
+<text x="1553" y="640" style="font:14px Calibri">0..*</text>
+<text x="966" y="418" style="font:14px Calibri">possède ^</text>
+<text x="1018" y="443" style="font:14px Calibri">1</text>
+<text x="1010" y="389" style="font:14px Calibri">1</text>
+<text x="1405" y="500" style="font:14px Calibri">possède &gt;</text>
+<text x="1168" y="477" style="font:14px Calibri">1</text>
+<text x="1620" y="585" style="font:14px Calibri">2</text>
+<text x="1060" y="902" style="font:14px Calibri">possède v</text>
+<text x="1108" y="816" style="font:14px Calibri">1</text>
+<text x="1198" y="993" style="font:14px Calibri">1</text>
+<text x="1038" y="276" style="font:14px Calibri">possède ^</text>
+<text x="1018" y="303" style="font:14px Calibri">1</text>
+<text x="1006" y="247" style="font:14px Calibri">1</text>
+<text x="1370" y="891" style="font:14px Calibri">possède &gt;</text>
+<text x="1328" y="818" style="font:14px Calibri">1</text>
+<text x="1478" y="863" style="font:14px Calibri">1</text>
+<path d="M40,110 L40,140 L180,140 Q210,140 210,110 L40,110" style="fill:rgb(255,247,225);stroke:none" />
+<path d="M40,110 L40,140 L180,140 Q210,140 210,110 L40,110" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="45" y="133" style="font:16px Calibri">MCR - SpaceShip 3000</text>
+<rect x="40" y="110" width="2309" height="1075" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+</svg>

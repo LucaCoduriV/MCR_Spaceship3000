@@ -87,7 +87,6 @@ public class PlayerInput extends InputAdapter {
                 controller.pauseGame();
                 break;
             default:
-                System.out.println(keycode);
                 break;
         }
         return true;

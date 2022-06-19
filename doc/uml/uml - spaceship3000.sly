@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="iso-8859-15" standalone="no"?>
 <classDiagram>
   <diagramElements defaultViewEntities="ALL" defaultViewEnum="true" defaultViewMethods="TYPE_AND_NAME" defaultVisibleTypes="true" informations="" name="MCR - SpaceShip 3000">
+    <entity entityType="CLASS" id="61868" isAbstract="false" name="LoadingScreen" visibility="PUBLIC"/>
     <entity entityType="CLASS" id="61867" isAbstract="false" name="AudioManager" visibility="PUBLIC"/>
     <inheritance id="48792">
       <child>48790</child>
@@ -1761,6 +1762,14 @@
         <h>56</h>
       </geometry>
     </componentView>
+    <componentView color="-2079" componentID="61868" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>1900</x>
+        <y>850</y>
+        <w>150</w>
+        <h>56</h>
+      </geometry>
+    </componentView>
     <note color="-2079" content="implements Music">
       <noteGeometry>
         <x>1270</x>
@@ -1814,6 +1823,16 @@
         <point>
           <x>1911</x>
           <y>751</y>
+        </point>
+      </noteLine>
+      <noteLine color="-12566464" relationId="61868">
+        <point>
+          <x>1921</x>
+          <y>851</y>
+        </point>
+        <point>
+          <x>1831</x>
+          <y>546</y>
         </point>
       </noteLine>
     </note>

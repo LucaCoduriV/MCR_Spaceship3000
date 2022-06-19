@@ -135,7 +135,6 @@ public class AudioManager implements PropertyChangeListener {
                 break;
             case AppPreferences.PREF_MUSIC_VOLUME:
                 float musicVolume = (float) propertyChangeEvent.getNewValue();
-                System.out.println("Music volume: " + musicVolume);
                 if (this.music != null)
                     music.setVolume(musicVolume);
                 this.musicVolume = musicVolume;
@@ -145,7 +144,6 @@ public class AudioManager implements PropertyChangeListener {
                 break;
             case AppPreferences.PREF_SOUND_VOLUME:
                 float soundVolume = (float) propertyChangeEvent.getNewValue();
-                System.out.println("Music volume: " + soundVolume);
                 this.soundVolume = soundVolume;
                 break;
             default:
