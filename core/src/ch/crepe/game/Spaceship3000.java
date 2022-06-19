@@ -6,12 +6,18 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
+/**
+ * This class represents an instance of the game.
+ */
 public class Spaceship3000 extends Game {
     private static final int screenWidth = 960;
     private static final int screenHeight = 540;
     private SpriteBatch batcher;
     private AppPreferences preferences;
 
+    /**
+     * Called when the game is first created.
+     */
     @Override
     public void create() {
         Gdx.graphics.setWindowedMode(screenWidth, screenHeight);
@@ -58,20 +64,36 @@ public class Spaceship3000 extends Game {
         }
     }
 
+    /**
+     * Called when the game should render.
+     */
     @Override
     public void render() {
         super.render();
     }
 
+    /**
+     * Called when the game is destroyed.
+     */
     @Override
     public void dispose() {
         batcher.dispose();
     }
 
+    /**
+     * Returns the sprite batch used to draw the game.
+     *
+     * @return The sprite batch used to draw the game.
+     */
     public SpriteBatch getBatch() {
         return batcher;
     }
 
+    /**
+     * Returns the preferences of the game.
+     *
+     * @return The preferences of the game.
+     */
     public AppPreferences getPreferences() {
         return preferences;
     }
