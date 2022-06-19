@@ -33,7 +33,7 @@ public class DisplayedSprite extends DisplayedAsset {
     }
 
     @Override
-    public void draw(Batch batch) { // TODO trouver un moyen plus élégant de gérer la rotation des sprites
+    public void draw(Batch batch) {
         batch.draw(getDrawable(), getDrawingArea().getX(), getDrawingArea().getY(),
                 sprite.getOriginX(), sprite.getOriginY(),
                 getDrawingArea().getWidth(), getDrawingArea().getHeight(),

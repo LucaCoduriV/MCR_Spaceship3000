@@ -34,14 +34,12 @@ public class LoopingEntity extends Entity {
      * @param height          Height of the hitbox.
      */
     public LoopingEntity(Vector2 position, DisplayedAsset asset, Vector2 speed, Vector2 respawnPosition, Rectangle bounds, float width, float height) {
-        super(position, speed, width, height, 0); //TODO orientation
+        super(position, speed, width, height, 0);
         this.asset = asset;
         this.respawnPosition = new Vector2(respawnPosition);
         this.bounds = new Rectangle(bounds);
     }
 
-
-    //TODO temporaire en attendant visiteur
     public void draw(Batch batch) {
         asset.draw(batch);
     }

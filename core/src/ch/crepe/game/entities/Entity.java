@@ -8,7 +8,7 @@ public abstract class Entity implements Visitable {
 
     private static final int DEFAULT_LIFE = 20;
     protected final Rectangle hitbox;
-    protected final Vector2 speed; // TODO getter protected
+    private final Vector2 speed;
     private final int damage;
     private final float orientation;
     protected float width;

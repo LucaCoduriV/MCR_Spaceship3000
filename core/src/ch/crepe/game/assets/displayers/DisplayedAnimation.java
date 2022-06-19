@@ -55,7 +55,7 @@ public class DisplayedAnimation extends DisplayedAsset{
 
     @Override
     public void draw(Batch batch) {
-        elapsedTime += Gdx.graphics.getDeltaTime(); // TODO mettre en parametre ?
+        elapsedTime += Gdx.graphics.getDeltaTime();
         super.draw(batch);
     }
 

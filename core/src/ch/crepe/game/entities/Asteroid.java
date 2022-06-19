@@ -5,7 +5,7 @@ import com.badlogic.gdx.math.Vector2;
 
 public class Asteroid extends Entity {
     public Asteroid(Vector2 position, Vector2 speed, float width, float height) {
-        super(position, speed, width, height, 0); //TODO orientation
+        super(position, speed, width, height, 0);
     }
 
     @Override

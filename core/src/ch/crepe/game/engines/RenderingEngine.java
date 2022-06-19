@@ -26,7 +26,6 @@ public abstract class RenderingEngine extends Engine {
 
     protected RenderingEngine(SpriteBatch batch, Texture spaceShipTexture, Texture spaceShipAITexture, Texture asteroidTexture, Texture blueLaserTexture, Texture greenLaserTexture) {
         this.batch = batch;
-        // TODO corriger les paramètres inutiles
         spaceShipSprite = new DisplayedSprite(spaceShipTexture, new Rectangle(0, 0, 5, 5), new Vector2(5 / 2f, 5 / 2f), 0);
         spaceShipAISprite = new DisplayedSprite(spaceShipAITexture, new Rectangle(0, 0, 5, 5), new Vector2(5 / 2f, 5 / 2f), 0);
         asteroidSprite = new DisplayedSprite(asteroidTexture, new Rectangle(0, 0, 5, 5), new Vector2(5 / 2f, 5 / 2f), 0);
