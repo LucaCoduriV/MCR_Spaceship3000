@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="9mm" y="-40mm" width="17542mm" height="1746mm" viewBox="9 -40 17542 1746">
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="15409mm" y="860mm" width="2142mm" height="846mm" viewBox="15409 860 2142 846">
 <style type="text/css"><![CDATA[
 text { font:12px Dialog; }
 ]]></style>
@@ -15,15 +15,6 @@ text { font:12px Dialog; }
 <line x1="16270" y1="1170" x2="16270" y2="1120" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
 <polygon points="16270,1120 16278,1140 16262,1140" style="fill:rgb(255,255,255);stroke:none" />
 <polygon points="16270,1120 16278,1140 16262,1140" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
-<line x1="30" y1="0" x2="30" y2="0" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
-<polygon points="30,0 10,8 10,-8" style="fill:rgb(255,255,255);stroke:none" />
-<polygon points="30,0 10,8 10,-8" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
-<line x1="30" y1="0" x2="30" y2="0" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
-<polygon points="30,0 10,8 10,-8" style="fill:rgb(255,255,255);stroke:none" />
-<polygon points="30,0 10,8 10,-8" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
-<line x1="30" y1="0" x2="30" y2="0" style="fill:none;stroke:rgb(64,64,64);stroke-dasharray:7;stroke-dashoffset:0" />
-<polygon points="30,0 10,8 10,-8" style="fill:rgb(255,255,255);stroke:none" />
-<polygon points="30,0 10,8 10,-8" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
 <line x1="17360" y1="1290" x2="17360" y2="1230" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
 <path d="M17314,1230 C17314,1233.3137085 17316.6862915,1236 17320,1236 C17323.3137085,1236 17326,1233.3137085 17326,1230" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
 <line x1="17360" y1="1230" x2="17326" y2="1230" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
@@ -250,5 +241,5 @@ text { font:12px Dialog; }
 <text x="16469" y="1101" style="font:14px Ubuntu">&lt; possède</text>
 <text x="16573" y="1071" style="font:14px Ubuntu">0..1</text>
 <text x="16365" y="1072" style="font:14px Ubuntu">1..*</text>
-<rect x="10" y="-39" width="17539" height="1743" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<rect x="15410" y="861" width="2139" height="843" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
 </svg>

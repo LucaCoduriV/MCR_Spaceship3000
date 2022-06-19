@@ -75,18 +75,6 @@
       <child>71323</child>
       <parent>65776</parent>
     </inheritance>
-    <inheritance id="71572">
-      <child>61515</child>
-      <parent>61474</parent>
-    </inheritance>
-    <inheritance id="71573">
-      <child>65266</child>
-      <parent>65163</parent>
-    </inheritance>
-    <inheritance id="71574">
-      <child>65403</child>
-      <parent>65353</parent>
-    </inheritance>
     <inheritance id="71575">
       <child>65353</child>
       <parent>61515</parent>
@@ -386,7 +374,7 @@
       <multipliciteAssociation>
         <x>17294</x>
         <y>1269</y>
-        <w>21</w>
+        <w>22</w>
         <h>16</h>
       </multipliciteAssociation>
     </relationView>
@@ -432,7 +420,7 @@
       <multipliciteAssociation>
         <x>16733</x>
         <y>1259</y>
-        <w>21</w>
+        <w>22</w>
         <h>16</h>
       </multipliciteAssociation>
     </relationView>
@@ -453,42 +441,6 @@
         <point>
           <x>16271</x>
           <y>1121</y>
-        </point>
-      </line>
-    </relationView>
-    <relationView color="-12566464" relationId="71574">
-      <line>
-        <point>
-          <x>31</x>
-          <y>1</y>
-        </point>
-        <point>
-          <x>31</x>
-          <y>1</y>
-        </point>
-      </line>
-    </relationView>
-    <relationView color="-12566464" relationId="71573">
-      <line>
-        <point>
-          <x>31</x>
-          <y>1</y>
-        </point>
-        <point>
-          <x>31</x>
-          <y>1</y>
-        </point>
-      </line>
-    </relationView>
-    <relationView color="-12566464" relationId="71572">
-      <line>
-        <point>
-          <x>31</x>
-          <y>1</y>
-        </point>
-        <point>
-          <x>31</x>
-          <y>1</y>
         </point>
       </line>
     </relationView>
@@ -766,7 +718,7 @@
       <multipliciteAssociation>
         <x>16365</x>
         <y>1059</y>
-        <w>21</w>
+        <w>22</w>
         <h>16</h>
       </multipliciteAssociation>
     </relationView>
