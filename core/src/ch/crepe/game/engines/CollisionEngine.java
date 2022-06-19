@@ -11,8 +11,8 @@ import ch.crepe.game.entities.ship.weapons.projectiles.Laser;
 import com.badlogic.gdx.math.Intersector;
 
 /**
- * Engine managing the collision between entities
- * This class is implemented as a visitor
+ * Engine managing the collision between entities.
+ * This class is implemented as a visitor.
  */
 public class CollisionEngine extends Engine {
     private final GameController controller;
